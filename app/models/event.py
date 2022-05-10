@@ -6,7 +6,7 @@ class Event(db.Model):
   __tablename__ = 'events'
 
   id          = db.Column(db.Integer, primary_key=True)
-  host_id     = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+  user_id     = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
   venue_id    = db.Column(db.Integer, db.ForeignKey('venues.id'), nullable=False)
   category_id = db.Column(db.Integer, db.ForeignKey(categories.id))
   name        = db.Column(db.String(255), nullable=False)
