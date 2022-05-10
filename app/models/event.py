@@ -7,7 +7,7 @@ class Event(db.Model):
 
   id               = db.Column(db.Integer, primary_key=True)
   user_id          = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-  category_id      = db.Column(db.Integer, db.ForeignKey('categories.id'))
+  # category_id      = db.Column(db.Integer, db.ForeignKey('categories.id'))
   location_name    = db.Column(db.String(255), nullable=False)
   address          = db.Column(db.String(255), nullable=False)
   city             = db.Column(db.String(255), nullable=False)
