@@ -5,15 +5,18 @@ from sqlalchemy.sql import func
 class Event(db.Model):
   __tablename__ = 'events'
 
-  id          = db.Column(db.Integer, primary_key=True)
-  user_id     = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-  venue_id    = db.Column(db.Integer, db.ForeignKey('venues.id'), nullable=False)
-  category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
-  name        = db.Column(db.String(255), nullable=False)
-  date        = db.Column(db.DateTime(timezone = True))
-  capacity    = db.Column(db.Integer, nullable=False)
-  created_at  = db.Column(db.DateTime(timezone = True), server_default = func.now())
-  updated_at  = db.Column(db.DateTime(timezone = True), onupdate = func.now())
+  id               = db.Column(db.Integer, primary_key=True)
+  user_id          = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+  category_id      = db.Column(db.Integer, db.ForeignKey('categories.id'))
+  location_name    = db.Column(db.String(255), nullable=False)
+  address          = db.Column(db.String(255), nullable=False)
+  city             = db.Column(db.String(255), nullable=False)
+  state            = db.Column(db.String(255), nullable=False)
+  name             = db.Column(db.String(255), nullable=False)
+  date             = db.Column(db.DateTime(timezone = True))
+  capacity         = db.Column(db.Integer, nullable=False)
+  created_at       = db.Column(db.DateTime(timezone = True), server_default = func.now())
+  updated_at       = db.Column(db.DateTime(timezone = True), onupdate = func.now())
 
   def to_dict(self):
     return {
