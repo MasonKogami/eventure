@@ -58,7 +58,7 @@ export const readAllEvents = events => async dispatch => {
     await dispatch(readAllEventsAction(data));
     return data;
   } else {
-    console.log(errors);
+    console.log(data.errors);
   }
 };
 
@@ -88,7 +88,7 @@ export const updateEvent = event => async dispatch => {
     await dispatch(updateEventAction(data));
     return data;
   } else {
-    console.log(errors);
+    console.log(data.errors);
   }
 };
 
@@ -103,7 +103,7 @@ export const deleteEvent = event => async dispatch => {
     await dispatch(deleteEventAction(data));
     return data
   } else {
-    console.log(errors);
+    console.log(data.errors);
   }
 };
 

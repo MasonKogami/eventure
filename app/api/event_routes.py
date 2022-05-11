@@ -1,10 +1,11 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
 from app.models import Event, Ticket
-from app.forms import EventForm, TicketForm
+from app.forms.event_form import EventForm
+from app.forms.ticket_form import TicketForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
-event_routes = Blue('events', __name__)
+event_routes = Blueprint('events', __name__)
 
 # C R E A T E  E V E N T
 @event_routes.route('/create', methods=['POST'])
@@ -64,7 +65,7 @@ def update_event(id):
   return event.to_dict()
 
 # D E L E T E  E V E N T
-@event_routes.route('<int:id>', methods['DELETE'])
+@event_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_event(id):
   event = Event.query.get(id)
@@ -74,7 +75,7 @@ def delete_event(id):
   return event.to_dict()
 
 # C R E A T E  T I C K E T S
-@event_routes.route('/tickets', methods=['POST'])
-@login_required
-def add_ticket():
+# @event_routes.route('/tickets', methods=['POST'])
+# @login_required
+# def add_ticket():
   
