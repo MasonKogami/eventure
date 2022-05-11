@@ -6,6 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import EventListings from './components/events/events';
+import HomePage from './components/Homepage/HomePage';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
@@ -42,7 +43,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <HomePage />
           <EventListings />
         </ProtectedRoute>
       </Switch>
