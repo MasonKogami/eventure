@@ -5,7 +5,7 @@ import './NavBar.css';
 
 const NavBar = () => {
   return (
-    <nav>
+    <nav style={{height: '72px'}}>
       <div className='home'>
           <NavLink to='/' exact={true} activeClassName='active' style={{textDecoration: 'none'}}>
             Home

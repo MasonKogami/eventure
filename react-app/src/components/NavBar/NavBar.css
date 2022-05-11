@@ -5,6 +5,10 @@ nav {
   justify-content: space-between
 }
 
+nav > div {
+  align-items: center;
+}
+
 .home {
   display: flex;
   flex-direction: row;
