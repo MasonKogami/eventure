@@ -108,3 +108,28 @@ export const deleteEvent = event => async dispatch => {
 };
 
 // R E D U C E R
+let initialState = {};
+const eventsReducer = (state = initialState, action) => {
+  let newState = {...state};
+  switch (action.type) {
+    case CREATE_EVENT:
+      newState[action.event.id] = action.event;
+      return newState;
+    case READ_ALL_EVENTS:
+      action.events.forEach(event => newState[event.id] = event);
+      return newState;
+    case READ_ONE_EVENT:
+      newState[action.event.id] = action.event;
+      return newState;
+    case UPDATE_EVENT:
+      newState[action.event.id] = action.event;
+      return newState;
+    case DELETE_EVENT:
+      delete newState[action.event.id];
+      return newState;
+    default:
+      return state;
+  }
+}
+
+export default eventsReducer;
