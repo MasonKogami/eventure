@@ -7,7 +7,7 @@ from app.api.auth_routes import validation_errors_to_error_messages
 event_routes = Blue('events', __name__)
 
 # C R E A T E  E V E N T
-@event_routes.route('/', methods=['POST'])
+@event_routes.route('/create', methods=['POST'])
 @login_required
 def new_event():
   form = EventForm()
