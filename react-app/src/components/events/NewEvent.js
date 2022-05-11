@@ -33,15 +33,64 @@ const NewEvent = () => {
       capacity
     };
 
-    let submitNewEvent = await dispatch(createEvent(newEvent));
-
-    history.push(`/events/${submitNewEvent.id}`);
+    let submitNewEvent = await dispatch(createEvent(newEvent))
+    .catch( async (res) => {
+      const data = await res.json();
+      if (data && data.errors) {
+          setErrors(data.errors);
+      }
+  })
+    if (errors.length && submitNewEvent) {
+      history.push(`/events/${submitNewEvent.id}`);
+    }
   };
 
   return (
     <div className='new-event-form-con'>
       <form onSubmit={handleSubmit}>
-
+        <ul>
+          {errors.map((e) => {
+            return (
+              <li key={e}>{e}</li>
+            )
+          })}
+        </ul>
+        <div>
+          <h1>Basic Info</h1>
+          <label>
+            Event Name
+          </label>
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            type='text'
+            placeholder='Event Name'
+          >
+          </input>
+        </div>
+        <div>
+          Location
+          <label>
+            Venue Location
+          </label>
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            type='text'
+            placeholder='Event Name'
+          ></input>
+        </div>
+        <div>
+          Date and Time
+          <label>
+            Tell event goers when your event starts and ends so they can make plans to attend.
+          </label>
+          <input
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          >
+          </input>
+        </div>
       </form>
     </div>
   )
