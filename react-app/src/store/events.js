@@ -55,7 +55,7 @@ export const readAllEvents = events => async dispatch => {
   const data = await response.json();
 
   if (response.ok) {
-    await dispatch(readAllEventsAction(data));
+    await dispatch(readAllEventsAction(data.events));
     return data;
   } else {
     console.log(data.errors);
