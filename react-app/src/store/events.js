@@ -47,6 +47,64 @@ export const createEvent = event => async dispatch => {
   } else {
     console.log(data.errors);
   }
-}
+};
+
+export const readAllEvents = events => async dispatch => {
+  const response = await fetch('/api/events/');
+
+  const data = await response.json();
+
+  if (response.ok) {
+    await dispatch(readAllEventsAction(data));
+    return data;
+  } else {
+    console.log(errors);
+  }
+};
+
+export const readOneEvent = event => async dispatch => {
+  const response = await fetch(`/api/events/${event.id}`);
+
+  const data = await response.json();
+
+  if (response.ok) {
+    await dispatch(readOneEventAction(data));
+    return data;
+  } else {
+    console.log(data.errors);
+  }
+};
+
+export const updateEvent = event => async dispatch => {
+  const response = await fetch(`/api/events/${event.id}`, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(event)
+  });
+
+  const data = await response.json();
+  
+  if (response.ok) {
+    await dispatch(updateEventAction(data));
+    return data;
+  } else {
+    console.log(errors);
+  }
+};
+
+export const deleteEvent = event => async dispatch => {
+  const response = await fetch(`/api/events/${event.id}`, {
+    method: 'DELETE'
+  });
+
+  const data = await response.json();
+
+  if (response.ok) {
+    await dispatch(deleteEventAction(data));
+    return data
+  } else {
+    console.log(errors);
+  }
+};
 
 // R E D U C E R
