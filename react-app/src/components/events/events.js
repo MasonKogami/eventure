@@ -6,7 +6,7 @@ import { readAllEvents } from '../../store/events';
 const EventListings = () => {
   const dispatch = useDispatch();
   const events = useSelector(state => Object.values(state.events));
-  console.log(events);
+  console.log(events)
 
   useEffect(() => {
     dispatch(readAllEvents())
