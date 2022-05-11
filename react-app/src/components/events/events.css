@@ -1,0 +1,35 @@
+.events {
+  list-style: none;
+  flex-wrap: wrap;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 270px 270px 270px 270px;
+  grid-auto-flow: row dense;
+  overflow: hidden;
+}
+
+.events > li {
+  width: 260px;
+  height: 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: lightgray;
+  border: 1px gray solid;
+
+  cursor: pointer;
+}
+
+.event-listing {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 270px 270px 270px 270px;
+  grid-auto-flow: row dense;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
