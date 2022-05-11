@@ -1,0 +1,22 @@
+nav {
+  width: 100%;
+  display: flex;
+  list-style: none;
+  justify-content: space-between
+}
+
+nav > div {
+  align-items: center;
+}
+
+.home {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.logout-ticket {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

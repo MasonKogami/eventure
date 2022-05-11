@@ -1,0 +1,36 @@
+.events {
+  list-style: none;
+  flex-wrap: wrap;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 360px 360px 360px;
+  grid-auto-flow: row dense;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.events > li {
+  width: 260px;
+  height: 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #ffba08;
+  border: 1px gray solid;
+
+  cursor: pointer;
+}
+
+.event-listing:hover {
+  box-shadow: 0 0 25px 5px rgba(0, 0, 0, .25);
+}
+
+h3 {
+  display: flex;
+  color: #03071e;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  justify-content: flex-start;
+}
