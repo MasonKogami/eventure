@@ -1,8 +1,18 @@
 nav {
-}
-
-nav > ul {
+  width: 100%;
   display: flex;
   list-style: none;
+  justify-content: space-between
+}
+
+.home {
+  display: flex;
   flex-direction: row;
+  gap: 10px;
+}
+
+.logout-ticket {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
