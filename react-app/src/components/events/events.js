@@ -7,7 +7,7 @@ import { readAllEvents } from '../../store/events';
 const EventListings = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const events = useSelector(state => state.events);
+  const events = useSelector(state => Object.values(state.events));
 
   useEffect(() => {
     dispatch(readAllEvents())
@@ -16,7 +16,7 @@ const EventListings = () => {
   return (
     <>
       <ul>
-        {events?.map((event) => {
+        {events.map((event) => {
           <li key={event.id}>
             {event.name}
           </li>
