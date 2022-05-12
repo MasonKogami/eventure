@@ -7,7 +7,6 @@ const HomePage = () => {
     <>
       <h1>Welcome to Eventure!</h1>
       <div className='homepage-slideshow'>
-        
       </div>
     </>
   );
