@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
@@ -46,6 +46,9 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
+          {sessionUser ? <Redirect to='/home' /> : <Redirect to='/login' />}
+        </ProtectedRoute>
+        <ProtectedRoute path='/home' exact={true} >
           <HomePage />
           <EventListings />
         </ProtectedRoute>
