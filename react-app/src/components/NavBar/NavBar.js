@@ -9,7 +9,7 @@ const NavBar = () => {
     <nav style={{height: '72px'}}>
       <div className='home'>
           <NavLink to='/' exact={true} activeClassName='active' style={{textDecoration: 'none'}}>
-            Home
+            Eventure
           </NavLink>
           <NavLink to='/events/create' exact={true} style={{textDecoration: 'none'}}>
             Create Event
