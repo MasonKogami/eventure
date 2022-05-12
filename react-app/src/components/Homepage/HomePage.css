@@ -1,4 +1,4 @@
-/* .homepage-slideshow {
+.homepage-slideshow {
   z-index: 1;
   background-size: cover;
   height: 500px;
@@ -30,4 +30,11 @@
   } to {
       background-image: url("https://images.unsplash.com/photo-1611420182989-3020dec418be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG5hdHVyZXxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60");
   }
-} */
+}
+
+h1 {
+  position: absolute;
+  top: 300px;
+  left: 50px;
+  color: #fefae0;
+}
