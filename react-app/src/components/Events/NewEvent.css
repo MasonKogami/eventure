@@ -1,24 +1,22 @@
 .new-event-form-con {
   display: flex;
   justify-content: center;
-  /* border-bottom: 1px solid black; */
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid #eeedf2;
 }
 
-/* .basic-info-con {
+.basic-info-con {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border-bottom: 1px solid black; 
-} */
-
-.location-con {
-  /* border-bottom: 1px solid black; */
+  border-bottom: 1px solid #eeedf2; 
 }
 
-.new-event-form {
+/* .new-event-form {
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* border-bottom: 1px solid black; */
-}
+  border-bottom: 1px solid #eeedf2;
+} */

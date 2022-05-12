@@ -72,7 +72,6 @@ const NewEvent = () => {
             placeholder='Be clear and descriptive.'
           >
           </input>
-          <hr></hr>
         </div>
         <div className='location-con'>
           <h2>Location</h2>
@@ -88,15 +87,15 @@ const NewEvent = () => {
             type='text'
             placeholder='Be clear and descriptive.'
           ></input>
-          <hr></hr>
         </div>
         <div className='date-time-con'>
           <h2>Date and Time</h2>
           <label>
             Tell event goers when your event starts and ends so they can make plans to attend.
           </label>
-          <Calendar />
-          <hr></hr>
+          <Calendar>
+            
+          </Calendar>
         </div>
       </form>
     </div>
