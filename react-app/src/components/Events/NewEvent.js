@@ -60,9 +60,11 @@ const NewEvent = () => {
         <div className='basic-info-con'>
           <h2>Basic Info</h2>
           <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
-          <label>
-            Event Name
-          </label>
+          <div>
+            <label>
+              Event Name
+            </label>
+          </div>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -70,19 +72,23 @@ const NewEvent = () => {
             placeholder='Be clear and descriptive.'
           >
           </input>
+          <hr></hr>
         </div>
         <div className='location-con'>
           <h2>Location</h2>
           <p>Help people in the area discover your event and let attendees know where to show up.</p>
-          <label>
-            Venue Location
-          </label>
+          <div>
+            <label>
+              Venue Location
+            </label>
+          </div>
           <input
             value={locationName}
             onChange={(e) => setLocationName(e.target.value)}
             type='text'
             placeholder='Be clear and descriptive.'
           ></input>
+          <hr></hr>
         </div>
         <div className='date-time-con'>
           <h2>Date and Time</h2>
@@ -90,6 +96,7 @@ const NewEvent = () => {
             Tell event goers when your event starts and ends so they can make plans to attend.
           </label>
           <Calendar />
+          <hr></hr>
         </div>
       </form>
     </div>
