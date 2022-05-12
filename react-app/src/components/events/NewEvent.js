@@ -74,8 +74,8 @@ const NewEvent = () => {
             Venue Location
           </label>
           <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={locationName}
+            onChange={(e) => setLocationName(e.target.value)}
             type='text'
             placeholder='Event Name'
           ></input>
