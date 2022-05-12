@@ -8,7 +8,7 @@ import './NewEvent.css';
 const NewEvent = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const user = useSelector(state => state.session.user);
+  const sessionUser = useSelector(state => state.session.user);
   const [locationName, setLocationName] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
@@ -24,9 +24,10 @@ const NewEvent = () => {
     const pattern = /\S+/;
 
     if (!pattern.test(name)) return;
+    if (!pattern.test(locationName)) return;
 
     let newEvent = {
-      locationName,
+      locationName: locationName.trim(),
       address,
       city,
       state,
@@ -70,9 +71,9 @@ const NewEvent = () => {
             onChange={(e) => setName(e.target.value)}
             type='text'
             placeholder='Be clear and descriptive.'
-          >
-          </input>
+          ></input>
         </div>
+        <hr style={{backgroundColor: '#eeedf2'}}/>
         <div className='location-con'>
           <h2>Location</h2>
           <p>Help people in the area discover your event and let attendees know where to show up.</p>
@@ -88,15 +89,17 @@ const NewEvent = () => {
             placeholder='Be clear and descriptive.'
           ></input>
         </div>
+        <hr style={{backgroundColor: '#eeedf2'}}/>
         <div className='date-time-con'>
           <h2>Date and Time</h2>
           <label>
             Tell event goers when your event starts and ends so they can make plans to attend.
           </label>
-          <Calendar>
-            
-          </Calendar>
+          <Calendar value={date}/>
         </div>
+        <button type='submit' className='create-event-button'>
+          Create Event
+        </button>
       </form>
     </div>
   )
