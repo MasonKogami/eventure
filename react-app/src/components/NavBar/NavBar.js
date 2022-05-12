@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <nav style={{height: '72px'}}>
       <div className='home'>
-          <NavLink to='/' exact={true} activeClassName='active' style={{textDecoration: 'none'}}>
+          <NavLink to='/home' exact={true} activeClassName='active' style={{textDecoration: 'none'}}>
             Eventure
           </NavLink>
           <NavLink to='/events/create' exact={true} style={{textDecoration: 'none'}}>

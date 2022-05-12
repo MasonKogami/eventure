@@ -3,7 +3,7 @@
   background-size: cover;
   height: 500px;
   background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg");
-  animation: slideshow infinite 20s;
+  animation: slideshow infinite 50s;
 }
 
 @keyframes slideshow {
