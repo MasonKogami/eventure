@@ -56,7 +56,6 @@ const NewEvent = () => {
           })}
         </ul>
         <div>
-          <h1>Basic Info</h1>
           <label>
             Event Name
           </label>
@@ -69,7 +68,6 @@ const NewEvent = () => {
           </input>
         </div>
         <div>
-          Location
           <label>
             Venue Location
           </label>
@@ -81,7 +79,6 @@ const NewEvent = () => {
           ></input>
         </div>
         <div>
-          Date and Time
           <label>
             Tell event goers when your event starts and ends so they can make plans to attend.
           </label>

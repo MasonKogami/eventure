@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
+import NewEvent from '../events/NewEvent';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -10,9 +11,9 @@ const NavBar = () => {
           <NavLink to='/' exact={true} activeClassName='active' style={{textDecoration: 'none'}}>
             Home
           </NavLink>
-          <div>
+          <NavLink to='/events/create' exact={true} style={{textDecoration: 'none'}}>
             Create Event
-          </div>
+          </NavLink>
       </div>
       {/* <div className='login-signup'>
           <NavLink to='/login' exact={true} activeClassName='active' style={{textDecoration: 'none'}}>

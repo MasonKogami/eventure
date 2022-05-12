@@ -10,6 +10,7 @@ import HomePage from './components/Homepage/HomePage';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import NewEvent from './components/events/NewEvent';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -46,6 +47,9 @@ function App() {
           <HomePage />
           <EventListings />
         </ProtectedRoute>
+        <Route path='/events/create' exact={true}>
+          <NewEvent />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
