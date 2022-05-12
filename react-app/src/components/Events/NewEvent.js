@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createEvent } from '../../store/events';
+import Calendar from 'react-calendar';
+import './NewEvent.css';
 
 const NewEvent = () => {
   const dispatch = useDispatch();
@@ -47,7 +49,7 @@ const NewEvent = () => {
 
   return (
     <div className='new-event-form-con'>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='new-event-form'>
         <ul>
           {errors.map((e) => {
             return (
@@ -55,38 +57,45 @@ const NewEvent = () => {
             )
           })}
         </ul>
-        <div>
-          <label>
-            Event Name
-          </label>
+        <div className='basic-info-con'>
+          <h2>Basic Info</h2>
+          <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
+          <div>
+            <label>
+              Event Name
+            </label>
+          </div>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
             type='text'
-            placeholder='Event Name'
+            placeholder='Be clear and descriptive.'
           >
           </input>
         </div>
-        <div>
-          <label>
-            Venue Location
-          </label>
+        <div className='location-con'>
+          <h2>Location</h2>
+          <p>Help people in the area discover your event and let attendees know where to show up.</p>
+          <div>
+            <label>
+              Venue Location
+            </label>
+          </div>
           <input
             value={locationName}
             onChange={(e) => setLocationName(e.target.value)}
             type='text'
-            placeholder='Event Name'
+            placeholder='Be clear and descriptive.'
           ></input>
         </div>
-        <div>
+        <div className='date-time-con'>
+          <h2>Date and Time</h2>
           <label>
             Tell event goers when your event starts and ends so they can make plans to attend.
           </label>
-          <input
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          >
-          </input>
+          <Calendar>
+            
+          </Calendar>
         </div>
       </form>
     </div>
