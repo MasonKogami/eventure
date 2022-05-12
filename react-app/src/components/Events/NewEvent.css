@@ -1,0 +1,18 @@
+.new-event-form-con {
+  display: flex;
+  justify-content: center;
+}
+
+.basic-info-con {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: 1px black;
+}
+
+.new-event-form {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+}
