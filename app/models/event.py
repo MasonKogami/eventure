@@ -26,8 +26,6 @@ class Event(db.Model):
             'host_id': self.user_id,
             'location_name': self.location_name,
             'address': self.address,
-            'city': self.city,
-            'state': self.state,
             'capacity': self.capacity,
             'name': self.name,
             'date': self.date,
