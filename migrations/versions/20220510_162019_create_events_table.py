@@ -23,8 +23,6 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('location_name', sa.String(length=255), nullable=False),
     sa.Column('address', sa.String(length=255), nullable=False),
-    sa.Column('city', sa.String(length=255), nullable=False),
-    sa.Column('state', sa.String(length=255), nullable=False),
     sa.Column('name', sa.String(length=255), nullable=False),
     sa.Column('date', sa.DateTime(timezone=True), nullable=True),
     sa.Column('capacity', sa.Integer(), nullable=False),
