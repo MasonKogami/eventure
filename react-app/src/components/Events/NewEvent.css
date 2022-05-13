@@ -3,14 +3,38 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-bottom: 1px solid #eeedf2;
+  /* border-bottom: 1px solid #eeedf2; */
+}
+
+hr {
+  background-color: #eeedf2;
 }
 
 .basic-info-con {
+  width: 66.66667%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border-bottom: 1px solid #eeedf2; 
+  margin-bottom: 48px;
+  margin-top: 20px;
+  /* border-bottom: 1px solid #eeedf2; */
+}
+
+.location-con {
+  width: 66.66667%;
+  margin-bottom: 48px;
+  margin-top: 20px;
+}
+
+.date-time-con {
+  width: 66.66667%;
+  margin-bottom: 48px;
+  margin-top: 20px;
+}
+
+.create-event-button {
+  margin-bottom: 48px;
+  margin-top: 20px;
 }
 
 /* .new-event-form {

@@ -3,7 +3,7 @@
   background-size: cover;
   height: 500px;
   background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg");
-  animation: slideshow infinite 20s;
+  animation: slideshow infinite 50s linear;
 }
 
 @keyframes slideshow {
@@ -12,11 +12,11 @@
   } 25% {
       background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/f0efd0767ec3f77057270d84f78b1f41-3_4K_1920x544.jpg");
   } 50% {
-      background-image: url("https://mgconcierge.com/app/uploads/2015/02/mgc-auction-napa-1200x300-c-default.jpg");
+      background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/6aaf4a36e35b1b71bc077e200ac7429c-1_tablet_1067x470.jpg");
   } 75% {
-      background-image: url("https://images.unsplash.com/photo-1501555088652-021faa106b9b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YWR2ZW50dXJlJTIwMTIwMCUyMHglMjAzMDB8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+      background-image: url("https://images.unsplash.com/photo-1501527459-2d5409f8cf9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
   } to {
-      background-image: url("https://images.unsplash.com/photo-1521336575822-6da63fb45455?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YWR2ZW50dXJlJTIwMTIwMCUyMHglMjAzMDB8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+      background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg");
   } 
 }
 

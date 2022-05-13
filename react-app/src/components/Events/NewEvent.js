@@ -4,17 +4,16 @@ import { useHistory } from 'react-router-dom';
 import { createEvent } from '../../store/events';
 import Calendar from 'react-calendar';
 import './NewEvent.css';
+import 'react-calendar/dist/Calendar.css';
 
 const NewEvent = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const user = useSelector(state => state.session.user);
+  const sessionUser = useSelector(state => state.session.user);
   const [locationName, setLocationName] = useState('');
   const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
   const [name, setName] = useState('');
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState(new Date());
   const [capacity, setCapacity] = useState('');
   const [errors, setErrors] = useState([]);
 
@@ -24,12 +23,11 @@ const NewEvent = () => {
     const pattern = /\S+/;
 
     if (!pattern.test(name)) return;
+    if (!pattern.test(locationName)) return;
 
     let newEvent = {
-      locationName,
+      locationName: locationName.trim(),
       address,
-      city,
-      state,
       name: name.trim(),
       date,
       capacity
@@ -70,33 +68,70 @@ const NewEvent = () => {
             onChange={(e) => setName(e.target.value)}
             type='text'
             placeholder='Be clear and descriptive.'
-          >
-          </input>
+          ></input>
         </div>
+        <hr style={{backgroundColor: '#eeedf2'}}/>
         <div className='location-con'>
           <h2>Location</h2>
           <p>Help people in the area discover your event and let attendees know where to show up.</p>
           <div>
             <label>
-              Venue Location
+              Location Name
             </label>
           </div>
           <input
             value={locationName}
             onChange={(e) => setLocationName(e.target.value)}
             type='text'
-            placeholder='Be clear and descriptive.'
+            placeholder='Venue Name'
           ></input>
+          <div>
+            <label>
+              Address
+            </label>
+            <input
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder='Street address, City, State'
+              required
+            >
+            </input>
+          </div>
         </div>
+        <hr style={{backgroundColor: '#eeedf2'}}/>
         <div className='date-time-con'>
-          <h2>Date and Time</h2>
+          <h2>Date</h2>
           <label>
             Tell event goers when your event starts and ends so they can make plans to attend.
           </label>
-          <Calendar>
-            
-          </Calendar>
+          {/* <input 
+            type='date' 
+            value={date}
+            min=''
+            max=''
+            placeholder='today'
+            required
+            onChange={(e) => setDate(e.target.value)}
+          >
+          </input> */}
+          <Calendar onChange={setDate} value={date}/>
         </div>
+        <div className='capacity-con'>
+          <h2>Capacity</h2>
+          <p>Tell the event goers how many people they can bring to the party.</p>
+          <label>
+            Capacity
+          </label>
+          <input 
+            value={capacity}
+            placeholder='Number of people allowed.'
+            onChange={(e) => setCapacity(e.target.value)}
+          >
+          </input>
+        </div>
+        <button type='submit' className='create-event-button'>
+          Create Event
+        </button>
       </form>
     </div>
   )

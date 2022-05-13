@@ -10,8 +10,6 @@ class Event(db.Model):
   # category_id      = db.Column(db.Integer, db.ForeignKey('categories.id'))
   location_name    = db.Column(db.String(255), nullable=False)
   address          = db.Column(db.String(255), nullable=False)
-  city             = db.Column(db.String(255), nullable=False)
-  state            = db.Column(db.String(255), nullable=False)
   name             = db.Column(db.String(255), nullable=False)
   date             = db.Column(db.DateTime(timezone = True))
   capacity         = db.Column(db.Integer, nullable=False)
@@ -28,8 +26,6 @@ class Event(db.Model):
             'host_id': self.user_id,
             'location_name': self.location_name,
             'address': self.address,
-            'city': self.city,
-            'state': self.state,
             'capacity': self.capacity,
             'name': self.name,
             'date': self.date,
