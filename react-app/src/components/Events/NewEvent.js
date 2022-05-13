@@ -38,7 +38,7 @@ const NewEvent = () => {
     if (!pattern.test(name)) return;
     if (!pattern.test(locationName)) return;
 
-    const dateStr = String(date);
+    // const dateStr = String(date);
 
     // console.log(dateStr.slice(4));
 
@@ -47,10 +47,11 @@ const NewEvent = () => {
       location_name: locationName.trim(),
       address,
       name: name.trim(),
-      date: date,
+      date: date.toUTCString(),
       capacity
     };
-
+    console.log(date);
+    console.log(date.toUTCString())
     let submitNewEvent = await dispatch(createEvent(newEvent));
   //   .catch( async (res) => {
   //     const data = await res.json();
@@ -142,10 +143,10 @@ const NewEvent = () => {
             selected={date}
             value={date}
             minDate={new Date()}
-            format="yyyy-MM-dd H:MM:SS"
+            // format='y-MM-dd'
             onChange={(e) => {
               console.log(e)
-              setDate(e)}} 
+              setDate(new Date(e))}} 
           />
         </div>
         <div className='capacity-con'>
