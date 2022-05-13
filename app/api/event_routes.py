@@ -19,8 +19,6 @@ def new_event():
       user_id=form.data['user_id'],
       location_name=form.data['location_name'],
       address=form.data['address'],
-      city=form.data['city'],
-      state=form.data['state'],
       name=form.data['name'],
       date=form.data['date'],
       capacity=form.data['capacity']

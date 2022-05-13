@@ -13,6 +13,7 @@ import 'react-datetime-picker/dist/DateTimePicker.css';
 const NewEvent = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  // const today = new Date().toDateString();
   const sessionUser = useSelector(state => state.session.user);
   const [locationName, setLocationName] = useState('');
   const [address, setAddress] = useState('');
@@ -20,6 +21,14 @@ const NewEvent = () => {
   const [date, setDate] = useState(new Date());
   const [capacity, setCapacity] = useState('');
   const [errors, setErrors] = useState([]);
+
+  // const dateArray = date.split("-");
+  // console.log(dateArray);
+  // const dateYear = dateArray[3];
+  // const dateMonth = dateArray[2];
+  // const dateDay = dateArray[3];
+
+  // const date1 = new Date(+dateYear, +dateMonth, +dateDay);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,25 +38,29 @@ const NewEvent = () => {
     if (!pattern.test(name)) return;
     if (!pattern.test(locationName)) return;
 
+    const dateStr = String(date);
+
+    // console.log(dateStr.slice(4));
+
     let newEvent = {
       user_id: sessionUser.id,
-      locationName: locationName,
+      location_name: locationName.trim(),
       address,
       name: name.trim(),
-      date,
+      date: date,
       capacity
     };
 
-    let submitNewEvent = await dispatch(createEvent(newEvent))
-    .catch( async (res) => {
-      const data = await res.json();
-      if (data && data.errors) {
-          setErrors(data.errors);
-      }
-  })
-    if (errors.length && submitNewEvent) {
-      history.push(`/events/${submitNewEvent.id}`);
-    }
+    let submitNewEvent = await dispatch(createEvent(newEvent));
+  //   .catch( async (res) => {
+  //     const data = await res.json();
+  //     if (data && data.errors) {
+  //         setErrors(data.errors);
+  //     }
+  // })
+  //   if (errors.length && submitNewEvent) {
+  //     history.push(`/events/${submitNewEvent.id}`);
+  //   }
   };
 
   return (
@@ -56,7 +69,7 @@ const NewEvent = () => {
         <ul>
           {errors.map((e) => {
             return (
-              <li key={e}>{e}</li>
+              <li key={e.id}>{e}</li>
             )
           })}
         </ul>
@@ -128,6 +141,8 @@ const NewEvent = () => {
           <DateTimePicker 
             selected={date}
             value={date}
+            minDate={new Date()}
+            format="yyyy-MM-dd H:MM:SS"
             onChange={(e) => {
               console.log(e)
               setDate(e)}} 
