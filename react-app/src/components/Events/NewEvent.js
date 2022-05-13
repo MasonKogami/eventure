@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { createEvent } from '../../store/events';
 import Calendar from 'react-calendar';
 import './NewEvent.css';
+import 'react-calendar/dist/Calendar.css';
 
 const NewEvent = () => {
   const dispatch = useDispatch();
@@ -11,10 +12,8 @@ const NewEvent = () => {
   const sessionUser = useSelector(state => state.session.user);
   const [locationName, setLocationName] = useState('');
   const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
   const [name, setName] = useState('');
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState(new Date());
   const [capacity, setCapacity] = useState('');
   const [errors, setErrors] = useState([]);
 
@@ -29,8 +28,6 @@ const NewEvent = () => {
     let newEvent = {
       locationName: locationName.trim(),
       address,
-      city,
-      state,
       name: name.trim(),
       date,
       capacity
@@ -91,11 +88,21 @@ const NewEvent = () => {
         </div>
         <hr style={{backgroundColor: '#eeedf2'}}/>
         <div className='date-time-con'>
-          <h2>Date and Time</h2>
+          <h2>Date</h2>
           <label>
             Tell event goers when your event starts and ends so they can make plans to attend.
           </label>
-          <Calendar value={date}/>
+          {/* <input 
+            type='date' 
+            value={date}
+            min=''
+            max=''
+            placeholder='today'
+            required
+            onChange={(e) => setDate(e.target.value)}
+          >
+          </input> */}
+          <Calendar onChange={setDate} value={date}/>
         </div>
         <button type='submit' className='create-event-button'>
           Create Event
