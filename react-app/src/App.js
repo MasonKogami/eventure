@@ -7,8 +7,6 @@ import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import EventListings from './components/Events/events';
 import HomePage from './components/Homepage/HomePage';
-import UsersList from './components/UsersList';
-import User from './components/User';
 import { authenticate } from './store/session';
 import NewEvent from './components/Events/NewEvent';
 
