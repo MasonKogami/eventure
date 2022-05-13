@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
-from app.models import Event, Ticket
+from app.models import db, Event, Ticket
 from app.forms.event_form import EventForm
 from app.forms.ticket_form import TicketForm
 from app.api.auth_routes import validation_errors_to_error_messages
@@ -9,7 +9,7 @@ event_routes = Blueprint('events', __name__)
 
 # C R E A T E  E V E N T
 @event_routes.route('/create', methods=['POST'])
-@login_required
+# @login_required
 def new_event():
   form = EventForm()
 
@@ -19,8 +19,6 @@ def new_event():
       user_id=form.data['user_id'],
       location_name=form.data['location_name'],
       address=form.data['address'],
-      city=form.data['city'],
-      state=form.data['state'],
       name=form.data['name'],
       date=form.data['date'],
       capacity=form.data['capacity']

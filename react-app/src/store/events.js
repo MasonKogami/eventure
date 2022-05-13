@@ -49,7 +49,7 @@ export const createEvent = event => async dispatch => {
   }
 };
 
-export const readAllEvents = events => async dispatch => {
+export const readAllEvents = () => async dispatch => {
   const response = await fetch('/api/events/');
 
   const data = await response.json();
