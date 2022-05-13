@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createEvent } from '../../store/events';
-import Calendar from 'react-calendar';
+// import Calendar from 'react-calendar';
 import './NewEvent.css';
-import 'react-calendar/dist/Calendar.css';
+// import DatePicker from 'react-datepicker';
+// import 'react-datepicker/dist/react-datepicker.css';
+import DateTimePicker from 'react-datetime-picker';
+import 'react-datetime-picker/dist/DateTimePicker.css';
+// import 'react-calendar/dist/Calendar.css';
 
 const NewEvent = () => {
   const dispatch = useDispatch();
@@ -26,7 +30,8 @@ const NewEvent = () => {
     if (!pattern.test(locationName)) return;
 
     let newEvent = {
-      locationName: locationName.trim(),
+      user_id: sessionUser.id,
+      locationName: locationName,
       address,
       name: name.trim(),
       date,
@@ -109,12 +114,24 @@ const NewEvent = () => {
             value={date}
             min=''
             max=''
-            placeholder='today'
+            // placeholder='today'
             required
             onChange={(e) => setDate(e.target.value)}
           >
           </input> */}
-          <Calendar onChange={setDate} value={date}/>
+          {/* <Calendar onChange={(e) => setDate(e.target.value)} value={date} /> */}
+          {/* <DatePicker 
+            selected={date}
+            onChange={date => setDate(date)}
+            minDate={new Date()}
+          /> */}
+          <DateTimePicker 
+            selected={date}
+            value={date}
+            onChange={(e) => {
+              console.log(e)
+              setDate(e)}} 
+          />
         </div>
         <div className='capacity-con'>
           <h2>Capacity</h2>
