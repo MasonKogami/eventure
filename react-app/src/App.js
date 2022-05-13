@@ -6,6 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import EventListings from './components/Events/events';
+import OneEvent from './components/Events/OneEvent';
 import HomePage from './components/Homepage/HomePage';
 import { authenticate } from './store/session';
 import NewEvent from './components/Events/NewEvent';
@@ -52,6 +53,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/events/create' exact={true}>
           <NewEvent />
+        </Route>
+        <Route path={`/events/:event_id`} exact={true}>
+          <OneEvent />
         </Route>
       </Switch>
     </BrowserRouter>

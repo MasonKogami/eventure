@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './events.css';
 import { readAllEvents } from '../../store/events';
+import { NavLink } from 'react-router-dom';
 
 const EventListings = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,14 @@ const EventListings = () => {
     dispatch(readAllEvents())
   }, [dispatch]);
 
+  const EventListing = ({event}) => {
+    return (
+      <li>
+        <NavLink to={`/events/${event.id}`} />
+      </li>
+    )
+  }
+
   return (
     <>
       <h3>Events</h3>
@@ -19,7 +28,7 @@ const EventListings = () => {
         {events.map((event) => {
           return (
             <li key={event.id} className='event-listing'>
-              {event.name}
+              <EventListing event={event} />
             </li>
           )
         })}
