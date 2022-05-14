@@ -13,13 +13,13 @@ const EventListings = () => {
     dispatch(readAllEvents())
   }, [dispatch]);
 
-  const EventListing = ({event}) => {
-    return (
-      <li>
-        <NavLink to={`/events/${event.id}`} />
-      </li>
-    )
-  }
+  // const EventListing = ({event}) => {
+  //   return (
+  //     <div>
+  //       <NavLink to={`/events/${event.id}`} />
+  //     </div>
+  //   )
+  // }
 
   return (
     <>
@@ -27,9 +27,9 @@ const EventListings = () => {
       <ul className='events'>
         {events.map((event) => {
           return (
-            <li key={event.id} className='event-listing'>
-              <EventListing event={event} />
-            </li>
+            <NavLink to={`/events/${event.id}`} className='event-listings'>
+              {event.name}
+            </NavLink>
           )
         })}
       </ul>

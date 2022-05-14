@@ -9,9 +9,10 @@
   justify-content: center;
 }
 
-.events > li {
+.events > .event-listings {
   width: 260px;
   height: 80px;
+  text-decoration: none;
 
   display: flex;
   justify-content: center;
