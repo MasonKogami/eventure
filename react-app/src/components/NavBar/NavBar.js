@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css';
+import { BsPlusLg } from 'react-icons/bs';
 
 const NavBar = () => {
   return (
@@ -10,7 +11,8 @@ const NavBar = () => {
           <NavLink to='/home' exact={true} activeClassName='active' style={{textDecoration: 'none'}}>
             Eventure
           </NavLink>
-          <NavLink to='/events/create' exact={true} style={{textDecoration: 'none'}}>
+          <NavLink to='/events/create' exact={true} style={{textDecoration: 'none', verticalAlign: 'end', color: 'rgb(61, 100, 255)'}}>
+            <BsPlusLg style={{ position: 'relative', bottom: '17px', left: '55px'}}/>
             Create Event
           </NavLink>
       </div>
