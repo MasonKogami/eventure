@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css';
 import { BsPlusLg } from 'react-icons/bs';
+import { FaTicketAlt } from 'react-icons/fa';
 
 const NavBar = () => {
   return (
@@ -31,6 +32,7 @@ const NavBar = () => {
       </li> */}
       <div className='logout-ticket'>
         <div>
+          <FaTicketAlt style={{position: 'relative', bottom: '20px', left: '32px'}} />
           Tickets
         </div>
         <LogoutButton />
