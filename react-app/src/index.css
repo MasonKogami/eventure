@@ -1,14 +1,9 @@
-@font-face {
-  font-family: 'Roboto Condensed', sans-serif;
-  src: url('https: //fonts.google.com/share?selection.family=Roboto%20Condensed:wght@300;400;700');
-}
-
 body {
   height: 100%;
 }
 
 :root {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
   font-weight: 700;
   font-size: 15px;
 }
