@@ -54,7 +54,7 @@ function App() {
         <Route path='/events/create' exact={true}>
           <NewEvent />
         </Route>
-        <Route path={`/events/:event_id`} exact={true}>
+        <Route path={`/events/:eventId`} exact={true}>
           <OneEvent />
         </Route>
       </Switch>

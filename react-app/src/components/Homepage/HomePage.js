@@ -5,7 +5,7 @@ const HomePage = () => {
 
   return (
     <>
-      <h1>Welcome to Eventure!</h1>
+      <h1>Where will your next Eventure take you?</h1>
       <div className='homepage-slideshow' />
     </>
   );

@@ -10,8 +10,8 @@ const OneEvent = () => {
   const events = useSelector(state => state.events);
   const event = useSelector(state => state.events[eventId]);
 
-  console.log(events)
-  console.log(event);
+  // console.log(events)
+  // console.log(event);
 
   useEffect(() => {
     dispatch(readOneEvent(eventId))
@@ -19,9 +19,7 @@ const OneEvent = () => {
 
   return (
     <div>
-      <img>
-        Insert Image Here
-      </img>
+      Hello
     </div>
   );
 };
