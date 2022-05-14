@@ -1,9 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css';
 import { BsPlusLg } from 'react-icons/bs';
 import { FaTicketAlt } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../store/session';
+
+const LogoutButton = () => {
+  const dispatch = useDispatch()
+  const onLogout = async (e) => {
+    await dispatch(logout());
+  };
+
+  return <button onClick={onLogout}>Logout</button>;
+};
 
 const NavBar = () => {
   return (
