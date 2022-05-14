@@ -23,16 +23,33 @@ const EventListings = () => {
 
   return (
     <>
-      <h3>Events</h3>
-      <ul className='events'>
-        {events.map((event) => {
-          return (
-            <NavLink to={`/events/${event.id}`} className='event-listings'>
-              {event.name}
-            </NavLink>
-          )
-        })}
-      </ul>
+      <div className='event-div'>
+        <h3>Events Near You</h3>
+      </div>
+      <div className='event-feed'>
+        <div className='events'>
+          {events.map((event) => {
+            return (
+              <NavLink to={`/events/${event.id}`} className='event-listings'>
+                <div>
+                </div>
+                <div>
+                  {event.name}
+                </div>
+                <div>
+                  {event.date}
+                </div>
+                <div>
+                  {event.location_name}
+                </div>
+                <div>
+                  {event.address}
+                </div>
+              </NavLink>
+            )
+          })}
+        </div>
+      </div>
     </>
   )
 };
