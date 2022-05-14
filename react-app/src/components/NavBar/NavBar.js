@@ -32,7 +32,7 @@ const NavBar = () => {
       </li> */}
       <div className='logout-ticket'>
         <div>
-          <FaTicketAlt style={{position: 'relative', bottom: '20px', left: '32px'}} />
+          <FaTicketAlt style={{position: 'relative', bottom: '20px', left: '33px'}} />
           Tickets
         </div>
         <LogoutButton />
