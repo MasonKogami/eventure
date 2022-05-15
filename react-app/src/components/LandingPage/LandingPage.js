@@ -1,26 +1,15 @@
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+// import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+
+const image1 = 'https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+const image2 = 'https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 
 const LandingPage = () => {
 
   return (
-    <div>
-      <Parallax pages={4}>
-        <ParallaxLayer>
-          <h1>hi</h1>
-        </ParallaxLayer>
-
-        <ParallaxLayer>
-          <h2>Welcome to Eventure!</h2>
-        </ParallaxLayer>
-
-        <ParallaxLayer>
-          <h3>The fun never stops!</h3>
-        </ParallaxLayer>
-
-        <ParallaxLayer>
-          <h4>Find your next Eventure.</h4>
-        </ParallaxLayer>
-      </Parallax>
+    <div style={{width: '100%'}}>
+      <img src={`${image1}`} style={{backgroundSize: 'cover'}}/>
     </div>
   )
-}
+};
+
+export default LandingPage;
