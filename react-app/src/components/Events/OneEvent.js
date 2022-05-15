@@ -28,6 +28,12 @@ const OneEvent = () => {
           {event?.name}
           {event?.date}
         </div>
+        <div>
+          <button>Edit Event</button>
+        </div>
+        <div>
+          <button>Delete Event</button>
+        </div>
       </div>
       <div>
         {event?.location_name}
