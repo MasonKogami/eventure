@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import './NavBar.css';
 import { BsPlusLg } from 'react-icons/bs';
 import { FaTicketAlt } from 'react-icons/fa';
@@ -10,6 +10,7 @@ const LogoutButton = () => {
   const dispatch = useDispatch()
   const onLogout = async (e) => {
     await dispatch(logout());
+    <Redirect to='/login' />
   };
 
   return <button onClick={onLogout}>Logout</button>;
