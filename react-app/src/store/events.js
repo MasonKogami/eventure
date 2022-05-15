@@ -62,8 +62,8 @@ export const readAllEvents = () => async dispatch => {
   }
 };
 
-export const readOneEvent = event => async dispatch => {
-  const response = await fetch(`/api/events/${event.id}`);
+export const readOneEvent = id => async dispatch => {
+  const response = await fetch(`/api/events/${id}`);
 
   const data = await response.json();
 
