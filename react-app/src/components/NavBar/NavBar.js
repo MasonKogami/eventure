@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import './NavBar.css';
 import { BsPlusLg } from 'react-icons/bs';
 import { FaTicketAlt } from 'react-icons/fa';
@@ -7,10 +7,11 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../store/session';
 
 const LogoutButton = () => {
+  const history = useHistory();
   const dispatch = useDispatch()
   const onLogout = async (e) => {
     await dispatch(logout());
-    <Redirect to='/login' />
+    history.push('/login');
   };
 
   return <button onClick={onLogout}>Logout</button>;
@@ -43,7 +44,7 @@ const NavBar = () => {
       </li> */}
       <div className='logout-ticket'>
         <div>
-          <FaTicketAlt style={{position: 'relative', bottom: '20px', left: '33px'}} />
+          <FaTicketAlt style={{position: 'relative', bottom: '18px', left: '34px'}} />
           Tickets
         </div>
         <LogoutButton />
