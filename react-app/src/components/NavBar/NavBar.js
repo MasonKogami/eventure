@@ -19,7 +19,7 @@ const LogoutButton = () => {
 
 const NavBar = () => {
   return (
-    <nav style={{height: '72px'}}>
+    <nav style={{height: '61px'}}>
       <div className='home'>
           <NavLink to='/home' exact={true} activeClassName='active' style={{textDecoration: 'none'}}>
             Eventure
