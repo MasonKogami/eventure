@@ -31,8 +31,6 @@ const EventListings = () => {
           {events.map((event) => {
             return (
               <NavLink to={`/events/${event.id}`} className='event-listings' key={event.id}>
-                {/* <div>
-                </div> */}
                 <div style={{color: 'black'}}>
                   {event.name}
                 </div>
