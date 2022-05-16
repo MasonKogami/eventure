@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { readOneEvent, deleteEvent } from '../../store/events';
 import Modal from '../Modal/Modal';
+import ConfirmationModal from '../Modal/Confirmation';
 import './OneEvent.css';
 
 const OneEvent = () => {
@@ -45,13 +46,13 @@ const OneEvent = () => {
         <div>
           {/* {(sessionUser.id === event?.host_id) && <button onClick={() => deleteOneEvent(event)}>Delete Event</button>} */}
           {(sessionUser.id === event?.host_id) && (<ConfirmationModal 
-                message="Are you sure you want to delete this board?"
-                actionButtonLabel="Delete Board"
-                func={()=>deleteOneBoard(board)}
+                message="Are you sure you want to delete this event?"
+                actionButtonLabel="Delete Event"
+                func={() => deleteOneEvent(event)}
               >
             <button
               style={{marginRight: "12px"}}
-              id='gray__board__button'
+              // onClick={() => deleteEvent(event)}
             >Delete Event</button>
           </ConfirmationModal>
           )}

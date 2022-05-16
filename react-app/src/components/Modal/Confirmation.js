@@ -1,6 +1,6 @@
-import Modal from './index';
+import Modal from './Modal';
 import { useState } from 'react';
-import './ConfirmationModal.css';
+import './Confirmation.css';
 
 export default function ConfirmationModal({ message, actionButtonLabel, func, children, active }) {
   const [ showModal, setShowModal ] = useState(false);
@@ -32,7 +32,7 @@ export default function ConfirmationModal({ message, actionButtonLabel, func, ch
                onMouseDown={stopTheProp}>
             <div className='confirmation-message'>{message}</div>
             <div className='confirmation-buttons'>
-              <button onClick={doAction} id="logout-button" className={className}>{actionButtonLabel}</button>
+              <button onClick={doAction} id="logout-button">{actionButtonLabel}</button>
             </div>
           </div>
         </Modal>
