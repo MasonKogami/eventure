@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { updateEvent } from '../../store/events';
 import DateTimePicker from 'react-datetime-picker';
 import 'react-datetime-picker/dist/DateTimePicker.css';
@@ -8,7 +8,6 @@ import './EditEventForm.css';
 
 const EditEventForm = ({ closeModalFunc }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const { eventId } = useParams();
   const sessionUser = useSelector(state => state.session.user);
   const event = useSelector(state => state.events[eventId]);
@@ -34,7 +33,7 @@ const EditEventForm = ({ closeModalFunc }) => {
       date: date.toUTCString(),
       capacity,
     };
-    console.log(updatedEvent); 
+
     let newEvent = await dispatch(updateEvent(updatedEvent, eventId));
     if (newEvent.errors) {
         setErrors(newEvent.errors);
@@ -94,9 +93,7 @@ const EditEventForm = ({ closeModalFunc }) => {
             </label>
             <input
               value={address}
-              onChange={(e) => {
-              console.log(e.target.value)
-              setAddress(e.target.value)}}
+              onChange={(e) => setAddress(e.target.value)}
               placeholder='Street address, City, State'
               required
             >
