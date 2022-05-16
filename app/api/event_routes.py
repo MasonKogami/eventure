@@ -67,7 +67,8 @@ def delete_event(id):
   event = Event.query.get(id)
 
   db.session.delete(event)
-
+  db.session.commit()
+  
   return event.to_dict()
 
 # C R E A T E  T I C K E T S
