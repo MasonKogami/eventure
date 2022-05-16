@@ -46,18 +46,22 @@ def single_event(id):
 
 # U P D A T E  E V E N T
 @event_routes.route('/<int:id>', methods=['PUT'])
-@login_required
+# @login_required
 def update_event(id):
+  form  = EventForm()
   event = Event.query.get(id)
 
-  event.location_name = request['location_name']
-  event.address       = request['address']
-  event.name          = request['name']
-  event.date          = request['date']
-  event.capacity      = request['capacity']
+  form['csrf_token'].data = request.cookies['csrf_token']
+  if form.validate_on_submit():
+    print(event.to_dict(), '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+    event.location_name = form.data['location_name']
+    event.address       = form.data['address']
+    event.name          = form.data['name']
+    event.date          = form.data['date']
+    event.capacity      = form.data['capacity']
 
   db.session.commit()
-
+  # print(event.to_dict(), '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
   return event.to_dict()
 
 # D E L E T E  E V E N T
