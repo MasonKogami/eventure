@@ -76,7 +76,18 @@ def delete_event(id):
   return event.to_dict()
 
 # C R E A T E  T I C K E T S
-# @event_routes.route('/tickets', methods=['POST'])
+@event_routes.route('/<int:id>/tickets', methods=['POST'])
 # @login_required
-# def add_ticket():
-  
+def add_ticket(id):
+  form = TicketForm()
+
+  form['csrf_token'].data = request.cookies['csrf_token']
+  if form.validate_on_submit():
+    ticket = Ticket(
+      event_id=id,
+      user_id=form.data['user_id']
+    )
+    db.session.add(ticket)
+    db.session.commit()
+
+    return ticket.to_dict()
