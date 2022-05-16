@@ -53,15 +53,15 @@ const NewEvent = () => {
     console.log(date);
     console.log(date.toUTCString())
     let submitNewEvent = await dispatch(createEvent(newEvent))
-    history.push("/home");
-  //   .catch( async (res) => {
-  //     const data = await res.json();
-  //     if (data && data.errors) {
-  //         setErrors(data.errors);
-  //     }
-  // })
-  //   if (errors.length && submitNewEvent) {
-  //   }
+    .catch( async (res) => {
+      const data = await res.json();
+      if (data && data.errors) {
+        setErrors(data.errors);
+      }
+    })
+    if (!errors.length && submitNewEvent) {
+      history.push("/home");
+    }
   };
 
   return (
