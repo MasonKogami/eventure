@@ -13,6 +13,8 @@ class User(db.Model, UserMixin):
 
     events = db.relationship('Event', back_populates='user')
 
+    tickets = db.relationship('Ticket', back_populates='user')
+
     @property
     def password(self):
         return self.hashed_password
