@@ -47,7 +47,6 @@ const OneEvent = () => {
           {event?.date}
         </div>
         <div>
-          {/* {(sessionUser.id === event?.host_id) && <button onClick={() => Submit}>Edit Event</button>} */}
           {(sessionUser.id === event?.host_id) && (<button onClick={showEditModalFunc}>Edit Event</button>)}
           {showEditModal && (
             <Modal closeModalFunc={closeEditModalFunc} className='modal-background'>
@@ -56,7 +55,6 @@ const OneEvent = () => {
           )}
         </div>
         <div>
-          {/* {(sessionUser.id === event?.host_id) && <button onClick={() => deleteOneEvent(event)}>Delete Event</button>} */}
           {(sessionUser.id === event?.host_id) && (<ConfirmationModal 
                 message="Are you sure you want to delete this event?"
                 actionButtonLabel="Delete Event"
@@ -64,7 +62,6 @@ const OneEvent = () => {
               >
             <button
               style={{marginRight: "12px"}}
-              // onClick={() => deleteEvent(event)}
             >Delete Event</button>
           </ConfirmationModal>
           )}
