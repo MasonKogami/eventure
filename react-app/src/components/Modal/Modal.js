@@ -1,3 +1,5 @@
+import './Modal.css';
+
 export default function Modal({ children, closeModalFunc }) {
     
   return (
