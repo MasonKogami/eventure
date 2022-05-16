@@ -52,7 +52,8 @@ const NewEvent = () => {
     };
     console.log(date);
     console.log(date.toUTCString())
-    let submitNewEvent = await dispatch(createEvent(newEvent));
+    let submitNewEvent = await dispatch(createEvent(newEvent))
+    history.push("/home");
   //   .catch( async (res) => {
   //     const data = await res.json();
   //     if (data && data.errors) {
@@ -60,7 +61,6 @@ const NewEvent = () => {
   //     }
   // })
   //   if (errors.length && submitNewEvent) {
-  //     history.push(`/events/${submitNewEvent.id}`);
   //   }
   };
 
@@ -123,22 +123,6 @@ const NewEvent = () => {
           <label>
             Tell event goers when your event starts and ends so they can make plans to attend.
           </label>
-          {/* <input 
-            type='date' 
-            value={date}
-            min=''
-            max=''
-            // placeholder='today'
-            required
-            onChange={(e) => setDate(e.target.value)}
-          >
-          </input> */}
-          {/* <Calendar onChange={(e) => setDate(e.target.value)} value={date} /> */}
-          {/* <DatePicker 
-            selected={date}
-            onChange={date => setDate(date)}
-            minDate={new Date()}
-          /> */}
           <DateTimePicker 
             selected={date}
             value={date}
