@@ -75,8 +75,8 @@ export const readOneEvent = id => async dispatch => {
   }
 };
 
-export const updateEvent = event => async dispatch => {
-  const response = await fetch(`/api/events/${event.id}`, {
+export const updateEvent = (event, id) => async dispatch => {
+  const response = await fetch(`/api/events/${id}`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(event)
