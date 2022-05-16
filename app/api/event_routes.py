@@ -52,8 +52,6 @@ def update_event(id):
 
   event.location_name = request['location_name']
   event.address       = request['address']
-  event.city          = request['city']
-  event.state         = request['state']
   event.name          = request['name']
   event.date          = request['date']
   event.capacity      = request['capacity']
