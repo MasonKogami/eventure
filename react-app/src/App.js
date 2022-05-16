@@ -46,7 +46,7 @@ function App() {
           <User />
         </ProtectedRoute> */}
         <ProtectedRoute path='/' exact={true} >
-          {sessionUser ? <Redirect to='/home' /> : <Redirect to='/login' />}
+          {sessionUser ? <Redirect to='/home' /> : <Redirect to='/landingpage' />}
         </ProtectedRoute>
         <ProtectedRoute path='/home' exact={true} >
           <HomePage />
