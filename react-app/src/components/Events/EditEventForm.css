@@ -1,0 +1,7 @@
+.edit-modal-form {
+  background-color: #ffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
