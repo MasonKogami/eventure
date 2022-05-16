@@ -20,7 +20,7 @@ def user(id):
 
 
 # R E A D  A L L  T I C K E T S
-@user_routes.route('/<int:id>/tickets/<int:id>', methods=['GET'])
+@user_routes.route('/<int:id>/tickets', methods=['GET'])
 @login_required
 def tickets(id):
   # db query to grab all tickets for the current user
