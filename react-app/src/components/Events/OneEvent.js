@@ -5,6 +5,7 @@ import { readOneEvent, deleteEvent, updateEvent } from '../../store/events';
 import Modal from '../Modal/Modal';
 import ConfirmationModal from '../Modal/Confirmation';
 import './OneEvent.css';
+import EditEventForm from './EditEventForm';
 
 const OneEvent = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,10 @@ const OneEvent = () => {
   const editOneEvent = async (event) => {
     await dispatch(updateEvent(event));
     history.push(`/events/${event.id}`);
-  }
+  };
+
+  const showEditModalFunc = () => setShowEditModal(true);
+  const closeEditModalFunc = () => setShowEditModal(false);
 
   return (
     <div>
@@ -43,10 +47,13 @@ const OneEvent = () => {
           {event?.date}
         </div>
         <div>
-          <p>By {sessionUser.username}</p>
-        </div>
-        <div>
           {/* {(sessionUser.id === event?.host_id) && <button onClick={() => Submit}>Edit Event</button>} */}
+          {(sessionUser.id === event?.host_id) && (<button onClick={showEditModalFunc}>Edit Event</button>)}
+          {showEditModal && (
+            <Modal closeModalFunc={closeEditModalFunc} className='modal-background'>
+              <EditEventForm closeModalFunc={closeEditModalFunc} />
+            </Modal>
+          )}
         </div>
         <div>
           {/* {(sessionUser.id === event?.host_id) && <button onClick={() => deleteOneEvent(event)}>Delete Event</button>} */}
