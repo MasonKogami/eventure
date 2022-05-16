@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { readOneEvent, deleteEvent } from '../../store/events';
+import Modal from '../Modal/Modal';
 import './OneEvent.css';
 
 const OneEvent = () => {
@@ -10,6 +11,7 @@ const OneEvent = () => {
   const sessionUser = useSelector(state => state.session.user);
   const { eventId } = useParams();
   const event = useSelector(state => state.events[eventId]);
+  const [showEditModal, setShowEditModal] = useState(false);
   // console.log(events)
   // console.log(event);
   console.log(sessionUser);
@@ -38,10 +40,21 @@ const OneEvent = () => {
           <p>By {sessionUser.username}</p>
         </div>
         <div>
-          {(sessionUser.id === event?.host_id) && <button onClick={() => Submit}>Edit Event</button>}
+          {/* {(sessionUser.id === event?.host_id) && <button onClick={() => Submit}>Edit Event</button>} */}
         </div>
         <div>
-          {(sessionUser.id === event?.host_id) && <button onClick={() => deleteOneEvent(event)}>Delete Event</button>}
+          {/* {(sessionUser.id === event?.host_id) && <button onClick={() => deleteOneEvent(event)}>Delete Event</button>} */}
+          {(sessionUser.id === event?.host_id) && (<ConfirmationModal 
+                message="Are you sure you want to delete this board?"
+                actionButtonLabel="Delete Board"
+                func={()=>deleteOneBoard(board)}
+              >
+            <button
+              style={{marginRight: "12px"}}
+              id='gray__board__button'
+            >Delete Event</button>
+          </ConfirmationModal>
+          )}
         </div>
       </div>
       <div>

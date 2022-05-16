@@ -20,6 +20,7 @@
   margin-left: auto;
   margin-right: auto; */
   /* filter: blur(10px); */
+  backdrop-filter: blur(5px);
 }
 
 .header-div {
