@@ -2,13 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createEvent } from '../../store/events';
-// import Calendar from 'react-calendar';
 import './NewEvent.css';
-// import DatePicker from 'react-datepicker';
-// import 'react-datepicker/dist/react-datepicker.css';
 import DateTimePicker from 'react-datetime-picker';
 import 'react-datetime-picker/dist/DateTimePicker.css';
-// import 'react-calendar/dist/Calendar.css';
 
 const NewEvent = () => {
   const dispatch = useDispatch();

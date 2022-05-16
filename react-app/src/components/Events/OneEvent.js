@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
-import { readOneEvent, deleteEvent } from '../../store/events';
+import { readOneEvent, deleteEvent, updateEvent } from '../../store/events';
 import Modal from '../Modal/Modal';
 import ConfirmationModal from '../Modal/Confirmation';
 import './OneEvent.css';
@@ -24,7 +24,12 @@ const OneEvent = () => {
   const deleteOneEvent = async (event) => {
     await dispatch(deleteEvent(event));
     history.push("/home"); // timing issue
-};
+  };
+
+  const editOneEvent = async (event) => {
+    await dispatch(updateEvent(event));
+    history.push(`/events/${event.id}`);
+  }
 
   return (
     <div>
