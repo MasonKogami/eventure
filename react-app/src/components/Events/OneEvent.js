@@ -38,7 +38,7 @@ const OneEvent = () => {
           <p>By {sessionUser.username}</p>
         </div>
         <div>
-          <button>Edit Event</button>
+          {(sessionUser.id === event?.host_id) && <button onClick={() => Submit}>Edit Event</button>}
         </div>
         <div>
           {(sessionUser.id === event?.host_id) && <button onClick={() => deleteOneEvent(event)}>Delete Event</button>}
