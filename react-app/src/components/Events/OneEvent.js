@@ -16,7 +16,7 @@ const OneEvent = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   // console.log(events)
   // console.log(event);
-  console.log(sessionUser);
+  // console.log(sessionUser);
 
   useEffect(() => {
     dispatch(readOneEvent(eventId))
