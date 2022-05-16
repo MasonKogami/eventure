@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
-import { readOneEvent, deleteEvent, updateEvent } from '../../store/events';
+import { readOneEvent, deleteEvent } from '../../store/events';
 import Modal from '../Modal/Modal';
 import ConfirmationModal from '../Modal/Confirmation';
 import './OneEvent.css';
@@ -27,11 +27,6 @@ const OneEvent = () => {
     history.push("/home"); // timing issue
   };
 
-  const editOneEvent = async (event) => {
-    await dispatch(updateEvent(event));
-    history.push(`/events/${event.id}`);
-  };
-
   const showEditModalFunc = () => setShowEditModal(true);
   const closeEditModalFunc = () => setShowEditModal(false);
 
@@ -40,7 +35,7 @@ const OneEvent = () => {
       <div className='bg-image-header'></div>
       <div className='header-div'>
         <div>
-          <img src='https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F230834389%2F285623250502%2F1%2Foriginal.20210604-004626?w=600&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=f94e8cdbce75497cb7ede588ea34da22' />
+          <img alt='event-header' src='https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F230834389%2F285623250502%2F1%2Foriginal.20210604-004626?w=600&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=f94e8cdbce75497cb7ede588ea34da22' />
         </div>
         <div>
           {event?.name}
