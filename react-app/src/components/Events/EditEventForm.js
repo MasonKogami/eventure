@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { createEvent } from '../../store/events';
-import './NewEvent.css';
+import { useHistory, useParams } from 'react-router-dom';
+import { updateEvent } from '../../store/events';
 import DateTimePicker from 'react-datetime-picker';
 import 'react-datetime-picker/dist/DateTimePicker.css';
+import './EditEventForm.css';
 
-const NewEvent = () => {
+const EditEventForm = ({ closeModalFunc }) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  // const today = new Date().toDateString();
-  const sessionUser = useSelector(state => state.session.user);
+  const { eventId } = useParams();
+  const event = useSelector(state => state.events[eventId]);
   const [locationName, setLocationName] = useState('');
   const [address, setAddress] = useState('');
   const [name, setName] = useState('');
@@ -18,51 +18,44 @@ const NewEvent = () => {
   const [capacity, setCapacity] = useState('');
   const [errors, setErrors] = useState([]);
 
-  // const dateArray = date.split("-");
-  // console.log(dateArray);
-  // const dateYear = dateArray[3];
-  // const dateMonth = dateArray[2];
-  // const dateDay = dateArray[3];
-
-  // const date1 = new Date(+dateYear, +dateMonth, +dateDay);
-
-  const handleSubmit = async (e) => {
+  const editOneEvent = async (e) => {
     e.preventDefault();
 
     const pattern = /\S+/;
-
     if (!pattern.test(name)) return;
     if (!pattern.test(locationName)) return;
 
-    // const dateStr = String(date);
-
-    // console.log(dateStr.slice(4));
-
-    let newEvent = {
-      user_id: sessionUser.id,
+    let updatedEvent = {
       location_name: locationName.trim(),
       address,
       name: name.trim(),
       date: date.toUTCString(),
-      capacity
+      capacity,
     };
-    console.log(date);
-    console.log(date.toUTCString())
-    let submitNewEvent = await dispatch(createEvent(newEvent))
-    .catch( async (res) => {
+
+    let newEvent = await dispatch(updateEvent(updatedEvent, eventId))
+    .catch(async (res) => {
       const data = await res.json();
       if (data && data.errors) {
-        setErrors(data.errors);
+          setErrors(data.errors);
       }
-    })
-    if (!errors.length && submitNewEvent) {
-      history.push("/home");
+    });
+
+    if (!errors.length && newEvent) {
+      closeModalFunc();
     }
+    
   };
 
+  const stopTheProp = e => e.stopPropagation();
+
   return (
-    <div className='new-event-form-con'>
-      <form onSubmit={handleSubmit} className='new-event-form'>
+    <div className='edit-modal-form'>
+      <form 
+        onSubmit={editOneEvent}
+        onClick={stopTheProp}
+        onMouseDown={stopTheProp}
+      >
         <ul>
           {errors.map((e) => {
             return (
@@ -70,7 +63,7 @@ const NewEvent = () => {
             )
           })}
         </ul>
-        <div className='basic-info-con'>
+        <div>
           <h2>Basic Info</h2>
           <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
           <div>
@@ -85,8 +78,7 @@ const NewEvent = () => {
             placeholder='Be clear and descriptive.'
           ></input>
         </div>
-        <hr style={{backgroundColor: '#eeedf2'}}/>
-        <div className='location-con'>
+        <div>
           <h2>Location</h2>
           <p>Help people in the area discover your event and let attendees know where to show up.</p>
           <div>
@@ -113,23 +105,21 @@ const NewEvent = () => {
             </input>
           </div>
         </div>
-        <hr style={{backgroundColor: '#eeedf2'}}/>
-        <div className='date-time-con'>
+        <div>
           <h2>Date</h2>
           <label>
             Tell event goers when your event starts and ends so they can make plans to attend.
           </label>
-          <DateTimePicker 
-            selected={date}
-            value={date}
-            minDate={new Date()}
-            // format='y-MM-dd'
-            onChange={(e) => {
-              console.log(e)
-              setDate(new Date(e))}} 
-          />
+          <div>
+            <DateTimePicker 
+              selected={date}
+              value={date}
+              minDate={new Date()}
+              onChange={(e) => setDate(new Date(e))} 
+            />
+          </div>
         </div>
-        <div className='capacity-con'>
+        <div>
           <h2>Capacity</h2>
           <p>Tell the event goers how many people they can bring to the party.</p>
           <label>
@@ -142,12 +132,16 @@ const NewEvent = () => {
           >
           </input>
         </div>
-        <button type='submit' className='create-event-button'>
-          Create Event
+        <button type='submit'>
+          Update Event
+        </button>
+        <button
+          onClick={closeModalFunc}>
+            Cancel
         </button>
       </form>
     </div>
-  )
+  );
 };
 
-export default NewEvent;
+export default EditEventForm;

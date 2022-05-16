@@ -52,8 +52,6 @@ def update_event(id):
 
   event.location_name = request['location_name']
   event.address       = request['address']
-  event.city          = request['city']
-  event.state         = request['state']
   event.name          = request['name']
   event.date          = request['date']
   event.capacity      = request['capacity']
@@ -69,7 +67,8 @@ def delete_event(id):
   event = Event.query.get(id)
 
   db.session.delete(event)
-
+  db.session.commit()
+  
   return event.to_dict()
 
 # C R E A T E  T I C K E T S

@@ -3,7 +3,7 @@
   justify-content: center;
   /* max-width: 1272px; */
   position: relative;
-  padding-top: 40px;
+  padding-top: 30px;
   padding-bottom: 40px;
   z-index: 2;
 }
@@ -33,13 +33,18 @@
   text-decoration: none;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  align-items: center; 
 
   /* background-color: #ffba08; */
   border: 1px gray solid;
 
   cursor: pointer;
+}
+
+.event-listings > div {
+  text-align: start;
+  /* background-color: green; */
 }
 
 .event-listings:hover {

@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import EventListings from './components/Events/events';
 import OneEvent from './components/Events/OneEvent';
 import HomePage from './components/Homepage/HomePage';
+import LandingPage from './components/LandingPage/LandingPage';
 import { authenticate } from './store/session';
 import NewEvent from './components/Events/NewEvent';
 
@@ -56,6 +57,9 @@ function App() {
         </Route>
         <Route path={`/events/:eventId`} exact={true}>
           <OneEvent />
+        </Route>
+        <Route path='/landingpage' exact={true}>
+          <LandingPage />
         </Route>
       </Switch>
     </BrowserRouter>

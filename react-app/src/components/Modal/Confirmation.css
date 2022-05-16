@@ -1,0 +1,15 @@
+.confirmation-modal {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+
+  background-color: #ffff;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+
+  /* animation: jello_3 1s; */
+  cursor: default;
+}

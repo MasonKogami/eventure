@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './events.css';
 import { readAllEvents } from '../../store/events';
@@ -30,19 +30,17 @@ const EventListings = () => {
         <div className='events'>
           {events.map((event) => {
             return (
-              <NavLink to={`/events/${event.id}`} className='event-listings'>
-                <div>
-                </div>
-                <div>
+              <NavLink to={`/events/${event.id}`} className='event-listings' key={event.id}>
+                <div style={{color: 'black'}}>
                   {event.name}
                 </div>
-                <div>
+                <div style={{color: 'orange'}}>
                   {event.date}
                 </div>
-                <div>
+                <div style={{color: 'gray'}}>
                   {event.location_name}
                 </div>
-                <div>
+                <div style={{color: 'gray'}}>
                   {event.address}
                 </div>
               </NavLink>
