@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { updateEvent } from '../../store/events';
 import DateTimePicker from 'react-datetime-picker';
 import 'react-datetime-picker/dist/DateTimePicker.css';
@@ -8,14 +8,14 @@ import './EditEventForm.css';
 
 const EditEventForm = ({ closeModalFunc }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const { eventId } = useParams();
+  const sessionUser = useSelector(state => state.session.user);
   const event = useSelector(state => state.events[eventId]);
-  const [locationName, setLocationName] = useState('');
-  const [address, setAddress] = useState('');
-  const [name, setName] = useState('');
-  const [date, setDate] = useState(new Date());
-  const [capacity, setCapacity] = useState('');
+  const [locationName, setLocationName] = useState(event.location_name);
+  const [address, setAddress] = useState(event.address);
+  const [name, setName] = useState(event.name);
+  const [date, setDate] = useState(new Date(event.date));
+  const [capacity, setCapacity] = useState(event.capacity);
   const [errors, setErrors] = useState([]);
 
   const editOneEvent = async (e) => {
@@ -26,6 +26,7 @@ const EditEventForm = ({ closeModalFunc }) => {
     if (!pattern.test(locationName)) return;
 
     let updatedEvent = {
+      user_id: sessionUser.id,
       location_name: locationName.trim(),
       address,
       name: name.trim(),
@@ -33,18 +34,12 @@ const EditEventForm = ({ closeModalFunc }) => {
       capacity,
     };
 
-    let newEvent = await dispatch(updateEvent(updatedEvent, eventId))
-    .catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) {
-          setErrors(data.errors);
-      }
-    });
-
-    if (!errors.length && newEvent) {
+    let newEvent = await dispatch(updateEvent(updatedEvent, eventId));
+    if (newEvent.errors) {
+        setErrors(newEvent.errors);
+    } else {
       closeModalFunc();
     }
-    
   };
 
   const stopTheProp = e => e.stopPropagation();

@@ -2,15 +2,18 @@ html {
   width: 100%;
   margin: 0px;
   padding: 0px;
+  overflow-x: hidden;
 }
 
 body {
   width: 100%;
   margin: 0px;
   padding: 0px;
+  overflow-x: hidden;
 }
 
 :root {
+  width: 100%;
   font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
   font-weight: 700;
   font-size: 15px;
