@@ -21,11 +21,11 @@ const NavBar = () => {
   return (
     <nav style={{height: '61px'}}>
       <div className='home'>
-          <NavLink to='/home' exact={true} activeClassName='active' style={{textDecoration: 'none', color: '#d1410c'}}>
+          <NavLink to='/home' exact={true} activeClassName='active' style={{textDecoration: 'none', marginLeft: '24px', color: '#d1410c'}}>
             Eventure
           </NavLink>
           <NavLink to='/events/create' exact={true} style={{textDecoration: 'none', verticalAlign: 'end', color: 'rgb(61, 100, 255)'}}>
-            <BsPlusLg style={{ position: 'relative', bottom: '17px', left: '55px'}}/>
+            <BsPlusLg style={{ position: 'relative', bottom: '15px', left: '55px'}}/>
             Create Event
           </NavLink>
       </div>
@@ -42,9 +42,9 @@ const NavBar = () => {
           Users
         </NavLink>
       </li> */}
-      <div className='logout-ticket'>
-        <div>
-          <FaTicketAlt style={{position: 'relative', bottom: '18px', left: '34px'}} />
+      <div className='logout-ticket' style={{paddingRight: '24px'}}>
+        <div style={{marginRight: '15px'}}>
+          <FaTicketAlt style={{position: 'relative', bottom: '15px', left: '34px'}} />
           Tickets
         </div>
         <LogoutButton />
