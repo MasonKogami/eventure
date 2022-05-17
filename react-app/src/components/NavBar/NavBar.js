@@ -21,7 +21,7 @@ const NavBar = () => {
   return (
     <nav style={{height: '61px'}}>
       <div className='home'>
-          <NavLink to='/home' exact={true} activeClassName='active' style={{textDecoration: 'none'}}>
+          <NavLink to='/home' exact={true} activeClassName='active' style={{textDecoration: 'none', color: '#d1410c'}}>
             Eventure
           </NavLink>
           <NavLink to='/events/create' exact={true} style={{textDecoration: 'none', verticalAlign: 'end', color: 'rgb(61, 100, 255)'}}>
