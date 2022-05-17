@@ -46,8 +46,20 @@ export const deleteTickets = ticket => async dispatch => {
   }
 };
 
-const ticketsReducer = (state = initialState, action) => {
+const initialState = {};
 
+const ticketsReducer = (state = initialState, action) => {
+  let newState = {...state};
+  switch (action.type) {
+    case UPDATE_TICKETS:
+      newState[action.ticket.id] = action.ticket;
+      return newState;
+    case DELETE_TICKETS:
+      delete newState[action.event.id];
+      return newState;
+    default:
+      return newState;
+  }
 };
 
 export default ticketsReducer;
