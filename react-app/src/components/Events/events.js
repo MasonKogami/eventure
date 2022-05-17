@@ -24,7 +24,7 @@ const EventListings = () => {
   return (
     <>
       <div className='event-div'>
-        <h3>Events Near You</h3>
+        <h3>Eventures Near You</h3>
       </div>
       <div className='event-feed'>
         <div className='events'>
