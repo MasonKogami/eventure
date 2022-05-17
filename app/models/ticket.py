@@ -12,7 +12,7 @@ class Ticket(db.Model):
   created_at       = db.Column(db.DateTime(timezone = True), server_default = func.now())
   updated_at       = db.Column(db.DateTime(timezone = True), onupdate = func.now())
 
-  # user = db.relationship('User', back_populates='tickets')
+  user             = db.relationship('User', back_populates='tickets')
 
   def to_dict(self):
     return {
@@ -21,5 +21,6 @@ class Ticket(db.Model):
             'user_id': self.user_id,
             'quantity': self.quantity,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'user': self.user.to_dict()
             }
