@@ -155,7 +155,7 @@ const eventsReducer = (state = initialState, action) => {
       delete newState[action.event.id];
       return newState;
     case ADD_TICKETS:
-      newState.session.user.tickets = [...tickets, action.ticket];
+      newState[action.ticket.id] = action.ticket;
       return newState;
     default:
       return state;

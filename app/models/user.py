@@ -6,14 +6,14 @@ from flask_login import UserMixin
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(40), nullable=False, unique=True)
-    email = db.Column(db.String(255), nullable=False, unique=True)
+    id              = db.Column(db.Integer, primary_key=True)
+    username        = db.Column(db.String(40), nullable=False, unique=True)
+    email           = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    events = db.relationship('Event', back_populates='user')
+    events          = db.relationship('Event', back_populates='user')
 
-    tickets = db.relationship('Ticket', back_populates='user')
+    tickets         = db.relationship('Ticket', back_populates='user')
 
     @property
     def password(self):
@@ -31,5 +31,5 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'tickets': [ticket.to_dict() for ticket in tickets]
+            'tickets': [ticket.to_dict() for ticket in self.tickets]
         }

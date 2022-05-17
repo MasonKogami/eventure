@@ -18,7 +18,7 @@ def update_tickets(id):
   return tickets.to_dict()
   
 # D E L E T E  T I C K E T S
-@user_routes.route('/<int:id>', methods=['DELETE'])
+@ticket_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_tickets(id):
   tickets = Ticket.query.get(id)

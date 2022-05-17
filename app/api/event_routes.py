@@ -83,12 +83,12 @@ def add_ticket(id):
 
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
-    ticket = Ticket(
+    tickets = Ticket(
       event_id=id,
       user_id=form.data['user_id'],
       quantity=form.data['quantity']
     )
-    db.session.add(ticket)
+    db.session.add(tickets)
     db.session.commit()
 
-    return ticket.to_dict()
+    return tickets.to_dict()
