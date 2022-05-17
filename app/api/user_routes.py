@@ -20,13 +20,13 @@ def user(id):
 
 
 # R E A D  A L L  T I C K E T S
-# @user_routes.route('/<int:id>/tickets', methods=['GET'])
-# @login_required
-# def tickets(id):
-#   # db query to grab all tickets for the current user
-#   tickets = Ticket.query.filter(current_user.id == Ticket.user_id).all()
+@user_routes.route('/<int:id>/tickets', methods=['GET'])
+@login_required
+def tickets(id):
+  # db query to grab all tickets for the current user
+  tickets = Ticket.query.filter(current_user.id == Ticket.user_id).all()
 
-#   return {'tickets': [ticket.to_dict() for ticket in tickets]}
+  return {'tickets': [ticket.to_dict() for ticket in tickets]}
 
 # Not sure how to properly implement these, will look into it before further development
 
