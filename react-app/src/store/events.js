@@ -107,6 +107,33 @@ export const deleteEvent = event => async dispatch => {
   }
 };
 
+// T I C K E T  C O N S T A N T
+const ADD_TICKETS = 'boards/ADD_TICKETS'
+
+// T I C K E T  A C T I O N S
+const addTicketsAction = ticket => ({
+  type: ADD_TICKETS,
+  ticket
+});
+
+// T I C K E T  T H U N K
+export const addTickets = ticket => async dispatch => {
+  const response = await fetch(`/api/events/${ticket.event_id}/tickets`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(ticket)
+  });
+
+  const data = await response.json();
+
+  if (response.ok) {
+    await dispatch(addTicketsAction(data));
+    return data;
+  } else {
+    console.log(data.errors)
+  }
+};
+
 // R E D U C E R
 let initialState = {};
 const eventsReducer = (state = initialState, action) => {
