@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import EventListings from './components/Events/events';
 import OneEvent from './components/Events/OneEvent';
 import HomePage from './components/Homepage/HomePage';
+import AboutMe from './components/AboutMe/AboutMe';
 import LandingPage from './components/LandingPage/LandingPage';
 import { authenticate } from './store/session';
 import NewEvent from './components/Events/NewEvent';
@@ -51,6 +52,7 @@ function App() {
         <ProtectedRoute path='/home' exact={true} >
           <HomePage />
           <EventListings />
+          <AboutMe />
         </ProtectedRoute>
         <Route path='/events/create' exact={true}>
           <NewEvent />
