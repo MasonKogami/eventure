@@ -19,6 +19,7 @@ class Ticket(db.Model):
             'id': self.id,
             'event_id': self.event_id,
             'user_id': self.user_id,
+            'quantity': self.quantity,
             'created_at': self.created_at,
             'updated_at': self.updated_at
             }
