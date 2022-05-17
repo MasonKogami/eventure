@@ -124,9 +124,7 @@ const NewEvent = () => {
             value={date}
             minDate={new Date()}
             // format='y-MM-dd'
-            onChange={(e) => {
-              console.log(e)
-              setDate(new Date(e))}} 
+            onChange={(e) => setDate(new Date(e))} 
           />
         </div>
         <div className='capacity-con'>
