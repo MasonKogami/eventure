@@ -11,7 +11,7 @@ const Checkout = ({ closeModalFunc }) => {
   const sessionUser = useSelector(state => state.session.user);
   const { eventId } = useParams();
   const event = useSelector(state => state.events[eventId]);
-  const [quantity, setQuantity] = useState('');
+  const [quantity, setQuantity] = useState(0);
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
@@ -35,29 +35,52 @@ const Checkout = ({ closeModalFunc }) => {
     }
   };
 
+  const stopTheProp = e => e.stopPropagation();
+
   return (
-    <div style={{boxShadow: '0 0 12px rgba(0, 0, 0, 0.5)'}}>
-      <h2>Ticket Order Form</h2>
-      <form>
-        <div>
-          <label>
-            {event.name}
-          </label>
-        </div>
-        <div>
-          <label>
-            Quantity
-          </label>
-          <input
-            value={quantity}
-            onChange={(e) => e.target.value}
-            type='integer'
-            placeholder='How many tickets do you need?'
-          >
-          </input>
-        </div>
-      <button>Checkout</button>
-      </form>
+    <div style={{backgroundColor: '#ffff', boxShadow: '0 0 12px rgba(0, 0, 0, 0.5)', height: '80%', width: '40%'}}>
+      <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
+        <h2>Ticket Order Form</h2>
+        <form 
+          onClick={stopTheProp}
+          onMouseDown={stopTheProp}
+        >
+          <div>
+            <label>
+              Event Name: {event.name}
+            </label>
+          </div>
+          <div>
+            <label>
+              Quantity
+            </label>
+            <select
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+              type='integer'
+              placeholder='How many tickets do you need?'
+            >
+              <option value={0}>0</option>
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+              <option value={6}>6</option>
+              <option value={7}>7</option>
+              <option value={8}>8</option>
+              <option value={9}>9</option>
+              <option value={10}>10</option>
+            </select>
+          </div>
+        <button 
+          type='submit'
+          style={{backgroundColor: '#d1410c', color: '#ffff', borderColor: '#d1410c', borderRadius: '4px', cursor: 'pointer'}}
+        >Checkout</button>
+        </form>
+      </div>
+      <div>
+      </div>
     </div>
   );
 };
