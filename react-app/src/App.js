@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
+import User from './components/User';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import EventListings from './components/Events/events';
@@ -42,12 +43,12 @@ function App() {
         </Route>
         {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute> */}
+        </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          {sessionUser ? <Redirect to='/home' /> : <Redirect to='/login' />}
+          {sessionUser ? <Redirect to='/home' /> : <Redirect to='/landingpage' />}
         </ProtectedRoute>
         <ProtectedRoute path='/home' exact={true} >
           <HomePage />

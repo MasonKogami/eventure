@@ -1,4 +1,4 @@
-.homepage-slideshow {
+.landingpage-slideshow {
   z-index: 1;
   background-size: cover;
   width: 100%;
@@ -21,9 +21,29 @@
   } 
 }
 
-h1 {
-  position: absolute;
-  top: 400px;
-  left: 95px;
-  color: #ffff;
+.user-forms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.modal-background-home-page {
+  top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    z-index: 2;
+
+    backdrop-filter: blur(5px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.not-displayed {
+  display: none;
 }

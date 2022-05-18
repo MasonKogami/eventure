@@ -13,18 +13,10 @@ const EventListings = () => {
     dispatch(readAllEvents())
   }, [dispatch]);
 
-  // const EventListing = ({event}) => {
-  //   return (
-  //     <div>
-  //       <NavLink to={`/events/${event.id}`} />
-  //     </div>
-  //   )
-  // }
-
   return (
     <>
       <div className='event-div'>
-        <h3>Events Near You</h3>
+        <h3>Eventures Near You</h3>
       </div>
       <div className='event-feed'>
         <div className='events'>
