@@ -42,7 +42,7 @@ const NavBar = () => {
           Users
         </NavLink>
       </li> */}
-      <div className='logout-ticket' style={{paddingRight: '24px'}}>
+      <div className='logout-ticket' style={{paddingRight: '24px', color: '#39364f'}}>
         <div style={{marginRight: '15px'}}>
           <FaTicketAlt style={{position: 'relative', bottom: '15px', left: '34px'}} />
           Tickets
