@@ -1,8 +1,10 @@
 .landingpage-slideshow {
+  position: relative;
+  top: 0px;
   z-index: 1;
   background-size: cover;
   width: 100%;
-  height: 500px;
+  height: 350px;
   background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg");
   animation: slideshow infinite 50s linear;
 }
@@ -46,4 +48,19 @@
 
 .not-displayed {
   display: none;
+}
+
+.landingpage-title {
+  position: relative;
+  left: 708px;
+  color: #fca311;
+  font-size: 24px;
+  font-weight: bolder;
+  /* top: 50px;
+  z-index: 2; */
+}
+
+.landingpage-con {
+  position: relative;
+  top: 0;
 }
