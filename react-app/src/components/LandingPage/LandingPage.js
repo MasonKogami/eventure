@@ -37,9 +37,9 @@ const LandingPage = () => {
   };
 
   return (
-    <>
-      <h2>Eventure</h2>
+    <div className='landingpage-con'>
       <div className='landingpage-slideshow' />
+      <h2 className='landingpage-title'>Eventure</h2>
       <div className='user-forms'>
         <button onClick={changeLoginDisplay}>Log In</button>
         <button onClick={changeSignupDisplay}>Sign Up</button>
@@ -61,7 +61,7 @@ const LandingPage = () => {
               <SignUpForm closeModalFunc={changeSignupDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
           </div>
       </div> */}
-    </>
+    </div>
   )
 };
 
