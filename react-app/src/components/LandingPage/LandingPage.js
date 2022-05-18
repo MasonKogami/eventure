@@ -44,12 +44,23 @@ const LandingPage = () => {
         <button onClick={changeLoginDisplay}>Log In</button>
         <button onClick={changeSignupDisplay}>Sign Up</button>
         <div className={`modal-background-home-page ${loginDisplay}`} onMouseDown={changeLoginDisplay}>
-          <LoginForm closeModalFunc={changeLoginDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc}/>
+          <LoginForm closeModalFunc={changeLoginDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
         </div>
-        <div className={`modal-background-home-page ${signupDisplay}`}>
-          <SignUpForm closeModalFunc={changeSignupDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc}/>
+        <div className={`modal-background-home-page ${signupDisplay}`} onMouseDown={changeSignupDisplay}>
+          <SignUpForm closeModalFunc={changeSignupDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
         </div>
       </div>
+      {/* <div className="user-buttons-div">
+          <button  onClick={demoLogin}>Demo User</button>
+          <button  onClick={changeLoginDisplay}>Log In</button>
+          <button  onClick={changeSignupDisplay}>Sign Up</button>
+          <div className={`modal-background-home-page ${loginDisplay}`} onMouseDown={changeLoginDisplay}>
+              <LoginForm closeModalFunc={changeLoginDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
+          </div>
+          <div className={`modal-background-home-page ${signupDisplay}`} onMouseDown={changeSignupDisplay}>
+              <SignUpForm closeModalFunc={changeSignupDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
+          </div>
+      </div> */}
     </>
   )
 };
