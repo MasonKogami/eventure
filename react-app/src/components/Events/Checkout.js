@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { readOneEvent } from '../../store/events';
 import { addTickets } from '../../store/events';
 // import Modal from '../Modal/Modal';
+import './Checkout.css';
 
 const Checkout = ({ closeModalFunc }) => {
   const dispatch = useDispatch();
@@ -13,10 +14,19 @@ const Checkout = ({ closeModalFunc }) => {
   const event = useSelector(state => state.events[eventId]);
   const [quantity, setQuantity] = useState(0);
   const [errors, setErrors] = useState([]);
+  const [submitError, setSubmitError] = useState('disabled');
 
   useEffect(() => {
     dispatch(readOneEvent(eventId))
   }, [dispatch, eventId]);
+
+  useEffect(() => {
+    if (quantity !== 0) {
+      setSubmitError('able');
+    } else {
+      setSubmitError('disabled');
+    }
+  }, [dispatch, quantity]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +34,7 @@ const Checkout = ({ closeModalFunc }) => {
     const tickets = {
       user_id: sessionUser.id,
       event_id: eventId,
-      quantity
+      quantity: +quantity
     };
 
     let newTickets = await dispatch(addTickets(tickets));
@@ -40,16 +50,24 @@ const Checkout = ({ closeModalFunc }) => {
   return (
     <div style={{backgroundColor: '#ffff', boxShadow: '0 0 12px rgba(0, 0, 0, 0.5)', height: '80%', width: '40%'}}>
       <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
-        <h2>Ticket Order Form</h2>
+        <div style={{borderBottom: '2px solid #eeedf2', width: '100%', display: 'flex', justifyContent: 'center'}}>
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+          <h2 style={{color: '#d1410c'}}>Ticket Order Form</h2>
+            <label>
+              {event.name}
+            </label>
+            <div>
+              <label>
+                {event.date}
+              </label>
+            </div>
+          </div>
+        </div>
         <form 
           onClick={stopTheProp}
           onMouseDown={stopTheProp}
+          onSubmit={handleSubmit}
         >
-          <div>
-            <label>
-              Event Name: {event.name}
-            </label>
-          </div>
           <div>
             <label>
               Quantity
@@ -75,9 +93,15 @@ const Checkout = ({ closeModalFunc }) => {
           </div>
         <button 
           type='submit'
-          style={{backgroundColor: '#d1410c', color: '#ffff', borderColor: '#d1410c', borderRadius: '4px', cursor: 'pointer'}}
+          className='checkout-button1'
+          onClick={closeModalFunc}
+          disabled={submitError !== 'able'}
         >Checkout</button>
         </form>
+        <button
+          className='checkout-button2'
+          onClick={closeModalFunc}
+        >Cancel</button>
       </div>
       <div>
       </div>
