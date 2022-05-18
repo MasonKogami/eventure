@@ -59,9 +59,9 @@ const EditEventForm = ({ closeModalFunc }) => {
           })}
         </ul>
         <div>
-          <h2>Basic Info</h2>
+          <h2 style={{color: '#fca311', fontWeight: 'bolder'}}>Basic Info</h2>
           <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
-          <div>
+          <div style={{marginBottom: '5px'}}>
             <label>
               Event Name
             </label>
@@ -74,9 +74,9 @@ const EditEventForm = ({ closeModalFunc }) => {
           ></input>
         </div>
         <div>
-          <h2>Location</h2>
+          <h2 style={{color: '#fca311', fontWeight: 'bolder'}}>Location</h2>
           <p>Help people in the area discover your event and let attendees know where to show up.</p>
-          <div>
+          <div style={{marginBottom: '5px'}}>
             <label>
               Location Name
             </label>
@@ -88,9 +88,11 @@ const EditEventForm = ({ closeModalFunc }) => {
             placeholder='Venue Name'
           ></input>
           <div>
-            <label>
-              Address
-            </label>
+            <div style={{marginBottom: '5px'}}>
+              <label>
+                Address
+              </label>
+            </div>
             <input
               value={address}
               onChange={(e) => setAddress(e.target.value)}
@@ -101,10 +103,12 @@ const EditEventForm = ({ closeModalFunc }) => {
           </div>
         </div>
         <div>
-          <h2>Date</h2>
-          <label>
-            Tell event goers when your event starts and ends so they can make plans to attend.
-          </label>
+          <h2 style={{color: '#fca311', fontWeight: 'bolder'}}>Date</h2>
+          <div style={{marginBottom: '5px'}}>
+            <label>
+              Tell event goers when your event starts and ends so they can make plans to attend.
+            </label>
+          </div>
           <div>
             <DateTimePicker 
               selected={date}
@@ -115,11 +119,13 @@ const EditEventForm = ({ closeModalFunc }) => {
           </div>
         </div>
         <div>
-          <h2>Capacity</h2>
+          <h2 style={{color: '#fca311', fontWeight: 'bolder'}}>Capacity</h2>
           <p>Tell the event goers how many people they can bring to the party.</p>
-          <label>
-            Capacity
-          </label>
+          <div style={{marginBottom: '5px'}}>
+            <label>
+              Capacity
+            </label>
+          </div>
           <input 
             value={capacity}
             placeholder='Number of people allowed.'
@@ -127,12 +133,14 @@ const EditEventForm = ({ closeModalFunc }) => {
           >
           </input>
         </div>
-        <button type='submit'>
+        <button type='submit' style={{backgroundColor: '#fca311', color: '#ffff', cursor: 'pointer', marginRight: '10px', marginTop: '10px'}}>
           Update Event
         </button>
         <button
-          onClick={closeModalFunc}>
-            Cancel
+          onClick={closeModalFunc}
+          style={{backgroundColor: '#fca311', color: '#ffff', cursor: 'pointer'}}
+        >
+          Cancel
         </button>
       </form>
     </div>

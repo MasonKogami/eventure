@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { readOneEvent, deleteEvent } from '../../store/events';
+import { addTickets } from '../../store/events';
 import Modal from '../Modal/Modal';
 import ConfirmationModal from '../Modal/Confirmation';
 import './OneEvent.css';
 import EditEventForm from './EditEventForm';
+import Checkout from './Checkout';
 
 const OneEvent = () => {
   const dispatch = useDispatch();
@@ -14,6 +16,7 @@ const OneEvent = () => {
   const { eventId } = useParams();
   const event = useSelector(state => state.events[eventId]);
   const [showEditModal, setShowEditModal] = useState(false);
+  const [showCheckoutModal, setCheckoutModal] = useState(false);
   // console.log(events)
   // console.log(event);
   // console.log(sessionUser);
@@ -29,6 +32,8 @@ const OneEvent = () => {
 
   const showEditModalFunc = () => setShowEditModal(true);
   const closeEditModalFunc = () => setShowEditModal(false);
+  const showCheckoutModalFunc = () => setCheckoutModal(true);
+  const closeCheckoutModalFunc = () => setCheckoutModal(false)
 
   if (!sessionUser) {
     return null;
@@ -38,9 +43,9 @@ const OneEvent = () => {
     <div>
       <div className='bg-image-header'></div>
       <div className='header-div'>
-        <div>
+        {/* <div>
           <img alt='event-header' src='https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F230834389%2F285623250502%2F1%2Foriginal.20210604-004626?w=600&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=f94e8cdbce75497cb7ede588ea34da22' />
-        </div>
+        </div> */}
         <div>
           {event?.name}
           {event?.date}
@@ -49,7 +54,7 @@ const OneEvent = () => {
           {(sessionUser.id === event?.host_id) && (<button onClick={showEditModalFunc}>Edit Event</button>)}
           {showEditModal && (
             <Modal closeModalFunc={closeEditModalFunc} className='modal-background'>
-              <EditEventForm closeModalFunc={closeEditModalFunc} />
+              <EditEventForm style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeEditModalFunc} />
             </Modal>
           )}
         </div>
@@ -65,6 +70,14 @@ const OneEvent = () => {
           </ConfirmationModal>
           )}
         </div>
+      </div>
+      <div>
+        {sessionUser && (<button onClick={showCheckoutModalFunc}>Tickets</button>)}
+        {showCheckoutModal && (
+          <Modal closeModalFunc={closeCheckoutModalFunc}>
+            <Checkout closeModalFunc={closeCheckoutModalFunc}/>
+          </Modal>
+        )}
       </div>
       <div>
         {event?.location_name}

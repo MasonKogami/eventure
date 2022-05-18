@@ -32,7 +32,7 @@ export default function ConfirmationModal({ message, actionButtonLabel, func, ch
                onMouseDown={stopTheProp}>
             <div className='confirmation-message'>{message}</div>
             <div className='confirmation-buttons'>
-              <button onClick={doAction} id="logout-button">{actionButtonLabel}</button>
+              <button onClick={doAction} id="modal-button">{actionButtonLabel}</button>
             </div>
           </div>
         </Modal>
