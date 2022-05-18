@@ -26,15 +26,17 @@ const Checkout = ({ closeModalFunc }) => {
     } else {
       setSubmitError('disabled');
     }
-  }, [dispatch, quantity]);
+  }, [quantity]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log(typeof quantity)
+
     const tickets = {
       user_id: sessionUser.id,
-      event_id: eventId,
-      quantity: +quantity
+      event_id: event.id,
+      quantity
     };
 
     let newTickets = await dispatch(addTickets(tickets));
@@ -94,7 +96,6 @@ const Checkout = ({ closeModalFunc }) => {
         <button 
           type='submit'
           className='checkout-button1'
-          onClick={closeModalFunc}
           disabled={submitError !== 'able'}
         >Checkout</button>
         </form>
