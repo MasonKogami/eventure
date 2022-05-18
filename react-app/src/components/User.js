@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 function User() {
   const [user, setUser] = useState({});
   const { userId }  = useParams();
+  // console.log(user);
 
   useEffect(() => {
     if (!userId) {
@@ -30,6 +32,14 @@ function User() {
       </li>
       <li>
         <strong>Email</strong> {user.email}
+      </li>
+      <li>
+        <strong>Tickets</strong> {user.tickets}
+        {/* {user.tickets.map((ticket) => {
+          <li key={ticket.id}>
+            {ticket}
+          </li>
+        })} */}
       </li>
     </ul>
   );

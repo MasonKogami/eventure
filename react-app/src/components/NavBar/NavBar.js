@@ -3,8 +3,9 @@ import { NavLink, useHistory } from 'react-router-dom';
 import './NavBar.css';
 import { BsPlusLg } from 'react-icons/bs';
 import { FaTicketAlt } from 'react-icons/fa';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../store/session';
+import { FaUser } from 'react-icons/fa';
 
 const LogoutButton = () => {
   const history = useHistory();
@@ -18,6 +19,7 @@ const LogoutButton = () => {
 };
 
 const NavBar = () => {
+  const sessionUser = useSelector(state => state.session.user);
   return (
     <nav style={{height: '61px'}}>
       <div className='home'>
@@ -46,6 +48,10 @@ const NavBar = () => {
         <div style={{marginRight: '15px'}}>
           <FaTicketAlt style={{position: 'relative', bottom: '15px', left: '34px'}} />
           Tickets
+        </div>
+        <FaUser />
+        <div style={{color: '#39364f'}}>
+          {sessionUser?.username}
         </div>
         <LogoutButton />
       </div>
