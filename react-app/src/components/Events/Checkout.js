@@ -31,8 +31,6 @@ const Checkout = ({ closeModalFunc }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(typeof quantity)
-
     const tickets = {
       user_id: sessionUser.id,
       event_id: event.id,
@@ -43,6 +41,7 @@ const Checkout = ({ closeModalFunc }) => {
     if (newTickets.errors) {
       setErrors(newTickets.errors);
     } else {
+      alert(`Success! You have acquired tickets for ${event.name}`)
       closeModalFunc();
     }
   };
