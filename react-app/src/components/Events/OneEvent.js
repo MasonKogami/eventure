@@ -30,6 +30,10 @@ const OneEvent = () => {
   const showEditModalFunc = () => setShowEditModal(true);
   const closeEditModalFunc = () => setShowEditModal(false);
 
+  if (!sessionUser) {
+    return null;
+  }
+
   return (
     <div>
       <div className='bg-image-header'></div>
