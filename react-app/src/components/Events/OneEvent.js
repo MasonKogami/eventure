@@ -40,7 +40,7 @@ const OneEvent = () => {
   }
 
   return (
-    <div>
+    <div className='oneevent-page'>
       <div className='bg-image-header'></div>
       <div className='header-div'>
         {/* <div>
@@ -72,16 +72,17 @@ const OneEvent = () => {
         </div>
       </div>
       <div>
-        {sessionUser && (<button onClick={showCheckoutModalFunc}>Tickets</button>)}
-        {showCheckoutModal && (
-          <Modal closeModalFunc={closeCheckoutModalFunc}>
-            <Checkout closeModalFunc={closeCheckoutModalFunc}/>
-          </Modal>
-        )}
-      </div>
-      <div>
-        {event?.location_name}
-        {event?.address}
+        <div className='event-info'>
+          {sessionUser && (<button onClick={showCheckoutModalFunc}>Tickets</button>)}
+          {showCheckoutModal && (
+            <Modal className='checkoutmodal-background' closeModalFunc={closeCheckoutModalFunc}>
+              <Checkout closeModalFunc={closeCheckoutModalFunc}/>
+            </Modal>
+          )}
+          {event?.location_name}
+          {event?.address}
+        </div>
+        <p style={{backgroundColor: '#ffdead', display: 'flex', justifyContent: 'center'}}>Add a description for your Eventure.</p>
       </div>
     </div>
   );
