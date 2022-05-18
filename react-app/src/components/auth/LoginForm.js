@@ -3,12 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 
-const LoginForm = () => {
+const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const [loginDisplay] = useState('displayed');
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -30,9 +31,11 @@ const LoginForm = () => {
     return <Redirect to='/home' />;
   }
 
+  const stopTheProp = e => e.stopPropagation();
+
   return (
-    <>
-      <form onSubmit={onLogin}>
+    <div className={`login-body ${loginDisplay}`} onClick={stopTheProp} onMouseDown={stopTheProp}>
+      <form onSubmit={onLogin} >
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
@@ -63,7 +66,7 @@ const LoginForm = () => {
       <button onClick={() => dispatch(login('demo@aa.io', 'password'))}>
         Demo User
       </button>
-    </>
+    </div>
   );
 };
 
