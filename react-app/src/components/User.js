@@ -5,7 +5,13 @@ import { useParams } from 'react-router-dom';
 function User() {
   const [user, setUser] = useState({});
   const { userId }  = useParams();
-  // console.log(user);
+  console.log(user);
+
+  if (user) {
+    const tickets = user.tickets;
+    console.log(tickets);
+    
+  }
 
   useEffect(() => {
     if (!userId) {
@@ -34,12 +40,7 @@ function User() {
         <strong>Email</strong> {user.email}
       </li>
       <li>
-        <strong>Tickets</strong> {user.tickets}
-        {/* {user.tickets.map((ticket) => {
-          <li key={ticket.id}>
-            {ticket}
-          </li>
-        })} */}
+        <strong>Tickets</strong>
       </li>
     </ul>
   );
