@@ -33,7 +33,7 @@ const OneEvent = () => {
   const showEditModalFunc = () => setShowEditModal(true);
   const closeEditModalFunc = () => setShowEditModal(false);
   const showCheckoutModalFunc = () => setCheckoutModal(true);
-  const closeCheckoutModalFunc = () => setCheckoutModal(false)
+  const closeCheckoutModalFunc = () => setCheckoutModal(false);
 
   if (!sessionUser) {
     return null;
