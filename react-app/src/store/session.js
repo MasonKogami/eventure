@@ -1,6 +1,7 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+const READ_ALL_TICKETS = 'session/READ_ALL_TICKETS';
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -9,7 +10,12 @@ const setUser = (user) => ({
 
 const removeUser = () => ({
   type: REMOVE_USER,
-})
+});
+
+const readAllTicketsAction = user => ({
+  type: READ_ALL_TICKETS,
+  user
+});
 
 const initialState = { user: null };
 
@@ -95,14 +101,33 @@ export const signUp = (username, email, password) => async (dispatch) => {
   } else {
     return ['An error occurred. Please try again.']
   }
-}
+};
+
+export const readAllTickets = user => async dispatch => {
+  const response = await fetch(`/api/users/${user}/tickets`);
+
+  const data = await response.json();
+
+  if (response.ok) {
+    dispatch(readAllTicketsAction(data));
+    return data;
+  } else {
+    console.log(data.errors);
+  }
+};
 
 export default function reducer(state = initialState, action) {
+  let newState = {...state};
   switch (action.type) {
     case SET_USER:
       return { user: action.payload }
     case REMOVE_USER:
       return { user: null }
+    // case READ_ALL_TICKETS:
+    //   action.user.tickets.forEach(ticket => {
+    //     newState[action.user.id].tickets = ticket
+    //   });
+    //   return newState;
     default:
       return state;
   }
