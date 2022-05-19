@@ -1,16 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { updateTickets, deleteTickets } from '../../store/tickets';
+import { readAllTickets } from '../../store/session';
 import Checkout from "../Events/Checkout";
 import Modal from '../Modal/Modal';
 import ConfirmationModal from "../Modal/Confirmation";
 
-const SingleTicket = ({ user, ticket }) => {
+const SingleTicket = ({ ticket, userId }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const [user, setUser] = useState({});
   const [showCheckoutModal, setCheckoutModal] = useState(false);
 
   const removeTickets = async (ticket) => {
     await dispatch(deleteTickets(ticket));
+  };
+
+  // useEffect(() => {
+  //   dispatch(readAllTickets(user));
+  // }, [dispatch, user]);
+
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    (async () => {
+      const response = await fetch(`/api/users/${userId}`);
+      const user = await response.json();
+      setUser(user);
+      // if (user) {
+      //   dispatch(readAllTickets(userId));
+      // }
+    })();
+
+
+  }, [userId]);
+
+
+  if (!user) {
+    return null;
   };
 
   const showCheckoutModalFunc = () => setCheckoutModal(true);
