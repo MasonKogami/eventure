@@ -4,37 +4,12 @@ import { useParams } from 'react-router-dom';
 import { readAllEvents } from '../store/events';
 import { updateTickets, deleteTickets } from '../store/tickets';
 
-const Ticket = ({ event, ticket }) => {
-  console.log(event);
-  console.log(ticket);
-  const Event = event.id === ticket.event_id;
-
-  return (
-    <div>
-      <div>
-        <label>
-          {Event.name}
-        </label>
-      </div>
-      <div>
-        <label>
-          {/* number of tickets for event */}
-          {ticket.quantity}
-        </label>
-      </div>
-    </div>
-  )
-}
-
 function User() {
   const dispatch = useDispatch();
   const [user, setUser] = useState({});
   const { userId }  = useParams();
   const events = useSelector(state => state.events);
   const tickets = user?.tickets;
-  console.log(Object.values(events));
-  console.log(user);
-  console.log(tickets);
 
   useEffect(() => {
     dispatch(readAllEvents())
@@ -56,23 +31,42 @@ function User() {
   }
 
   return (
-    <div>
-      <div>{user.username}</div>
+    <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', alignItems: 'center'}}>
+      <div>{user.username}'s Tickets</div>
       <div>
-        <label>
-          Tickets
-        </label>
+        <h2>Event Name</h2>
+        <h2>Ticket Quantity</h2>
       </div>
       <div>
         {tickets?.map((ticket) => {
           return (
             <div key={ticket.id}>
-              {Object.values(events).map(event => {
-                <Ticket key={event.id} event={event} ticket={ticket}/>
-              })}
+              <div>
+                {ticket.event_name}
+              </div>
+              <div>
+                {ticket.quantity}
+              </div>
             </div>
           )
         })}
+      </div>
+      <div>
+        {/* {(sessionUser.id === event?.host_id) && (<button onClick={showEditModalFunc}>Edit Event</button>)}
+          {showEditModal && (
+            <Modal closeModalFunc={closeEditModalFunc} className='modal-background'>
+              <EditEventForm style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeEditModalFunc} />
+            </Modal>
+        )} */}
+      </div>
+      <div>
+        <button>Refund</button>
+          {/* {(sessionUser.id === event?.host_id) && (<button onClick={showEditModalFunc}>Edit Event</button>)}
+          {showEditModal && (
+            <Modal closeModalFunc={closeEditModalFunc} className='modal-background'>
+              <EditEventForm style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeEditModalFunc} />
+            </Modal>
+          )} */}
       </div>
     </div>
   );
