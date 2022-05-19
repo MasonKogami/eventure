@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { readAllEvents } from '../store/events';
+import { updateTickets, deleteTickets } from '../store/tickets';
+import Checkout from './Events/Checkout';
+import Modal from './Modal/Modal';
+import ConfirmationModal from './Modal/Confirmation';
+import SingleTicket from './Tickets/SingleTicket';
 
 function User() {
+  const dispatch = useDispatch();
   const [user, setUser] = useState({});
   const { userId }  = useParams();
-  console.log(user);
+  const events = useSelector(state => state.events);
+  const tickets = user?.tickets;
 
-  if (user) {
-    const tickets = user.tickets;
-    console.log(tickets);
-    
-  }
+  useEffect(() => {
+    dispatch(readAllEvents())
+  }, [dispatch]);
 
   useEffect(() => {
     if (!userId) {
@@ -26,17 +32,23 @@ function User() {
 
   if (!user) {
     return null;
-  }
+  };
 
   return (
-    <ul>
-      <li>
-        <strong>Username</strong> {user.username}
-      </li>
-      <li>
-        <strong>Tickets</strong>
-      </li>
-    </ul>
+    <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', alignItems: 'center'}}>
+      <div>{user.username}'s Tickets</div>
+      <div>
+        <h2>Event Name</h2>
+        <h2>Ticket Quantity</h2>
+      </div>
+      <div>
+        {tickets?.map((ticket) => {
+          return (
+            <SingleTicket key={ticket.id} ticket={ticket} userId={userId} />
+          )
+        })}
+      </div>
+    </div>
   );
 }
 export default User;

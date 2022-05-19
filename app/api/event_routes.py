@@ -85,6 +85,7 @@ def add_ticket(id):
   if form.validate_on_submit():
     tickets = Ticket(
       event_id=id,
+      event_name=form.data['event_name'],
       user_id=form.data['user_id'],
       quantity=form.data['quantity']
     )

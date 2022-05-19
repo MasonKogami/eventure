@@ -1,6 +1,20 @@
+.oneevent-page {
+  background-color: #ffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-background {
+  background-color: #39364FFC;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
 .bg-image-header {
-  background-image: url('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F230834389%2F285623250502%2F1%2Foriginal.20210604-004626?w=600&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=f94e8cdbce75497cb7ede588ea34da22');
+  /* background-image: url('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F230834389%2F285623250502%2F1%2Foriginal.20210604-004626?w=600&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=f94e8cdbce75497cb7ede588ea34da22'); */
   background-size: cover;
+  /* background-color: #dbe9f4; */
   /* position: relative; */
   position: absolute;
   z-index: -1;
@@ -28,7 +42,7 @@
   height: 100%;
   justify-content: space-between;
   z-index: 2;
-  background-color: #ffff;
+  background-color: #ffdead;
   max-width: 1080px;
   margin-left: auto;
   margin-right: auto;
@@ -36,3 +50,21 @@
   border-bottom: 1px solid #eeedf2;
   /* margin-top: 40px; */
 }
+
+#modal-button {
+  background-color: red;
+  color: #ffff;
+}
+
+.event-info {
+  background-color: #ffdead;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checkoutmodal-background {
+  background-color: #39364FCC;
+}
+
+/* #39364FCC for modal background color */

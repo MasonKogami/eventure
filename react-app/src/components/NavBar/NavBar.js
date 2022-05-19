@@ -12,7 +12,7 @@ const LogoutButton = () => {
   const dispatch = useDispatch()
   const onLogout = async (e) => {
     await dispatch(logout());
-    history.push('/login');
+    history.push('/landingpage');
   };
 
   return <button onClick={onLogout}>Logout</button>;
@@ -23,7 +23,7 @@ const NavBar = () => {
   return (
     <nav style={{height: '61px'}}>
       <div className='home'>
-          <NavLink to='/home' exact={true} activeClassName='active' style={{textDecoration: 'none', marginLeft: '24px', color: '#fca311', fontSize: '20px', fontWeight: 'bolder'}}>
+          <NavLink to='/home' exact={true} activeClassName='active' style={{textDecoration: 'none', marginLeft: '24px', color: '#d1410c', fontSize: '20px', fontWeight: 'bolder'}}>
             Eventure
           </NavLink>
           <NavLink to='/events/create' exact={true} style={{textDecoration: 'none', verticalAlign: 'end', color: 'rgb(61, 100, 255)'}}>

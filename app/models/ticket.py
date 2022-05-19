@@ -7,6 +7,7 @@ class Ticket(db.Model):
 
   id               = db.Column(db.Integer, primary_key=True)
   event_id         = db.Column(db.Integer, db.ForeignKey('events.id'), nullable=False)
+  event_name       = db.Column(db.String(255), nullable=False)
   user_id          = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
   quantity         = db.Column(db.Integer, nullable=False)
   created_at       = db.Column(db.DateTime(timezone = True), server_default = func.now())
@@ -18,6 +19,7 @@ class Ticket(db.Model):
     return {
             'id': self.id,
             'event_id': self.event_id,
+            'event_name': self.event_name,
             'user_id': self.user_id,
             'quantity': self.quantity,
             'created_at': self.created_at,

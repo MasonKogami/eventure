@@ -1,0 +1,19 @@
+.checkout-button1 {
+  background-color: #d1410c;
+  color: #ffff;
+  border-color: #d1410c;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#disabled {
+  color: gray;
+}
+
+.checkout-button2 {
+  background-color: #d1410c;
+  color: #ffff;
+  border-color: #d1410c;
+  border-radius: 4px;
+  cursor: pointer;
+}
