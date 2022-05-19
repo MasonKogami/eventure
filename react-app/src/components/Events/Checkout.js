@@ -34,15 +34,19 @@ const Checkout = ({ closeModalFunc }) => {
     const tickets = {
       user_id: sessionUser.id,
       event_id: event.id,
+      event_name: event.name,
       quantity
     };
+
+    console.log(tickets);
 
     let newTickets = await dispatch(addTickets(tickets));
     if (newTickets.errors) {
       setErrors(newTickets.errors);
     } else {
-      alert(`Success! You have acquired tickets for ${event.name}`)
+      alert(`Success! You have acquired tickets to ${event.name}!`)
       closeModalFunc();
+      // history.push(`/users/${sessionUser.id}`)
     }
   };
 
