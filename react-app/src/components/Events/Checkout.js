@@ -44,9 +44,9 @@ const Checkout = ({ closeModalFunc }) => {
     if (newTickets.errors) {
       setErrors(newTickets.errors);
     } else {
-      alert(`Success! You have acquired tickets to ${event.name}!`)
+      // alert(`Success! You have acquired tickets to ${event.name}!`)
       closeModalFunc();
-      // history.push(`/users/${sessionUser.id}`)
+      history.push(`/users/${sessionUser.id}`)
     }
   };
 
@@ -59,11 +59,11 @@ const Checkout = ({ closeModalFunc }) => {
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <h2 style={{color: '#d1410c'}}>Ticket Order Form</h2>
             <label>
-              {event.name}
+              {event?.name}
             </label>
             <div>
               <label>
-                {event.date}
+                {event?.date}
               </label>
             </div>
           </div>
