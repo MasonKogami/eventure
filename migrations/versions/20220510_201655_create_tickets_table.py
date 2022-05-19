@@ -21,6 +21,7 @@ def upgrade():
     op.create_table('tickets',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('event_id', sa.Integer(), nullable=False),
+    sa.Column('event_name', sa.String(length=255), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('quantity', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
