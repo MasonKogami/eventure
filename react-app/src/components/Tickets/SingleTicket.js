@@ -29,12 +29,7 @@ const SingleTicket = ({ ticket, userId }) => {
       const response = await fetch(`/api/users/${userId}`);
       const user = await response.json();
       setUser(user);
-      // if (user) {
-      //   dispatch(readAllTickets(userId));
-      // }
     })();
-
-
   }, [userId]);
 
 

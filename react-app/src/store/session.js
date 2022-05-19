@@ -2,6 +2,7 @@
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 const READ_ALL_TICKETS = 'session/READ_ALL_TICKETS';
+const LOAD_USER = 'session/LOAD_USER';
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -12,12 +13,30 @@ const removeUser = () => ({
   type: REMOVE_USER,
 });
 
+const loadUserAction = (user) => ({
+  type: LOAD_USER,
+  user
+});
+
 const readAllTicketsAction = user => ({
   type: READ_ALL_TICKETS,
   user
 });
 
 const initialState = { user: null };
+
+export const loadUser = user => async dispatch => {
+  const response = await fetch(`/api/users/${user.id}`);
+
+  const data = await response.json();
+
+  if (response.ok) {
+    dispatch(loadUserAction(data));
+    return data;
+  } else {
+    console.log(data.errors);
+  }
+};
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
@@ -117,12 +136,14 @@ export const readAllTickets = user => async dispatch => {
 };
 
 export default function reducer(state = initialState, action) {
-  let newState = {...state};
+  let newState = Object.assign({}, state);
   switch (action.type) {
     case SET_USER:
       return { user: action.payload }
     case REMOVE_USER:
       return { user: null }
+    case LOAD_USER:
+      return { ...newState, "user": action.user }
     // case READ_ALL_TICKETS:
     //   action.user.tickets.forEach(ticket => {
     //     newState[action.user.id].tickets = ticket

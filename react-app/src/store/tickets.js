@@ -1,7 +1,7 @@
 // C O N S T A N T S
 const UPDATE_TICKETS = 'tickets/UPDATE_TICKETS';
 const DELETE_TICKETS = 'tickets/DELETE_TICKETS';
-
+const LOAD_TICKETS = 'tickets/LOAD_TICKETS';
 // A C T I O N S
 const updateTicketsAction = ticket => ({
   type: UPDATE_TICKETS,
@@ -12,6 +12,11 @@ const deleteTicketsAction = ticket => ({
   type: DELETE_TICKETS,
   ticket
 });
+
+const loadTicketsAction = tickets => ({
+  type: LOAD_TICKETS,
+  tickets
+})
 
 // T H U N K S
 export const updateTickets = ticket => async dispatch => {
@@ -46,17 +51,29 @@ export const deleteTickets = ticket => async dispatch => {
   }
 };
 
+export const loadTickets = userId => async dispatch => {
+  console.log('LOAD THUNK>>>>>>>>>>>>>>')
+  const response = await fetch(`/api/users/${userId}`);
+
+  const data = await response.json();
+  console.log(data.tickets);
+  dispatch(loadTicketsAction(data.tickets));
+  return data;
+}
+
 const initialState = {};
 
 const ticketsReducer = (state = initialState, action) => {
-  let newState = {...state};
+  let newState = Object.assign({}, state);
   switch (action.type) {
     case UPDATE_TICKETS:
       newState[action.ticket.id] = action.ticket;
       return newState;
     case DELETE_TICKETS:
-      delete newState[action.ticket.id];
-      return newState;
+      const filteredState = { ...Object.values(newState).filter(ticket => ticket.id != action.ticket.id) }
+      return filteredState;
+    case LOAD_TICKETS:
+      return { ...action.tickets }
     default:
       return newState;
   }

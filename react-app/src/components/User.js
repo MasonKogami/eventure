@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { readAllEvents } from '../store/events';
-import { updateTickets, deleteTickets } from '../store/tickets';
-import Checkout from './Events/Checkout';
-import Modal from './Modal/Modal';
-import ConfirmationModal from './Modal/Confirmation';
+import { loadTickets } from '../store/tickets';
+import { loadUser } from '../store/session';
 import SingleTicket from './Tickets/SingleTicket';
 
 function User() {
@@ -13,11 +11,19 @@ function User() {
   const [user, setUser] = useState({});
   const { userId }  = useParams();
   const events = useSelector(state => state.events);
-  const tickets = user?.tickets;
+  const test = useSelector(state => state.session.user);
+  const tickets = useSelector(state => Object.values(state.tickets));
+  // const tickets = user?.tickets;
+  // const tickets = useSelector(state => state.session.user.tickets);
 
   useEffect(() => {
+    dispatch(loadTickets(userId));
     dispatch(readAllEvents())
-  }, [dispatch]);
+  }, [dispatch, userId]);
+
+  // useEffect(() => {
+  //   dispatch(loadUser(user));
+  // }, [dispatch, user]);
 
   useEffect(() => {
     if (!userId) {
