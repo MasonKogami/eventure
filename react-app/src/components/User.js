@@ -3,6 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { readAllEvents } from '../store/events';
 import { updateTickets, deleteTickets } from '../store/tickets';
+import Checkout from './Events/Checkout';
+import Modal from './Modal/Modal';
+import ConfirmationModal from './Modal/Confirmation';
+import SingleTicket from './Tickets/SingleTicket';
 
 function User() {
   const dispatch = useDispatch();
@@ -28,7 +32,7 @@ function User() {
 
   if (!user) {
     return null;
-  }
+  };
 
   return (
     <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', alignItems: 'center'}}>
@@ -40,33 +44,9 @@ function User() {
       <div>
         {tickets?.map((ticket) => {
           return (
-            <div key={ticket.id}>
-              <div>
-                {ticket.event_name}
-              </div>
-              <div>
-                {ticket.quantity}
-              </div>
-            </div>
+            <SingleTicket key={ticket.id} ticket={ticket} userId={userId} />
           )
         })}
-      </div>
-      <div>
-        {/* {(sessionUser.id === event?.host_id) && (<button onClick={showEditModalFunc}>Edit Event</button>)}
-          {showEditModal && (
-            <Modal closeModalFunc={closeEditModalFunc} className='modal-background'>
-              <EditEventForm style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeEditModalFunc} />
-            </Modal>
-        )} */}
-      </div>
-      <div>
-        <button>Refund</button>
-          {/* {(sessionUser.id === event?.host_id) && (<button onClick={showEditModalFunc}>Edit Event</button>)}
-          {showEditModal && (
-            <Modal closeModalFunc={closeEditModalFunc} className='modal-background'>
-              <EditEventForm style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeEditModalFunc} />
-            </Modal>
-          )} */}
       </div>
     </div>
   );
