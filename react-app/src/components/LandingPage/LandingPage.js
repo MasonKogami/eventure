@@ -39,8 +39,12 @@ const LandingPage = () => {
 
   return (
     <div className='landingpage-con'>
-      <div className='landingpage-slideshow' />
-      <h2 className='landingpage-title'>Eventure</h2>
+      <div>
+        <div className='landingpage-slideshow' />
+      </div>
+      <div style={{height: '0px'}}>
+       <h2 className='landingpage-title'>Eventure</h2>
+      </div>
       <div className='user-forms'>
         <button className='user-buttons' onClick={changeLoginDisplay}>Log In</button>
         <button className='user-buttons' onClick={changeSignupDisplay}>Sign Up</button>
