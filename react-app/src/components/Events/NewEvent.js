@@ -36,18 +36,26 @@ const NewEvent = () => {
       capacity
     };
 
-    let submitNewEvent = await dispatch(createEvent(newEvent));
-    if (submitNewEvent) {
-      setErrors(submitNewEvent);
+    let submitNewEvent = await dispatch(createEvent(newEvent))
+    .catch( async (res) => {
+      const data = await res.json();
+      if (data && data.errors) {
+          setErrors(data.errors);
+      }
+    })
+    if (!errors.length && submitNewEvent) {
+      history.push("/home");
     }
   };
+
+  console.log(errors);
 
   return (
     <div className='new-event-form-con'>
       <form onSubmit={handleSubmit} className='new-event-form'>
       <h2 style={{color: '#d1410c', fontSize: '32px', fontWeight: 'bolder'}}>Event Form</h2>
         <div className='errors'>
-          {errors.map((error, ind) => (
+          {errors?.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
