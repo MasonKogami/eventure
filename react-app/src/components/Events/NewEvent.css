@@ -6,6 +6,11 @@
   /* border-bottom: 1px solid #eeedf2; */
 }
 
+.errors {
+  margin-top: 20px;
+  color: #d1410c;
+}
+
 hr {
   background-color: #eeedf2;
 }
@@ -20,10 +25,18 @@ hr {
   /* border-bottom: 1px solid #eeedf2; */
 }
 
+.basic-info-con > h2 {
+  color: #d1410c;
+}
+
 .location-con {
   width: 66.66667%;
   margin-bottom: 48px;
   margin-top: 20px;
+}
+
+.location-con > h2 {
+  color: #d1410c;
 }
 
 .date-time-con {
@@ -32,9 +45,20 @@ hr {
   margin-top: 20px;
 }
 
+.date-time-con > h2 {
+  color: #d1410c;
+}
+
 .create-event-button {
   margin-bottom: 48px;
   margin-top: 20px;
+  cursor: pointer;
+  background-color: #d1410c;
+  color: #ffff;
+  border-radius: 4px;
+  border: 1px solid #d1410c;
+  height: 35px;
+  width: 105px;
 }
 
 /* .new-event-form {

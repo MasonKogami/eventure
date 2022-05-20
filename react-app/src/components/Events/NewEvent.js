@@ -25,6 +25,8 @@ const NewEvent = () => {
     if (!pattern.test(name)) return;
     if (!pattern.test(locationName)) return;
 
+    let addressArr = address.split(',');
+    console.log(addressArr);
     let newEvent = {
       user_id: sessionUser.id,
       location_name: locationName.trim(),
@@ -34,29 +36,26 @@ const NewEvent = () => {
       capacity
     };
 
-    console.log(date.toUTCString())
-    let submitNewEvent = await dispatch(createEvent(newEvent))
-    .catch( async (res) => {
-      const data = await res.json();
-      if (data && data.errors) {
-        setErrors(data.errors);
-      }
-    })
-    if (!errors.length && submitNewEvent) {
-      history.push("/home");
+    let submitNewEvent = await dispatch(createEvent(newEvent));
+    if (submitNewEvent) {
+      setErrors(submitNewEvent);
+      // console.log(errors);
     }
+    // if (!errors.length) {
+    //   history.push("/home");
+    // }
   };
+
+  console.log(errors);
 
   return (
     <div className='new-event-form-con'>
       <form onSubmit={handleSubmit} className='new-event-form'>
-        <ul>
-          {errors.map((e) => {
-            return (
-              <li key={e.id}>{e}</li>
-            )
-          })}
-        </ul>
+        <div className='errors'>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
         <div className='basic-info-con'>
           <h2>Basic Info</h2>
           <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
@@ -110,7 +109,7 @@ const NewEvent = () => {
             selected={date}
             value={date}
             minDate={new Date()}
-            // format='y-MM-dd'
+            disableClock={true}
             onChange={(e) => setDate(new Date(e))} 
           />
         </div>
