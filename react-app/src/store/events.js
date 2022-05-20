@@ -39,13 +39,18 @@ export const createEvent = event => async dispatch => {
     body: JSON.stringify(event)
   });
 
-  const data = await response.json();
-
+  
   if (response.ok) {
-    await dispatch(createEventAction(data));
+    const data = await response.json();
+    dispatch(createEventAction(data));
     return data;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
   } else {
-    console.log(data.errors);
+    return ['An error occurred. Please try again.']
   }
 };
 
