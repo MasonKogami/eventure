@@ -1,3 +1,15 @@
 .signup-body {
   background-color: #ffff;
+  padding: 15px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* height: 200px; */
+  width: 350px;
+  gap: 15px;
 }

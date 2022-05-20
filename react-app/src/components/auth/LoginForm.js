@@ -36,37 +36,47 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
 
   return (
     <div className={`login-body ${loginDisplay}`} onClick={stopTheProp} onMouseDown={stopTheProp}>
-      <form onSubmit={onLogin} >
+      <form onSubmit={onLogin} className='login-form'>
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
         <div>
-          <label htmlFor='email'>Email</label>
+          {/* <div>
+            <label htmlFor='email'>Email</label>
+          </div> */}
           <input
             name='email'
             type='text'
             placeholder='Email'
             value={email}
             onChange={updateEmail}
+            style={{height: '20px', width: '250px'}}
           />
         </div>
         <div>
-          <label htmlFor='password'>Password</label>
+          {/* <div>
+            <label htmlFor='password'>Password</label>
+          </div> */}
           <input
             name='password'
             type='password'
             placeholder='Password'
             value={password}
             onChange={updatePassword}
+            style={{height: '20px', width: '250px'}}
           />
-          <button type='submit'>Login</button>
+          <div className='submit-button'>
+            <button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '55px'}} type='submit'>Login</button>
+          </div>
         </div>
       </form>
-      <button onClick={() => dispatch(login('demo@aa.io', 'password'))}>
-        Demo User
-      </button>
+      <div className='demo-button'>
+        <button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '29px', width: '85px'}} onClick={() => dispatch(login('demo@aa.io', 'password'))}>
+          Demo User
+        </button>
+      </div>
     </div>
   );
 };
