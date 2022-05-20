@@ -5,6 +5,11 @@
   overflow-x: hidden;
 } */
 
+@font-face {
+  font-family: 'Oswald', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+}
+
 body {
   width: 100%;
   height: 100%;
@@ -15,7 +20,7 @@ body {
 
 :root {
   width: 100%;
-  font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-weight: 700;
   font-size: 15px;
 }
