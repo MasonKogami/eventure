@@ -7,7 +7,7 @@
 }
 
 .modal-background {
-  background-color: #39364FFC;
+  /* background-color: #39364FFC; */
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -40,7 +40,8 @@
 .header-div {
   display: flex;
   height: 100%;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   z-index: 2;
   background-color: #ffdead;
   max-width: 1080px;

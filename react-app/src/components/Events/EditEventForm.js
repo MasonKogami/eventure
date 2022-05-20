@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { updateEvent } from '../../store/events';
@@ -35,12 +35,15 @@ const EditEventForm = ({ closeModalFunc }) => {
     };
 
     let newEvent = await dispatch(updateEvent(updatedEvent, eventId));
-    if (newEvent.errors) {
-        setErrors(newEvent.errors);
-    } else {
+    if (newEvent.ok) {
       closeModalFunc();
     }
+    if (errors.length) {
+      setErrors(newEvent);
+    }
   };
+
+  console.log(errors);
 
   const stopTheProp = e => e.stopPropagation();
 
@@ -51,13 +54,11 @@ const EditEventForm = ({ closeModalFunc }) => {
         onClick={stopTheProp}
         onMouseDown={stopTheProp}
       >
-        <ul>
-          {errors.map((e) => {
-            return (
-              <li key={e.id}>{e}</li>
-            )
-          })}
-        </ul>
+        <div className='errors'>
+          {errors?.map((error) => (
+            <div key={error.id}>{error}</div>
+          ))}
+        </div>
         <div>
           <h2 style={{color: '#fca311', fontWeight: 'bolder'}}>Basic Info</h2>
           <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
@@ -114,6 +115,7 @@ const EditEventForm = ({ closeModalFunc }) => {
               selected={date}
               value={date}
               minDate={new Date()}
+              disableClock={true}
               onChange={(e) => setDate(new Date(e))} 
             />
           </div>
