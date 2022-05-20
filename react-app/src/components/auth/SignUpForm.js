@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -9,19 +9,24 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [repeatPassword, setRepeatPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const [signupDisplay] = useState('displayed');
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
+    if (password === confirmPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)
       }
     }
+  };
+
+  const closeSignupModal = () => {
+    closeModalFunc();
+    setErrors([]);
   };
 
   const updateUsername = (e) => {
@@ -37,7 +42,7 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
   };
 
   const updateRepeatPassword = (e) => {
-    setRepeatPassword(e.target.value);
+    setConfirmPassword(e.target.value);
   };
 
   if (user) {
@@ -48,51 +53,59 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
 
   return (
     <div className={`signup-body ${signupDisplay}`} onClick={stopTheProp} onMouseDown={stopTheProp}>
-      <form onSubmit={onSignUp}>
+      <form onSubmit={onSignUp} className='signup-form'>
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
         <div>
-          <label>User Name</label>
           <input
             type='text'
             name='username'
+            placeholder='Username'
             onChange={updateUsername}
             value={username}
+            required={true}
           ></input>
         </div>
         <div>
-          <label>Email</label>
           <input
+            placeholder='Email'
             type='text'
             name='email'
             onChange={updateEmail}
             value={email}
+            required={true}
           ></input>
         </div>
         <div>
-          <label>Password</label>
           <input
+            placeholder='Password'
             type='password'
             name='password'
             onChange={updatePassword}
             value={password}
-          ></input>
-        </div>
-        <div>
-          <label>Repeat Password</label>
-          <input
-            type='password'
-            name='repeat_password'
-            onChange={updateRepeatPassword}
-            value={repeatPassword}
             required={true}
           ></input>
         </div>
-        <button type='submit'>Sign Up</button>
+        <div>
+          <input
+            type='password'
+            name='repeat_password'
+            placeholder='Confirm Password'
+            onChange={updateRepeatPassword}
+            value={confirmPassword}
+            required={true}
+          ></input>
+        </div>
+        <button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '29px', width: '85px'}} type='submit'>Sign Up</button>
       </form>
+      <div style={{display: 'flex', justifyContent: 'center', marginTop: '13px'}}>
+        <button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '29px', width: '85px'}} onClick={closeSignupModal}>
+          Cancel
+        </button>
+      </div>
     </div>
   );
 };
