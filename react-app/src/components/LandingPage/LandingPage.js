@@ -4,6 +4,7 @@ import './LandingPage.css';
 import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
 import Modal from '../Modal/Modal';
+import AboutMe from "../AboutMe/AboutMe";
 
 const LandingPage = () => {
   const dispatch = useDispatch();
@@ -41,8 +42,8 @@ const LandingPage = () => {
       <div className='landingpage-slideshow' />
       <h2 className='landingpage-title'>Eventure</h2>
       <div className='user-forms'>
-        <button onClick={changeLoginDisplay}>Log In</button>
-        <button onClick={changeSignupDisplay}>Sign Up</button>
+        <button className='user-buttons' onClick={changeLoginDisplay}>Log In</button>
+        <button className='user-buttons' onClick={changeSignupDisplay}>Sign Up</button>
         <div className={`modal-background-home-page ${loginDisplay}`} onMouseDown={changeLoginDisplay}>
           <LoginForm closeModalFunc={changeLoginDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
         </div>
@@ -50,17 +51,10 @@ const LandingPage = () => {
           <SignUpForm closeModalFunc={changeSignupDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
         </div>
       </div>
-      {/* <div className="user-buttons-div">
-          <button  onClick={demoLogin}>Demo User</button>
-          <button  onClick={changeLoginDisplay}>Log In</button>
-          <button  onClick={changeSignupDisplay}>Sign Up</button>
-          <div className={`modal-background-home-page ${loginDisplay}`} onMouseDown={changeLoginDisplay}>
-              <LoginForm closeModalFunc={changeLoginDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
-          </div>
-          <div className={`modal-background-home-page ${signupDisplay}`} onMouseDown={changeSignupDisplay}>
-              <SignUpForm closeModalFunc={changeSignupDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
-          </div>
-      </div> */}
+      <div className='mission-statement'>
+        <p>Eventure is a global self-service ticketing platform for live experiences that allows anyone to create, share, find and attend events that fuel their passions and enrich their lives. From music festivals, marathons, conferences, community rallies, and fundraisers, to gaming competitions and air guitar contests. Our mission is to bring the world together through live experiences.</p>
+      </div>
+      <AboutMe style={{position: 'relative', bottom: '0px'}} />
     </div>
   )
 };
