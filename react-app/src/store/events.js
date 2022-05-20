@@ -86,14 +86,18 @@ export const updateEvent = (event, id) => async dispatch => {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(event)
   });
-
-  const data = await response.json();
   
   if (response.ok) {
-    await dispatch(updateEventAction(data));
-    return data;
+    const data = await response.json();
+    dispatch(updateEventAction(data));
+    // return data;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
   } else {
-    console.log(data.errors);
+    return ['An error occurred. Please try again.']
   }
 };
 
