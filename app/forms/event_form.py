@@ -21,8 +21,8 @@ def location_name_length(form, field):
 
 def address_length(form, field):
   address = field.data
-  if len(address) < 2: 
-    raise ValidationError('Address must be longer than 2 characters.')
+  if len(address) < 20: 
+    raise ValidationError('Address must be longer than 20 characters.')
   if len(address) > 50:
     raise ValidationError('Address must be 50 characters or less.')
 
@@ -31,6 +31,8 @@ def capacity_number(form, field):
   capacity = field.data
   if capacity < 10:
     raise ValidationError('An event must allow at least 10 people to attend an event.')
+  if capacity > 100000:
+    raise ValidationError('An event capacity cannot exceed 100,000.')
 
 
 class EventForm(FlaskForm):
