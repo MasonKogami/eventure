@@ -43,8 +43,8 @@ export const createEvent = event => async dispatch => {
   if (response.ok) {
     const data = await response.json();
     dispatch(createEventAction(data));
-    return data;
-  } else if (response.status < 500) {
+    // return data;
+  } else if (response.status !== 200 && response.status < 500) {
     const data = await response.json();
     if (data.errors) {
       return data.errors;
@@ -146,7 +146,7 @@ export const addTickets = ticket => async dispatch => {
 // R E D U C E R
 let initialState = {};
 const eventsReducer = (state = initialState, action) => {
-  let newState = {...state};
+  let newState = Object.assign({}, state);
   switch (action.type) {
     case CREATE_EVENT:
       newState[action.event.id] = action.event;

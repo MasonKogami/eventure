@@ -36,19 +36,14 @@ const NewEvent = () => {
       capacity
     };
 
-    let submitNewEvent = await dispatch(createEvent(newEvent))
-    .catch( async (res) => {
-      const data = await res.json();
-      if (data && data.errors) {
-          setErrors(data.errors);
-      }
-    })
-    if (!errors.length && submitNewEvent) {
-      history.push("/home");
+    let submitNewEvent = await dispatch(createEvent(newEvent));
+    if (submitNewEvent) {
+      setErrors(submitNewEvent);
+    } else {
+      console.log("hi")
+      history.push("/home")
     }
   };
-
-  console.log(errors);
 
   return (
     <div className='new-event-form-con'>
