@@ -70,7 +70,7 @@ const ticketsReducer = (state = initialState, action) => {
       newState[action.ticket.id] = action.ticket;
       return newState;
     case DELETE_TICKETS:
-      const filteredState = { ...Object.values(newState).filter(ticket => ticket.id != action.ticket.id) }
+      const filteredState = { ...Object.values(newState).filter(ticket => ticket.id !== action.ticket.id) }
       return filteredState;
     case LOAD_TICKETS:
       return { ...action.tickets }

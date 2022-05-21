@@ -18,29 +18,29 @@ const EditEventForm = ({ closeModalFunc }) => {
   const [capacity, setCapacity] = useState(event.capacity);
   const [errors, setErrors] = useState([]);
 
-  if (locationName.length < 2) {
-    errors.push("Venue names must be longer than 2 characters.")
-  } else if (locationName.length > 30) {
-    errors.push("Venue names must be 30 characters or less.")
-  }
+  // if (locationName.length < 2) {
+  //   errors.push("Venue names must be longer than 2 characters.")
+  // } else if (locationName.length > 30) {
+  //   errors.push("Venue names must be 30 characters or less.")
+  // }
 
-  if (address.length < 20) {
-    errors.push("Address must be longer than 20 characters.")
-  } else if (address.length > 50) {
-    errors.push("Address must be 50 characters or less.")
-  }
+  // if (address.length < 20) {
+  //   errors.push("Address must be longer than 20 characters.")
+  // } else if (address.length > 50) {
+  //   errors.push("Address must be 50 characters or less.")
+  // }
 
-  if (name.length < 2) {
-    errors.push("Event names must be longer than 2 characters.")
-  } else if (name.length > 30) {
-    errors.push("Event names must be 30 characters or less.")
-  }
+  // if (name.length < 2) {
+  //   errors.push("Event names must be longer than 2 characters.")
+  // } else if (name.length > 30) {
+  //   errors.push("Event names must be 30 characters or less.")
+  // }
 
-  if (capacity < 10) {
-    errors.push("An event must allow at least 10 people to attend an event.")
-  } else if (capacity > 1000000) {
-    errors.push("An event capacity cannot exceed 100,000.")
-  };
+  // if (capacity < 10) {
+  //   errors.push("An event must allow at least 10 people to attend an event.")
+  // } else if (capacity > 1000000) {
+  //   errors.push("An event capacity cannot exceed 100,000.")
+  // };
 
   const editOneEvent = async (e) => {
     e.preventDefault();

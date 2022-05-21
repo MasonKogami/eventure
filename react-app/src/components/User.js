@@ -3,15 +3,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { readAllEvents } from '../store/events';
 import { loadTickets } from '../store/tickets';
-import { loadUser } from '../store/session';
+// import { loadUser } from '../store/session';
 import SingleTicket from './Tickets/SingleTicket';
 
 function User() {
   const dispatch = useDispatch();
   const [user, setUser] = useState({});
   const { userId }  = useParams();
-  const events = useSelector(state => state.events);
-  const test = useSelector(state => state.session.user);
+  // const events = useSelector(state => state.events);
+  // const test = useSelector(state => state.session.user);
   const tickets = useSelector(state => Object.values(state.tickets));
   // const tickets = user?.tickets;
   // const tickets = useSelector(state => state.session.user.tickets);
