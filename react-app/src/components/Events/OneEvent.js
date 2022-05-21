@@ -48,6 +48,8 @@ const OneEvent = () => {
         </div> */}
         <div>
           {event?.name}
+        </div>
+        <div>
           {event?.date}
         </div>
         <div>

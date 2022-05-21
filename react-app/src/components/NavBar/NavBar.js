@@ -15,7 +15,7 @@ const LogoutButton = () => {
     history.push('/landingpage');
   };
 
-  return <button onClick={onLogout}>Logout</button>;
+  return <button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '29px', width: '70px'}} onClick={onLogout}>Logout</button>;
 };
 
 const NavBar = () => {

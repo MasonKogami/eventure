@@ -25,6 +25,8 @@ const NewEvent = () => {
     if (!pattern.test(name)) return;
     if (!pattern.test(locationName)) return;
 
+    let addressArr = address.split(',');
+    
     let newEvent = {
       user_id: sessionUser.id,
       location_name: locationName.trim(),
@@ -34,33 +36,28 @@ const NewEvent = () => {
       capacity
     };
 
-    console.log(date.toUTCString())
-    let submitNewEvent = await dispatch(createEvent(newEvent))
-    .catch( async (res) => {
-      const data = await res.json();
-      if (data && data.errors) {
-        setErrors(data.errors);
-      }
-    })
-    if (!errors.length && submitNewEvent) {
-      history.push("/home");
+    let submitNewEvent = await dispatch(createEvent(newEvent));
+    if (submitNewEvent) {
+      setErrors(submitNewEvent);
+    } else {
+      console.log("hi")
+      history.push("/home")
     }
   };
 
   return (
     <div className='new-event-form-con'>
       <form onSubmit={handleSubmit} className='new-event-form'>
-        <ul>
-          {errors.map((e) => {
-            return (
-              <li key={e.id}>{e}</li>
-            )
-          })}
-        </ul>
+      <h2 style={{color: '#d1410c', fontSize: '32px', fontWeight: 'bolder'}}>Event Form</h2>
+        <div className='errors'>
+          {errors?.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
         <div className='basic-info-con'>
           <h2>Basic Info</h2>
           <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
-          <div>
+          <div style={{marginBottom: '10px'}}>
             <label>
               Event Name
             </label>
@@ -70,13 +67,14 @@ const NewEvent = () => {
             onChange={(e) => setName(e.target.value)}
             type='text'
             placeholder='Be clear and descriptive.'
+            className='styled-input'
           ></input>
         </div>
         <hr style={{backgroundColor: '#eeedf2'}}/>
         <div className='location-con'>
           <h2>Location</h2>
           <p>Help people in the area discover your event and let attendees know where to show up.</p>
-          <div>
+          <div style={{marginBottom: '10px'}}>
             <label>
               Location Name
             </label>
@@ -86,16 +84,20 @@ const NewEvent = () => {
             onChange={(e) => setLocationName(e.target.value)}
             type='text'
             placeholder='Venue Name'
+            className='styled-input'
           ></input>
           <div>
-            <label>
-              Address
-            </label>
+            <div style={{marginBottom: '10px', marginTop: '10px'}}>
+              <label>
+                Address
+              </label>
+            </div>
             <input
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               placeholder='Street address, City, State'
               required
+              className='styled-input'
             >
             </input>
           </div>
@@ -103,27 +105,32 @@ const NewEvent = () => {
         <hr style={{backgroundColor: '#eeedf2'}}/>
         <div className='date-time-con'>
           <h2>Date</h2>
-          <label>
-            Tell event goers when your event starts and ends so they can make plans to attend.
-          </label>
+          <div style={{marginBottom: '10px'}}>
+            <label>
+              Tell event goers when your event starts and ends so they can make plans to attend.
+            </label>
+          </div>
           <DateTimePicker 
             selected={date}
             value={date}
             minDate={new Date()}
-            // format='y-MM-dd'
+            disableClock={true}
             onChange={(e) => setDate(new Date(e))} 
           />
         </div>
         <div className='capacity-con'>
           <h2>Capacity</h2>
           <p>Tell the event goers how many people they can bring to the party.</p>
-          <label>
-            Capacity
-          </label>
+          <div style={{marginBottom: '10px'}}>
+            <label>
+              Capacity
+            </label>
+          </div>
           <input 
             value={capacity}
             placeholder='Number of people allowed.'
             onChange={(e) => setCapacity(e.target.value)}
+            className='styled-input'
           >
           </input>
         </div>

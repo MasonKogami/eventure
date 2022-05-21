@@ -39,13 +39,18 @@ export const createEvent = event => async dispatch => {
     body: JSON.stringify(event)
   });
 
-  const data = await response.json();
-
+  
   if (response.ok) {
-    await dispatch(createEventAction(data));
-    return data;
+    const data = await response.json();
+    dispatch(createEventAction(data));
+    // return data;
+  } else if (response.status !== 200 && response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
   } else {
-    console.log(data.errors);
+    return ['An error occurred. Please try again.']
   }
 };
 
@@ -81,14 +86,18 @@ export const updateEvent = (event, id) => async dispatch => {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(event)
   });
-
-  const data = await response.json();
   
   if (response.ok) {
-    await dispatch(updateEventAction(data));
-    return data;
+    const data = await response.json();
+    dispatch(updateEventAction(data));
+    // return data;
+  } else if (response.status !== 200 && response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
   } else {
-    console.log(data.errors);
+    return ['An error occurred. Please try again.']
   }
 };
 
@@ -137,7 +146,7 @@ export const addTickets = ticket => async dispatch => {
 // R E D U C E R
 let initialState = {};
 const eventsReducer = (state = initialState, action) => {
-  let newState = {...state};
+  let newState = Object.assign({}, state);
   switch (action.type) {
     case CREATE_EVENT:
       newState[action.event.id] = action.event;

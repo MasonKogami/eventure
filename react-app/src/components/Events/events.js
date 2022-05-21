@@ -26,7 +26,7 @@ const EventListings = () => {
                 <div style={{color: 'black'}}>
                   {event.name}
                 </div>
-                <div style={{color: 'orange'}}>
+                <div style={{color: '#d1410c'}}>
                   {event.date}
                 </div>
                 <div style={{color: 'gray'}}>
