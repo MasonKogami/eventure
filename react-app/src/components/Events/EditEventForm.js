@@ -5,7 +5,6 @@ import { updateEvent } from '../../store/events';
 import DateTimePicker from 'react-datetime-picker';
 import 'react-datetime-picker/dist/DateTimePicker.css';
 import './EditEventForm.css';
-import NewEvent from './NewEvent';
 
 const EditEventForm = ({ closeModalFunc }) => {
   const dispatch = useDispatch();
@@ -19,12 +18,37 @@ const EditEventForm = ({ closeModalFunc }) => {
   const [capacity, setCapacity] = useState(event.capacity);
   const [errors, setErrors] = useState([]);
 
+  if (locationName.length < 2) {
+    errors.push("Venue names must be longer than 2 characters.")
+  } else if (locationName.length > 30) {
+    errors.push("Venue names must be 30 characters or less.")
+  }
+
+  if (address.length < 20) {
+    errors.push("Address must be longer than 20 characters.")
+  } else if (address.length > 50) {
+    errors.push("Address must be 50 characters or less.")
+  }
+
+  if (name.length < 2) {
+    errors.push("Event names must be longer than 2 characters.")
+  } else if (name.length > 30) {
+    errors.push("Event names must be 30 characters or less.")
+  }
+
+  if (capacity < 10) {
+    errors.push("An event must allow at least 10 people to attend an event.")
+  } else if (capacity > 1000000) {
+    errors.push("An event capacity cannot exceed 100,000.")
+  };
+
   const editOneEvent = async (e) => {
     e.preventDefault();
 
     const pattern = /\S+/;
     if (!pattern.test(name)) return;
     if (!pattern.test(locationName)) return;
+
 
     let updatedEvent = {
       user_id: sessionUser.id,
@@ -35,10 +59,8 @@ const EditEventForm = ({ closeModalFunc }) => {
       capacity,
     };
 
-    let newEvent = await dispatch(updateEvent(updatedEvent, eventId));
-    if (newEvent) {
-      setErrors(newEvent);
-    } else {
+    if (!errors.length) {
+      await dispatch(updateEvent(updatedEvent, eventId));
       console.log("hi")
       closeModalFunc();
     }
@@ -47,19 +69,20 @@ const EditEventForm = ({ closeModalFunc }) => {
   const stopTheProp = e => e.stopPropagation();
 
   return (
-    <div className='edit-modal-form'>
+    <div className='edit-modal-form-con'>
       <form 
         onSubmit={editOneEvent}
         onClick={stopTheProp}
         onMouseDown={stopTheProp}
+        className="edit-modal-form"
       >
         <div className='errors'>
-          {errors?.map((error) => (
-            <div key={error.id}>{error}</div>
+          {errors?.map((error, index) => (
+            <div key={index}>{error}</div>
           ))}
         </div>
         <div>
-          <h2 style={{color: '#fca311', fontWeight: 'bolder'}}>Basic Info</h2>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder'}}>Basic Info</h2>
           <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
           <div style={{marginBottom: '5px'}}>
             <label>
@@ -74,7 +97,7 @@ const EditEventForm = ({ closeModalFunc }) => {
           ></input>
         </div>
         <div>
-          <h2 style={{color: '#fca311', fontWeight: 'bolder'}}>Location</h2>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder'}}>Location</h2>
           <p>Help people in the area discover your event and let attendees know where to show up.</p>
           <div style={{marginBottom: '5px'}}>
             <label>
@@ -86,6 +109,7 @@ const EditEventForm = ({ closeModalFunc }) => {
             onChange={(e) => setLocationName(e.target.value)}
             type='text'
             placeholder='Venue Name'
+            style={{marginBottom: '10px'}}
           ></input>
           <div>
             <div style={{marginBottom: '5px'}}>
@@ -103,7 +127,7 @@ const EditEventForm = ({ closeModalFunc }) => {
           </div>
         </div>
         <div>
-          <h2 style={{color: '#fca311', fontWeight: 'bolder'}}>Date</h2>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder'}}>Date</h2>
           <div style={{marginBottom: '5px'}}>
             <label>
               Tell event goers when your event starts and ends so they can make plans to attend.
@@ -120,7 +144,7 @@ const EditEventForm = ({ closeModalFunc }) => {
           </div>
         </div>
         <div>
-          <h2 style={{color: '#fca311', fontWeight: 'bolder'}}>Capacity</h2>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder'}}>Capacity</h2>
           <p>Tell the event goers how many people they can bring to the party.</p>
           <div style={{marginBottom: '5px'}}>
             <label>
@@ -134,12 +158,12 @@ const EditEventForm = ({ closeModalFunc }) => {
           >
           </input>
         </div>
-        <button type='submit' style={{backgroundColor: '#fca311', color: '#ffff', cursor: 'pointer', marginRight: '10px', marginTop: '10px'}}>
+        <button type='submit' style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginTop: '10px'}}>
           Update Event
         </button>
         <button
           onClick={closeModalFunc}
-          style={{backgroundColor: '#fca311', color: '#ffff', cursor: 'pointer'}}
+          style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '60px', marginLeft: '10px'}}
         >
           Cancel
         </button>

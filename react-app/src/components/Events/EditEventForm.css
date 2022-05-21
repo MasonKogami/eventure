@@ -1,8 +1,22 @@
-.edit-modal-form {
+.edit-modal-form-con {
   background-color: #ffff;
   display: flex;
+  /* gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr); */
   justify-content: center;
   align-items: center;
   padding: 16px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  height: auto;
 }
+
+/* .edit-modal-form {
+  background-color: #ffff;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+} */
