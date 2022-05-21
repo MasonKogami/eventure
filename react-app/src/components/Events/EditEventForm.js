@@ -59,9 +59,10 @@ const EditEventForm = ({ closeModalFunc }) => {
       capacity,
     };
 
-    if (!errors.length) {
-      await dispatch(updateEvent(updatedEvent, eventId));
-      console.log("hi")
+    let data = await dispatch(updateEvent(updatedEvent, eventId));
+    if (data) {
+      setErrors(data);
+    } else {
       closeModalFunc();
     }
   };
