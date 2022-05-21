@@ -91,7 +91,7 @@ export const updateEvent = (event, id) => async dispatch => {
     const data = await response.json();
     dispatch(updateEventAction(data));
     // return data;
-  } else if (response.status < 500) {
+  } else if (response.status !== 200 && response.status < 500) {
     const data = await response.json();
     if (data.errors) {
       return data.errors;

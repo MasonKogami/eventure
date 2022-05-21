@@ -5,6 +5,7 @@ import { updateEvent } from '../../store/events';
 import DateTimePicker from 'react-datetime-picker';
 import 'react-datetime-picker/dist/DateTimePicker.css';
 import './EditEventForm.css';
+import NewEvent from './NewEvent';
 
 const EditEventForm = ({ closeModalFunc }) => {
   const dispatch = useDispatch();
@@ -35,15 +36,13 @@ const EditEventForm = ({ closeModalFunc }) => {
     };
 
     let newEvent = await dispatch(updateEvent(updatedEvent, eventId));
-    if (newEvent.ok) {
+    if (newEvent) {
+      setErrors(newEvent);
+    } else {
+      console.log("hi")
       closeModalFunc();
     }
-    if (errors.length) {
-      setErrors(newEvent);
-    }
   };
-
-  console.log(errors);
 
   const stopTheProp = e => e.stopPropagation();
 
