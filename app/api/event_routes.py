@@ -85,7 +85,7 @@ def delete_event(id):
 # @login_required
 def add_ticket(id):
   form = TicketForm()
-  event = Event.query.get(id)
+  # event = Event.query.get(id)
 
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
@@ -100,4 +100,4 @@ def add_ticket(id):
     db.session.add(tickets)
     db.session.commit()
 
-  return tickets.to_dict()
+    return tickets.to_dict()
