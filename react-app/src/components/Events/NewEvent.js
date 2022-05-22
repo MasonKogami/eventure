@@ -14,7 +14,7 @@ const NewEvent = () => {
   const [address, setAddress] = useState('');
   const [name, setName] = useState('');
   const [date, setDate] = useState(new Date());
-  const [capacity, setCapacity] = useState('');
+  const [description, setDescription] = useState('');
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = async (e) => {
@@ -33,7 +33,7 @@ const NewEvent = () => {
       address,
       name: name.trim(),
       date: date.toUTCString(),
-      capacity
+      description
     };
 
     let submitNewEvent = await dispatch(createEvent(newEvent));
@@ -118,18 +118,18 @@ const NewEvent = () => {
             onChange={(e) => setDate(new Date(e))} 
           />
         </div>
-        <div className='capacity-con'>
-          <h2>Capacity</h2>
-          <p>Tell the event goers how many people they can bring to the party.</p>
+        <div className='description-con'>
+          <h2>Description</h2>
+          <p>Tell the event goers what your event is all about!</p>
           <div style={{marginBottom: '10px'}}>
             <label>
-              Capacity
+              Description
             </label>
           </div>
           <input 
-            value={capacity}
-            placeholder='Number of people allowed.'
-            onChange={(e) => setCapacity(e.target.value)}
+            value={description}
+            placeholder='Add a description.'
+            onChange={(e) => setDescription(e.target.value)}
             className='styled-input'
           >
           </input>

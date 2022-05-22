@@ -15,7 +15,7 @@ const EditEventForm = ({ closeModalFunc }) => {
   const [address, setAddress] = useState(event.address);
   const [name, setName] = useState(event.name);
   const [date, setDate] = useState(new Date(event.date));
-  const [capacity, setCapacity] = useState(event.capacity);
+  const [description, setDescription] = useState(event.description);
   const [errors, setErrors] = useState([]);
 
   // if (locationName.length < 2) {
@@ -36,10 +36,10 @@ const EditEventForm = ({ closeModalFunc }) => {
   //   errors.push("Event names must be 30 characters or less.")
   // }
 
-  // if (capacity < 10) {
+  // if (description < 10) {
   //   errors.push("An event must allow at least 10 people to attend an event.")
-  // } else if (capacity > 1000000) {
-  //   errors.push("An event capacity cannot exceed 100,000.")
+  // } else if (description > 1000000) {
+  //   errors.push("An event description cannot exceed 100,000.")
   // };
 
   const editOneEvent = async (e) => {
@@ -56,7 +56,7 @@ const EditEventForm = ({ closeModalFunc }) => {
       address,
       name: name.trim(),
       date: date.toUTCString(),
-      capacity,
+      description,
     };
 
     let data = await dispatch(updateEvent(updatedEvent, eventId));
@@ -145,17 +145,17 @@ const EditEventForm = ({ closeModalFunc }) => {
           </div>
         </div>
         <div>
-          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '10px'}}>Capacity</h2>
-          <p>Tell the event goers how many people they can bring to the party.</p>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '10px'}}>Description</h2>
+          <p>Tell the event goers what your event is all about!</p>
           <div style={{marginBottom: '5px'}}>
             <label>
-              Capacity
+              Description
             </label>
           </div>
           <input 
-            value={capacity}
-            placeholder='Number of people allowed.'
-            onChange={(e) => setCapacity(e.target.value)}
+            value={description}
+            placeholder='Add a description.'
+            onChange={(e) => setDescription(e.target.value)}
           >
           </input>
         </div>
