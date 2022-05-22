@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import './LandingPage.css';
 import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
-import Modal from '../Modal/Modal';
+// import Modal from '../Modal/Modal';
 import AboutMe from "../AboutMe/AboutMe";
 
 const LandingPage = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [loginDisplay, setLoginDisplay] = useState('not-displayed')
   const [signupDisplay, setSignupDisplay] = useState('not-displayed')

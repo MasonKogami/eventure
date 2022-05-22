@@ -52,7 +52,6 @@ export const deleteTickets = ticket => async dispatch => {
 };
 
 export const loadTickets = userId => async dispatch => {
-  console.log('LOAD THUNK>>>>>>>>>>>>>>')
   const response = await fetch(`/api/users/${userId}`);
 
   const data = await response.json();
@@ -70,7 +69,7 @@ const ticketsReducer = (state = initialState, action) => {
       newState[action.ticket.id] = action.ticket;
       return newState;
     case DELETE_TICKETS:
-      const filteredState = { ...Object.values(newState).filter(ticket => ticket.id != action.ticket.id) }
+      const filteredState = { ...Object.values(newState).filter(ticket => ticket.id !== action.ticket.id) }
       return filteredState;
     case LOAD_TICKETS:
       return { ...action.tickets }

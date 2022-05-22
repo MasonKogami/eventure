@@ -18,29 +18,29 @@ const EditEventForm = ({ closeModalFunc }) => {
   const [capacity, setCapacity] = useState(event.capacity);
   const [errors, setErrors] = useState([]);
 
-  if (locationName.length < 2) {
-    errors.push("Venue names must be longer than 2 characters.")
-  } else if (locationName.length > 30) {
-    errors.push("Venue names must be 30 characters or less.")
-  }
+  // if (locationName.length < 2) {
+  //   errors.push("Venue names must be longer than 2 characters.")
+  // } else if (locationName.length > 30) {
+  //   errors.push("Venue names must be 30 characters or less.")
+  // }
 
-  if (address.length < 20) {
-    errors.push("Address must be longer than 20 characters.")
-  } else if (address.length > 50) {
-    errors.push("Address must be 50 characters or less.")
-  }
+  // if (address.length < 20) {
+  //   errors.push("Address must be longer than 20 characters.")
+  // } else if (address.length > 50) {
+  //   errors.push("Address must be 50 characters or less.")
+  // }
 
-  if (name.length < 2) {
-    errors.push("Event names must be longer than 2 characters.")
-  } else if (name.length > 30) {
-    errors.push("Event names must be 30 characters or less.")
-  }
+  // if (name.length < 2) {
+  //   errors.push("Event names must be longer than 2 characters.")
+  // } else if (name.length > 30) {
+  //   errors.push("Event names must be 30 characters or less.")
+  // }
 
-  if (capacity < 10) {
-    errors.push("An event must allow at least 10 people to attend an event.")
-  } else if (capacity > 1000000) {
-    errors.push("An event capacity cannot exceed 100,000.")
-  };
+  // if (capacity < 10) {
+  //   errors.push("An event must allow at least 10 people to attend an event.")
+  // } else if (capacity > 1000000) {
+  //   errors.push("An event capacity cannot exceed 100,000.")
+  // };
 
   const editOneEvent = async (e) => {
     e.preventDefault();
@@ -59,9 +59,10 @@ const EditEventForm = ({ closeModalFunc }) => {
       capacity,
     };
 
-    if (!errors.length) {
-      await dispatch(updateEvent(updatedEvent, eventId));
-      console.log("hi")
+    let data = await dispatch(updateEvent(updatedEvent, eventId));
+    if (data) {
+      setErrors(data);
+    } else {
       closeModalFunc();
     }
   };
@@ -82,7 +83,7 @@ const EditEventForm = ({ closeModalFunc }) => {
           ))}
         </div>
         <div>
-          <h2 style={{color: '#d1410c', fontWeight: 'bolder'}}>Basic Info</h2>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '0px'}}>Basic Info</h2>
           <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
           <div style={{marginBottom: '5px'}}>
             <label>
@@ -97,7 +98,7 @@ const EditEventForm = ({ closeModalFunc }) => {
           ></input>
         </div>
         <div>
-          <h2 style={{color: '#d1410c', fontWeight: 'bolder'}}>Location</h2>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '10px'}}>Location</h2>
           <p>Help people in the area discover your event and let attendees know where to show up.</p>
           <div style={{marginBottom: '5px'}}>
             <label>
@@ -127,7 +128,7 @@ const EditEventForm = ({ closeModalFunc }) => {
           </div>
         </div>
         <div>
-          <h2 style={{color: '#d1410c', fontWeight: 'bolder'}}>Date</h2>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '10px'}}>Date</h2>
           <div style={{marginBottom: '5px'}}>
             <label>
               Tell event goers when your event starts and ends so they can make plans to attend.
@@ -144,7 +145,7 @@ const EditEventForm = ({ closeModalFunc }) => {
           </div>
         </div>
         <div>
-          <h2 style={{color: '#d1410c', fontWeight: 'bolder'}}>Capacity</h2>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '10px'}}>Capacity</h2>
           <p>Tell the event goers how many people they can bring to the party.</p>
           <div style={{marginBottom: '5px'}}>
             <label>

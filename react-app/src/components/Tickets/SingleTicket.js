@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { updateTickets, deleteTickets } from '../../store/tickets';
-import { readAllTickets } from '../../store/session';
+// import { readAllTickets } from '../../store/session';
 import Checkout from "../Events/Checkout";
 import Modal from '../Modal/Modal';
 import ConfirmationModal from "../Modal/Confirmation";
 
 const SingleTicket = ({ ticket, userId }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
   const [user, setUser] = useState({});
   const [showCheckoutModal, setCheckoutModal] = useState(false);
 

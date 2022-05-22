@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { readOneEvent, deleteEvent } from '../../store/events';
-import { addTickets } from '../../store/events';
+// import { addTickets } from '../../store/events';
 import Modal from '../Modal/Modal';
 import ConfirmationModal from '../Modal/Confirmation';
 import './OneEvent.css';
@@ -46,7 +46,7 @@ const OneEvent = () => {
         {/* <div>
           <img alt='event-header' src='https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F230834389%2F285623250502%2F1%2Foriginal.20210604-004626?w=600&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=f94e8cdbce75497cb7ede588ea34da22' />
         </div> */}
-        <div>
+        <div style={{fontSize: '40px'}}>
           {event?.name}
         </div>
         <div>

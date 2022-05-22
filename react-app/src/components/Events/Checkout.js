@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { readOneEvent } from '../../store/events';
 import { addTickets } from '../../store/events';
-// import Modal from '../Modal/Modal';
 import './Checkout.css';
 
 const Checkout = ({ closeModalFunc }) => {
@@ -38,13 +37,10 @@ const Checkout = ({ closeModalFunc }) => {
       quantity
     };
 
-    console.log(tickets);
-
     let newTickets = await dispatch(addTickets(tickets));
-    if (newTickets.errors) {
-      setErrors(newTickets.errors);
+    if (newTickets) {
+      setErrors(newTickets);
     } else {
-      // alert(`Success! You have acquired tickets to ${event.name}!`)
       closeModalFunc();
       history.push(`/users/${sessionUser.id}`)
     }
@@ -53,14 +49,16 @@ const Checkout = ({ closeModalFunc }) => {
   const stopTheProp = e => e.stopPropagation();
 
   return (
-    <div style={{backgroundColor: '#ffff', boxShadow: '0 0 12px rgba(0, 0, 0, 0.5)', height: '80%', width: '40%'}}>
+    <div style={{backgroundColor: '#ffff', boxShadow: '0 0 12px rgba(0, 0, 0, 0.5)', height: '50%', width: '60%'}}>
       <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
         <div style={{borderBottom: '2px solid #eeedf2', width: '100%', display: 'flex', justifyContent: 'center'}}>
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-          <h2 style={{color: '#d1410c'}}>Ticket Order Form</h2>
-            <label>
-              {event?.name}
-            </label>
+          <h2 style={{color: '#d1410c', fontSize: '30px', fontWeight: 'bolder', marginBottom: '15px'}}>Ticket Order Form</h2>
+            <div style={{marginBottom: '2px'}}>
+              <label>
+                {event?.name}
+              </label>
+            </div>
             <div>
               <label>
                 {event?.date}
@@ -74,9 +72,19 @@ const Checkout = ({ closeModalFunc }) => {
           onSubmit={handleSubmit}
         >
           <div>
-            <label>
-              Quantity
-            </label>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+          </div>
+          <div style={{display: 'flex', justifyContent: 'center', marginLeft: '150px', marginRight: '150px'}}>
+            <p style={{display: 'flex', justifyContent: 'center', verticalAlign: 'middle', textAlign: 'center'}}>Tell us how many tickets you need to start your next Eventure. Ticket orders are limited to 10 per order to allow everyone a chance!</p>
+          </div>
+          <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div style={{padding: '5px'}}>
+              <label>
+                Quantity
+              </label>
+            </div>
             <select
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
@@ -96,19 +104,36 @@ const Checkout = ({ closeModalFunc }) => {
               <option value={10}>10</option>
             </select>
           </div>
+      <div style={{fontSize: '20px', fontWeight: 'bolder', display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '15px', color: '#d1410c'}}>
+        <label>
+          Order Summary:
+        </label>
+      </div>
+      <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
+        {quantity}x - {event.name}
+      </div>
+      <div style={{display: 'flex', justifyContent: 'center', marginTop: '25px'}}>
         <button 
           type='submit'
           className='checkout-button1'
           disabled={submitError !== 'able'}
+          style={{marginRight: '10px'}}
         >Checkout</button>
-        </form>
         <button
           className='checkout-button2'
           onClick={closeModalFunc}
         >Cancel</button>
       </div>
-      <div>
+        </form>
       </div>
+      {/* <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
+        <label>
+          Order Summary
+        </label>
+      </div>
+      <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
+        {quantity}x {event.name}
+      </div> */}
     </div>
   );
 };

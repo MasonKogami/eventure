@@ -3,6 +3,7 @@ from flask_login import current_user, login_required
 from app.models import db, Event, Ticket
 from app.forms.event_form import EventForm
 from app.forms.ticket_form import TicketForm
+from app.forms.edit_event_form import EditEventForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
 event_routes = Blueprint('events', __name__)
@@ -48,32 +49,25 @@ def single_event(id):
 @event_routes.route('/<int:id>', methods=['PUT'])
 # @login_required
 def update_event(id):
-  # form  = EventForm()
   event = Event.query.get(id)
+  form  = EditEventForm()
 
-  # form['csrf_token'].data = request.cookies['csrf_token']
-  # if form.validate_on_submit():
-  #   print(event.to_dict(), '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
-  #   event.location_name = form.data['location_name']
-  #   event.address       = form.data['address']
-  #   event.name          = form.data['name']
-  #   event.date          = form.data['date']
-  #   event.capacity      = form.data['capacity']
-  location_name = request.json['location_name']
-  address       = request.json['address']
-  name          = request.json['name']
-  date          = request.json['date']
-  capacity      = request.json['capacity']
-
-  event.location_name = location_name
-  event.address       = address
-  event.name          = name
-  event.date          = date
-  event.capacity      = capacity
-
-  db.session.commit()
-  
-  return event.to_dict()
+  print("first print>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+  form['csrf_token'].data = request.cookies['csrf_token']
+  if form.validate_on_submit():
+    print("print inside form validation>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    event.location_name = form.data["location_name"]
+    event.address       = form.data["address"]
+    event.name          = form.data["name"]
+    event.date          = form.data["date"]
+    event.capacity      = form.data["capacity"]
+    db.session.add(event)
+    print("print before commit>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    db.session.commit()
+    return event.to_dict()
+  else:
+    print("last print>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 # D E L E T E  E V E N T
 @event_routes.route('/<int:id>', methods=['DELETE'])
@@ -91,6 +85,7 @@ def delete_event(id):
 # @login_required
 def add_ticket(id):
   form = TicketForm()
+  # event = Event.query.get(id)
 
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
@@ -100,6 +95,8 @@ def add_ticket(id):
       user_id=form.data['user_id'],
       quantity=form.data['quantity']
     )
+    # event.capacity - tickets.quantity
+    # print(event, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
     db.session.add(tickets)
     db.session.commit()
 
