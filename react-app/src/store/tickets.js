@@ -52,7 +52,6 @@ export const deleteTickets = ticket => async dispatch => {
 };
 
 export const loadTickets = userId => async dispatch => {
-  console.log('LOAD THUNK>>>>>>>>>>>>>>')
   const response = await fetch(`/api/users/${userId}`);
 
   const data = await response.json();
