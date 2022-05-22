@@ -83,7 +83,7 @@ const EditEventForm = ({ closeModalFunc }) => {
           ))}
         </div>
         <div>
-          <h2 style={{color: '#d1410c', fontWeight: 'bolder'}}>Basic Info</h2>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '0px'}}>Basic Info</h2>
           <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
           <div style={{marginBottom: '5px'}}>
             <label>
@@ -98,7 +98,7 @@ const EditEventForm = ({ closeModalFunc }) => {
           ></input>
         </div>
         <div>
-          <h2 style={{color: '#d1410c', fontWeight: 'bolder'}}>Location</h2>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '10px'}}>Location</h2>
           <p>Help people in the area discover your event and let attendees know where to show up.</p>
           <div style={{marginBottom: '5px'}}>
             <label>
@@ -128,7 +128,7 @@ const EditEventForm = ({ closeModalFunc }) => {
           </div>
         </div>
         <div>
-          <h2 style={{color: '#d1410c', fontWeight: 'bolder'}}>Date</h2>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '10px'}}>Date</h2>
           <div style={{marginBottom: '5px'}}>
             <label>
               Tell event goers when your event starts and ends so they can make plans to attend.
@@ -145,7 +145,7 @@ const EditEventForm = ({ closeModalFunc }) => {
           </div>
         </div>
         <div>
-          <h2 style={{color: '#d1410c', fontWeight: 'bolder'}}>Capacity</h2>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '10px'}}>Capacity</h2>
           <p>Tell the event goers how many people they can bring to the party.</p>
           <div style={{marginBottom: '5px'}}>
             <label>
