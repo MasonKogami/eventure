@@ -22,7 +22,7 @@ def new_event():
       address=form.data['address'],
       name=form.data['name'],
       date=form.data['date'],
-      capacity=form.data['capacity']
+      description=form.data['description']
     )
     db.session.add(event)
     db.session.commit()
@@ -60,7 +60,7 @@ def update_event(id):
     event.address       = form.data["address"]
     event.name          = form.data["name"]
     event.date          = form.data["date"]
-    event.capacity      = form.data["capacity"]
+    event.description      = form.data["description"]
     db.session.add(event)
     print("print before commit>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
     db.session.commit()
