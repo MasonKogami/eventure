@@ -6,8 +6,9 @@
   cursor: pointer;
 }
 
-#disabled {
-  color: gray;
+.checkout-button1[disabled] {
+  background-color: rgba(209, 65, 12, .357);
+  border-color: rgba(209, 65, 12, .255);
 }
 
 .checkout-button2 {
