@@ -60,7 +60,7 @@ def update_event(id):
     event.address       = form.data["address"]
     event.name          = form.data["name"]
     event.date          = form.data["date"]
-    event.description      = form.data["description"]
+    event.description   = form.data["description"]
     db.session.add(event)
     
     db.session.commit()
