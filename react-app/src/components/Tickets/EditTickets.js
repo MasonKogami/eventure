@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
-import { readOneEvent } from '../../store/events';
-import { updateTickets } from '../../store/tickets';
-// import './EditTickets.css';
+import { useHistory } from 'react-router-dom';
+// import { readOneEvent } from '../../store/events';
+import { loadTickets, updateTickets } from '../../store/tickets';
+import './EditTickets.css';
 
-const EditTickets = ({ Event, ticket, closeModalFunc }) => {
+const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
   const dispatch = useDispatch();
   const history  = useHistory();
   const sessionUser = useSelector(state => state.session.user);
-  // const { eventId } = Event.id
-  const event = useSelector(state => state.events[Event.id]);
+  const event = useSelector(state => state.events[ticketEvent]);
+  const ticketInfo = useSelector(state => state.tickets[ticket.id])
   const [quantity, setQuantity] = useState(ticket.quantity);
   const [errors, setErrors] = useState([]);
   const [submitError, setSubmitError] = useState('disabled');
+  console.log(ticket)
+  console.log(ticketInfo)
+  console.log(ticketEvent)
+  // console.log(event)
 
   // useEffect(() => {
-  //   dispatch(readOneEvent(Event.id))
-  // }, [dispatch, Event]);
+  //   dispatch(readOneEvent(event.id))
+  // }, [dispatch, event]);
 
   useEffect(() => {
     if (quantity !== 0) {
@@ -31,37 +35,39 @@ const EditTickets = ({ Event, ticket, closeModalFunc }) => {
     e.preventDefault();
 
     const tickets = {
+      id: ticket.id,
       user_id: sessionUser.id,
       event_id: event.id,
-      event_name: event.name,
+      event_name: ticket.event_name,
       quantity
     };
-
+    console.log(tickets);
     let newTickets = await dispatch(updateTickets(tickets));
     if (newTickets) {
       setErrors(newTickets);
     } else {
-      closeModalFunc();
-      history.push(`/users/${sessionUser.id}`)
+      dispatch(loadTickets(sessionUser.id))
+      .then(() => closeModalFunc())
+      // history.push(`/users/${sessionUser.id}`)
     }
   };
 
   const stopTheProp = e => e.stopPropagation();
 
   return (
-    <div style={{backgroundColor: '#ffff', boxShadow: '0 0 12px rgba(0, 0, 0, 0.5)', height: '50%', width: '60%'}}>
+    <div style={{backgroundColor: '#ffff', boxShadow: '0 0 12px rgba(0, 0, 0, 0.5)', height: '55%', width: '60%'}}>
       <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
         <div style={{borderBottom: '2px solid #eeedf2', width: '100%', display: 'flex', justifyContent: 'center'}}>
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <h2 style={{color: '#d1410c', fontSize: '30px', fontWeight: 'bolder', marginBottom: '15px'}}>Ticket Order Form</h2>
             <div style={{marginBottom: '2px'}}>
               <label>
-                {Event?.name}
+                {ticket.event_name}
               </label>
             </div>
             <div>
               <label>
-                {Event?.date}
+                {event?.date}
               </label>
             </div>
           </div>
@@ -70,8 +76,9 @@ const EditTickets = ({ Event, ticket, closeModalFunc }) => {
           onClick={stopTheProp}
           onMouseDown={stopTheProp}
           onSubmit={handleSubmit}
+          style={{height: '600px'}}
         >
-          <div>
+          <div className='edit-errors'>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
@@ -110,17 +117,17 @@ const EditTickets = ({ Event, ticket, closeModalFunc }) => {
         </label>
       </div>
       <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
-        {quantity}x - {Event?.name}
+        {quantity}x - {ticket.event_name}
       </div>
       <div style={{display: 'flex', justifyContent: 'center', marginTop: '25px'}}>
         <button 
           type='submit'
-          className='checkout-button1'
+          className='edit-button1'
           disabled={submitError !== 'able'}
           style={{marginRight: '10px'}}
-        >Checkout</button>
+        >Update</button>
         <button
-          className='checkout-button2'
+          className='edit-button2'
           onClick={closeModalFunc}
         >Cancel</button>
       </div>
