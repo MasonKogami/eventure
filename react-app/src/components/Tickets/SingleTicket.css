@@ -28,3 +28,22 @@
 /* .singleticket-con:hover {
   border: 1px solid #d1410c;
 } */
+
+.modal-background-edit {
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  position: absolute;
+  z-index: 10;
+
+  /* GOOD LUCK, JON */
+  backdrop-filter: blur(5px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  cursor: default;
+}

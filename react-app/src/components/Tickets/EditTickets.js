@@ -34,8 +34,8 @@ const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
     if (newTickets) {
       setErrors(newTickets);
     } else {
-      await dispatch(loadTickets(sessionUser.id))
-      closeModalFunc()
+      dispatch(loadTickets(sessionUser.id))
+      .then(() => closeModalFunc())
     }
   };
 
@@ -44,7 +44,7 @@ const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
   return (
     <div className='edit-tickets-con'>
       <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
-        <div style={{borderBottom: '2px solid #eeedf2', width: '100%', display: 'flex', justifyContent: 'center'}}>
+        <div style={{borderBottom: '2px solid #eeedf2', width: '100%', display: 'flex', justifyContent: 'center', boxShadow: '0 5px 12px (0, 0, 0, .5)'}}>
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <h2 style={{color: '#d1410c', fontSize: '30px', fontWeight: 'bolder', marginBottom: '15px'}}>Ticket Order Form</h2>
             <div style={{marginBottom: '2px'}}>
@@ -63,7 +63,7 @@ const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
           onClick={stopTheProp}
           onMouseDown={stopTheProp}
           onSubmit={handleSubmit}
-          style={{height: '630px'}}
+          style={{height: '250px', backgroundColor: '#ffff', boxShadow: '0 5px 12px (0, 0, 0, .5)'}}
         >
           <div className='edit-errors'>
           {errors.map((error, ind) => (
