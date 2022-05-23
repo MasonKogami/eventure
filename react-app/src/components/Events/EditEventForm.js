@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { updateEvent } from '../../store/events';
@@ -26,7 +26,6 @@ const EditEventForm = ({ closeModalFunc }) => {
     if (!pattern.test(name)) return;
     if (!pattern.test(locationName)) return;
 
-    console.log(locationName)
     let updatedEvent = {
       user_id: sessionUser.id,
       location_name: locationName.trim(),
@@ -60,8 +59,8 @@ const EditEventForm = ({ closeModalFunc }) => {
           ))}
         </div>
         <div>
-          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '0px'}}>Basic Info</h2>
-          <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '0px', marginBottom: '0px'}}>Basic Info</h2>
+          <p style={{marginTop: '5px', marginBottom: '5px'}}>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
           <div style={{marginBottom: '5px'}}>
             <label>
               Event Name
@@ -75,8 +74,8 @@ const EditEventForm = ({ closeModalFunc }) => {
           ></input>
         </div>
         <div>
-          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '10px'}}>Location</h2>
-          <p>Help people in the area discover your event and let attendees know where to show up.</p>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '10px', marginBottom: '0px'}}>Location</h2>
+          <p style={{marginTop: '5px', marginBottom: '5px'}}>Help people in the area discover your event and let attendees know where to show up.</p>
           <div style={{marginBottom: '5px'}}>
             <label>
               Location Name
@@ -105,7 +104,7 @@ const EditEventForm = ({ closeModalFunc }) => {
           </div>
         </div>
         <div>
-          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '10px'}}>Date</h2>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '10px', marginBottom: '0px'}}>Date</h2>
           <div style={{marginBottom: '5px'}}>
             <label>
               Tell event goers when your event starts and ends so they can make plans to attend.
@@ -122,8 +121,8 @@ const EditEventForm = ({ closeModalFunc }) => {
           </div>
         </div>
         <div>
-          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '10px'}}>Description</h2>
-          <p>Tell the event goers what your event is all about!</p>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '10px', marginBottom: '0px'}}>Description</h2>
+          <p style={{marginTop: '5px', marginBottom: '5px'}}>Tell the event goers what your event is all about!</p>
           <div style={{marginBottom: '5px'}}>
             <label>
               Description
@@ -140,13 +139,14 @@ const EditEventForm = ({ closeModalFunc }) => {
         <button type='submit' style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginTop: '10px'}}>
           Update Event
         </button>
-        <button
-          onClick={() => history.push(`/events/${eventId}`)}
-          style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '60px', marginLeft: '10px'}}
-        >
-          Cancel
-        </button>
       </form>
+      <button
+        onClick={() => history.push(`/events/${eventId}`)}
+        className='cancel-edit-modal'
+        style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '60px', marginLeft: '10px'}}
+      >
+        Cancel
+      </button>
     </div>
   );
 };
