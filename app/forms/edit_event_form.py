@@ -38,7 +38,7 @@ def address_length(form, field):
 def description_length(form, field):
   description = field.data
   if len(description) < 2000:
-    raise ValidationError("An event description must be at least 3000 characters.")
+    raise ValidationError("An event description must be at least 2000 characters.")
   if len(description) > 10000:
     raise ValidationError("An event description must be 10,000 characters or less.")
 
