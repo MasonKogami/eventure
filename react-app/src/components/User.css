@@ -8,20 +8,24 @@
 }
 
 .user-title {
-  font-size: 30px;
-  color: #d1410c;
-  position: relative;
-  right: 400px;
-}
-
-.table-headers {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 80%;
+  align-items: center;
+  font-size: 30px;
+  /* color: #d1410c; */
   position: relative;
-  right: 25px;
-  border: 1px solid black;
-  padding-left: 5px;
-  padding-right: 5px;
+  right: 512px;
+}
+
+.user-title > h2 {
+  margin-left: 25px;
+  color: #d1410c;
+}
+
+.orders {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 19px;
+  color: #d1410c; 
 }
