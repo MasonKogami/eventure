@@ -81,7 +81,7 @@ const OneEvent = () => {
             <div>
               {event?.address}
             </div>
-            {sessionUser && (<button style={{cursor: 'pointer', border: '2px solid transparent', borderRadius: '4px', backgroundColor: '#0d8547', color: '#ffff', height: '40px', width: '200px', marginTop: '10px'}} onClick={showCheckoutModalFunc}>Tickets</button>)}
+            {(sessionUser.id !== event.host_id) && (<button style={{cursor: 'pointer', border: '2px solid transparent', borderRadius: '4px', backgroundColor: '#0d8547', color: '#ffff', height: '40px', width: '200px', marginTop: '10px'}} onClick={showCheckoutModalFunc}>Tickets</button>)}
             {showCheckoutModal && (
               <Modal className='checkoutmodal-background' closeModalFunc={closeCheckoutModalFunc}>
                 <Checkout closeModalFunc={closeCheckoutModalFunc}/>
