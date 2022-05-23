@@ -3,7 +3,8 @@
   flex-direction: column;
   width: 100%;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  height: 120vh;
 }
 
 .user-title {
