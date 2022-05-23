@@ -40,7 +40,6 @@ const NewEvent = () => {
     if (submitNewEvent) {
       setErrors(submitNewEvent);
     } else {
-      console.log("hi")
       history.push("/home")
     }
   };
@@ -68,6 +67,7 @@ const NewEvent = () => {
             type='text'
             placeholder='Be clear and descriptive.'
             className='styled-input'
+            required
           ></input>
         </div>
         <hr style={{backgroundColor: '#eeedf2'}}/>
@@ -85,6 +85,7 @@ const NewEvent = () => {
             type='text'
             placeholder='Venue Name'
             className='styled-input'
+            required
           ></input>
           <div>
             <div style={{marginBottom: '10px', marginTop: '10px'}}>
@@ -115,7 +116,8 @@ const NewEvent = () => {
             value={date}
             minDate={new Date()}
             disableClock={true}
-            onChange={(e) => setDate(new Date(e))} 
+            onChange={(e) => setDate(new Date(e))}
+            required
           />
         </div>
         <div className='description-con'>
@@ -131,6 +133,7 @@ const NewEvent = () => {
             placeholder='Add a description.'
             onChange={(e) => setDescription(e.target.value)}
             className='styled-input'
+            required
           >
           </input>
         </div>
