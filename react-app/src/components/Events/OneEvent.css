@@ -59,8 +59,11 @@
 }
 
 #modal-button {
-  background-color: red;
+  background-color: #d1410c;
   color: #ffff;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  cursor: pointer;
 }
 
 .event-info {
