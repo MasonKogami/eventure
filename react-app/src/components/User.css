@@ -1,0 +1,23 @@
+.user-profile-con {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  height: 100vh;
+}
+
+.user-title {
+  font-size: 30px;
+  color: #d1410c;
+  position: relative;
+  right: 400px;
+}
+
+.table-headers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 60%;
+  position: relative;
+  right: 150px;
+}

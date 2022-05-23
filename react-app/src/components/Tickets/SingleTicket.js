@@ -59,13 +59,13 @@ const SingleTicket = ({ ticket, userId }) => {
                 func={() => removeTickets(ticket)}
               >
             <button
-              style={{marginRight: "12px"}}
+              style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '110px', marginTop: '10px'}}
             >Refund Tickets</button>
           </ConfirmationModal>
         }
       </div>
       <div>
-        {<button onClick={showCheckoutModalFunc}>Update Ticket Quantity</button>}
+        {<button style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '110px', marginTop: '10px'}} onClick={showCheckoutModalFunc}>Update Tickets</button>}
           {showCheckoutModal && (
             <Modal closeModalFunc={closeCheckoutModalFunc} className='modal-background'>
               <Checkout style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeCheckoutModalFunc} />

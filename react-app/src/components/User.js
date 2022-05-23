@@ -5,6 +5,7 @@ import { readAllEvents } from '../store/events';
 import { loadTickets } from '../store/tickets';
 // import { loadUser } from '../store/session';
 import SingleTicket from './Tickets/SingleTicket';
+import './User.css';
 
 function User() {
   const dispatch = useDispatch();
@@ -41,11 +42,12 @@ function User() {
   };
 
   return (
-    <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', alignItems: 'center'}}>
-      <div>{user.username}'s Tickets</div>
-      <div>
+    <div className='user-profile-con'>
+      <h2 className='user-title'>{user.username}'s Tickets</h2>
+      <div className='table-headers'>
         <h2>Event Name</h2>
         <h2>Ticket Quantity</h2>
+        <h2>Actions</h2>
       </div>
       <div>
         {tickets?.map((ticket) => {
