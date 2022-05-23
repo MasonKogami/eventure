@@ -4,7 +4,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .modal-background {
@@ -61,10 +64,13 @@
 }
 
 .event-info {
-  background-color: #ffdead;
+  /* background-color: #ffdead; */
   max-width: 1080px;
+  display: flex;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
 }
 
 .checkoutmodal-background {

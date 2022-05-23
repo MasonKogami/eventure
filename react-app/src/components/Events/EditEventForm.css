@@ -8,6 +8,8 @@
   padding: 16px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
   height: auto;
+  /* overflow-y: scroll; */
+  z-index: 10000000000;
 }
 
 .errors {

@@ -39,7 +39,8 @@ def description_length(form, field):
   description = field.data
   if len(description) < 10:
     raise ValidationError("An event description must be at least 10 characters.")
-
+  if len(description) > 10000:
+    raise ValidationError("An event description must be 10,000 characters or less.")
 
 class EditEventForm(FlaskForm):
   # pass
