@@ -25,7 +25,7 @@ const NewEvent = () => {
     if (!pattern.test(name)) return;
     if (!pattern.test(locationName)) return;
 
-    let addressArr = address.split(',');
+    // let addressArr = address.split(',');
     
     let newEvent = {
       user_id: sessionUser.id,

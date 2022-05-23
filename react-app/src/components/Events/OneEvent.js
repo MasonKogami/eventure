@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, NavLink } from 'react-router-dom';
 import { readOneEvent, deleteEvent } from '../../store/events';
 // import { addTickets } from '../../store/events';
 import Modal from '../Modal/Modal';
@@ -27,7 +27,7 @@ const OneEvent = () => {
 
   const deleteOneEvent = async (event) => {
     await dispatch(deleteEvent(event));
-    history.push("/home"); // timing issue
+    history.push("/home");
   };
 
   const showEditModalFunc = () => setShowEditModal(true);
@@ -53,12 +53,15 @@ const OneEvent = () => {
           {event?.date}
         </div>
         <div>
-          {(sessionUser.id === event?.host_id) && (<button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginBottom: '15px', marginTop: '15px'}} onClick={showEditModalFunc}>Edit Event</button>)}
+          {(sessionUser.id === event?.host_id) && <NavLink to={`/events/${eventId}/edit`}>
+            Edit Event
+            </NavLink>}
+          {/* {(sessionUser.id === event?.host_id) && (<button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginBottom: '15px', marginTop: '15px'}} onClick={showEditModalFunc}>Edit Event</button>)}
           {showEditModal && (
             <Modal closeModalFunc={closeEditModalFunc} className='modal-background'>
               <EditEventForm style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeEditModalFunc} />
             </Modal>
-          )}
+          )} */}
         </div>
         <div>
           {(sessionUser.id === event?.host_id) && (<ConfirmationModal 
@@ -67,7 +70,6 @@ const OneEvent = () => {
                 func={() => deleteOneEvent(event)}
               >
             <button
-              // style={{marginRight: "12px"}}
               style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '120px'}}
             >Delete Event</button>
           </ConfirmationModal>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { updateEvent } from '../../store/events';
 import DateTimePicker from 'react-datetime-picker';
 import 'react-datetime-picker/dist/DateTimePicker.css';
@@ -8,6 +8,7 @@ import './EditEventForm.css';
 
 const EditEventForm = ({ closeModalFunc }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { eventId } = useParams();
   const sessionUser = useSelector(state => state.session.user);
   const event = useSelector(state => state.events[eventId]);
@@ -17,30 +18,6 @@ const EditEventForm = ({ closeModalFunc }) => {
   const [date, setDate] = useState(new Date(event.date));
   const [description, setDescription] = useState(event.description);
   const [errors, setErrors] = useState([]);
-
-  // if (locationName.length < 2) {
-  //   errors.push("Venue names must be longer than 2 characters.")
-  // } else if (locationName.length > 30) {
-  //   errors.push("Venue names must be 30 characters or less.")
-  // }
-
-  // if (address.length < 20) {
-  //   errors.push("Address must be longer than 20 characters.")
-  // } else if (address.length > 50) {
-  //   errors.push("Address must be 50 characters or less.")
-  // }
-
-  // if (name.length < 2) {
-  //   errors.push("Event names must be longer than 2 characters.")
-  // } else if (name.length > 30) {
-  //   errors.push("Event names must be 30 characters or less.")
-  // }
-
-  // if (description < 10) {
-  //   errors.push("An event must allow at least 10 people to attend an event.")
-  // } else if (description > 1000000) {
-  //   errors.push("An event description cannot exceed 100,000.")
-  // };
 
   const editOneEvent = async (e) => {
     e.preventDefault();
@@ -164,7 +141,7 @@ const EditEventForm = ({ closeModalFunc }) => {
           Update Event
         </button>
         <button
-          onClick={closeModalFunc}
+          onClick={() => history.push(`/events/${eventId}`)}
           style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '60px', marginLeft: '10px'}}
         >
           Cancel

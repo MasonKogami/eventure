@@ -4,7 +4,7 @@ import './LandingPage.css';
 import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
 // import Modal from '../Modal/Modal';
-import AboutMe from "../AboutMe/AboutMe";
+// import AboutMe from "../AboutMe/AboutMe";
 
 const LandingPage = () => {
   // const dispatch = useDispatch();

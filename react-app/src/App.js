@@ -62,9 +62,9 @@ function App() {
           <Route path={`/events/:eventId`} exact={true}>
             <OneEvent />
           </Route>
-          <ProtectedRoute path="/events/:eventId/edit" exact={true}>
+          <Route path={`/events/:eventId/edit`} exact={true}>
             <EditEventForm />
-          </ProtectedRoute>
+          </Route>
           <Route path='/landingpage' exact={true}>
             <LandingPage />
           </Route>
