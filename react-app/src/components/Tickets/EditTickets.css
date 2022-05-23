@@ -23,4 +23,16 @@
   border-color: #d1410c;
   border-radius: 4px;
   cursor: pointer;
+  position: relative;
+  bottom: 380px;
+  right: 5px;
+}
+
+.edit-tickets-con {
+  background-color: #ffff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  height: 55%;
+  width: 60%;
+  display: grid;
+  grid: 1fr 1fr 1fr;
 }

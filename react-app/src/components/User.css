@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  align-items: center;
+  /* align-items: center; */
   min-height: 100vh;
-  height: 120vh;
+  height: auto;
+  margin: 0;
 }
 
 .user-title {
@@ -14,18 +15,31 @@
   font-size: 30px;
   /* color: #d1410c; */
   position: relative;
-  right: 512px;
+  right: -50px;
 }
 
 .user-title > h2 {
   margin-left: 25px;
   color: #d1410c;
+  font-weight: bolder;
 }
 
-.orders {
+.orders > h2{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 19px;
+  font-size: 40px;
+  font-weight: bolder;
   color: #d1410c; 
+}
+
+.grid {
+  position: relative;
+  left: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }

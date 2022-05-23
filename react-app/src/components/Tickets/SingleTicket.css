@@ -1,37 +1,31 @@
 .singleticket-con {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 5px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: rgba(233, 196, 106, 1);
+  border: 3px solid #1E0A3C;
+  /* color: #ffff; */
+  width: 400px;
+  height: 130px;
+  margin-bottom: 20px;
 }
 
-.singleticket-con:hover {
-  border: 1px solid #d1410c;
+.singleticket-con:hover{
+  background-color: #e76f51;
 }
 
 .ticket-name {
   position: relative;
-  display: flex;
-  align-items: center;
-  color: #d1410c;
-  /* right: 420px; */
-  font-size: 20px;
+  /* left: 5px;   */
+  font-size: 30px;
 }
 
 .ticket-quantity {
   position: relative;
-  display: flex;
-  align-items: center;
-  color: #d1410c;
-  /* left: 130px; */
+
 }
 
-.ticket-actions {
-  position: relative;
-  /* left: 480px; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* gap: 15px; */
-}
+/* .singleticket-con:hover {
+  border: 1px solid #d1410c;
+} */

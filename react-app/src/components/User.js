@@ -37,12 +37,12 @@ function User() {
     <div className='user-profile-con'>
       <div className='user-title'>
         <FaUser style={{height: '50px'}}/>
-        <h2>{user.username}</h2>
+        <h2>{user.username}'s Profile</h2>
       </div>
       <div className='orders'>
-        <h2>Orders</h2>
+        <h2>{user.username}'s Orders:</h2>
       </div>
-      <div>
+      <div className='grid'>
         {tickets?.map((ticket) => {
           return (
             <SingleTicket key={ticket.id} ticket={ticket} userId={userId} ticketEvent={ticket.event_id}/>
