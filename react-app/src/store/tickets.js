@@ -26,13 +26,19 @@ export const updateTickets = ticket => async dispatch => {
     body: JSON.stringify(ticket)
   });
   
-  const data = await response.json();
-
+  
   if (response.ok) {
-    await dispatch(updateTicketsAction(data));
-    return data;
+    const data = await response.json();
+    dispatch(updateTicketsAction(data));
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors
+    }
   } else {
-    console.log(data.errors);
+    const data = await response.json();
+    data.errors.push("An error occurred. Please try again.")
+    return data.errors;
   }
 };
 

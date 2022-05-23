@@ -5,19 +5,19 @@ import { readOneEvent } from '../../store/events';
 import { updateTickets } from '../../store/tickets';
 // import './EditTickets.css';
 
-const EditTickets = ({ closeModalFunc }) => {
+const EditTickets = ({ Event, ticket, closeModalFunc }) => {
   const dispatch = useDispatch();
   const history  = useHistory();
   const sessionUser = useSelector(state => state.session.user);
-  const { eventId } = useParams();
-  const event = useSelector(state => state.events[eventId]);
-  const [quantity, setQuantity] = useState(0);
+  // const { eventId } = Event.id
+  const event = useSelector(state => state.events[Event.id]);
+  const [quantity, setQuantity] = useState(ticket.quantity);
   const [errors, setErrors] = useState([]);
   const [submitError, setSubmitError] = useState('disabled');
 
-  useEffect(() => {
-    dispatch(readOneEvent(eventId))
-  }, [dispatch, eventId]);
+  // useEffect(() => {
+  //   dispatch(readOneEvent(Event.id))
+  // }, [dispatch, Event]);
 
   useEffect(() => {
     if (quantity !== 0) {
@@ -56,12 +56,12 @@ const EditTickets = ({ closeModalFunc }) => {
           <h2 style={{color: '#d1410c', fontSize: '30px', fontWeight: 'bolder', marginBottom: '15px'}}>Ticket Order Form</h2>
             <div style={{marginBottom: '2px'}}>
               <label>
-                {event?.name}
+                {Event?.name}
               </label>
             </div>
             <div>
               <label>
-                {event?.date}
+                {Event?.date}
               </label>
             </div>
           </div>
@@ -110,7 +110,7 @@ const EditTickets = ({ closeModalFunc }) => {
         </label>
       </div>
       <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
-        {quantity}x - {event.name}
+        {quantity}x - {Event?.name}
       </div>
       <div style={{display: 'flex', justifyContent: 'center', marginTop: '25px'}}>
         <button 
@@ -132,7 +132,7 @@ const EditTickets = ({ closeModalFunc }) => {
         </label>
       </div>
       <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
-        {quantity}x {event.name}
+        {quantity}x {Event?.name}
       </div> */}
     </div>
   );

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
-import { updateTickets, deleteTickets } from '../../store/tickets';
+import { deleteTickets } from '../../store/tickets';
 // import { readAllTickets } from '../../store/session';
 import EditTickets from "./EditTickets";
 import Modal from '../Modal/Modal';
 import ConfirmationModal from "../Modal/Confirmation";
 import'./SingleTicket.css';
 
-const SingleTicket = ({ ticket, userId }) => {
+const SingleTicket = ({ Event, ticket, userId }) => {
   const dispatch = useDispatch();
   // const history = useHistory();
   const [user, setUser] = useState({});
@@ -69,7 +69,7 @@ const SingleTicket = ({ ticket, userId }) => {
         {<button style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '110px', marginTop: '10px'}} onClick={showCheckoutModalFunc}>Update Tickets</button>}
           {showCheckoutModal && (
             <Modal closeModalFunc={closeCheckoutModalFunc} className='modal-background'>
-              <EditTickets style={{justifyContent: 'center'}} closeModalFunc={closeCheckoutModalFunc} />
+              <EditTickets event={Event} ticket={ticket} style={{justifyContent: 'center'}} closeModalFunc={closeCheckoutModalFunc} />
             </Modal>
           )}
       </div>

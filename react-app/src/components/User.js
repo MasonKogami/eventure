@@ -52,7 +52,7 @@ function User() {
       <div>
         {tickets?.map((ticket) => {
           return (
-            <SingleTicket key={ticket.id} ticket={ticket} userId={userId} />
+            <SingleTicket key={ticket.id} ticket={ticket} userId={userId} event={Event}/>
           )
         })}
       </div>
