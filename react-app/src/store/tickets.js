@@ -20,6 +20,7 @@ const loadTicketsAction = tickets => ({
 
 // T H U N K S
 export const updateTickets = ticket => async dispatch => {
+  console.log(ticket)
   const response = await fetch(`/api/tickets/${ticket.id}`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
@@ -61,7 +62,6 @@ export const loadTickets = userId => async dispatch => {
   const response = await fetch(`/api/users/${userId}`);
 
   const data = await response.json();
-  console.log(data.tickets);
   dispatch(loadTicketsAction(data.tickets));
   return data;
 }
@@ -72,6 +72,11 @@ const ticketsReducer = (state = initialState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
     case UPDATE_TICKETS:
+      // return { ...newState,
+      //   [action.ticket.id]: 
+      //     { ...newState[action.ticket.id], ...action.ticket}
+      // }
+      // const updatedState = { ...Object.values(newState).filter(ticket => ticket.id !== action.ticket.id)}
       newState[action.ticket.id] = action.ticket;
       return newState;
     case DELETE_TICKETS:
