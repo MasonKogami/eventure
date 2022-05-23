@@ -72,11 +72,6 @@ const ticketsReducer = (state = initialState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
     case UPDATE_TICKETS:
-      // return { ...newState,
-      //   [action.ticket.id]: 
-      //     { ...newState[action.ticket.id], ...action.ticket}
-      // }
-      // const updatedState = { ...Object.values(newState).filter(ticket => ticket.id !== action.ticket.id)}
       newState[action.ticket.id] = action.ticket;
       return newState;
     case DELETE_TICKETS:

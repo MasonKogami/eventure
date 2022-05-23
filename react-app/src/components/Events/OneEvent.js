@@ -52,6 +52,7 @@ const OneEvent = () => {
         <div>
           {event?.date}
         </div>
+        <hr style={{width: '900px'}}></hr>
         <div>
           {(sessionUser.id === event?.host_id) && (<button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginBottom: '15px', marginTop: '15px'}} onClick={showEditModalFunc}>Edit Event</button>)}
           {showEditModal && (
@@ -74,14 +75,18 @@ const OneEvent = () => {
         </div>
         <div>
           <div className='event-info'>
-            {sessionUser && (<button style={{cursor: 'pointer', border: '2px solid transparent', borderRadius: '4px', backgroundColor: '#0d8547', color: '#ffff'}} onClick={showCheckoutModalFunc}>Tickets</button>)}
+            <div style={{marginBottom: '10px'}}>
+              {event?.location_name}
+            </div>
+            <div>
+              {event?.address}
+            </div>
+            {sessionUser && (<button style={{cursor: 'pointer', border: '2px solid transparent', borderRadius: '4px', backgroundColor: '#0d8547', color: '#ffff', height: '40px', width: '200px', marginTop: '10px'}} onClick={showCheckoutModalFunc}>Tickets</button>)}
             {showCheckoutModal && (
               <Modal className='checkoutmodal-background' closeModalFunc={closeCheckoutModalFunc}>
                 <Checkout closeModalFunc={closeCheckoutModalFunc}/>
               </Modal>
             )}
-            {event?.location_name}
-            {event?.address}
           </div>
           <h4 style={{display: 'flex', justifyContent: 'center', color: '#d1410c'}}>About this Event:</h4>
           <p style={{display: 'flex', justifyContent: 'center', paddingLeft: '55px', paddingRight: '55px', marginLeft: 'auto', marginRight: 'auto', height: '100%'}}>{event?.description}</p>

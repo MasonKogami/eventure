@@ -52,21 +52,20 @@ def update_event(id):
   event = Event.query.get(id)
   form  = EditEventForm()
 
-  print("first print>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+  
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
-    print("print inside form validation>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    
     event.location_name = form.data["location_name"]
     event.address       = form.data["address"]
     event.name          = form.data["name"]
     event.date          = form.data["date"]
     event.description      = form.data["description"]
     db.session.add(event)
-    print("print before commit>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    
     db.session.commit()
     return event.to_dict()
   else:
-    print("last print>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 # D E L E T E  E V E N T
@@ -85,7 +84,6 @@ def delete_event(id):
 # @login_required
 def add_ticket(id):
   form = TicketForm()
-  # event = Event.query.get(id)
 
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
@@ -95,8 +93,6 @@ def add_ticket(id):
       user_id=form.data['user_id'],
       quantity=form.data['quantity']
     )
-    # event.capacity - tickets.quantity
-    # print(event, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
     db.session.add(tickets)
     db.session.commit()
 

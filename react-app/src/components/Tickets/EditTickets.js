@@ -1,27 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-// import { readOneEvent } from '../../store/events';
 import { loadTickets, updateTickets } from '../../store/tickets';
 import './EditTickets.css';
 
 const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
   const dispatch = useDispatch();
-  const history  = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   const event = useSelector(state => state.events[ticketEvent]);
-  const ticketInfo = useSelector(state => state.tickets[ticket.id])
   const [quantity, setQuantity] = useState(ticket.quantity);
   const [errors, setErrors] = useState([]);
   const [submitError, setSubmitError] = useState('disabled');
-  console.log(ticket)
-  console.log(ticketInfo)
-  console.log(ticketEvent)
-  // console.log(event)
-
-  // useEffect(() => {
-  //   dispatch(readOneEvent(event.id))
-  // }, [dispatch, event]);
 
   useEffect(() => {
     if (quantity !== 0) {
@@ -41,21 +29,20 @@ const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
       event_name: ticket.event_name,
       quantity
     };
-    console.log(tickets);
+
     let newTickets = await dispatch(updateTickets(tickets));
     if (newTickets) {
       setErrors(newTickets);
     } else {
-      dispatch(loadTickets(sessionUser.id))
-      .then(() => closeModalFunc())
-      // history.push(`/users/${sessionUser.id}`)
+      await dispatch(loadTickets(sessionUser.id))
+      closeModalFunc()
     }
   };
 
   const stopTheProp = e => e.stopPropagation();
 
   return (
-    <div style={{backgroundColor: '#ffff', boxShadow: '0 0 12px rgba(0, 0, 0, 0.5)', height: '55%', width: '60%'}}>
+    <div className='edit-tickets-con'>
       <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
         <div style={{borderBottom: '2px solid #eeedf2', width: '100%', display: 'flex', justifyContent: 'center'}}>
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -76,7 +63,7 @@ const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
           onClick={stopTheProp}
           onMouseDown={stopTheProp}
           onSubmit={handleSubmit}
-          style={{height: '600px'}}
+          style={{height: '630px'}}
         >
           <div className='edit-errors'>
           {errors.map((error, ind) => (
@@ -111,36 +98,24 @@ const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
               <option value={10}>10</option>
             </select>
           </div>
-      <div style={{fontSize: '20px', fontWeight: 'bolder', display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '15px', color: '#d1410c'}}>
-        <label>
-          Order Summary:
-        </label>
-      </div>
-      <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
-        {quantity}x - {ticket.event_name}
-      </div>
-      <div style={{display: 'flex', justifyContent: 'center', marginTop: '25px'}}>
-        <button 
-          type='submit'
-          className='edit-button1'
-          disabled={submitError !== 'able'}
-          style={{marginRight: '10px'}}
-        >Update</button>
-        <button
-          className='edit-button2'
-          onClick={closeModalFunc}
-        >Cancel</button>
-      </div>
+          <div style={{fontSize: '20px', fontWeight: 'bolder', display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '15px', color: '#d1410c'}}>
+            <label>
+              Order Summary:
+            </label>
+          </div>
+          <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
+            {quantity}x - {ticket.event_name}
+          </div>
+          <div style={{display: 'flex', justifyContent: 'center', marginTop: '15px'}}>
+            <button 
+              type='submit'
+              className='edit-button1'
+              disabled={submitError !== 'able'}
+              style={{marginRight: '10px'}}
+            >Update</button>
+          </div>
         </form>
       </div>
-      {/* <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
-        <label>
-          Order Summary
-        </label>
-      </div>
-      <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
-        {quantity}x {Event?.name}
-      </div> */}
     </div>
   );
 };
