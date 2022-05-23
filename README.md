@@ -23,4 +23,4 @@ Some key features that will be implemented in the future include:
 - event bookmarks
 - Google Maps integration
 - search bar
-- AWS
+- Flask AWS S3 for image uploads
