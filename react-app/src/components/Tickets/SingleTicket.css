@@ -1,0 +1,37 @@
+.singleticket-con {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.singleticket-con:hover {
+  border: 1px solid black;
+}
+
+.ticket-name {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #d1410c;
+  /* right: 420px; */
+  font-size: 20px;
+}
+
+.ticket-quantity {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #d1410c;
+  /* left: 130px; */
+}
+
+.ticket-actions {
+  position: relative;
+  /* left: 480px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap: 15px; */
+}

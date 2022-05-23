@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
 import { updateTickets, deleteTickets } from '../../store/tickets';
 // import { readAllTickets } from '../../store/session';
-import Checkout from "../Events/Checkout";
+import EditTickets from "./EditTickets";
 import Modal from '../Modal/Modal';
 import ConfirmationModal from "../Modal/Confirmation";
+import'./SingleTicket.css';
 
 const SingleTicket = ({ ticket, userId }) => {
   const dispatch = useDispatch();
@@ -41,13 +42,13 @@ const SingleTicket = ({ ticket, userId }) => {
   const closeCheckoutModalFunc = () => setCheckoutModal(false);
 
   return (
-    <div>
-      <div>
+    <div className='singleticket-con'>
+      <div className='ticket-name'>
         <label>
           {ticket.event_name}
         </label>
       </div>
-      <div>
+      <div className='ticket-quantity'>
         <label>
           {ticket.quantity}
         </label>
@@ -68,7 +69,7 @@ const SingleTicket = ({ ticket, userId }) => {
         {<button style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '110px', marginTop: '10px'}} onClick={showCheckoutModalFunc}>Update Tickets</button>}
           {showCheckoutModal && (
             <Modal closeModalFunc={closeCheckoutModalFunc} className='modal-background'>
-              <Checkout style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeCheckoutModalFunc} />
+              <EditTickets style={{justifyContent: 'center'}} closeModalFunc={closeCheckoutModalFunc} />
             </Modal>
           )}
       </div>
