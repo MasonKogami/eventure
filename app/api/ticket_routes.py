@@ -13,7 +13,7 @@ def update_tickets(id):
   # db query to grab all tickets for the current user
   ticket = Ticket.query.get(id)
   form = EditTicketForm()
-  print('first print<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+  
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
     ticket.quantity = form.data['quantity']
@@ -21,7 +21,7 @@ def update_tickets(id):
     db.session.add(ticket)
     db.session.commit()
     return ticket.to_dict()
-    print('last print<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+    
   else:
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
   

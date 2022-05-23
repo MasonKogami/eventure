@@ -35,8 +35,8 @@ const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
       setErrors(newTickets);
     } else {
       await dispatch(loadTickets(sessionUser.id))
+      closeModalFunc()
     }
-    closeModalFunc()
   };
 
   const stopTheProp = e => e.stopPropagation();
@@ -106,7 +106,7 @@ const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
           <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
             {quantity}x - {ticket.event_name}
           </div>
-          <div style={{display: 'flex', justifyContent: 'center', marginTop: '25px'}}>
+          <div style={{display: 'flex', justifyContent: 'center', marginTop: '15px'}}>
             <button 
               type='submit'
               className='edit-button1'
@@ -115,10 +115,6 @@ const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
             >Update</button>
           </div>
         </form>
-        <button
-          className='edit-button2'
-          onClick={closeModalFunc}
-        >Cancel</button>
       </div>
     </div>
   );
