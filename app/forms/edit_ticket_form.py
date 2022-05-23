@@ -13,13 +13,9 @@ from app.models import Event
 #   if quantity > event.capacity:
 #     raise ValidationError("You cannot acquire more tickets than the event capacity currently allows.")
 
-def required(form, field):
-  quantity = field.data
-  if quantity == 0:
-    raise ValidationError("Ticket quantity cannot be zero.")
 
-class TicketForm(FlaskForm):
+class EditTicketForm(FlaskForm):
   event_name = StringField('event name', validators=[DataRequired()])
   event_id   = IntegerField('event', validators=[DataRequired()])
   user_id    = IntegerField('user', validators=[DataRequired()])
-  quantity   = IntegerField('quantity', validators=[DataRequired(), required])
+  quantity   = IntegerField('quantity', validators=[DataRequired()])

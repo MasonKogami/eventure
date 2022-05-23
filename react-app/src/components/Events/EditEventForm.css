@@ -7,11 +7,22 @@
   align-items: center;
   padding: 16px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  height: 650px;
+  /* font-size: 12px; */
+}
+
+.edit-modal-form {
   height: auto;
 }
 
 .errors {
   font-size: 14px;
+}
+
+.cancel-edit-modal {
+  position: relative;
+  top: 289px;
+  right: 680px;
 }
 
 /* .edit-modal-form {

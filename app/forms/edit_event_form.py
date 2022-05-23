@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, SubmitField
+from wtforms import StringField, IntegerField, SubmitField, TextField
 from wtforms.validators import DataRequired, ValidationError
 
 
@@ -27,13 +27,20 @@ def address_length(form, field):
     raise ValidationError('Address must be 50 characters or less.')
 
 
-def capacity_number(form, field):
-  capacity = field.data
-  if capacity < 10:
-    raise ValidationError('An event must allow at least 10 people to attend an event.')
-  if capacity > 100000:
-    raise ValidationError('An event capacity cannot exceed 100,000.')
+# def capacity_number(form, field):
+#   capacity = field.data
+#   if capacity < 10:
+#     raise ValidationError('An event must allow at least 10 people to attend an event.')
+#   if capacity > 100000:
+#     raise ValidationError('An event capacity cannot exceed 100,000.')
 
+
+def description_length(form, field):
+  description = field.data
+  if len(description) < 10:
+    raise ValidationError("An event description must be at least 10 characters.")
+  if len(description) > 10000:
+    raise ValidationError("An event description must be 10,000 characters or less.")
 
 class EditEventForm(FlaskForm):
   # pass
@@ -43,4 +50,5 @@ class EditEventForm(FlaskForm):
   location_name    = StringField('location name', validators=[DataRequired(), location_name_length])
   address          = StringField('address', validators=[DataRequired(), address_length])
   date             = StringField('date', validators=[DataRequired()])
-  capacity         = IntegerField('capacity', validators=[DataRequired(), capacity_number])
+  description      = TextField('description', validators=[DataRequired(), description_length])
+  # capacity         = IntegerField('capacity', validators=[DataRequired(), capacity_number])

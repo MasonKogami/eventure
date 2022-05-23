@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
-import { updateTickets, deleteTickets } from '../../store/tickets';
+import { deleteTickets } from '../../store/tickets';
 // import { readAllTickets } from '../../store/session';
-import Checkout from "../Events/Checkout";
+import EditTickets from "./EditTickets";
 import Modal from '../Modal/Modal';
 import ConfirmationModal from "../Modal/Confirmation";
+import'./SingleTicket.css';
 
-const SingleTicket = ({ ticket, userId }) => {
+const SingleTicket = ({ ticketEvent, ticket }) => {
   const dispatch = useDispatch();
   // const history = useHistory();
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
+  // const sessionUser = useSelector(state => state.session.user);
   const [showCheckoutModal, setCheckoutModal] = useState(false);
-
+  // console.log(ticket);
+  
   const removeTickets = async (ticket) => {
     await dispatch(deleteTickets(ticket));
   };
@@ -21,33 +24,33 @@ const SingleTicket = ({ ticket, userId }) => {
   //   dispatch(readAllTickets(user));
   // }, [dispatch, user]);
 
-  useEffect(() => {
-    if (!userId) {
-      return;
-    }
-    (async () => {
-      const response = await fetch(`/api/users/${userId}`);
-      const user = await response.json();
-      setUser(user);
-    })();
-  }, [userId]);
+  // useEffect(() => {
+  //   if (!userId) {
+  //     return;
+  //   }
+  //   (async () => {
+  //     const response = await fetch(`/api/users/${userId}`);
+  //     const user = await response.json();
+  //     setUser(user);
+  //   })();
+  // }, [userId]);
 
 
-  if (!user) {
-    return null;
-  };
+  // if (!user) {
+  //   return null;
+  // };
 
   const showCheckoutModalFunc = () => setCheckoutModal(true);
   const closeCheckoutModalFunc = () => setCheckoutModal(false);
 
   return (
-    <div>
-      <div>
+    <div className='singleticket-con'>
+      <div className='ticket-name'>
         <label>
           {ticket.event_name}
         </label>
       </div>
-      <div>
+      <div className='ticket-quantity'>
         <label>
           {ticket.quantity}
         </label>
@@ -59,16 +62,16 @@ const SingleTicket = ({ ticket, userId }) => {
                 func={() => removeTickets(ticket)}
               >
             <button
-              style={{marginRight: "12px"}}
+              style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '110px', marginTop: '10px'}}
             >Refund Tickets</button>
           </ConfirmationModal>
         }
       </div>
       <div>
-        {<button onClick={showCheckoutModalFunc}>Update Ticket Quantity</button>}
+        {<button style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '110px', marginTop: '10px'}} onClick={showCheckoutModalFunc}>Update Tickets</button>}
           {showCheckoutModal && (
             <Modal closeModalFunc={closeCheckoutModalFunc} className='modal-background'>
-              <Checkout style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeCheckoutModalFunc} />
+              <EditTickets ticketEvent={ticketEvent} ticket={ticket} style={{justifyContent: 'center'}} closeModalFunc={closeCheckoutModalFunc} />
             </Modal>
           )}
       </div>

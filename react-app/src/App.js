@@ -11,6 +11,7 @@ import AboutMe from './components/AboutMe/AboutMe';
 import LandingPage from './components/LandingPage/LandingPage';
 import { authenticate } from './store/session';
 import NewEvent from './components/Events/NewEvent';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 
 function App() {
@@ -31,38 +32,41 @@ function App() {
 
   return (
     <BrowserRouter>
-      {sessionUser && (<NavBar />)}
-      <Switch>
-        {/* <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route> */}
-        {/* <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute> */}
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          {sessionUser ? <Redirect to='/home' /> : <Redirect to='/landingpage' />}
-        </ProtectedRoute>
-        <ProtectedRoute path='/home' exact={true} >
-          <HomePage />
-          <EventListings />
-          <AboutMe />
-        </ProtectedRoute>
-        <Route path='/events/create' exact={true}>
-          <NewEvent />
-        </Route>
-        <Route path={`/events/:eventId`} exact={true}>
-          <OneEvent />
-        </Route>
-        <Route path='/landingpage' exact={true}>
-          <LandingPage />
-        </Route>
-      </Switch>
+      <ScrollToTop>
+        {sessionUser && (<NavBar />)}
+        <Switch>
+          {/* <Route path='/login' exact={true}>
+            <LoginForm />
+          </Route>
+          <Route path='/sign-up' exact={true}>
+            <SignUpForm />
+          </Route> */}
+          {/* <ProtectedRoute path='/users' exact={true} >
+            <UsersList/>
+          </ProtectedRoute> */}
+          <ProtectedRoute path='/users/:userId' exact={true} >
+            <User />
+          </ProtectedRoute>
+          <ProtectedRoute path='/' exact={true} >
+            {sessionUser ? <Redirect to='/home' /> : <Redirect to='/landingpage' />}
+          </ProtectedRoute>
+          <ProtectedRoute path='/home' exact={true} >
+            <HomePage />
+            <EventListings />
+            {/* <AboutMe /> */}
+          </ProtectedRoute>
+          <Route path='/events/create' exact={true}>
+            <NewEvent />
+          </Route>
+          <Route path={`/events/:eventId`} exact={true}>
+            <OneEvent />
+          </Route>
+          <Route path='/landingpage' exact={true}>
+            <LandingPage />
+          </Route>
+        </Switch>
+        <AboutMe />
+      </ScrollToTop>
     </BrowserRouter>
   );
 }

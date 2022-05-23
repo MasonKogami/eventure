@@ -1,0 +1,27 @@
+.user-profile-con {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  min-height: 100vh;
+  height: 120vh;
+}
+
+.user-title {
+  font-size: 30px;
+  color: #d1410c;
+  position: relative;
+  right: 400px;
+}
+
+.table-headers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  position: relative;
+  right: 25px;
+  border: 1px solid black;
+  padding-left: 5px;
+  padding-right: 5px;
+}

@@ -1,0 +1,26 @@
+.edit-errors {
+  display: flex;
+  justify-content: center;
+  color: #d1410c;
+}
+
+.edit-button1 {
+  background-color: #d1410c;
+  color: #ffff;
+  border-color: #d1410c;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-button1[disabled] {
+  background-color: rgba(209, 65, 12, .357);
+  border-color: rgba(209, 65, 12, .255);
+}
+
+.edit-button2 {
+  background-color: #d1410c;
+  color: #ffff;
+  border-color: #d1410c;
+  border-radius: 4px;
+  cursor: pointer;
+}
