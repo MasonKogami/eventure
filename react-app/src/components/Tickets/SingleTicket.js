@@ -40,7 +40,7 @@ const SingleTicket = ({ ticketEvent, ticket }) => {
       <div className='update-tickets'>
         {<button style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '110px', marginTop: '10px'}} onClick={showCheckoutModalFunc}>Update Tickets</button>}
           {showCheckoutModal && (
-            <Modal closeModalFunc={closeCheckoutModalFunc} className='modal-background'>
+            <Modal closeModalFunc={closeCheckoutModalFunc} className='modal-background-edit'>
               <EditTickets ticketEvent={ticketEvent} ticket={ticket} style={{justifyContent: 'center'}} closeModalFunc={closeCheckoutModalFunc} />
             </Modal>
           )}

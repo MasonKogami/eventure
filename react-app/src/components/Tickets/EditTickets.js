@@ -34,8 +34,8 @@ const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
     if (newTickets) {
       setErrors(newTickets);
     } else {
-      await dispatch(loadTickets(sessionUser.id))
-      closeModalFunc()
+      dispatch(loadTickets(sessionUser.id))
+      .then(() => closeModalFunc())
     }
   };
 
@@ -63,7 +63,7 @@ const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
           onClick={stopTheProp}
           onMouseDown={stopTheProp}
           onSubmit={handleSubmit}
-          style={{height: '630px'}}
+          style={{height: '250px', backgroundColor: '#ffff'}}
         >
           <div className='edit-errors'>
           {errors.map((error, ind) => (

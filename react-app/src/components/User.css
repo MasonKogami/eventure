@@ -31,15 +31,18 @@
   font-size: 40px;
   font-weight: bolder;
   color: #d1410c; 
+  position: relative;
+  left: 45px;
 }
 
 .grid {
   position: relative;
   left: 50px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr 1fr; */
   align-self: center;
   align-items: center;
   justify-content: center;
+  height: 100%;
   width: 100%;
 }

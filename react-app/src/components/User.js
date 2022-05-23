@@ -43,9 +43,9 @@ function User() {
         <h2>{user.username}'s Orders:</h2>
       </div>
       <div className='grid'>
-        {tickets?.map((ticket) => {
+        {tickets?.map((ticket, index) => {
           return (
-            <SingleTicket key={ticket.id} ticket={ticket} userId={userId} ticketEvent={ticket.event_id}/>
+            <SingleTicket key={index} ticket={ticket} userId={userId} ticketEvent={ticket.event_id}/>
           )
         })}
       </div>
