@@ -12,6 +12,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import { authenticate } from './store/session';
 import NewEvent from './components/Events/NewEvent';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import EditEventForm from './components/Events/EditEventForm';
 
 
 function App() {
@@ -61,6 +62,9 @@ function App() {
           <Route path={`/events/:eventId`} exact={true}>
             <OneEvent />
           </Route>
+          <ProtectedRoute path="/events/:eventId/edit" exact={true}>
+            <EditEventForm />
+          </ProtectedRoute>
           <Route path='/landingpage' exact={true}>
             <LandingPage />
           </Route>
