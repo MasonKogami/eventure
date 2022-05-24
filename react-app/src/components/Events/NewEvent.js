@@ -120,7 +120,6 @@ const NewEvent = () => {
             minDate={tomorrow}
             disableClock={true}
             onChange={(e) => setDate(new Date(e))}
-            required
           />
         </div>
         <div className='description-con'>
