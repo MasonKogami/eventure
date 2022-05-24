@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { updateEvent } from '../../store/events';
 import DateTimePicker from 'react-datetime-picker';
 import 'react-datetime-picker/dist/DateTimePicker.css';
@@ -8,7 +8,6 @@ import './EditEventForm.css';
 
 const EditEventForm = ({ closeModalFunc }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const { eventId } = useParams();
   const sessionUser = useSelector(state => state.session.user);
   const event = useSelector(state => state.events[eventId]);
@@ -71,6 +70,7 @@ const EditEventForm = ({ closeModalFunc }) => {
             onChange={(e) => setName(e.target.value)}
             type='text'
             placeholder='Be clear and descriptive.'
+            required
           ></input>
         </div>
         <div>
@@ -87,6 +87,7 @@ const EditEventForm = ({ closeModalFunc }) => {
             type='text'
             placeholder='Venue Name'
             style={{marginBottom: '10px'}}
+            required
           ></input>
           <div>
             <div style={{marginBottom: '5px'}}>
@@ -133,20 +134,21 @@ const EditEventForm = ({ closeModalFunc }) => {
             placeholder='Add a description.'
             onChange={(e) => setDescription(e.target.value)}
             style={{height: '100px', width: '500px'}}
+            required
           >
           </textarea>
         </div>
         <button type='submit' style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginTop: '10px'}}>
           Update Event
         </button>
+        <button
+          onClick={() => closeModalFunc()}
+          // className='cancel-edit-modal'
+          style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '60px', marginLeft: '10px'}}
+        >
+          Cancel
+        </button>
       </form>
-      <button
-        onClick={() => history.push(`/events/${eventId}`)}
-        className='cancel-edit-modal'
-        style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '60px', marginLeft: '10px'}}
-      >
-        Cancel
-      </button>
     </div>
   );
 };
