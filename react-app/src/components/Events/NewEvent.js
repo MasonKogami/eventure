@@ -13,7 +13,10 @@ const NewEvent = () => {
   const [locationName, setLocationName] = useState('');
   const [address, setAddress] = useState('');
   const [name, setName] = useState('');
-  const [date, setDate] = useState(new Date());
+  const today = new Date();
+  const tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
+  const [date, setDate] = useState(tomorrow);
   const [description, setDescription] = useState('');
   const [errors, setErrors] = useState([]);
 
@@ -114,7 +117,7 @@ const NewEvent = () => {
           <DateTimePicker 
             selected={date}
             value={date}
-            minDate={new Date()}
+            minDate={tomorrow}
             disableClock={true}
             onChange={(e) => setDate(new Date(e))}
             required
