@@ -15,7 +15,7 @@ const OneEvent = () => {
   const sessionUser = useSelector(state => state.session.user);
   const { eventId } = useParams();
   const event = useSelector(state => state.events[eventId]);
-  const eventHost = event.user.username;
+  const eventHost = event?.user.username;
   const [showEditModal, setShowEditModal] = useState(false);
   const [showCheckoutModal, setCheckoutModal] = useState(false);
   // console.log(eventHost);
