@@ -53,7 +53,7 @@ const OneEvent = () => {
         <div style={{marginBottom: '4px'}}>
           Hosted by {eventHost}
         </div>
-        <hr style={{width: '900px'}}></hr>
+        <hr style={{width: '80%'}}></hr>
         <div style={{fontSize: '20px', marginBottom: '8px', color: '#d1410c', fontWeight: 'bolder'}}>
           Date and Time
         </div>
