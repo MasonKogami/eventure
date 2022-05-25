@@ -1,9 +1,16 @@
-/* html {
-  width: 100%;
-  margin: 0px;
-  padding: 0px;
-  overflow-x: hidden;
+/* * {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
 } */
+
+html {
+  width: 100%;
+  height: 100%;
+  /* margin: 0px;
+  padding: 0px;
+  overflow-x: hidden; */
+}
 
 @font-face {
   font-family: 'Oswald', sans-serif;
@@ -20,6 +27,7 @@ body {
 
 :root {
   width: 100%;
+  height: 100%;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   font-size: 15px;
