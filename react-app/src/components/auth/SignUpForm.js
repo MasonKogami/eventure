@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import './SignupForm.css';
 
@@ -12,15 +12,17 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
   const [signupDisplay] = useState('displayed');
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
       const data = await dispatch(signUp(username, email, password));
-      if (data) {
-        setErrors(data)
-      }
+      if (!data) history.push('/home')
+      else setErrors(data)
+    } else {
+      setErrors(["Passwords do not match. Please try again."])
     }
   };
 
@@ -53,6 +55,7 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
 
   return (
     <div className={`signup-body ${signupDisplay}`} onClick={stopTheProp} onMouseDown={stopTheProp}>
+      <h2 style={{color: '#d1410c', fontWeight: 'bolder', display: 'flex', justifyContent: 'center', fontSize: '35px', marginBottom: '10px'}}>Sign Up</h2>
       <form onSubmit={onSignUp} className='signup-form'>
         <div>
           {errors.map((error, ind) => (
@@ -60,6 +63,11 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
           ))}
         </div>
         <div>
+          <div style={{marginBottom: '3px'}}>
+            <label>
+              Username
+            </label>
+          </div>
           <input
             type='text'
             name='username'
@@ -70,6 +78,11 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
           ></input>
         </div>
         <div>
+          <div style={{marginBottom: '3px'}}>
+            <label>
+              Email
+            </label>
+          </div>
           <input
             placeholder='Email'
             type='text'
@@ -80,6 +93,11 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
           ></input>
         </div>
         <div>
+          <div style={{marginBottom: '3px'}}>
+            <label>
+              Password
+            </label>
+          </div>
           <input
             placeholder='Password'
             type='password'
@@ -90,6 +108,11 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
           ></input>
         </div>
         <div>
+          <div style={{marginBottom: '3px'}}>
+            <label>
+              Confirm Password
+            </label>
+          </div>
           <input
             type='password'
             name='repeat_password'

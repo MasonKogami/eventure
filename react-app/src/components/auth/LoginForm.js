@@ -36,6 +36,7 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
 
   return (
     <div className={`login-body ${loginDisplay}`} onClick={stopTheProp} onMouseDown={stopTheProp}>
+      <h2 style={{color: '#d1410c', fontWeight: 'bolder', display: 'flex', justifyContent: 'center', fontSize: '35px', marginBottom: '10px'}}>Login</h2>
       <form onSubmit={onLogin} className='login-form'>
         <div>
           {errors.map((error, ind) => (
@@ -43,9 +44,11 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
           ))}
         </div>
         <div>
-          {/* <div>
-            <label htmlFor='email'>Email</label>
-          </div> */}
+          <div style={{marginBottom: '3px'}}>
+            <label>
+              Email
+            </label>
+          </div>
           <input
             name='email'
             type='text'
@@ -56,9 +59,11 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
           />
         </div>
         <div>
-          {/* <div>
-            <label htmlFor='password'>Password</label>
-          </div> */}
+          <div style={{marginBottom: '3px'}}>
+            <label>
+              Password
+            </label>
+          </div>
           <input
             name='password'
             type='password'

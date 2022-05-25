@@ -5,16 +5,16 @@ from wtforms.validators import DataRequired, ValidationError
 
 def event_name_length(form, field):
   name = field.data
-  if len(name) < 2:
-    raise ValidationError('Event names must be longer than 2 characters.')
+  if len(name) < 5:
+    raise ValidationError('Event names must be longer than 5 characters.')
   if len(name) > 30:
     raise ValidationError('Event names must be 30 characters or less.')
 
 
 def location_name_length(form, field):
   location_name = field.data
-  if len(location_name) < 2:
-    raise ValidationError('Venue names must be longer than 2 characters.')
+  if len(location_name) < 5:
+    raise ValidationError('Venue names must be longer than 5 characters.')
   if len(location_name) > 30:
     raise ValidationError('Venue names must be 30 characters or less.')
 
@@ -37,8 +37,8 @@ def address_length(form, field):
 
 def description_length(form, field):
   description = field.data
-  if len(description) < 3000:
-    raise ValidationError("An event description must be at least 3000 characters.")
+  if len(description) < 100:
+    raise ValidationError("An event description must be at least 100 characters.")
   if len(description) > 10000:
     raise ValidationError("An event description must be 10,000 characters or less.")
 

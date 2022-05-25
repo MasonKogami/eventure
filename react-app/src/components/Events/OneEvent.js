@@ -15,10 +15,11 @@ const OneEvent = () => {
   const sessionUser = useSelector(state => state.session.user);
   const { eventId } = useParams();
   const event = useSelector(state => state.events[eventId]);
+  const eventHost = event?.user.username;
   const [showEditModal, setShowEditModal] = useState(false);
   const [showCheckoutModal, setCheckoutModal] = useState(false);
+  // console.log(eventHost);
   // console.log(events)
-  // console.log(event);
   // console.log(sessionUser);
 
   useEffect(() => {
@@ -49,12 +50,18 @@ const OneEvent = () => {
         <div style={{fontSize: '40px', color: '#d1410c', fontWeight: 'bolder'}}>
           {event?.name}
         </div>
+        <div style={{marginBottom: '4px'}}>
+          Hosted by {eventHost}
+        </div>
+        <hr style={{width: '80%'}}></hr>
+        <div style={{fontSize: '20px', marginBottom: '8px', color: '#d1410c', fontWeight: 'bolder'}}>
+          Date and Time
+        </div>
         <div>
           {event?.date}
         </div>
-        <hr style={{width: '900px'}}></hr>
         <div>
-          {(sessionUser.id === event?.host_id) && (<button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginBottom: '15px', marginTop: '15px'}} onClick={showEditModalFunc}>Edit Event</button>)}
+          {(sessionUser.id === event?.user_id) && (<button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginBottom: '15px', marginTop: '15px'}} onClick={showEditModalFunc}>Edit Event</button>)}
           {showEditModal && (
             <Modal closeModalFunc={closeEditModalFunc} className='modal-background'>
               <EditEventForm style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeEditModalFunc} />
@@ -62,7 +69,7 @@ const OneEvent = () => {
           )}
         </div>
         <div>
-          {(sessionUser.id === event?.host_id) && (<ConfirmationModal 
+          {(sessionUser.id === event?.user_id) && (<ConfirmationModal 
                 message="Are you sure you want to delete this event?"
                 actionButtonLabel="Delete Event"
                 func={() => deleteOneEvent(event)}
@@ -74,6 +81,9 @@ const OneEvent = () => {
           )}
         </div>
         <div>
+          <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px', fontSize: '20px', color: '#d1410c', fontWeight: 'bolder'}}>
+            Location
+          </div>
           <div className='event-info'>
             <div style={{marginBottom: '10px'}}>
               {event?.location_name}
@@ -81,7 +91,7 @@ const OneEvent = () => {
             <div>
               {event?.address}
             </div>
-            {sessionUser && (<button style={{cursor: 'pointer', border: '2px solid transparent', borderRadius: '4px', backgroundColor: '#0d8547', color: '#ffff', height: '40px', width: '200px', marginTop: '10px'}} onClick={showCheckoutModalFunc}>Tickets</button>)}
+            {(sessionUser.id !== event?.user_id) && (<button style={{cursor: 'pointer', border: '2px solid transparent', borderRadius: '4px', backgroundColor: '#0d8547', color: '#ffff', height: '40px', width: '200px', marginTop: '10px'}} onClick={showCheckoutModalFunc}>Tickets</button>)}
             {showCheckoutModal && (
               <Modal className='checkoutmodal-background' closeModalFunc={closeCheckoutModalFunc}>
                 <Checkout closeModalFunc={closeCheckoutModalFunc}/>
