@@ -1,7 +1,7 @@
 .landingpage-con {
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: relative;
   /* min-height: 100vh; */
   height: 100%;
 }
