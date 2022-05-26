@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-evenly;
   /* align-items: center; */
-  position: relative;
+  position: absolute;
+  z-index: 500;
   left: 0px;
   right: 0px;
   bottom: 0px;
@@ -10,6 +11,7 @@
   background-color: #1E0A3C;
   /* background-color: #39364f; */
   height: 40px;
+  width: 100%;
 }
 
 .aboutme-section > * {
