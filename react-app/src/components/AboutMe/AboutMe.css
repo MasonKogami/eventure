@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-evenly;
   /* align-items: center; */
-  position: absolute;
-  z-index: 500;
+  position: relative;
+  z-index: 10;
   left: 0px;
   right: 0px;
   bottom: 0px;
