@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import './SignupForm.css';
 
@@ -12,18 +12,13 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  const history = useHistory();
   const [signupDisplay] = useState('displayed');
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      const data = await dispatch(signUp(username, email, password));
-      if (!data) history.push('/home')
-      else setErrors(data)
-    } else {
-      setErrors(["Passwords do not match. Please try again."])
-    }
+    
+    const data = await dispatch(signUp(username, email, password, confirmPassword));
+    if (data) setErrors(data);
   };
 
   const closeSignupModal = () => {

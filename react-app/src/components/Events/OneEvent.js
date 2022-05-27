@@ -22,6 +22,10 @@ const OneEvent = () => {
   // console.log(events)
   // console.log(sessionUser);
 
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
+
   useEffect(() => {
     dispatch(readOneEvent(eventId))
   }, [dispatch, eventId]);

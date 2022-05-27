@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  top: 0;
+  /* min-height: 100vh; */
   height: 100%;
 }
 
@@ -12,12 +12,14 @@
   z-index: 1;
   background-size: cover;
   width: 100%;
-  height: 500px;
+  min-width: 100vh;
+  height: 100%;
+  min-height: 32.4em;
   background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg");
-  animation: slideshow infinite 50s linear;
+  /* animation: slideshow infinite 50s linear; */
 }
 
-@keyframes slideshow {
+/* @keyframes slideshow {
   from {
       background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg");
   } 25% {
@@ -29,7 +31,7 @@
   } to {
       background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg");
   } 
-}
+} */
 
 .landingpage-title {
   position: relative;
@@ -97,13 +99,17 @@
   background-color: #d1410c;
   font-size: 25.6px;
   color: #ffff;
-  margin-left: auto;
-  margin-right: auto;
-  height: 185px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  height: 100%;
+  min-height: 240px;
+  width: 100%;
+  min-width: 100vh;
 }
 
 .mission-statement > p {
   text-align: center;
+  margin-top: 0px;
   margin-left: 200px;
   margin-right: 200px;
 }

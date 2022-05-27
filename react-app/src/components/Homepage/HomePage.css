@@ -4,18 +4,16 @@
   width: 100%;
   height: 500px;
   background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg");
-  animation: slideshow infinite 50s linear;
+  animation: slideshow infinite 30s linear;
 }
 
 @keyframes slideshow {
   from {
       background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg");
-  } 25% {
+  } 33% {
       background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/f0efd0767ec3f77057270d84f78b1f41-3_4K_1920x544.jpg");
-  } 50% {
+  } 66% {
       background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/6aaf4a36e35b1b71bc077e200ac7429c-1_tablet_1067x470.jpg");
-  } 75% {
-      background-image: url("https://images.unsplash.com/photo-1501527459-2d5409f8cf9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
   } to {
       background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg");
   } 
