@@ -5,6 +5,8 @@ import { createEvent } from '../../store/events';
 import './NewEvent.css';
 import DateTimePicker from 'react-datetime-picker';
 import 'react-datetime-picker/dist/DateTimePicker.css';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const NewEvent = () => {
   const dispatch = useDispatch();
@@ -15,7 +17,11 @@ const NewEvent = () => {
   const [name, setName] = useState('');
   const today = new Date();
   const tomorrow = new Date();
+  // console.log(tomorrow.getHours() + 1)
   tomorrow.setDate(today.getDate() + 1);
+  // console.log(today.toLocaleDateString())
+  // console.log(tomorrow.toLocaleDateString())
+  // tomorrow.setHours(today.getHours() + 1)
   const [date, setDate] = useState(tomorrow);
   const [description, setDescription] = useState('');
   const [errors, setErrors] = useState([]);
@@ -114,13 +120,30 @@ const NewEvent = () => {
               Tell event goers when your event starts and ends so they can make plans to attend.
             </label>
           </div>
-          <DateTimePicker 
+          {/* <input
+            type='date'
+            min={`${today}`}
+            // value={tomorrow}
+            onChange={(e) => setDate(e)}
+            pattern="\d{4}-\d{2}-\d{2}"
+          >
+          </input> */}
+          {/* <DatePicker
+            selected={tomorrow}
+            minDate={tomorrow} 
+            value={tomorrow}
+            onChange={(e) => {
+              console.log(e)
+              setDate(e)}}
+          /> */}
+          {/* <DateTimePicker 
+            name='react-datetime'
             selected={date}
             value={date}
             minDate={tomorrow}
             disableClock={true}
             onChange={(e) => setDate(new Date(e))}
-          />
+          /> */}
         </div>
         <div className='description-con'>
           <h2>Description</h2>
