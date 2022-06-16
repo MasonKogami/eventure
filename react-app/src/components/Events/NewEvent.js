@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createEvent } from '../../store/events';
 import './NewEvent.css';
-import DateTimePicker from 'react-datetime-picker';
-import 'react-datetime-picker/dist/DateTimePicker.css';
-import DatePicker from "react-datepicker";
+// import DateTimePicker from 'react-datetime-picker';
+// import 'react-datetime-picker/dist/DateTimePicker.css';
+import DatePicker from 'react-date-picker';
 import "react-datepicker/dist/react-datepicker.css";
 
 const NewEvent = () => {
@@ -128,14 +128,14 @@ const NewEvent = () => {
             pattern="\d{4}-\d{2}-\d{2}"
           >
           </input> */}
-          {/* <DatePicker
+          <DatePicker
             selected={tomorrow}
             minDate={tomorrow} 
             value={tomorrow}
             onChange={(e) => {
               console.log(e)
               setDate(e)}}
-          /> */}
+          />
           {/* <DateTimePicker 
             name='react-datetime'
             selected={date}
@@ -153,14 +153,14 @@ const NewEvent = () => {
               Description
             </label>
           </div>
-          <input 
+          <textarea 
             value={description}
             placeholder='Add a description.'
             onChange={(e) => setDescription(e.target.value)}
             className='styled-input'
             required
           >
-          </input>
+          </textarea>
         </div>
         <button type='submit' className='create-event-button'>
           Create Event
