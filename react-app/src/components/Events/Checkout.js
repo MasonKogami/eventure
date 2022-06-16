@@ -49,7 +49,7 @@ const Checkout = ({ closeModalFunc }) => {
   const stopTheProp = e => e.stopPropagation();
 
   return (
-    <div style={{backgroundColor: '#ffff', boxShadow: '0 0 12px rgba(0, 0, 0, 0.5)', height: '50%', width: '60%'}}>
+    <div style={{backgroundColor: '#ffff', boxShadow: '0 0 12px rgba(0, 0, 0, 0.5)', minHeight: '400px', width: '75%', maxHeight: '750px'}}>
       <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
         <div style={{borderBottom: '2px solid #eeedf2', width: '100%', display: 'flex', justifyContent: 'center'}}>
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>

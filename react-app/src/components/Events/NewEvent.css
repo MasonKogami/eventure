@@ -24,6 +24,8 @@
   border: none;
   border-bottom: 1px solid black;
   height: 30px;
+  max-width: 500px;
+  max-height: 300px;
 }
 
 .styled-input:focus {
