@@ -19,6 +19,8 @@ class Event(db.Model):
 
   user = db.relationship('User', back_populates='events')
 
+  tickets = db.relationship('Ticket', cascade='all, delete')
+
   # tickets = db.relationship('Ticket', cascade='all, delete')
 
   def to_dict(self):
@@ -32,6 +34,6 @@ class Event(db.Model):
             'date': self.date,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            'user': self.user.to_dict()
+            'user': self.user.to_dict(),
             # 'tickets': [ticket.to_dict() for ticket in tickets]
             }

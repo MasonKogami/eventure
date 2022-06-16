@@ -12,6 +12,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import { authenticate } from './store/session';
 import NewEvent from './components/Events/NewEvent';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import SingleTicket from './components/Tickets/SingleTicket';
 
 
 function App() {
@@ -55,12 +56,15 @@ function App() {
             <EventListings />
             {/* <AboutMe /> */}
           </ProtectedRoute>
-          <Route path='/events/create' exact={true}>
+          <ProtectedRoute path='/events/create' exact={true}>
             <NewEvent />
-          </Route>
-          <Route path={`/events/:eventId`} exact={true}>
+          </ProtectedRoute>
+          <ProtectedRoute path={`/events/:eventId`} exact={true}>
             <OneEvent />
-          </Route>
+          </ProtectedRoute>
+          {/* <ProtectedRoute path={`/tickets/:ticketId`} exact={true}>
+            <SingleTicket />
+          </ProtectedRoute> */}
           <Route path='/landingpage' exact={true}>
             <LandingPage />
           </Route>

@@ -1,8 +1,16 @@
 // C O N S T A N T S
+const ADD_TICKETS = 'events/ADD_TICKETS'
 const UPDATE_TICKETS = 'tickets/UPDATE_TICKETS';
 const DELETE_TICKETS = 'tickets/DELETE_TICKETS';
 const LOAD_TICKETS = 'tickets/LOAD_TICKETS';
+
 // A C T I O N S
+
+const addTicketsAction = ticket => ({
+  type: ADD_TICKETS,
+  ticket
+});
+
 const updateTicketsAction = ticket => ({
   type: UPDATE_TICKETS,
   ticket
@@ -19,6 +27,30 @@ const loadTicketsAction = tickets => ({
 })
 
 // T H U N K S
+
+export const addTickets = ticket => async dispatch => {
+  const response = await fetch(`/api/events/${ticket.event_id}/tickets`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(ticket)
+  });
+
+  
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(addTicketsAction(data));
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors
+    }
+  } else {
+    const data = await response.json();
+    data.errors.push("An error occurred. Please try again.")
+    return data.errors;
+  }
+};
+
 export const updateTickets = ticket => async dispatch => {
   console.log(ticket)
   const response = await fetch(`/api/tickets/${ticket.id}`, {
@@ -71,6 +103,10 @@ const initialState = {};
 const ticketsReducer = (state = initialState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
+    case ADD_TICKETS:
+      console.log(action)
+      newState[action.ticket.id] = action.ticket;
+      return newState;
     case UPDATE_TICKETS:
       newState[action.ticket.id] = action.ticket;
       return newState;

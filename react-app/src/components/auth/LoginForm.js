@@ -48,6 +48,9 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
             <label>
               Email
             </label>
+            <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
+              Required *
+            </label>
           </div>
           <input
             name='email'
@@ -62,6 +65,9 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
           <div style={{marginBottom: '3px'}}>
             <label>
               Password
+            </label>
+            <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
+              Required *
             </label>
           </div>
           <input

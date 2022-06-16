@@ -119,7 +119,7 @@ export const deleteEvent = event => async dispatch => {
 };
 
 // T I C K E T  C O N S T A N T
-const ADD_TICKETS = 'boards/ADD_TICKETS'
+const ADD_TICKETS = 'events/ADD_TICKETS'
 
 // T I C K E T  A C T I O N S
 const addTicketsAction = ticket => ({
@@ -171,9 +171,10 @@ const eventsReducer = (state = initialState, action) => {
     case DELETE_EVENT:
       delete newState[action.event.id];
       return newState;
-    case ADD_TICKETS:
-      newState[action.ticket.id] = action.ticket;
-      return newState;
+    // case ADD_TICKETS:
+    //   console.log(action)
+    //   newState[action.ticket.id] = action.ticket;
+    //   return newState;
     default:
       return state;
   }

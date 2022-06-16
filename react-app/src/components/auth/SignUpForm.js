@@ -62,6 +62,9 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
             <label>
               Username
             </label>
+            <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
+              Required *
+            </label>
           </div>
           <input
             type='text'
@@ -76,6 +79,9 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
           <div style={{marginBottom: '3px'}}>
             <label>
               Email
+            </label>
+            <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
+              Required *
             </label>
           </div>
           <input
@@ -92,6 +98,9 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
             <label>
               Password
             </label>
+            <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
+              Required *
+            </label>
           </div>
           <input
             placeholder='Password'
@@ -105,7 +114,10 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
         <div>
           <div style={{marginBottom: '3px'}}>
             <label>
-              Confirm Password
+              Confirm
+            </label>
+            <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
+              Required *
             </label>
           </div>
           <input
