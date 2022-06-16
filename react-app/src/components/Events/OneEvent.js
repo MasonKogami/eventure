@@ -8,6 +8,8 @@ import ConfirmationModal from '../Modal/Confirmation';
 import './OneEvent.css';
 import EditEventForm from './EditEventForm';
 import Checkout from './Checkout';
+import { FaCalendarAlt, FaLocationArrow } from 'react-icons/fa';
+import { BsFillFileEarmarkTextFill } from 'react-icons/bs';
 
 const OneEvent = () => {
   const dispatch = useDispatch();
@@ -15,7 +17,7 @@ const OneEvent = () => {
   const sessionUser = useSelector(state => state.session.user);
   const { eventId } = useParams();
   const event = useSelector(state => state.events[eventId]);
-  const eventHost = event?.user.username;
+  const eventHost = event?.user?.username;
   const [showEditModal, setShowEditModal] = useState(false);
   const [showCheckoutModal, setCheckoutModal] = useState(false);
   // console.log(eventHost);
@@ -58,6 +60,7 @@ const OneEvent = () => {
           Hosted by {eventHost}
         </div>
         <hr style={{width: '80%'}}></hr>
+        <FaCalendarAlt />
         <div style={{fontSize: '20px', marginBottom: '8px', color: '#d1410c', fontWeight: 'bolder'}}>
           Date and Time
         </div>
@@ -67,7 +70,7 @@ const OneEvent = () => {
         <div>
           {(sessionUser.id === event?.user_id) && (<button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginBottom: '15px', marginTop: '15px'}} onClick={showEditModalFunc}>Edit Event</button>)}
           {showEditModal && (
-            <Modal closeModalFunc={closeEditModalFunc} className='modal-background'>
+            <Modal closeModalFunc={closeEditModalFunc} className='edit-event-modal-background'>
               <EditEventForm style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeEditModalFunc} />
             </Modal>
           )}
@@ -84,8 +87,9 @@ const OneEvent = () => {
           </ConfirmationModal>
           )}
         </div>
-        <div>
-          <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px', fontSize: '20px', color: '#d1410c', fontWeight: 'bolder'}}>
+        <FaLocationArrow style={{marginTop: '13px'}}/>
+        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+          <div style={{display: 'flex', justifyContent: 'center', marginTop: '1px', fontSize: '20px', color: '#d1410c', fontWeight: 'bolder'}}>
             Location
           </div>
           <div className='event-info'>
@@ -102,8 +106,9 @@ const OneEvent = () => {
               </Modal>
             )}
           </div>
-          <h4 style={{display: 'flex', justifyContent: 'center', color: '#d1410c'}}>About this Event:</h4>
-          <p style={{display: 'flex', justifyContent: 'center', paddingLeft: '55px', paddingRight: '55px', marginLeft: 'auto', marginRight: 'auto', height: '100%'}}>{event?.description}</p>
+          <BsFillFileEarmarkTextFill style={{display: 'flex', justifyContent: 'center', marginTop: '12px'}} />
+          <h4 style={{display: 'flex', justifyContent: 'center', color: '#d1410c', marginTop: '10px'}}>About this Event:</h4>
+          <p style={{display: 'flex', justifyContent: 'center', paddingLeft: '55px', paddingRight: '55px', wordBreak: 'break-word', /* marginLeft: 'auto', marginRight: 'auto', */ height: '100%'}}>{event?.description}</p>
         </div>
       </div>
     </div>
