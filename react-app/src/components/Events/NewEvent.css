@@ -87,6 +87,10 @@ hr {
   width: 105px;
 }
 
+.description-con > h2 {
+  color: #d1410c;
+}
+
 /* .new-event-form {
   display: flex;
   justify-content: center;
