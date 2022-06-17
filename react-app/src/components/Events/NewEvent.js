@@ -7,6 +7,9 @@ import './NewEvent.css';
 // import 'react-datetime-picker/dist/DateTimePicker.css';
 import DatePicker from 'react-date-picker';
 import "react-datepicker/dist/react-datepicker.css";
+import { FaCalendarAlt, FaMapPin } from 'react-icons/fa';
+import { BsFillFileEarmarkTextFill } from 'react-icons/bs';
+import { FaLightbulb } from 'react-icons/fa';
 
 const NewEvent = () => {
   const dispatch = useDispatch();
@@ -63,8 +66,10 @@ const NewEvent = () => {
           ))}
         </div>
         <div className='basic-info-con'>
-          <h2>Basic Info</h2>
-          <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
+          <FaLightbulb />
+          <h2>Event Name</h2>
+          <p style={{marginBottom: '0px', marginTop: '2.5px'}}>Name your event and tell event-goers why they should come.</p>
+          <p style={{marginTop: '0px'}}>Add details that highlight what makes it unique.</p>
           <div style={{marginBottom: '10px'}}>
             <label>
               Event Name
@@ -81,8 +86,9 @@ const NewEvent = () => {
         </div>
         <hr style={{backgroundColor: '#eeedf2'}}/>
         <div className='location-con'>
+          <FaMapPin />
           <h2>Location</h2>
-          <p>Help people in the area discover your event and let attendees know where to show up.</p>
+          <p style={{width: '900px'}}>Help people in the area discover your event and let attendees know where to show up.</p>
           <div style={{marginBottom: '10px'}}>
             <label>
               Location Name
@@ -114,7 +120,8 @@ const NewEvent = () => {
         </div>
         <hr style={{backgroundColor: '#eeedf2'}}/>
         <div className='date-time-con'>
-          <h2>Date</h2>
+          <FaCalendarAlt />
+          <h2>Date and Time</h2>
           <div style={{marginBottom: '10px'}}>
             <label>
               Tell event goers when your event starts and ends so they can make plans to attend.
@@ -146,6 +153,7 @@ const NewEvent = () => {
           /> */}
         </div>
         <div className='description-con'>
+          <BsFillFileEarmarkTextFill  />
           <h2>Description</h2>
           <p>Tell the event goers what your event is all about!</p>
           <div style={{marginBottom: '10px'}}>
