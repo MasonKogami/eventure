@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { readOneEvent, deleteEvent } from '../../store/events';
-// import { addTickets } from '../../store/events';
 import Modal from '../Modal/Modal';
 import ConfirmationModal from '../Modal/Confirmation';
 import './OneEvent.css';
 import EditEventForm from './EditEventForm';
 import Checkout from './Checkout';
-import { FaCalendarAlt, FaLocationArrow } from 'react-icons/fa';
+import { FaCalendarAlt, FaMapPin } from 'react-icons/fa';
 import { BsFillFileEarmarkTextFill } from 'react-icons/bs';
 
 const OneEvent = () => {
@@ -87,7 +86,7 @@ const OneEvent = () => {
           </ConfirmationModal>
           )}
         </div>
-        <FaLocationArrow style={{marginTop: '13px'}}/>
+        <FaMapPin style={{marginTop: '13px'}}/>
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
           <div style={{display: 'flex', justifyContent: 'center', marginTop: '1px', fontSize: '20px', color: '#d1410c', fontWeight: 'bolder'}}>
             Location
