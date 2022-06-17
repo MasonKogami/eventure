@@ -58,7 +58,7 @@ const EditEventForm = ({ closeModalFunc }) => {
           ))}
         </div>
         <div>
-          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '0px', marginBottom: '0px'}}>Basic Info</h2>
+          <h2 style={{color: '#d1410c', fontWeight: 'bolder', marginTop: '0px', marginBottom: '0px'}}>Event Name</h2>
           <p style={{marginTop: '5px', marginBottom: '5px'}}>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
           <div style={{marginBottom: '5px'}}>
             <label>
