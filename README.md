@@ -1,6 +1,8 @@
 # Eventure
 Eventure, a clone of Eventbrite, is your one stop shop to find your next outing. Users can browse events and get tickets for their favorite concerts, artists, local events, etc.
 
+[Live Site](https://the-eventure-app.herokuapp.com/landingpage)
+
 ### Technologies
 Eventure is made with technologies such as React, Redux, HTML, CSS, Python, Flask, SQLAlchemy, and PostgreSQL.
 
