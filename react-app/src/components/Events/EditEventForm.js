@@ -133,7 +133,7 @@ const EditEventForm = ({ closeModalFunc }) => {
             value={description}
             placeholder='Add a description.'
             onChange={(e) => setDescription(e.target.value)}
-            style={{height: '100px', width: '500px'}}
+            style={{height: '100px', maxHeight: '140px', width: '500px', maxWidth: '800px'}}
             required
           >
           </textarea>
