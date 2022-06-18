@@ -64,7 +64,7 @@ const OneEvent = () => {
           Date and Time
         </div>
         <div>
-          {event?.date}
+          {event?.date.slice(0, 16)}
         </div>
         <div>
           {(sessionUser.id === event?.user_id) && (<button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginBottom: '15px', marginTop: '15px'}} onClick={showEditModalFunc}>Edit Event</button>)}
