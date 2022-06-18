@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { updateEvent } from '../../store/events';
-import DateTimePicker from 'react-datetime-picker';
-import 'react-datetime-picker/dist/DateTimePicker.css';
+// import DateTimePicker from 'react-datetime-picker';
+// import 'react-datetime-picker/dist/DateTimePicker.css';
 import './EditEventForm.css';
+import DatePicker from 'react-date-picker';
+import "react-datepicker/dist/react-datepicker.css";
 
 const EditEventForm = ({ closeModalFunc }) => {
   const dispatch = useDispatch();
@@ -14,6 +16,9 @@ const EditEventForm = ({ closeModalFunc }) => {
   const [locationName, setLocationName] = useState(event.location_name);
   const [address, setAddress] = useState(event.address);
   const [name, setName] = useState(event.name);
+  const today = new Date();
+  const tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
   const [date, setDate] = useState(new Date(event.date));
   const [description, setDescription] = useState(event.description);
   const [errors, setErrors] = useState([]);
@@ -70,6 +75,7 @@ const EditEventForm = ({ closeModalFunc }) => {
             onChange={(e) => setName(e.target.value)}
             type='text'
             placeholder='Be clear and descriptive.'
+            className='styled-inputs'
             required
           ></input>
         </div>
@@ -87,6 +93,7 @@ const EditEventForm = ({ closeModalFunc }) => {
             type='text'
             placeholder='Venue Name'
             style={{marginBottom: '10px'}}
+            className='styled-inputs'
             required
           ></input>
           <div>
@@ -99,6 +106,7 @@ const EditEventForm = ({ closeModalFunc }) => {
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               placeholder='Street address, City, State'
+              className='styled-inputs'
               required
             >
             </input>
@@ -112,13 +120,38 @@ const EditEventForm = ({ closeModalFunc }) => {
             </label>
           </div>
           <div>
-            <DateTimePicker 
+            {/* <DateTimePicker 
               selected={date}
               value={date}
               minDate={new Date()}
               disableClock={true}
               onChange={(e) => setDate(new Date(e))} 
+            /> */}
+            <DatePicker
+            selected={date}
+            minDate={tomorrow} 
+            value={date}
+            onChange={(e) => {
+              console.log(e)
+              setDate(e)}}
             />
+            <select style={{height: '29.5px', width: '80px', marginLeft: '25px', borderRadius: '0px', fontWeight: 'bold', position: 'relative', bottom: '1px'}}>
+              <option>8:00 AM</option>
+              <option>9:00 AM</option>
+              <option>10:00 AM</option>
+              <option>11:00 AM</option>
+              <option>12:00 PM</option>
+              <option>1:00 PM</option>
+              <option>2:00 PM</option>
+              <option>3:00 PM</option>
+              <option>4:00 PM</option>
+              <option>5:00 PM</option>
+              <option>6:00 PM</option>
+              <option>7:00 PM</option>
+              <option>8:00 PM</option>
+              <option>9:00 PM</option>
+              <option>10:00 PM</option>
+            </select>
           </div>
         </div>
         <div>
@@ -133,7 +166,8 @@ const EditEventForm = ({ closeModalFunc }) => {
             value={description}
             placeholder='Add a description.'
             onChange={(e) => setDescription(e.target.value)}
-            style={{height: '100px', maxHeight: '140px', width: '500px', maxWidth: '800px'}}
+            style={{resize: 'none', height: '100px', width: '800px'}}
+            className='styled-inputs'
             required
           >
           </textarea>
