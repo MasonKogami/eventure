@@ -44,7 +44,7 @@ const NewEvent = () => {
       location_name: locationName.trim(),
       address,
       name: name.trim(),
-      date: date.toUTCString(),
+      date: date.toString().slice(0, 16),
       description
     };
 
@@ -74,6 +74,9 @@ const NewEvent = () => {
             <label>
               Event Name
             </label>
+            <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
+              Required *
+            </label>
           </div>
           <input
             value={name}
@@ -93,6 +96,9 @@ const NewEvent = () => {
             <label>
               Location Name
             </label>
+            <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
+              Required *
+            </label>
           </div>
           <input
             value={locationName}
@@ -107,6 +113,9 @@ const NewEvent = () => {
               <label>
                 Address
               </label>
+              <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
+              Required *
+            </label>
             </div>
             <input
               value={address}
@@ -123,8 +132,11 @@ const NewEvent = () => {
           <FaCalendarAlt />
           <h2>Date and Time</h2>
           <div style={{marginBottom: '10px'}}>
-            <label>
+            <p style={{width: '650px'}}>
               Tell event goers when your event starts and ends so they can make plans to attend.
+            </p>
+            <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '0px'}}>
+              Required *
             </label>
           </div>
           {/* <input
@@ -150,22 +162,43 @@ const NewEvent = () => {
             minDate={tomorrow}
             disableClock={true}
             onChange={(e) => setDate(new Date(e))}
-          /> */}
+            /> */}
+            
+          <select style={{height: '29.5px', width: '80px', marginLeft: '25px', borderRadius: '0px', fontWeight: 'bold', position: 'relative', bottom: '1px'}}>
+            <option>8:00 AM</option>
+            <option>9:00 AM</option>
+            <option>10:00 AM</option>
+            <option>11:00 AM</option>
+            <option>12:00 PM</option>
+            <option>1:00 PM</option>
+            <option>2:00 PM</option>
+            <option>3:00 PM</option>
+            <option>4:00 PM</option>
+            <option>5:00 PM</option>
+            <option>6:00 PM</option>
+            <option>7:00 PM</option>
+            <option>8:00 PM</option>
+            <option>9:00 PM</option>
+            <option>10:00 PM</option>
+          </select>
         </div>
         <div className='description-con'>
           <BsFillFileEarmarkTextFill  />
           <h2>Description</h2>
-          <p>Tell the event goers what your event is all about!</p>
+          <p>Tell the event goers what your event is all about.</p>
           <div style={{marginBottom: '10px'}}>
             <label>
               Description
+            </label>
+            <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
+              Required *
             </label>
           </div>
           <textarea 
             value={description}
             placeholder='Add a description.'
             onChange={(e) => setDescription(e.target.value)}
-            className='styled-input'
+            className='styled-textarea'
             required
           >
           </textarea>
