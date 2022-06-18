@@ -1,5 +1,5 @@
 // C O N S T A N T S
-const ADD_TICKETS = 'events/ADD_TICKETS'
+const ADD_TICKETS = 'tickets/ADD_TICKETS'
 const UPDATE_TICKETS = 'tickets/UPDATE_TICKETS';
 const DELETE_TICKETS = 'tickets/DELETE_TICKETS';
 const LOAD_TICKETS = 'tickets/LOAD_TICKETS';
