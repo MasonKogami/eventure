@@ -28,6 +28,13 @@
   max-height: 300px;
 }
 
+.styled-textarea {
+  border: 1px solid black;
+  resize: none;
+  height: 300px;
+  width: 900px;
+}
+
 .styled-input:focus {
   border-bottom: 3px solid #d1410c;
 }
