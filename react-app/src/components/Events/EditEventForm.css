@@ -5,9 +5,11 @@
   grid-template-columns: repeat(2, 1fr); */
   justify-content: center;
   align-items: center;
-  padding: 16px;
+  position: relative;
+  top: 25px;
+  padding: 36px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
-  height: 650px;
+  height: 675px;
   /* font-size: 12px; */
 }
 
@@ -23,6 +25,16 @@
   position: relative;
   top: 289px;
   right: 680px;
+}
+
+.styled-inputs {
+  border: none;
+  border-bottom: 1px solid black;
+  height: 30px;
+}
+
+.styled-inputs:focus {
+  border-bottom: 3px solid #d1410c;
 }
 
 /* .edit-modal-form {
