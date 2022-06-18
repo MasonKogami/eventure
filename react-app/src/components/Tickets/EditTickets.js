@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+// import { useParams } from 'react-router-dom';
 import { loadTickets, updateTickets } from '../../store/tickets';
 import './EditTickets.css';
 
-const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
+const EditTickets = ({ ticket, closeModalFunc }) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const event = useSelector(state => state.events[ticketEvent]);
-  const [quantity, setQuantity] = useState(ticket.quantity);
+  const event = useSelector(state => state.events[ticket.event_id]);
+  // const { ticketId } = useParams();
+  const [quantity, setQuantity] = useState(ticket?.quantity);
   const [errors, setErrors] = useState([]);
   const [submitError, setSubmitError] = useState('disabled');
 
@@ -26,7 +28,7 @@ const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
       id: ticket.id,
       user_id: sessionUser.id,
       event_id: event.id,
-      event_name: ticket.event_name,
+      event_name: ticket?.event_name,
       quantity
     };
 
@@ -49,7 +51,7 @@ const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
           <h2 style={{color: '#d1410c', fontSize: '30px', fontWeight: 'bolder', marginBottom: '15px'}}>Ticket Order Form</h2>
             <div style={{marginBottom: '2px'}}>
               <label>
-                {ticket.event_name}
+                {ticket?.event_name}
               </label>
             </div>
             <div>
@@ -103,7 +105,7 @@ const EditTickets = ({ ticketEvent, ticket, closeModalFunc }) => {
             </label>
           </div>
           <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
-            {quantity}x - {ticket.event_name}
+            {quantity}x - {ticket?.event_name}
           </div>
           <div style={{display: 'flex', justifyContent: 'center', marginTop: '15px'}}>
             <button 
