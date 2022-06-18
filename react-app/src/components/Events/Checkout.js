@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { readOneEvent } from '../../store/events';
-import { addTickets } from '../../store/events';
+import { addTickets } from '../../store/tickets';
 import './Checkout.css';
 
 const Checkout = ({ closeModalFunc }) => {
@@ -11,21 +11,22 @@ const Checkout = ({ closeModalFunc }) => {
   const sessionUser = useSelector(state => state.session.user);
   const { eventId } = useParams();
   const event = useSelector(state => state.events[eventId]);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [errors, setErrors] = useState([]);
-  const [submitError, setSubmitError] = useState('disabled');
+  // const [submitError, setSubmitError] = useState('disabled');
 
   useEffect(() => {
     dispatch(readOneEvent(eventId))
   }, [dispatch, eventId]);
 
-  useEffect(() => {
-    if (quantity !== 0) {
-      setSubmitError('able');
-    } else {
-      setSubmitError('disabled');
-    }
-  }, [quantity]);
+  // useEffect(() => {
+  //   if (quantity !== 0) {
+  //     setSubmitError('able');
+  //   } else {
+  //     errors.push('Please select an amount.');
+  //     setSubmitError('disabled');
+  //   }
+  // }, [quantity]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -72,9 +73,9 @@ const Checkout = ({ closeModalFunc }) => {
           onSubmit={handleSubmit}
         >
           <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
+            {errors?.map((error, ind) => (
+              <div style={{color: '#d1410c'}} key={ind}>{error}</div>
+            ))}
           </div>
           <div style={{display: 'flex', justifyContent: 'center', marginLeft: '150px', marginRight: '150px'}}>
             <p style={{display: 'flex', justifyContent: 'center', verticalAlign: 'middle', textAlign: 'center'}}>Tell us how many tickets you need to start your next Eventure. Ticket orders are limited to 10 per order to allow everyone a chance!</p>
@@ -91,7 +92,6 @@ const Checkout = ({ closeModalFunc }) => {
               type='integer'
               placeholder='How many tickets do you need?'
             >
-              <option value={0}>0</option>
               <option value={1}>1</option>
               <option value={2}>2</option>
               <option value={3}>3</option>
@@ -116,7 +116,7 @@ const Checkout = ({ closeModalFunc }) => {
         <button 
           type='submit'
           className='checkout-button1'
-          disabled={submitError !== 'able'}
+          // disabled={submitError !== 'able'}
           style={{marginRight: '10px'}}
         >Checkout</button>
         <button
