@@ -1,3 +1,27 @@
+.single-ticket-page {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  min-height: 100vh;
+}
+
+.single-ticket-page > .singleticket-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-to-orders {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  margin: 5px;
+}
+
+.back-to-orders:hover {
+  color: #d1410c;
+}
+
 .singleticket-con {
   display: flex;
   align-items: center;
@@ -7,7 +31,7 @@
   border: 3px solid #1E0A3C;
   /* color: #ffff; */
   width: 400px;
-  height: 130px;
+  height: 180px;
   margin-bottom: 20px;
 }
 
@@ -29,7 +53,7 @@
   border: 1px solid #d1410c;
 } */
 
-.modal-background-edit {
+/* .modal-background-edit {
   top: 0px;
   bottom: 0px;
   left: 0px;
@@ -37,7 +61,7 @@
   position: absolute;
   z-index: 10;
 
-  /* GOOD LUCK, JON */
+  GOOD LUCK, JON
   backdrop-filter: blur(5px);
 
   display: flex;
@@ -46,4 +70,4 @@
   justify-content: center;
 
   cursor: default;
-}
+} */
