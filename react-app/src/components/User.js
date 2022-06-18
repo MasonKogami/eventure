@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { readAllEvents } from '../store/events';
 import { loadTickets } from '../store/tickets';
-import SingleTicket from './Tickets/SingleTicket';
+// import SingleTicket from './Tickets/SingleTicket';
 import { FaUser } from 'react-icons/fa';
+import { FaTicketAlt } from 'react-icons/fa';
 import './User.css';
 
 function User() {
@@ -12,6 +13,7 @@ function User() {
   const [user, setUser] = useState({});
   const { userId }  = useParams();
   const tickets = useSelector(state => Object.values(state.tickets));
+  const events = useSelector(state => Object.values(state.events))
 
   useEffect(() => {
     dispatch(loadTickets(userId));
@@ -43,9 +45,17 @@ function User() {
         <h2>{user.username}'s Orders:</h2>
       </div>
       <div className='grid'>
-        {tickets?.map((ticket, index) => {
+        {tickets?.sort((a, b) => b.id - a.id).map((ticket) => {
+          const event = events.find(event => event.id === ticket?.event_id)
           return (
-            <SingleTicket key={index} ticket={ticket} userId={userId} ticketEvent={ticket.event_id}/>
+            <NavLink to={`/tickets/${ticket?.id}`} key={ticket.id} className='single-ticket-listing'>
+              <FaTicketAlt />
+              <div style={{fontSize: '25px'}}>{ticket?.event_name}</div>
+              <div style={{fontSize: '16px'}}>{`Order #${ticket.id} - ${ticket?.quantity} ticket(s)`}</div>
+              {/* <div style={{fontSize: '16px'}}>{ticket?.quantity}</div> */}
+              <div style={{fontSize: '16px'}}>{event?.date}</div>
+              {/* <SingleTicket key={index} ticket={ticket} userId={userId} ticketEvent={ticket.event_id}/> */}
+            </NavLink>
           )
         })}
       </div>
