@@ -27,7 +27,7 @@ const EventListings = () => {
                   {event.name}
                 </div>
                 <div style={{color: '#d1410c'}}>
-                  {event.date}
+                  {event.date.slice(0, 16)}
                 </div>
                 <div style={{color: 'gray'}}>
                   {event.location_name}
