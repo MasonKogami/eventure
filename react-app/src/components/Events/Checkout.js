@@ -104,26 +104,26 @@ const Checkout = ({ closeModalFunc }) => {
               <option value={10}>10</option>
             </select>
           </div>
-      <div style={{fontSize: '20px', fontWeight: 'bolder', display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '15px', color: '#d1410c'}}>
-        <label>
-          Order Summary:
-        </label>
-      </div>
-      <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
-        {quantity}x - {event.name}
-      </div>
-      <div style={{display: 'flex', justifyContent: 'center', marginTop: '15px'}}>
-        <button 
-          type='submit'
-          className='checkout-button1'
-          // disabled={submitError !== 'able'}
-          style={{marginRight: '10px'}}
-        >Checkout</button>
-        <button
-          className='checkout-button2'
-          onClick={closeModalFunc}
-        >Cancel</button>
-      </div>
+          <div style={{fontSize: '20px', fontWeight: 'bolder', display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '15px', color: '#d1410c'}}>
+            <label>
+              Order Summary:
+            </label>
+          </div>
+          <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
+            {quantity}x - {event.name}
+          </div>
+          <div style={{display: 'flex', justifyContent: 'center', marginTop: '15px'}}>
+            <button 
+              type='submit'
+              className='checkout-button1'
+              // disabled={submitError !== 'able'}
+              style={{marginRight: '10px'}}
+            >Checkout</button>
+            <button
+              className='checkout-button2'
+              onClick={closeModalFunc}
+            >Cancel</button>
+          </div>
         </form>
       </div>
       {/* <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
