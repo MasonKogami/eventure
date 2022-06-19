@@ -22,8 +22,28 @@ const EventListings = () => {
       <div className='event-feed'>
         <div className='events'>
           {events.map((event) => {
-            const address = event.address.split(',').slice(1).join(',');
-            
+            let address;
+            if (event?.address.includes(',')) {
+              address = event?.address.split(',').slice(1).join(', ');
+            } else if (!event?.address.includes(',')) {
+              address = event?.address
+              return (
+                <NavLink to={`/events/${event.id}`} className='event-listings' key={event.id}>
+                  <div style={{color: 'black', fontSize: '16px'}}>
+                    {event?.name}
+                  </div>
+                  <div style={{color: '#d1410c'}}>
+                    {event?.date.slice(0, 16)}
+                  </div>
+                  <div style={{color: 'gray'}}>
+                    {event?.location_name}
+                  </div>
+                  <div style={{color: 'gray'}}>
+                    {address}
+                  </div>
+                </NavLink>
+              )
+            }
             return (
               <NavLink to={`/events/${event.id}`} className='event-listings' key={event.id}>
                 <div style={{color: 'black', fontSize: '16px'}}>
