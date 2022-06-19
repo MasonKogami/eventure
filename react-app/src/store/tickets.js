@@ -108,7 +108,7 @@ export const oneTicket = id => async dispatch => {
   const response = await fetch(`/api/tickets/${id}`);
 
   const data = await response.json();
-  dispatch(oneTicketAction(data.ticket));
+  dispatch(oneTicketAction(data));
   return data;
 };
 
@@ -117,11 +117,10 @@ const initialState = {};
 const ticketsReducer = (state = initialState, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
-    // case ONE_TICKET:
-    //   newState[action.ticket.id] = action.ticket;
-    //   return newState;
+    case ONE_TICKET:
+      newState[action.ticket.id] = action.ticket;
+      return newState;
     case ADD_TICKETS:
-      console.log(action)
       newState[action.ticket.id] = action.ticket;
       return newState;
     case UPDATE_TICKETS:
