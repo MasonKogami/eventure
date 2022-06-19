@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { useParams } from 'react-router-dom';
-import { loadTickets, updateTickets } from '../../store/tickets';
+import { oneTicket, updateTickets } from '../../store/tickets';
 import './EditTickets.css';
 
 const EditTickets = ({ ticket, closeModalFunc }) => {
@@ -36,7 +36,7 @@ const EditTickets = ({ ticket, closeModalFunc }) => {
     if (newTickets) {
       setErrors(newTickets);
     } else {
-      dispatch(loadTickets(sessionUser.id))
+      dispatch(oneTicket(ticket.id))
       .then(() => closeModalFunc())
     }
   };
