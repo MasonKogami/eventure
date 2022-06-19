@@ -33,11 +33,11 @@ Some key features that will be implemented in the future include:
 
 ##### Home Page
 ![image](https://user-images.githubusercontent.com/90283463/169800707-061f4224-9dd5-4456-9dc4-df0a41b8d920.png)
-![image](https://user-images.githubusercontent.com/90283463/169800761-cd3586e3-e2dc-492d-8432-72ecdc5be355.png)
+![image](https://user-images.githubusercontent.com/90283463/174497606-5041097d-2143-4cfa-8987-7286e0b45909.png)
 
 ##### Single Resource Page
-![image](https://user-images.githubusercontent.com/90283463/169800905-30f8b750-1d32-4eb4-a9e7-fd4c7c01533e.png)
+![image](https://user-images.githubusercontent.com/90283463/174497624-133896e9-4883-4a71-b7ba-2e7e0ee0d507.png)
 ![image](https://user-images.githubusercontent.com/90283463/169800972-d59e781e-91f5-4106-b8bc-c13f79837fee.png)
 
 ##### Ticket Order Form
-![image](https://user-images.githubusercontent.com/90283463/169801109-70271635-753c-40ca-a8fa-c1aa3a225d3a.png)
+![image](https://user-images.githubusercontent.com/90283463/174497653-c775dce0-61b6-4367-8814-643f756327eb.png)
