@@ -29,11 +29,20 @@ def username_length(form, field):
         raise ValidationError("A username must be 15 characters or less.")
 
 
+def password_length(form, field):
+    password = field.data
+    confirm = field.data
+    if len(password) and len(confirm) < 5:
+        raise ValidationError("Password length must be at least 5 characters.")
+    if len(password) and len(confirm) > 20:
+        raise ValidationError("Password length cannot exceed 20 characters.")
+
+
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(message='Please input a username.'), username_exists, username_length])
     email = StringField('email', validators=[DataRequired(message='Please input an email.'), user_exists, Email(granular_message=True)])
-    password = PasswordField('password', validators=[DataRequired(), EqualTo('confirm',  message='Passwords must match.')])
+    password = PasswordField('password', validators=[DataRequired(), EqualTo('confirm',  message='Passwords must match.'), password_length])
     confirm = PasswordField('confirm')
     # password = PasswordField('password', validators=[DataRequired(), EqualTo('confirm', message='Passwords must match.')])
     # confirm = PasswordField('confirm')

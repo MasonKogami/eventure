@@ -6,6 +6,15 @@ from app.api.auth_routes import validation_errors_to_error_messages
 
 ticket_routes = Blueprint('tickets', __name__)
 
+
+# R E A D  O N E  T I C K E T
+@ticket_routes.route('/<int:id>', methods=['GET'])
+# @login_required
+def single_ticket(id):
+  ticket = Ticket.query.get(id)
+  # print(ticket, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+  return ticket.to_dict()
+
 # U P D A T E  T I C K E T S
 @ticket_routes.route('/<int:id>', methods=['PUT'])
 # @login_required

@@ -15,7 +15,7 @@
   /* width: 100%; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 45px;
+  gap: 35px;
   vertical-align: top;
   /* justify-content: center; */
   /* flex-wrap: wrap;
@@ -28,13 +28,19 @@
 .events > .event-listings {
   flex-wrap: wrap;
   width: 260px;
-  height: 80px;
+  height: 140px;
   padding: 16px;
   text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
 
   display: flex;
-  /* justify-content: center; */
-  align-items: center; 
+  justify-content: space-evenly;
+  /* align-items: center;  */
+  flex-direction: column;
+  /* text-align: end; */
 
   /* background-color: #ffba08; */
   border: 1px gray solid;
@@ -43,7 +49,10 @@
 }
 
 .event-listings > div {
+  /* display: grid;
+  flex-direction: column; */
   text-align: start;
+  
   /* background-color: green; */
 }
 

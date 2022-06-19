@@ -1,24 +1,77 @@
-.singleticket-con {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-evenly;
-  background-color: rgba(233, 196, 106, 1);
-  border: 3px solid #1E0A3C;
-  /* color: #ffff; */
-  width: 400px;
-  height: 130px;
-  margin-bottom: 20px;
+.single-ticket-page {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  min-height: 100vh;
 }
 
-.singleticket-con:hover{
-  background-color: #e76f51;
+/* .single-ticket-page > .singleticket-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.back-to-orders {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  position: relative;
+  width: 140px;
+  top: 10px;
+  left: 80px;
+  margin: 5px;
 }
+
+.back-to-orders:hover {
+  color: #d1410c;
+}
+
+.back-to-orders2 {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  width: 140px;
+  margin: 5px;
+  position: relative;
+  top: 50px;
+  left: 80px;
+}
+
+.back-to-orders2:hover {
+  color: #d1410c;
+}
+
+.singleticket-con {
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  position: relative;
+  top: 30px;
+  left: 80px;
+  /* background-color: rgba(233, 196, 106, 1); */
+  /* border: 3px solid #1E0A3C; */
+  /* color: #ffff; */
+  width: 100%;
+  min-height: 80vh;
+  /* margin-bottom: 20px; */
+}
+
+/* .singleticket-con:hover{
+  background-color: #e76f51;
+} */
 
 .ticket-name {
   position: relative;
   /* left: 5px;   */
-  font-size: 30px;
+  font-size: 52px;
+  color: #3659e3;
+  text-decoration: none;
+  width: 510px;
+}
+
+.ticket-name:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 5px;
 }
 
 .ticket-quantity {
@@ -29,7 +82,7 @@
   border: 1px solid #d1410c;
 } */
 
-.modal-background-edit {
+/* .modal-background-edit {
   top: 0px;
   bottom: 0px;
   left: 0px;
@@ -37,7 +90,7 @@
   position: absolute;
   z-index: 10;
 
-  /* GOOD LUCK, JON */
+  GOOD LUCK, JON
   backdrop-filter: blur(5px);
 
   display: flex;
@@ -46,4 +99,4 @@
   justify-content: center;
 
   cursor: default;
-}
+} */

@@ -28,6 +28,13 @@
   max-height: 300px;
 }
 
+.styled-textarea {
+  border: 1px solid black;
+  resize: none;
+  height: 300px;
+  width: 900px;
+}
+
 .styled-input:focus {
   border-bottom: 3px solid #d1410c;
 }
@@ -85,6 +92,10 @@ hr {
   border: 1px solid #d1410c;
   height: 35px;
   width: 105px;
+}
+
+.description-con > h2 {
+  color: #d1410c;
 }
 
 /* .new-event-form {

@@ -6,11 +6,30 @@
   align-items: center;
   position: relative;
   z-index: 100000;
-  min-height: 80vh;
+  min-height: 100vh;
   height: 100%;
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+/* .open-modal {
+  top: 10px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  position: absolute;
+  z-index: 100000;
+
+  GOOD LUCK, JON
+  backdrop-filter: blur(5px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  cursor: default;
+} */
 
 /* .modal-background { */
   /* background-color: #39364FFC; */
