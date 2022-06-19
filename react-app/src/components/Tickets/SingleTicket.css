@@ -16,6 +16,7 @@
   cursor: pointer;
   align-items: center;
   position: relative;
+  width: 140px;
   top: 10px;
   left: 80px;
   margin: 5px;
@@ -29,6 +30,7 @@
   display: flex;
   cursor: pointer;
   align-items: center;
+  width: 140px;
   margin: 5px;
   position: relative;
   top: 50px;
@@ -64,6 +66,7 @@
   font-size: 52px;
   color: #3659e3;
   text-decoration: none;
+  width: 510px;
 }
 
 .ticket-name:hover {
