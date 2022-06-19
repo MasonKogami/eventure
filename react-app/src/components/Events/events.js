@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 const EventListings = () => {
   const dispatch = useDispatch();
+  // const sessionUser = useSelector(state => state.session.user);
   const events = useSelector(state => Object.values(state.events));
   // console.log(events)
 
@@ -21,9 +22,11 @@ const EventListings = () => {
       <div className='event-feed'>
         <div className='events'>
           {events.map((event) => {
+            const address = event.address.split(',').slice(1).join(',');
+            
             return (
               <NavLink to={`/events/${event.id}`} className='event-listings' key={event.id}>
-                <div style={{color: 'black'}}>
+                <div style={{color: 'black', fontSize: '16px'}}>
                   {event.name}
                 </div>
                 <div style={{color: '#d1410c'}}>
@@ -33,7 +36,7 @@ const EventListings = () => {
                   {event.location_name}
                 </div>
                 <div style={{color: 'gray'}}>
-                  {event.address}
+                  {address}
                 </div>
               </NavLink>
             )
