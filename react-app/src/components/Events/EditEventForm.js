@@ -135,7 +135,7 @@ const EditEventForm = ({ closeModalFunc }) => {
               console.log(e)
               setDate(e)}}
             />
-            <select style={{height: '29.5px', width: '80px', marginLeft: '25px', borderRadius: '0px', fontWeight: 'bold', position: 'relative', bottom: '1px'}}>
+            {/* <select style={{height: '29.5px', width: '80px', marginLeft: '25px', borderRadius: '0px', fontWeight: 'bold', position: 'relative', bottom: '1px'}}>
               <option>8:00 AM</option>
               <option>9:00 AM</option>
               <option>10:00 AM</option>
@@ -151,7 +151,7 @@ const EditEventForm = ({ closeModalFunc }) => {
               <option>8:00 PM</option>
               <option>9:00 PM</option>
               <option>10:00 PM</option>
-            </select>
+            </select> */}
           </div>
         </div>
         <div>
