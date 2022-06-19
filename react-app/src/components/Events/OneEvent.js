@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { readOneEvent, deleteEvent } from '../../store/events';
@@ -13,6 +13,7 @@ import { BsFillFileEarmarkTextFill } from 'react-icons/bs';
 const OneEvent = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const inputRef = useRef();
   const sessionUser = useSelector(state => state.session.user);
   const { eventId } = useParams();
   const event = useSelector(state => state.events[eventId]);
@@ -36,10 +37,17 @@ const OneEvent = () => {
     history.push("/home");
   };
 
-  const showEditModalFunc = () => setShowEditModal(true);
+  const showEditModalFunc = () => {
+    setShowEditModal(true);
+    window.scrollTo(0, document.body.scrollHeight / 5.5)
+  }
   const closeEditModalFunc = () => setShowEditModal(false);
-  const showCheckoutModalFunc = () => setCheckoutModal(true);
+  const showCheckoutModalFunc = () => {
+    setCheckoutModal(true);
+    window.scrollTo(0, document.body.scrollHeight / 4)
+  }
   const closeCheckoutModalFunc = () => setCheckoutModal(false);
+  
 
   if (!sessionUser) {
     return null;
@@ -61,7 +69,7 @@ const OneEvent = () => {
         <hr style={{width: '80%'}}></hr>
         <FaCalendarAlt />
         <div style={{fontSize: '20px', marginBottom: '8px', color: '#d1410c', fontWeight: 'bolder'}}>
-          Date and Time
+          Date
         </div>
         <div>
           {event?.date.slice(0, 16)}
@@ -69,8 +77,8 @@ const OneEvent = () => {
         <div>
           {(sessionUser.id === event?.user_id) && (<button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginBottom: '15px', marginTop: '15px'}} onClick={showEditModalFunc}>Edit Event</button>)}
           {showEditModal && (
-            <Modal closeModalFunc={closeEditModalFunc} className='edit-event-modal-background'>
-              <EditEventForm style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeEditModalFunc} />
+            <Modal inputRef={inputRef} closeModalFunc={closeEditModalFunc} className='edit-event-modal-background'>
+              <EditEventForm inputRef={inputRef} style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeEditModalFunc} />
             </Modal>
           )}
         </div>
@@ -82,6 +90,7 @@ const OneEvent = () => {
               >
             <button
               style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '120px'}}
+              onClick={() => window.scrollTo(0, document.body.scrollHeight / 3)}
             >Delete Event</button>
           </ConfirmationModal>
           )}
