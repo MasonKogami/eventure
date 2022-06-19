@@ -150,7 +150,7 @@ const NewEvent = () => {
           <DatePicker
             selected={tomorrow}
             minDate={tomorrow} 
-            value={tomorrow}
+            value={date}
             onChange={(e) => {
               console.log(e)
               setDate(e)}}
