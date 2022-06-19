@@ -9,6 +9,9 @@ import EditEventForm from './EditEventForm';
 import Checkout from './Checkout';
 import { FaCalendarAlt, FaMapPin } from 'react-icons/fa';
 import { BsFillFileEarmarkTextFill } from 'react-icons/bs';
+import { FaTicketAlt } from 'react-icons/fa';
+import { AiFillDelete } from 'react-icons/ai';
+import { GoPencil } from 'react-icons/go';
 
 const OneEvent = () => {
   const dispatch = useDispatch();
@@ -75,7 +78,9 @@ const OneEvent = () => {
           {event?.date.slice(0, 16)}
         </div>
         <div>
-          {(sessionUser.id === event?.user_id) && (<button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginBottom: '15px', marginTop: '15px'}} onClick={showEditModalFunc}>Edit Event</button>)}
+          {(sessionUser.id === event?.user_id) && (<button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginBottom: '15px', marginTop: '15px'}} onClick={showEditModalFunc}>
+            <GoPencil style={{marginRight: '6px'}}/>
+            Edit</button>)}
           {showEditModal && (
             <Modal inputRef={inputRef} closeModalFunc={closeEditModalFunc} className='edit-event-modal-background'>
               <EditEventForm inputRef={inputRef} style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeEditModalFunc} />
@@ -89,9 +94,11 @@ const OneEvent = () => {
                 func={() => deleteOneEvent(event)}
               >
             <button
-              style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '120px'}}
+              style={{display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '110px'}}
               onClick={() => window.scrollTo(0, document.body.scrollHeight / 3)}
-            >Delete Event</button>
+            >
+              <AiFillDelete style={{marginRight: '5px', position: 'relative', bottom: '1px'}}/>
+              Delete</button>
           </ConfirmationModal>
           )}
         </div>
@@ -107,7 +114,9 @@ const OneEvent = () => {
             <div>
               {event?.address}
             </div>
-            {(sessionUser.id !== event?.user_id) && (<button style={{cursor: 'pointer', border: '2px solid transparent', borderRadius: '4px', backgroundColor: '#0d8547', color: '#ffff', height: '40px', width: '200px', marginTop: '10px'}} onClick={showCheckoutModalFunc}>Tickets</button>)}
+            {(sessionUser.id !== event?.user_id) && (<button style={{display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', border: '2px solid transparent', borderRadius: '4px', backgroundColor: '#0d8547', color: '#ffff', height: '40px', width: '200px', marginTop: '10px'}} onClick={showCheckoutModalFunc}>
+              <FaTicketAlt style={{marginRight: '5px', position: 'relative', bottom: '1px'}}/>
+              Tickets</button>)}
             {showCheckoutModal && (
               <Modal className='checkoutmodal-background' closeModalFunc={closeCheckoutModalFunc}>
                 <Checkout closeModalFunc={closeCheckoutModalFunc}/>
