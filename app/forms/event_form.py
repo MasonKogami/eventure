@@ -23,8 +23,8 @@ def address_length(form, field):
   address = field.data
   if len(address) < 20: 
     raise ValidationError('Address must be longer than 20 characters.')
-  if len(address) > 50:
-    raise ValidationError('Address must be 50 characters or less.')
+  if len(address) > 40:
+    raise ValidationError('Address must be 40 characters or less.')
 
 
 # def capacity_number(form, field):
