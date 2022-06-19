@@ -8,6 +8,8 @@ import { readAllEvents } from '../../store/events';
 import'./SingleTicket.css';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import  { MdKeyboardBackspace } from 'react-icons/md';
+import { GoPencil } from 'react-icons/go';
+import { RiRefund2Line } from 'react-icons/ri';
 
 const SingleTicket = () => {
   const dispatch = useDispatch();
@@ -110,12 +112,16 @@ const SingleTicket = () => {
                 >
               <button
                 style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '110px', marginTop: '10px'}}
-              >Refund</button>
+              >
+                <RiRefund2Line style={{marginRight: '5px'}}/>
+                Refund</button>
             </ConfirmationModal>
           }
         </div>
         <div className='update-tickets'>
-          {<button style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '110px', marginTop: '8px'}} onClick={showCheckoutModalFunc}>Update</button>}
+          {<button style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '110px', marginTop: '8px'}} onClick={showCheckoutModalFunc}>
+            <GoPencil style={{marginRight: '8px'}}/>
+            Edit</button>}
             {showCheckoutModal && (
               <Modal closeModalFunc={closeCheckoutModalFunc} className='modal-background-edit'>
                 <EditTickets ticket={ticket} style={{justifyContent: 'center'}} closeModalFunc={closeCheckoutModalFunc} />
