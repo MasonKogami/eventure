@@ -14,6 +14,7 @@ const LandingPage = () => {
 
   const changeLoginDisplay = () => {
     if (loginDisplay === 'not-displayed') {
+        window.scrollTo(0, document.body.scrollHeight / 3)
         setLoginDisplay('displayed')
     } else if (loginDisplay === 'displayed') {
         setLoginDisplay('not-displayed')
@@ -24,6 +25,7 @@ const LandingPage = () => {
 
   const changeSignupDisplay = () => {
     if (signupDisplay === 'not-displayed') {
+        window.scrollTo(0, document.body.scrollHeight / 3)
         setSignupDisplay('displayed')
     } else if (signupDisplay === 'displayed') {
         setSignupDisplay('not-displayed')
@@ -39,11 +41,11 @@ const LandingPage = () => {
 
   return (
     <div className='landingpage-con'>
-      <div>
-        <div className='landingpage-slideshow' />
-      </div>
       <div style={{height: '0px'}}>
        <h2 className='landingpage-title'>Eventure</h2>
+      </div>
+      <div>
+        <div className='landingpage-slideshow' />
       </div>
       <div className='user-forms'>
         <button className='user-buttons' onClick={changeLoginDisplay}>Log In</button>
@@ -56,7 +58,16 @@ const LandingPage = () => {
         </div>
       </div>
       <div className='mission-statement'>
-        <p>Eventure is a global self-service ticketing platform for live experiences that allows anyone to create, share, find and attend events that fuel their passions and enrich their lives. From music festivals, marathons, conferences, community rallies, and fundraisers, to gaming competitions and air guitar contests. Our mission is to bring the world together through live experiences.</p>
+        <p style={{marginBottom: '0px'}}>Eventure is a global self-service ticketing platform for live experiences that allows anyone to create, share, find and attend events that fuel their passions and enrich their lives.</p>
+      </div>
+      <div>
+        <div style={{backgroundImage: 'url(https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg)', height: '470px', minHeight: '32.4em', minWidth: '100vh', width: '100%', backgroundSize: 'cover'}}/>
+      </div>
+      <div className='mission-statement'>
+        <p style={{marginBottom: '0px'}}>From music festivals, marathons, conferences, community rallies, and fundraisers, to gaming competitions and air guitar contests. Our mission is to bring the world together through live experiences.</p>
+      </div>
+      <div>
+        <div style={{backgroundImage: 'url(https://cdn.evbstatic.com/s3-build/fe/build/images/6aaf4a36e35b1b71bc077e200ac7429c-1_tablet_1067x470.jpg)', height: '470px', minHeight: '32.4em', minWidth: '100vh', width: '100%', backgroundSize: 'cover'}}/>
       </div>
       {/* <AboutMe style={{position: 'relative', bottom: '0px'}} /> */}
     </div>
