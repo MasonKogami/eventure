@@ -22,6 +22,7 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
   };
 
   const closeSignupModal = () => {
+    window.scrollTo(0,0);
     closeModalFunc();
     setErrors([]);
   };
@@ -50,9 +51,10 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
 
   return (
     <div className={`signup-body ${signupDisplay}`} onClick={stopTheProp} onMouseDown={stopTheProp}>
-      <h2 style={{color: '#d1410c', fontWeight: 'bolder', display: 'flex', justifyContent: 'center', fontSize: '35px', marginBottom: '10px'}}>Sign Up</h2>
+      <h2 style={{color: '#d1410c', fontWeight: 'bolder', display: 'flex', justifyContent: 'center', fontSize: '35px', marginBottom: '10px'}}>
+        Sign Up <span style={{margin: '0px 10px'}}>or</span> <span className='toggle-login' onClick={toggleLoginSignupFunc}>Login</span></h2>
       <form onSubmit={onSignUp} className='signup-form'>
-        <div>
+        <div style={{position: 'relative', left: '20px'}}>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
