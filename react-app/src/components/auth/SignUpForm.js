@@ -54,9 +54,9 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
       <h2 style={{color: '#d1410c', fontWeight: 'bolder', display: 'flex', justifyContent: 'center', fontSize: '35px', marginBottom: '10px'}}>
         Sign Up <span style={{margin: '0px 10px'}}>or</span> <span className='toggle-login' onClick={toggleLoginSignupFunc}>Login</span></h2>
       <form onSubmit={onSignUp} className='signup-form'>
-        <div style={{position: 'relative', left: '20px'}}>
+        <div style={{fontSize: '14px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
+            <div style={{color: '#d1410c'}} key={ind}>{error}</div>
           ))}
         </div>
         <div>
