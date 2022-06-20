@@ -62,7 +62,7 @@ const Checkout = ({ closeModalFunc }) => {
             </div>
             <div>
               <label>
-                {event?.date}
+                {event?.date.slice(0, 16)}
               </label>
             </div>
           </div>
