@@ -58,7 +58,6 @@ export const addTickets = ticket => async dispatch => {
 };
 
 export const updateTickets = ticket => async dispatch => {
-  console.log(ticket)
   const response = await fetch(`/api/tickets/${ticket.id}`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
