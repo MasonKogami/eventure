@@ -2,6 +2,8 @@
   background-color: #ffff;
   padding: 15px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: 5px;
 }
 
 .login-form {
@@ -12,6 +14,14 @@
   /* height: 200px; */
   width: 350px;
   gap: 15px;
+}
+
+.toggle-signup {
+  cursor: pointer;
+}
+
+.toggle-signup:hover {
+  color: #3659e3;
 }
 
 .submit-button {

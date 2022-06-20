@@ -107,7 +107,7 @@ const SingleTicket = () => {
                   actionButtonLabel="Refund Tickets"
                   func={() => {
                     removeTickets(ticket)
-                    history.push(`/users/${ticket?.user_id}`)
+                    .then(() => history.push(`/users/${sessionUser.id}`))
                   }}
                 >
               <button

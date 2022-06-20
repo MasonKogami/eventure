@@ -46,8 +46,9 @@ const NavBar = () => {
       </li> */}
       <div className='logout-ticket' style={{paddingRight: '24px', color: '#39364f'}}>
         <div style={{marginRight: '15px'}}>
-          <FaTicketAlt style={{position: 'relative', bottom: '15px', left: '34px'}} />
-          <NavLink to={`/users/${sessionUser.id}`} style={{textDecoration: 'none', color: '#39364f'}}>Tickets</NavLink>
+          <NavLink to={`/users/${sessionUser.id}`} style={{textDecoration: 'none', color: '#39364f'}}>
+            <FaTicketAlt style={{position: 'relative', bottom: '15px', left: '34px'}} />
+            Tickets</NavLink>
         </div>
         <FaUser />
         <div style={{color: '#39364f'}}>

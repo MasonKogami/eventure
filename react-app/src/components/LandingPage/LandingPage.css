@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  /* min-height: 100vh; */
+  min-height: 100vh;
   height: 100%;
 }
 
@@ -15,7 +15,9 @@
   min-width: 100vh;
   height: 100%;
   min-height: 32.4em;
-  background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg");
+  /* background-color: gray; */
+  background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/f0efd0767ec3f77057270d84f78b1f41-3_4K_1920x544.jpg");
+  /* background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg"); */
   /* animation: slideshow infinite 50s linear; */
 }
 
@@ -35,11 +37,13 @@
 
 .landingpage-title {
   position: relative;
+  display: flex;
+  justify-content: center;
   /* left: 682px; */
-  top: -500px;
-  left: 40px;
+  top: 110px;
+  /* left: 670px;  */
   color: #ffff;
-  font-size: 35px;
+  font-size: 60px;
   font-weight: bolder;
   z-index: 2;
 }
@@ -63,8 +67,8 @@
   cursor: pointer;
   color: #ffff;
   position: relative;
-  top: -450px;
-  left: 650px;
+  bottom: 150px;
+  /* left: 650px; */
 }
 
 .user-buttons {
@@ -110,6 +114,6 @@
 .mission-statement > p {
   text-align: center;
   margin-top: 0px;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 400px;
+  margin-right: 350px;
 }

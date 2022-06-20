@@ -36,7 +36,8 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
 
   return (
     <div className={`login-body ${loginDisplay}`} onClick={stopTheProp} onMouseDown={stopTheProp}>
-      <h2 style={{color: '#d1410c', fontWeight: 'bolder', display: 'flex', justifyContent: 'center', fontSize: '35px', marginBottom: '10px'}}>Login</h2>
+      <h2 style={{color: '#d1410c', fontWeight: 'bolder', display: 'flex', justifyContent: 'center', fontSize: '35px', marginBottom: '10px'}}>
+        Login <span style={{margin: '0px 10px'}}>or</span> <span className='toggle-signup' onClick={toggleLoginSignupFunc}>Sign Up</span></h2>
       <form onSubmit={onLogin} className='login-form'>
         <div>
           {errors.map((error, ind) => (

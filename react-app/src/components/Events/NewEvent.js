@@ -60,11 +60,11 @@ const NewEvent = () => {
     <div className='new-event-form-con'>
       <form onSubmit={handleSubmit} className='new-event-form'>
       <h2 style={{color: '#d1410c', fontSize: '32px', fontWeight: 'bolder'}}>Event Form</h2>
-        <div className='errors'>
+        {/* <div className='errors'>
           {errors?.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
-        </div>
+        </div> */}
         <div className='basic-info-con'>
           <FaLightbulb />
           <h2>Event Name</h2>
@@ -202,6 +202,11 @@ const NewEvent = () => {
             required
           >
           </textarea>
+        </div>
+        <div className='errors'>
+          {errors?.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
         </div>
         <button type='submit' className='create-event-button'>
           Create Event

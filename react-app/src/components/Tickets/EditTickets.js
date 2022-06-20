@@ -58,7 +58,7 @@ const EditTickets = ({ ticket, closeModalFunc }) => {
             </div>
             <div>
               <label>
-                {event?.date}
+                {event?.date.slice(0, 16)}
               </label>
             </div>
           </div>
@@ -114,7 +114,7 @@ const EditTickets = ({ ticket, closeModalFunc }) => {
               type='submit'
               className='edit-button1'
               disabled={submitError !== 'able'}
-              style={{marginRight: '10px'}}
+              style={{marginRight: '0px'}}
             >Update</button>
           </div>
         </form>
