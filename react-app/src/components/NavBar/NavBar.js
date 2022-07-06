@@ -53,7 +53,7 @@ const NavBar = () => {
             onClick={ async () => {
               history.push('/events/create/')
           }}>
-            <FaRegPlusSquare style={{ position: 'relative', bottom: '15px', left: '58px'}}/>
+            <FaRegPlusSquare style={{ position: 'relative', bottom: '1px', left: '-1px'}}/>
             Create an event</button>
         </div>
         {/* <NavLink to='/events/create' exact={true} style={{position: 'relative', top: '10px', textDecoration: 'none', verticalAlign: 'end', color: 'rgb(61, 100, 255)', fontSize: '14px'}}>
@@ -61,13 +61,22 @@ const NavBar = () => {
           Create an event
         </NavLink> */}
         <div className='likes'>
-         <FaRegHeart style={{position: 'relative', top: '-15px', left: '25px', fontWeight: 'bolder'}}/>
-          Likes
+          <button className='likes-btn'>
+            <FaRegHeart style={{position: 'relative', top: '-2px', left: '1px', fontWeight: 'bolder'}}/>
+            Likes
+          </button>
         </div>
         <div className='tickets-con'>
-          <NavLink className='tickets-link' to={`/users/${sessionUser.id}`}>
-            <FaTicketAlt style={{position: 'relative', bottom: '15px', left: '30px'}} />
-            Tickets</NavLink>
+          <button 
+            className='tickets-btn'
+            onClick={() => {
+              history.push(`/users/${sessionUser?.id}`)
+            }}
+          >
+            <FaTicketAlt style={{position: 'relative', bottom: '3px', left: '1px'}} />
+            Tickets</button>
+          {/* <NavLink className='tickets-link' to={`/users/${sessionUser.id}`}>
+            Tickets</NavLink> */}
         </div>
         <div className='dropdown'>
           <button className='dropdown-btn'>
