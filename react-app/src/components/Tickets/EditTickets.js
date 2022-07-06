@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { useParams } from 'react-router-dom';
 import { oneTicket, updateTickets } from '../../store/tickets';
 import './EditTickets.css';
-import { GiPartyPopper } from 'react-icons/gi';
+// import { GiPartyPopper } from 'react-icons/gi';
 
 const EditTickets = ({ ticket, closeModalFunc }) => {
   const dispatch = useDispatch();

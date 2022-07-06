@@ -19,5 +19,190 @@ nav > div {
 .logout-ticket {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  /* gap: 10px; */
+}
+
+.create-event-con {
+  position: relative;
+  display: inline-block;
+}
+
+.create-event-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #ffff;
+  color: rgb(61, 100, 255);
+  height: 62px;
+  width: 120px;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  padding: 0px;
+  font-size: 14px;
+  position: relative;
+}
+
+.create-event-btn:hover {
+  cursor: pointer;
+  background-color: #F5F5F5;
+}
+
+.likes {
+  position: relative;
+  /* top: 10px; */
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
+  font-size: 14px;
+}
+
+.likes-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #ffff;
+  color: #39364f;
+  height: 62px;
+  width: 100px;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  padding: 0px;
+  font-size: 14px;
+  position: relative;
+}
+
+.likes-btn:hover {
+  cursor: pointer;
+  background-color: #F5F5F5;
+}
+
+.tickets-link {
+  text-decoration: none;
+  color: #39364f;
+  font-size: 14px;
+}
+
+.tickets-con {
+  position: relative;
+  /* top: 10px; */
+  /* margin-left: 10px; */
+  margin-right: 10px;
+}
+
+.tickets-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #ffff;
+  color: #39364f;
+  height: 62px;
+  width: 100px;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  padding: 0px;
+  font-size: 14px;
+  position: relative;
+  cursor: pointer;
+}
+
+.tickets-btn:hover {
+  background-color: #F5F5F5;
+}
+
+.dropdown-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffff;
+  color: rgb(57, 54, 79);
+  height: 62px;
+  width: 220px;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Oswald', sans-serif;
+  padding: 0px;
+  font-size: 14px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content button {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  /* align-items: center; */
+  flex-direction: column;
+  color: black;
+  display: block;
+  padding: 12px 16px;
+  width: 220px;
+}
+
+.logout {
+  cursor: pointer;
+  color: #ffff;
+  border: none;
+  height: 45px;
+  width: 70px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.tickets-dropdown-btn {
+  cursor: pointer;
+  color: #39364f;
+  border: none;
+  height: 45px;
+  width: 70px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.likes-dropdown-btn {
+  cursor: pointer;
+  color: #39364f;
+  border: none;
+  height: 45px;
+  width: 70px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.settings-dropdown-btn {
+  cursor: pointer;
+  color: #39364f;
+  border: none;
+  height: 29px;
+  width: 70px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.dropdown-content button:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropdown-btn {
+  background-color: #F5F5F5;
+  color: #39364f;
 }
