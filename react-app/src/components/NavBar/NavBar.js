@@ -41,7 +41,7 @@ const NavBar = () => {
         </div>
         <div className='likes'>
           <button className='likes-btn'>
-            <FaRegHeart style={{position: 'relative', top: '-3px', left: '1px', fontWeight: 'bolder'}}/>
+            <FaRegHeart style={{position: 'relative', top: '-3px', left: '-1px', fontWeight: 'bolder'}}/>
             Likes
           </button>
         </div>
@@ -67,10 +67,10 @@ const NavBar = () => {
             <button
               className='likes-dropdown-btn'
             >Likes</button>
-            <button
+            {/* <button
               className='settings-dropdown-btn'
               onClick={() => history.push(`/users/${sessionUser?.id}`)}
-            >Account Settings</button>
+            >Account Settings</button> */}
             <button onClick={ async () => {
               await dispatch(logout());
               history.push('/landingpage');

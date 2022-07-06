@@ -162,24 +162,27 @@ nav > div {
   cursor: pointer;
   color: #ffff;
   border: none;
-  height: 29px;
+  height: 45px;
   width: 70px;
+  border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 .tickets-dropdown-btn {
   cursor: pointer;
   color: #39364f;
   border: none;
-  height: 29px;
+  height: 45px;
   width: 70px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .likes-dropdown-btn {
   cursor: pointer;
   color: #39364f;
   border: none;
-  height: 29px;
+  height: 45px;
   width: 70px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .settings-dropdown-btn {
@@ -188,6 +191,7 @@ nav > div {
   border: none;
   height: 29px;
   width: 70px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .dropdown-content button:hover {
