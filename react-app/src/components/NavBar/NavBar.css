@@ -146,28 +146,51 @@ nav > div {
   z-index: 1;
 }
 
-.dropdown-content .logout {
+.dropdown-content button {
   display: flex;
   justify-content: center;
   text-align: center;
-  align-items: center;
+  /* align-items: center; */
+  flex-direction: column;
   color: black;
   display: block;
   padding: 12px 16px;
+  width: 220px;
 }
 
 .logout {
   cursor: pointer;
-  /* background-color: #d1410c; */
   color: #ffff;
-  /* border-radius: 4px; */
-  /* border: 1px solid #d1410c; */
   border: none;
   height: 29px;
   width: 70px;
 }
 
-.dropdown-content .logout:hover {
+.tickets-dropdown-btn {
+  cursor: pointer;
+  color: #39364f;
+  border: none;
+  height: 29px;
+  width: 70px;
+}
+
+.likes-dropdown-btn {
+  cursor: pointer;
+  color: #39364f;
+  border: none;
+  height: 29px;
+  width: 70px;
+}
+
+.settings-dropdown-btn {
+  cursor: pointer;
+  color: #39364f;
+  border: none;
+  height: 29px;
+  width: 70px;
+}
+
+.dropdown-content button:hover {
   background-color: #ddd;
 }
 
