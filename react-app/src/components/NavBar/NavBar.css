@@ -31,13 +31,15 @@ nav > div {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   background-color: #ffff;
   color: rgb(61, 100, 255);
   height: 62px;
-  width: 120px;
+  width: 150px;
   border: none;
   border-radius: 4px;
   font-family: 'Oswald', sans-serif;
+  font-weight: bolder;
   padding: 0px;
   font-size: 14px;
   position: relative;
@@ -50,13 +52,31 @@ nav > div {
 
 .likes {
   position: relative;
-  top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  /* top: 10px; */
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
   font-size: 14px;
 }
 
-.likes:hover {
+.likes-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #ffff;
+  color: #39364f;
+  height: 62px;
+  width: 130px;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bolder;
+  padding: 0px;
+  font-size: 14px;
+  position: relative;
+}
+
+.likes-btn:hover {
   cursor: pointer;
   background-color: #F5F5F5;
 }
@@ -69,12 +89,31 @@ nav > div {
 
 .tickets-con {
   position: relative;
-  top: 10px;
+  /* top: 10px; */
   /* margin-left: 10px; */
   margin-right: 10px;
 }
 
-.tickets-con:hover {
+.tickets-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #ffff;
+  color: #39364f;
+  height: 62px;
+  width: 150px;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bolder;
+  padding: 0px;
+  font-size: 14px;
+  position: relative;
+  cursor: pointer;
+}
+
+.tickets-btn:hover {
   background-color: #F5F5F5;
 }
 
