@@ -36,12 +36,12 @@ const NavBar = () => {
             onClick={ async () => {
               history.push('/events/create/')
           }}>
-            <FaRegPlusSquare style={{ position: 'relative', bottom: '1px', left: '-1px'}}/>
+            <FaRegPlusSquare style={{ position: 'relative', bottom: '3px', left: '-1px'}}/>
             Create an event</button>
         </div>
         <div className='likes'>
           <button className='likes-btn'>
-            <FaRegHeart style={{position: 'relative', top: '-2px', left: '1px', fontWeight: 'bolder'}}/>
+            <FaRegHeart style={{position: 'relative', top: '-3px', left: '1px', fontWeight: 'bolder'}}/>
             Likes
           </button>
         </div>
