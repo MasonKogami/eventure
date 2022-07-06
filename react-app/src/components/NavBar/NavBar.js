@@ -1,35 +1,37 @@
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import './NavBar.css';
-import { BsPlusLg } from 'react-icons/bs';
-import { FaTicketAlt } from 'react-icons/fa';
+import { FaRegPlusSquare } from 'react-icons/fa';
+import { FaTicketAlt, FaRegHeart } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../store/session';
 import { FaUser } from 'react-icons/fa';
 
-const LogoutButton = () => {
-  const history = useHistory();
-  const dispatch = useDispatch()
-  const onLogout = async (e) => {
-    await dispatch(logout());
-    history.push('/landingpage');
-  };
+// const LogoutButton = () => {
+//   const history = useHistory();
+//   const dispatch = useDispatch();
+//   const onLogout = async (e) => {
+//     await dispatch(logout());
+//     history.push('/landingpage');
+//   };
 
-  return <button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '29px', width: '70px'}} onClick={onLogout}>Logout</button>;
-};
+//   return <button onClick={onLogout}>Logout</button>;
+// };
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
+  const history = useHistory();
+  const dispatch = useDispatch();
   return (
     <nav style={{height: '61px'}}>
       <div className='home'>
-          <NavLink to='/home' exact={true} activeClassName='active' style={{textDecoration: 'none', marginLeft: '24px', color: '#d1410c', fontSize: '20px', fontWeight: 'bolder'}}>
+          <NavLink to='/home' exact={true} activeClassName='active' style={{textDecoration: 'none', marginLeft: '24px', color: '#d1410c', fontSize: '24px', fontWeight: 'bolder'}}>
             Eventure
           </NavLink>
-          <NavLink to='/events/create' exact={true} style={{textDecoration: 'none', verticalAlign: 'end', color: 'rgb(61, 100, 255)'}}>
+          {/* <NavLink to='/events/create' exact={true} style={{textDecoration: 'none', verticalAlign: 'end', color: 'rgb(61, 100, 255)'}}>
             <BsPlusLg style={{ position: 'relative', bottom: '15px', left: '55px'}}/>
             Create Event
-          </NavLink>
+          </NavLink> */}
       </div>
       {/* <div className='login-signup'>
           <NavLink to='/login' exact={true} activeClassName='active' style={{textDecoration: 'none'}}>
@@ -44,17 +46,41 @@ const NavBar = () => {
           Users
         </NavLink>
       </li> */}
-      <div className='logout-ticket' style={{paddingRight: '24px', color: '#39364f'}}>
-        <div style={{marginRight: '15px'}}>
-          <NavLink to={`/users/${sessionUser.id}`} style={{textDecoration: 'none', color: '#39364f'}}>
-            <FaTicketAlt style={{position: 'relative', bottom: '15px', left: '34px'}} />
+      <div className='logout-ticket' style={{color: '#39364f'}}>
+        <div className='create-event-con'>
+          <button 
+            className='create-event-btn'
+            onClick={ async () => {
+              history.push('/events/create/')
+          }}>
+            <FaRegPlusSquare style={{ position: 'relative', bottom: '15px', left: '58px'}}/>
+            Create an event</button>
+        </div>
+        {/* <NavLink to='/events/create' exact={true} style={{position: 'relative', top: '10px', textDecoration: 'none', verticalAlign: 'end', color: 'rgb(61, 100, 255)', fontSize: '14px'}}>
+          <FaRegPlusSquare style={{ position: 'relative', bottom: '15px', left: '58px'}}/>
+          Create an event
+        </NavLink> */}
+        <div className='likes'>
+         <FaRegHeart style={{position: 'relative', top: '-15px', left: '25px', fontWeight: 'bolder'}}/>
+          Likes
+        </div>
+        <div className='tickets-con'>
+          <NavLink className='tickets-link' to={`/users/${sessionUser.id}`}>
+            <FaTicketAlt style={{position: 'relative', bottom: '15px', left: '30px'}} />
             Tickets</NavLink>
         </div>
-        <FaUser />
-        <div style={{color: '#39364f'}}>
-          {sessionUser?.username}
+        <div className='dropdown'>
+          <button className='dropdown-btn'>
+            <FaUser style={{height: '16px', width: '16px', marginRight: '20px'}} />
+            {sessionUser?.email}</button>
+          <div className='dropdown-content'>
+            <button onClick={ async () => {
+              await dispatch(logout());
+              history.push('/landingpage');
+            }} className='logout'>Logout</button>
+          </div>
         </div>
-        <LogoutButton />
+        {/* <LogoutButton /> */}
       </div>
     </nav>
   );
