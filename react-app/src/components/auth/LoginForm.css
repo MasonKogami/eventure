@@ -18,10 +18,11 @@
 
 .toggle-signup {
   cursor: pointer;
+  color: #3659e3;
 }
 
 .toggle-signup:hover {
-  color: #3659e3;
+  color: #3699e3;
 }
 
 .submit-button {

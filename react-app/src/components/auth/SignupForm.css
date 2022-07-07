@@ -18,8 +18,9 @@
 
 .toggle-login {
   cursor: pointer;
+  color: #3659e3;
 }
 
 .toggle-login:hover {
-  color: #3659e3;
+  color: #3699e3;
 }
