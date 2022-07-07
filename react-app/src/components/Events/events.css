@@ -96,7 +96,7 @@
   justify-content: center;
   width: 274px;
   height: 210px;
-  padding: 16px 16px;
+  /* padding: 16px 16px; */
   gap: 10px;
 }
 
@@ -108,10 +108,12 @@
 
 .image-div {
   background-image: url('https://images.pexels.com/photos/1659437/pexels-photo-1659437.jpeg?cs=srgb&dl=pexels-m-venter-1659437.jpg&fm=jpg');
-  background-position: center;
-  background-repeat: no-repeat;
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
   background-size: cover;
-  position: relative;
-  height: 128px;
-  width: 275px;
+  /* position: relative; */
+  min-height: 150px;
+  max-height: 150px;
+  min-width: 270px;
+  max-width: 270px;
 }

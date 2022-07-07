@@ -29,17 +29,20 @@ const EventListings = () => {
               address = event?.address
               return (
                 <NavLink to={`/events/${event.id}`} className='event-listings' key={event.id}>
-                  <div className='event-name'>
-                    {event?.name}
-                  </div>
-                  <div style={{color: '#d1410c'}}>
-                    {event?.date.slice(0, 16)}
-                  </div>
-                  <div style={{color: 'gray'}}>
-                    {event?.location_name}
-                  </div>
-                  <div style={{color: 'gray'}}>
-                    {address}
+                  <div className='image-div'></div>
+                  <div className='event-listing-content'>
+                    <div className='event-name'>
+                      {event.name}
+                    </div>
+                    <div style={{color: '#d1410c'}}>
+                      {event.date.slice(0, 16)}
+                    </div>
+                    <div style={{color: 'gray'}}>
+                      {event.location_name}
+                    </div>
+                    <div style={{color: 'gray'}}>
+                      {address}
+                    </div>
                   </div>
                 </NavLink>
               )
