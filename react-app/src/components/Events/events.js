@@ -34,13 +34,13 @@ const EventListings = () => {
                     <div className='event-name'>
                       {event.name}
                     </div>
-                    <div style={{color: '#d1410c'}}>
+                    <div style={{color: '#d1410c', fontSize: '14px'}}>
                       {event.date.slice(0, 16)}
                     </div>
-                    <div style={{color: 'gray'}}>
+                    <div style={{color: 'gray', fontSize: '14px'}}>
                       {event.location_name}
                     </div>
-                    <div style={{color: 'gray'}}>
+                    <div style={{color: 'gray', fontSize: '14px'}}>
                       {address}
                     </div>
                   </div>
@@ -54,13 +54,13 @@ const EventListings = () => {
                   <div className='event-name'>
                     {event.name}
                   </div>
-                  <div style={{color: '#d1410c'}}>
+                  <div style={{color: '#d1410c', fontSize: '14px'}}>
                     {event.date.slice(0, 16)}
                   </div>
-                  <div style={{color: 'gray'}}>
+                  <div style={{color: 'gray', fontSize: '14px'}}>
                     {event.location_name}
                   </div>
-                  <div style={{color: 'gray'}}>
+                  <div style={{color: 'gray', fontSize: '14px'}}>
                     {address}
                   </div>
                 </div>
