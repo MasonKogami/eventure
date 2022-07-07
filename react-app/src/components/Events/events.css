@@ -25,7 +25,18 @@
   justify-content: center; */
 }
 
-.events > .event-listings {
+.event-listings {
+  padding: 13px;
+  width: 270px;
+  height: 280px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  border: 1px solid rgba(230,230,230, 1);
+  text-decoration: none;
+}
+
+/* .events > .event-listings {
   flex-wrap: wrap;
   width: 260px;
   height: 140px;
@@ -38,23 +49,15 @@
 
   display: flex;
   justify-content: space-evenly;
-  /* align-items: center;  */
+  align-items: center; 
   flex-direction: column;
-  /* text-align: end; */
+  text-align: end;
 
-  /* background-color: #ffba08; */
+  background-color: #ffba08;
   border: 1px gray solid;
 
   cursor: pointer;
-}
-
-.event-listings > div {
-  /* display: grid;
-  flex-direction: column; */
-  text-align: start;
-  
-  /* background-color: green; */
-}
+} */
 
 .event-listings:hover {
   /* background-color: #e9c46a; */
@@ -85,4 +88,30 @@
   font-weight: 900;
   letter-spacing: .5px;
   line-height: 40px
+}
+
+.event-listing-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 274px;
+  height: 210px;
+  padding: 16px 16px;
+  gap: 10px;
+}
+
+.event-name {
+  color: black;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.image-div {
+  background-image: url('https://images.pexels.com/photos/1659437/pexels-photo-1659437.jpeg?cs=srgb&dl=pexels-m-venter-1659437.jpg&fm=jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 128px;
+  width: 275px;
 }

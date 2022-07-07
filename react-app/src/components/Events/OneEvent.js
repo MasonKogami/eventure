@@ -78,7 +78,7 @@ const OneEvent = () => {
           {event?.date.slice(0, 16)}
         </div>
         <div>
-          {(sessionUser.id === event?.user_id) && (<button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginBottom: '15px', marginTop: '15px'}} onClick={showEditModalFunc}>
+          {(sessionUser.id === event?.user_id) && (<button className='edit-btn' onClick={showEditModalFunc}>
             <GoPencil style={{marginRight: '6px'}}/>
             Edit</button>)}
           {showEditModal && (
@@ -94,7 +94,7 @@ const OneEvent = () => {
                 func={() => deleteOneEvent(event)}
               >
             <button
-              style={{display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '110px'}}
+              className='delete-btn'
               onClick={() => window.scrollTo(0, document.body.scrollHeight / 3)}
             >
               <AiFillDelete style={{marginRight: '5px', position: 'relative', bottom: '1px'}}/>
@@ -114,7 +114,7 @@ const OneEvent = () => {
             <div>
               {event?.address}
             </div>
-            {(sessionUser.id !== event?.user_id) && (<button style={{display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', border: '2px solid transparent', borderRadius: '4px', backgroundColor: '#0d8547', color: '#ffff', height: '40px', width: '200px', marginTop: '10px'}} onClick={showCheckoutModalFunc}>
+            {(sessionUser.id !== event?.user_id) && (<button className='checkout-btn' onClick={showCheckoutModalFunc}>
               <FaTicketAlt style={{marginRight: '5px', position: 'relative', bottom: '1px'}}/>
               Tickets</button>)}
             {showCheckoutModal && (

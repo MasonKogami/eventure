@@ -100,3 +100,35 @@
 
   cursor: default;
 } */
+
+.refund-btn {
+  font-size: 12px;
+  cursor: pointer;
+  background-color: #d1410c;
+  color: #ffff;
+  border-radius: 4px;
+  border: 1px solid #d1410c;
+  height: 30px;
+  width: 110px;
+  margin-top: 10px
+}
+
+.refund-btn:hover {
+  background-color: #e25822;
+}
+
+.edit-ticket-btn {
+  font-size: 12px;
+  cursor: pointer;
+  background-color: #d1410c;
+  color: #ffff;
+  border-radius: 4px;
+  border: 1px solid #d1410c;
+  height: 30px;
+  width: 110px;
+  margin-top: 8px;
+}
+
+.edit-ticket-btn:hover {
+  background-color: #e25822;
+}

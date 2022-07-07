@@ -18,10 +18,11 @@
 
 .toggle-signup {
   cursor: pointer;
+  color: #3659e3;
 }
 
 .toggle-signup:hover {
-  color: #3659e3;
+  color: #3699e3;
 }
 
 .submit-button {
@@ -30,11 +31,39 @@
   margin-top: 15px;
 }
 
+.sub-btn {
+  cursor: pointer;
+  background-color: #d1410c;
+  color: #ffff;
+  border-radius: 4px;
+  border: 1px solid #d1410c;
+  height: 30px;
+  width: 55px;
+}
+
+.sub-btn:hover {
+  background-color: #e25822;
+}
+
 .demo-button {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 10px;
+}
+
+.demo-btn {
+  cursor: pointer;
+  background-color: #d1410c;
+  color: #ffff;
+  border-radius: 4px;
+  border: 1px solid #d1410c;
+  height: 29px;
+  width: 85px;
+}
+
+.demo-btn:hover {
+  background-color: #e25822;
 }
 
 :focus {

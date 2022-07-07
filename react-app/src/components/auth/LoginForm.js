@@ -80,12 +80,12 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
             style={{height: '20px', width: '250px'}}
           />
           <div className='submit-button'>
-            <button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '55px'}} type='submit'>Login</button>
+            <button className='sub-btn' type='submit'>Login</button>
           </div>
         </div>
       </form>
       <div className='demo-button'>
-        <button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '29px', width: '85px'}} onClick={() => dispatch(login('demo@aa.io', 'password'))}>
+        <button className='demo-btn' onClick={() => dispatch(login('demo@aa.io', 'password'))}>
           Demo User
         </button>
       </div>

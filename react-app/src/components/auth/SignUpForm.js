@@ -131,10 +131,10 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
             required={true}
           ></input>
         </div>
-        <button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '29px', width: '85px'}} type='submit'>Sign Up</button>
+        <button className='submit-btn' type='submit'>Sign Up</button>
       </form>
       <div style={{display: 'flex', justifyContent: 'center', marginTop: '13px'}}>
-        <button style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '29px', width: '85px'}} onClick={closeSignupModal}>
+        <button className='cancel-btn' onClick={closeSignupModal}>
           Cancel
         </button>
       </div>

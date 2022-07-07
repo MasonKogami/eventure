@@ -111,7 +111,7 @@ const SingleTicket = () => {
                   }}
                 >
               <button
-                style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '110px', marginTop: '10px'}}
+                className='refund-btn'
               >
                 <RiRefund2Line style={{marginRight: '5px'}}/>
                 Refund</button>
@@ -119,7 +119,7 @@ const SingleTicket = () => {
           }
         </div>
         <div className='update-tickets'>
-          {<button style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '110px', marginTop: '8px'}} onClick={showCheckoutModalFunc}>
+          {<button className='edit-ticket-btn' onClick={showCheckoutModalFunc}>
             <GoPencil style={{marginRight: '8px'}}/>
             Edit</button>}
             {showCheckoutModal && (

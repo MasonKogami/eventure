@@ -6,6 +6,10 @@
   cursor: pointer;
 }
 
+.checkout-button1:hover {
+  background-color: #e25822;
+}
+
 .checkout-button1[disabled] {
   background-color: rgba(209, 65, 12, .357);
   border-color: rgba(209, 65, 12, .255);
@@ -17,4 +21,8 @@
   border-color: #d1410c;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.checkout-button2:hover {
+  background-color: #e25822;
 }

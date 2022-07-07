@@ -76,6 +76,10 @@
   font-size: 20px;
 }
 
+.user-buttons:hover {
+  background-color: #e25822;
+}
+
 .modal-background-home-page {
   top: 0px;
   bottom: 0px;
