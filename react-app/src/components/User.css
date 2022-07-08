@@ -8,14 +8,50 @@
   margin: 0;
 }
 
+.user-profile-icon {
+  height: 16px;
+  width: 16px;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 4px;
+  width: 122px;
+  height: 122px;
+  border-radius: 50%;
+  text-align: center;
+  border: none;
+}
+
+.fa-user-icon {
+  height: 30px;
+  width: 50px;
+}
+
 .user-title {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 30px;
+  font-size: 24px;
   /* color: #d1410c; */
   position: relative;
-  right: -50px;
+  left: 180px;
+  top: 30px;
+  text-align: center;
+}
+
+.user-profile-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.username-profile {
+  font-size: 28px;
+  color: #d1410c;
+  padding-left: 10px;
+  margin: 0px;
+}
+
+.orders-likes-content {
+  font-size: 16px;
 }
 
 .user-title > h2 {
@@ -26,13 +62,15 @@
 
 .orders > h2{
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  font-size: 40px;
+  font-size: 24px;
   font-weight: bolder;
   color: #d1410c; 
   position: relative;
-  left: 10px;
+  left: 470px;
+  margin-top: 70px;
+  /* align-self: flex-start; */
 }
 
 .grid {
@@ -49,30 +87,56 @@
 
 .single-ticket-listing {
   text-decoration: none;
-  color: #ffff;
-  border: 1px solid black;
-  padding: 15px;
+  color: #39364f;
+  /* border: 1px solid black; */
+  padding: 10px;
   font-size: 20px;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  /* justify-content: space-evenly;  */
+  /* flex-direction: row; */
   align-items: center;
   margin-bottom: 15px;
-  width: 300px;
-  height: 116px;
+  width: 600px;
+  height: 132px;
   border-radius: 4px;
-  background: linear-gradient(45deg, #d1014c, #1E0A3C);
+  /* background: linear-gradient(45deg, #d1014c, #1E0A3C); */
 }
 
-.single-ticket-listing > div {
+/* .single-ticket-listing > div {
   padding: 5px;
-}
+} */
 
 .single-ticket-listing:hover{
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   border-radius: 4px;
-  color: #ffff;
+  /* color: #d1410c; */
   /* background-color: #d1410c; */
   /* color: #ffff; */
   /* border: 1.8px solid #d1410c; */
+}
+
+.event-date-info {
+  display: flex;
+  flex-direction: column;
+  color: #d1410c;
+  font-size: 14px;
+  position: relative;
+  bottom: 45px;
+  padding-right: 12px;
+}
+
+.event-image {
+  background-image: url('https://images.pexels.com/photos/1659437/pexels-photo-1659437.jpeg?cs=srgb&dl=pexels-m-venter-1659437.jpg&fm=jpg');
+  width: 220px;
+  height: 110px;
+  background-size: cover;
+  padding: 10px;
+}
+
+.single-event-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-left: 10px;
 }

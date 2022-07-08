@@ -5,7 +5,7 @@ import { readAllEvents } from '../store/events';
 import { loadTickets } from '../store/tickets';
 // import SingleTicket from './Tickets/SingleTicket';
 import { FaUser } from 'react-icons/fa';
-import { FaTicketAlt } from 'react-icons/fa';
+// import { FaTicketAlt } from 'react-icons/fa';
 import './User.css';
 
 function User() {
@@ -39,23 +39,30 @@ function User() {
   return (
     <div className='user-profile-con'>
       <div className='user-title'>
-        <FaUser style={{height: '50px'}}/>
-        <h2>{sessionUser.username}'s Profile</h2>
+        <button className='user-profile-icon'>
+          <FaUser className='fa-user-icon'/>
+        </button>
+        <div className='user-profile-content'>
+          <h2 className='username-profile'>{sessionUser.username}'s Profile</h2>
+          <div className='orders-likes-content'>{tickets?.length} order(s) • 0 Like(s)</div>
+        </div>
       </div>
       <div className='orders'>
-        <h2>{sessionUser.username}'s Orders:</h2>
+        <h2>Orders:</h2>
       </div>
       <div className='grid'>
         {tickets?.sort((a, b) => b.id - a.id).map((ticket) => {
           const event = events.find(event => event.id === ticket?.event_id)
           return (
             <NavLink to={`/tickets/${ticket?.id}`} key={ticket.id} className='single-ticket-listing'>
-              <FaTicketAlt />
-              <div style={{fontSize: '25px'}}>{ticket?.event_name}</div>
-              <div style={{fontSize: '16px'}}>{`Order #${ticket.id} - ${ticket?.quantity} ticket(s)`}</div>
-              {/* <div style={{fontSize: '16px'}}>{ticket?.quantity}</div> */}
-              <div style={{fontSize: '16px'}}>{event?.date.slice(0, 16)}</div>
-              {/* <SingleTicket key={index} ticket={ticket} userId={userId} ticketEvent={ticket.event_id}/> */}
+              {/* <FaTicketAlt /> */}
+              <div className='event-date-info'>{event?.date.slice(8, 11)} <span style={{color: '#39364f', fontSize: '22px'}}>{event?.date.slice(5,7)}</span></div>
+              <div className='event-image'></div>
+              <div className='single-event-content'>
+                <div style={{fontSize: '25px'}}>{ticket?.event_name}</div>
+                <div style={{fontSize: '16px'}}>{`Order #${ticket.id} - ${ticket?.quantity} ticket(s)`}</div>
+                <div style={{fontSize: '16px'}}>Purchased on {event?.created_at.slice(0, 16)}</div>
+              </div>
             </NavLink>
           )
         })}
