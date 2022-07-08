@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './events.css';
 import { readAllEvents } from '../../store/events';
 import { NavLink } from 'react-router-dom';
+import { FaRegHeart } from 'react-icons/fa';
 
 const EventListings = () => {
   const dispatch = useDispatch();
@@ -29,17 +30,24 @@ const EventListings = () => {
               address = event?.address
               return (
                 <NavLink to={`/events/${event.id}`} className='event-listings' key={event.id}>
-                  <div className='event-name'>
-                    {event?.name}
-                  </div>
-                  <div style={{color: '#d1410c'}}>
-                    {event?.date.slice(0, 16)}
-                  </div>
-                  <div style={{color: 'gray'}}>
-                    {event?.location_name}
-                  </div>
-                  <div style={{color: 'gray'}}>
-                    {address}
+                  <div className='image-div'></div>
+                  <button style={{marginTop: '5px', marginBottom: '5px', width: '40px'}}>
+
+                    <FaRegHeart />
+                  </button>
+                  <div className='event-listing-content'>
+                    <div className='event-name'>
+                      {event.name}
+                    </div>
+                    <div style={{color: '#d1410c', fontSize: '14px'}}>
+                      {event.date.slice(0, 16)}
+                    </div>
+                    <div style={{color: 'gray', fontSize: '14px'}}>
+                      {event.location_name}
+                    </div>
+                    <div style={{color: 'gray', fontSize: '14px'}}>
+                      {address}
+                    </div>
                   </div>
                 </NavLink>
               )
@@ -47,17 +55,20 @@ const EventListings = () => {
             return (
               <NavLink to={`/events/${event.id}`} className='event-listings' key={event.id}>
                 <div className='image-div'></div>
+                <button className='event-like-btn'>
+                  <FaRegHeart />
+                </button>
                 <div className='event-listing-content'>
                   <div className='event-name'>
                     {event.name}
                   </div>
-                  <div style={{color: '#d1410c'}}>
+                  <div style={{color: '#d1410c', fontSize: '14px'}}>
                     {event.date.slice(0, 16)}
                   </div>
-                  <div style={{color: 'gray'}}>
+                  <div style={{color: 'gray', fontSize: '14px'}}>
                     {event.location_name}
                   </div>
-                  <div style={{color: 'gray'}}>
+                  <div style={{color: 'gray', fontSize: '14px'}}>
                     {address}
                   </div>
                 </div>

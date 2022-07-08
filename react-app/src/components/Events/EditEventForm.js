@@ -172,13 +172,12 @@ const EditEventForm = ({ closeModalFunc }) => {
           >
           </textarea>
         </div>
-        <button type='submit' style={{ fontSize: '12px', cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '90px', marginTop: '10px'}}>
+        <button type='submit' className='update-event-btn'>
           Update Event
         </button>
         <button
           onClick={() => closeModalFunc()}
-          // className='cancel-edit-modal'
-          style={{cursor: 'pointer', backgroundColor: '#d1410c', color: '#ffff', borderRadius: '4px', border: '1px solid #d1410c', height: '30px', width: '60px', marginLeft: '10px'}}
+          className='cancel-edit-btn'
         >
           Cancel
         </button>
