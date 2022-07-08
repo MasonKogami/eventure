@@ -57,7 +57,9 @@ const NavBar = () => {
         </div>
         <div className='dropdown'>
           <button className='dropdown-btn'>
-            <FaUser style={{height: '16px', width: '16px', marginRight: '20px'}} />
+            <button className='user-icon'>
+              <FaUser />
+            </button>
             {sessionUser?.email}</button>
           <div className='dropdown-content'>
             <button

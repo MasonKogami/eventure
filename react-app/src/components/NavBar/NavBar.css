@@ -206,3 +206,17 @@ nav > div {
   background-color: #F5F5F5;
   color: #39364f;
 }
+
+.user-icon {
+  height: 16px;
+  width: 16px;
+  margin-right: 20px;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 4px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  border: none;
+}
