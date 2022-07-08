@@ -28,7 +28,7 @@
 .event-listings {
   padding: 13px;
   width: 270px;
-  height: 280px;
+  height: 300px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -116,4 +116,22 @@
   max-height: 150px;
   min-width: 270px;
   max-width: 270px;
+}
+
+.event-like-btn {
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 4px;
+  width: 40px;
+  height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  align-self: flex-end;
+  position: relative;
+  bottom: 25px;
+}
+
+.event-like-btn:hover {
+  cursor: pointer;
+  background-color: #d5d5d5;
 }
