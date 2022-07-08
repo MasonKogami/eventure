@@ -98,6 +98,8 @@
   height: 210px;
   /* padding: 16px 16px; */
   gap: 10px;
+  position: relative;
+  bottom: 20px;
 }
 
 .event-name {
