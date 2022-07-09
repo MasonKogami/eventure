@@ -15,6 +15,8 @@ class User(db.Model, UserMixin):
 
     tickets         = db.relationship('Ticket', back_populates='user')
 
+    # likes           = db.relationship('Like', back_populates='user')
+
     @property
     def password(self):
         return self.hashed_password
@@ -28,8 +30,9 @@ class User(db.Model, UserMixin):
 
     def to_dict(self):
         return {
-            'id': self.id,
-            'username': self.username,
-            'email': self.email,
-            'tickets': [ticket.to_dict() for ticket in self.tickets]
-        }
+                'id': self.id,
+                'username': self.username,
+                'email': self.email,
+                'tickets': [ticket.to_dict() for ticket in self.tickets],
+                # 'likes': [like.to_dict() for like in self.likes]
+                }
