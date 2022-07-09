@@ -90,6 +90,10 @@
   cursor: pointer;
 }
 
+#modal-button:hover {
+  background-color: #e25822;
+}
+
 .event-info {
   /* background-color: #ffdead; */
   max-width: 1080px;
