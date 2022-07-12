@@ -31,6 +31,11 @@ const NewEvent = () => {
   const [photoPreview, setPhotoPreview] = useState('#')
   const [errors, setErrors] = useState([]);
 
+  const imageStyle = {
+    width: "400px",
+    height: 'auto'
+  }
+
   const updateImage = (e) => {
     const file = e.target.files[0];
     setImage(file);
@@ -69,7 +74,6 @@ const NewEvent = () => {
 
     let submitNewEvent = await dispatch(createEvent(formData));
     if (submitNewEvent) {
-      console.log(submitNewEvent)
       setErrors(submitNewEvent);
     } else {
       history.push("/home")
@@ -222,10 +226,13 @@ const NewEvent = () => {
           >
           </textarea>
         </div>
+        <div className='field_block'>
+          {photoPreview !== '#' ? <img src={photoPreview} style={imageStyle} alt='preview' /> : <img src='https://img.buzzfeed.com/buzzfeed-static/static/2019-12/4/16/tmp/96ecd548dea3/tmp-name-2-109-1575477795-3_dblbig.jpg?resize=1200:*' style={imageStyle} alt='preview' />}
+        </div>
         <input 
           type='file'
           id='img'
-          // className='input image-input'
+          className='input image-input'
           name='image_url'
           placeholder='Valid Image URL'
           accept="image/*"

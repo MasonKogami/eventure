@@ -109,3 +109,8 @@ hr {
   flex-direction: column;
   border-bottom: 1px solid #eeedf2;
 } */
+
+.input .image-input {
+  height: 100px;
+  width: 100px;
+}
