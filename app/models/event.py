@@ -13,6 +13,7 @@ class Event(db.Model):
   name             = db.Column(db.String(255), nullable=False)
   date             = db.Column(db.DateTime)
   description      = db.Column(db.Text, nullable=False)
+  image_url        = db.Column(db.String(5000), nullable=False)
   # capacity         = db.Column(db.Integer, nullable=False)
   created_at       = db.Column(db.DateTime(timezone = True), server_default = func.now())
   updated_at       = db.Column(db.DateTime(timezone = True), onupdate = func.now())
@@ -30,6 +31,7 @@ class Event(db.Model):
             'location_name': self.location_name,
             'address': self.address,
             'description': self.description,
+            'image_url': self.image_url,
             'name': self.name,
             'date': self.date,
             'created_at': self.created_at,

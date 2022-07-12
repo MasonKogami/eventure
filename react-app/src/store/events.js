@@ -33,10 +33,11 @@ const deleteEventAction = event => ({
 
 // T H U N K S 
 export const createEvent = event => async dispatch => {
+  console.log(event);
   const response = await fetch('/api/events/create', {
     method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(event)
+    // headers: {'Content-Type': 'application/json'},
+    body: event
   });
 
   

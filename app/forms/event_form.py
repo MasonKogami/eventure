@@ -52,4 +52,5 @@ class EventForm(FlaskForm):
   address          = StringField('address', validators=[DataRequired(), address_length])
   date             = StringField('date', validators=[DataRequired()])
   description      = TextField('description', validators=[DataRequired(), description_length])
+  image            = StringField('image', validators=[DataRequired()])
   # capacity         = IntegerField('capacity', validators=[DataRequired(), capacity_number])
