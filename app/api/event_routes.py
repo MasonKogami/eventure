@@ -14,14 +14,14 @@ event_routes = Blueprint('events', __name__)
 # @login_required
 def new_event():
   form = EventForm()
-
+  print('entering /create', '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
   if "image" not in request.files:
-        return {"errors": "image required"}, 400
+        return {"errors": ["image required"]}, 400
 
   image = request.files["image"]
 
   if not allowed_file(image.filename):
-      return {"errors": "file type not permitted"}, 400
+      return {"errors": ["File type not permitted. Files must be pdf, png, jpg, jpeg, or gif."]}, 400
 
   image.filename = get_unique_filename(image.filename)
 
@@ -46,6 +46,7 @@ def new_event():
       description=form.data['description'],
       image_url=url
     )
+    print('exiting /create', '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
     db.session.add(event)
     db.session.commit()
     return event.to_dict()
