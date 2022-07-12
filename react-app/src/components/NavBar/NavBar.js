@@ -56,11 +56,11 @@ const NavBar = () => {
             Tickets</button>
         </div>
         <div className='dropdown'>
-          <button className='dropdown-btn'>
+          <div className='dropdown-btn'>
             <button className='user-icon'>
               <FaUser />
             </button>
-            {sessionUser?.email}</button>
+            {sessionUser?.email}</div>
           <div className='dropdown-content'>
             <button
               className='tickets-dropdown-btn'
