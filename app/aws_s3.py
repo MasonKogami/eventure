@@ -4,6 +4,9 @@ from .config import Config
 import os
 import uuid
 
+BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
+S3_LOCATION = f"http://{BUCKET_NAME}.s3.amazonaws.com/"
+ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif"}
 
 s3 = boto3.client(
    "s3",
@@ -23,13 +26,13 @@ def get_unique_filename(filename):
     return f"{unique_filename}.{ext}"
 
 
-def upload_file_to_s3(file, bucket_name, acl="public-read"):
+def upload_file_to_s3(file, acl="public-read"):
 
     try:
 
         s3.upload_fileobj(
             file,
-            bucket_name,
+            BUCKET_NAME,
             file.filename,
             ExtraArgs={
                 "ACL": acl,
@@ -42,4 +45,4 @@ def upload_file_to_s3(file, bucket_name, acl="public-read"):
         return {"errors": str(e)}
 
 
-    return f"{Config.S3_LOCATION}{file.filename}"
+    return {'url': f"{S3_LOCATION}{file.filename}"}
