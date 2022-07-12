@@ -32,7 +32,6 @@ const EventListings = () => {
                 <NavLink to={`/events/${event.id}`} className='event-listings' key={event.id}>
                   <div className='image-div'></div>
                   <button style={{marginTop: '5px', marginBottom: '5px', width: '40px'}}>
-
                     <FaRegHeart />
                   </button>
                   <div className='event-listing-content'>
@@ -54,7 +53,7 @@ const EventListings = () => {
             }
             return (
               <NavLink to={`/events/${event.id}`} className='event-listings' key={event.id}>
-                <div className='image-div'></div>
+                <div className='image-div' style={{backgroundImage: `url(${event?.image_url})`}}></div>
                 <button className='event-like-btn'>
                   <FaRegHeart />
                 </button>

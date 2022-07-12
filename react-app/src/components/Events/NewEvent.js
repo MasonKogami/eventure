@@ -27,7 +27,17 @@ const NewEvent = () => {
   // tomorrow.setHours(today.getHours() + 1)
   const [date, setDate] = useState(tomorrow);
   const [description, setDescription] = useState('');
+  const [image, setImage] = useState('');
+  const [photoPreview, setPhotoPreview] = useState('#')
   const [errors, setErrors] = useState([]);
+
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+    if (file) {
+      setPhotoPreview(URL.createObjectURL(file));
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,17 +49,27 @@ const NewEvent = () => {
 
     // let addressArr = address.split(',');
     
-    let newEvent = {
-      user_id: sessionUser.id,
-      location_name: locationName.trim(),
-      address,
-      name: name.trim(),
-      date: date.toString().slice(0, 16),
-      description
-    };
+    // let newEvent = {
+    //   user_id: sessionUser.id,
+    //   location_name: locationName.trim(),
+    //   address,
+    //   name: name.trim(),
+    //   date: date.toString().slice(0, 16),
+    //   description
+    // };
 
-    let submitNewEvent = await dispatch(createEvent(newEvent));
+    const formData = new FormData();
+    formData.append('user_id', sessionUser.id);
+    formData.append('location_name', locationName.trim());
+    formData.append('address', address);
+    formData.append('name', name.trim());
+    formData.append('date', date.toString().slice(0, 16));
+    formData.append('description', description);
+    formData.append('image', image);
+
+    let submitNewEvent = await dispatch(createEvent(formData));
     if (submitNewEvent) {
+      console.log(submitNewEvent)
       setErrors(submitNewEvent);
     } else {
       history.push("/home")
@@ -152,7 +172,6 @@ const NewEvent = () => {
             minDate={tomorrow} 
             value={date}
             onChange={(e) => {
-              console.log(e)
               setDate(e)}}
           />
           {/* <DateTimePicker 
@@ -203,6 +222,15 @@ const NewEvent = () => {
           >
           </textarea>
         </div>
+        <input 
+          type='file'
+          id='img'
+          // className='input image-input'
+          name='image_url'
+          placeholder='Valid Image URL'
+          accept="image/*"
+          onChange={updateImage}
+        />
         <div className='errors'>
           {errors?.map((error, ind) => (
             <div key={ind}>{error}</div>

@@ -57,7 +57,7 @@ function User() {
             <NavLink to={`/tickets/${ticket?.id}`} key={ticket.id} className='single-ticket-listing'>
               {/* <FaTicketAlt /> */}
               <div className='event-date-info'>{event?.date.slice(8, 11)} <span style={{color: '#39364f', fontSize: '22px'}}>{event?.date.slice(5,7)}</span></div>
-              <div className='event-image'></div>
+              <div className='event-image' style={{backgroundImage: `url(${event?.image_url})`}}></div>
               <div className='single-event-content'>
                 <div style={{fontSize: '25px'}}>{ticket?.event_name}</div>
                 <div style={{fontSize: '16px'}}>{`Order #${ticket.id} - ${ticket?.quantity} ticket(s)`}</div>
