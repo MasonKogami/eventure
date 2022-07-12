@@ -53,7 +53,7 @@ const EventListings = () => {
             }
             return (
               <NavLink to={`/events/${event.id}`} className='event-listings' key={event.id}>
-                <div className='image-div' style={{backgroundImage: `url(${event?.image_url})`}}></div>
+                <div className='image-div' alt='' style={{backgroundImage: `url(${event?.image_url})`}}></div>
                 <button className='event-like-btn'>
                   <FaRegHeart />
                 </button>
