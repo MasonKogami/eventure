@@ -114,3 +114,13 @@ hr {
   height: 100px;
   width: 100px;
 }
+
+.event-image-con {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.event-image-con h2 {
+  color: #d1410c;
+  margin-top: 20px;
+}

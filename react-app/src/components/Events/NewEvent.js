@@ -9,7 +9,7 @@ import DatePicker from 'react-date-picker';
 import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarAlt, FaMapPin } from 'react-icons/fa';
 import { BsFillFileEarmarkTextFill } from 'react-icons/bs';
-import { FaLightbulb } from 'react-icons/fa';
+import { FaLightbulb, FaFileImage } from 'react-icons/fa';
 
 const NewEvent = () => {
   const dispatch = useDispatch();
@@ -157,7 +157,7 @@ const NewEvent = () => {
           <h2>Date</h2>
           <div style={{marginBottom: '10px'}}>
             <p style={{width: '650px'}}>
-              Tell event goers when your event starts and ends so they can make plans to attend.
+              Tell event goers the date so they can make plans to attend.
             </p>
             <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '0px'}}>
               Required *
@@ -210,10 +210,10 @@ const NewEvent = () => {
           <h2>Description</h2>
           <p>Tell the event goers what your event is all about.</p>
           <div style={{marginBottom: '10px'}}>
-            <label>
+            {/* <label>
               Description
-            </label>
-            <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
+            </label> */}
+            <label style={{fontSize: '12px', color: '#d1410c'}}>
               Required *
             </label>
           </div>
@@ -226,8 +226,18 @@ const NewEvent = () => {
           >
           </textarea>
         </div>
+        <div className='event-image-con'>
+          <FaFileImage />
+          <h2>
+            Event Image
+          </h2>
+          <p>Let event goers know exactly what kind of an Eventure they're going to have with an image.</p>
+          <label style={{fontSize: '12px', color: '#d1410c'}}>
+            Required *
+          </label>
+        </div>
         <div className='field_block'>
-          {photoPreview !== '#' ? <img src={photoPreview} style={imageStyle} alt='preview' /> : <img src='https://img.buzzfeed.com/buzzfeed-static/static/2019-12/4/16/tmp/96ecd548dea3/tmp-name-2-109-1575477795-3_dblbig.jpg?resize=1200:*' style={imageStyle} alt='preview' />}
+          {photoPreview !== '#' ? <img src={photoPreview} style={imageStyle} alt='preview' /> : <img src='https://wtwp.com/wp-content/uploads/2015/06/placeholder-image.png' style={imageStyle} alt='preview' />}
         </div>
         <input 
           type='file'
