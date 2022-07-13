@@ -16,7 +16,7 @@ def new_event():
   form = EventForm()
   print('entering /create', '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
   if "image" not in request.files:
-        return {"errors": ["image required"]}, 400
+        return {"errors": ["An event image is required."]}, 400
 
   image = request.files["image"]
 
