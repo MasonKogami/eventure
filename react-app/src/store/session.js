@@ -1,4 +1,4 @@
-import { LOAD_LIKES, POST_LIKE, DELETE_LIKE } from "./like";
+import { LOAD_LIKES, POST_LIKE, DELETE_LIKE } from "./likes";
 
 // constants
 const SET_USER = 'session/SET_USER';
