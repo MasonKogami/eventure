@@ -1,3 +1,5 @@
+import { LOAD_LIKES, POST_LIKE, DELETE_LIKE } from "./likes";
+
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
@@ -150,6 +152,26 @@ export default function reducer(state = initialState, action) {
     //     newState[action.user.id].tickets = ticket
     //   });
     //   return newState;
+    case LOAD_LIKES:
+      // action.events.forEach(event => newState[event.id] = event);
+      // return newState;
+      newState = { ...state }
+      newState["likes"] = action.likes.likes
+      return newState
+    case POST_LIKE:
+      // newState[action.like.id] = action.like;
+      // return newState;
+      return {
+        ...state,
+        likes: [...state.likes, action.like]
+      }
+    case DELETE_LIKE:
+      // const filteredState = { ...Object.values(newState).filter(ticket => ticket.id !== action.ticket.id) }
+      // return filteredState;
+      return {
+        ...state,
+        likes: state.likes.filter(like => like.id !== action.id)
+      }
     default:
       return state;
   }

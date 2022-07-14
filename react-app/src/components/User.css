@@ -128,6 +128,7 @@
 .event-image {
   /* background-image: url('https://images.pexels.com/photos/1659437/pexels-photo-1659437.jpeg?cs=srgb&dl=pexels-m-venter-1659437.jpg&fm=jpg'); */
   width: 220px;
+  min-width: 220px;
   height: 110px;
   background-size: cover;
   padding: 10px;

@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
 
     tickets         = db.relationship('Ticket', back_populates='user')
 
-    # likes           = db.relationship('Like', back_populates='user')
+    likes           = db.relationship('Like', back_populates='user')
 
     @property
     def password(self):
@@ -33,6 +33,5 @@ class User(db.Model, UserMixin):
                 'id': self.id,
                 'username': self.username,
                 'email': self.email,
-                'tickets': [ticket.to_dict() for ticket in self.tickets],
-                # 'likes': [like.to_dict() for like in self.likes]
+                'tickets': [ticket.to_dict() for ticket in self.tickets]
                 }
