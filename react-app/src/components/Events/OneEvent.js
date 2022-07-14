@@ -7,11 +7,9 @@ import ConfirmationModal from '../Modal/Confirmation';
 import './OneEvent.css';
 import EditEventForm from './EditEventForm';
 import Checkout from './Checkout';
-import { FaCalendarAlt, FaMapPin } from 'react-icons/fa';
+import { FaCalendarAlt, FaMapPin, FaRegHeart } from 'react-icons/fa';
 import { BsFillFileEarmarkTextFill } from 'react-icons/bs';
 import { FaTicketAlt } from 'react-icons/fa';
-import { AiFillDelete } from 'react-icons/ai';
-import { GoPencil } from 'react-icons/go';
 
 const OneEvent = () => {
   const dispatch = useDispatch();
@@ -61,7 +59,7 @@ const OneEvent = () => {
     <div className='oneevent-page'>
       {/* <div className='bg-image-header'></div> */}
       <div style={{height: '500px', width: '100%', boxShadow: '0 1px 2px 0 rgb(0 0 0 / 15%)', marginTop: '10px'}}>
-        <div style={{backgroundImage: `url(${event?.image_url})`, filter: 'blur(6.5px)', height: '500px', width: '100%'}}>
+        <div style={{backgroundImage: `url(${event?.image_url})`, filter: 'blur(6.5px)', height: '500px', width: '100%', backgroundSize: 'cover'}}>
         </div>
       </div>
       <div className='event-listing-div'>
@@ -76,10 +74,10 @@ const OneEvent = () => {
               </div>
               <span style={{color: '#d1410c'}}>{event?.date.slice(5,7)}</span>
             </div>
-            <div style={{fontSize: '22px', color: '#1e0a3c'}}>
+            <div style={{fontSize: '22px', color: '#1e0a3c', marginBottom: '5px'}}>
               {event?.name}
             </div>
-            <div style={{marginBottom: '15px', color: '#1e0a3c'}}>
+            <div style={{marginBottom: '5px', color: '#1e0a3c'}}>
               By <button className='owner-btn' /* onClick={() => history.push(`/users/${eventHost?.id}`)} */>{eventHost}</button>
             </div>
             <div className='event-owner-buttons-con'>
@@ -108,6 +106,9 @@ const OneEvent = () => {
           </div>
         </div>
         <div className='event-listing-ticket-div'>
+          <div className='event-like'>
+            <FaRegHeart />
+          </div>
           {(sessionUser.id !== event?.user_id) && (<button className='checkout-btn' onClick={showCheckoutModalFunc}>
             <FaTicketAlt style={{marginRight: '5px', position: 'relative', bottom: '1px'}}/>
             Tickets</button>)}
@@ -119,23 +120,36 @@ const OneEvent = () => {
         </div>
         {/* <hr style={{width: '80%'}}></hr> */}
         <div className='event-listing-about-section'>
-          <FaCalendarAlt />
-          <FaMapPin style={{marginTop: '13px'}}/>
-          <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-            <div style={{display: 'flex', justifyContent: 'center', marginTop: '1px', fontSize: '20px', color: '#d1410c', fontWeight: 'bolder'}}>
-              Location
-            </div>
-            <div className='event-info'>
-              <div style={{marginBottom: '10px'}}>
-                {event?.location_name}
-              </div>
-              <div>
-                {event?.address}
-              </div>
-            </div>
-            <BsFillFileEarmarkTextFill style={{display: 'flex', justifyContent: 'center', marginTop: '12px'}} />
-            <h4 style={{display: 'flex', justifyContent: 'center', color: '#d1410c', marginTop: '10px'}}>About this Event:</h4>
+          <div className='description-section'>
+            <h2 style={{display: 'flex', color: '#d1410c', marginTop: '10px', marginLeft: '51px'}}>
+              <BsFillFileEarmarkTextFill style={{marginRight: '15px', color: 'black'}}/>
+              About this Event:</h2>
             <p style={{display: 'flex', justifyContent: 'center', paddingLeft: '55px', paddingRight: '55px', wordBreak: 'break-word', /* marginLeft: 'auto', marginRight: 'auto', */ height: '100%'}}>{event?.description}</p>
+          </div>
+          <div className='event-date-loc'>
+            <div style={{marginBottom: '30px'}}>
+              <div style={{fontSize: '20px', color: '#d1410c'}}>
+                <FaCalendarAlt style={{marginRight: '15px', color: 'black'}}/>
+                Date
+              </div>
+              <div style={{marginTop: '20px', marginLeft: '35.5px'}}>
+                {event?.date.slice(0, 16)}
+              </div>
+            </div>
+            <div>
+              <div style={{color: '#d1410c', fontSize: '20px'}}>
+                <FaMapPin style={{color: 'black', marginRight: '15px'}}/>
+                Location
+              </div>
+              <div className='event-info'>
+                <div style={{marginBottom: '10px'}}>
+                  {event?.location_name}
+                </div>
+                <div>
+                  {event?.address}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

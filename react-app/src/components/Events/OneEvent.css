@@ -10,6 +10,7 @@
   height: 100%;
   /* margin-top: 50px; */
   margin-bottom: 30px;
+  letter-spacing: 1px;
 }
 
 /* .open-modal {
@@ -80,7 +81,7 @@
   /* margin-left: auto;
   margin-right: auto; */
   /* border: 1px solid rgb(0 0 0 / 85%); */
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 15%);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 50%);
   border-radius: 4px;
   /* margin: -1px; */
   /* border-bottom: 1px solid #eeedf2; */
@@ -97,18 +98,6 @@
 
 #modal-button:hover {
   background-color: #e25822;
-}
-
-.event-info {
-  /* background-color: #ffdead; */
-  max-width: 1080px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
 }
 
 .checkoutmodal-background {
@@ -171,7 +160,7 @@
   color: #ffff;
   height: 40px;
   width: 200px;
-  margin-top: 10px;
+  margin-right: 20px;
 }
 
 .checkout-btn:hover {
@@ -197,6 +186,7 @@
 }
 
 .event-details-con > div {
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -217,4 +207,50 @@
   color: #3659e3;
   padding: 0px;
   font-size: 16px;
+}
+
+.event-listing-ticket-div {
+  padding: 16px;
+  width: 100%;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.event-like {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+}
+
+.event-like:hover {
+  cursor: pointer;
+}
+
+.event-listing-about-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 20px;
+  letter-spacing: 1px;
+}
+
+.description-section {
+  width: 560px;
+}
+
+.event-date-loc {
+  display: flex;
+  align-self: flex-start;
+  flex-direction: column;
+  text-align: start;
+}
+
+.event-info {
+  margin-left: 35.5px;
+  margin-top: 20px;
+  font-size: 14px;
 }
