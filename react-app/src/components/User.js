@@ -15,6 +15,7 @@ function User() {
   const sessionUser = useSelector(state => state.session.user);
   const tickets = useSelector(state => Object.values(state.tickets));
   const events = useSelector(state => Object.values(state.events))
+  const likes = useSelector(state => state.session.likes);
 
   useEffect(() => {
     dispatch(loadTickets(sessionUser.id));
@@ -44,7 +45,7 @@ function User() {
         </button>
         <div className='user-profile-content'>
           <h2 className='username-profile'>{sessionUser.username}'s Profile</h2>
-          <div className='orders-likes-content'>{tickets?.length} order(s) • 0 Like(s)</div>
+          <div className='orders-likes-content'>{tickets?.length} order(s) • <a className='likes-page-btn'>{likes?.length} Like(s)</a></div>
         </div>
       </div>
       <div className='orders'>

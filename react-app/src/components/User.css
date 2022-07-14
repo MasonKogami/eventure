@@ -141,3 +141,8 @@
   align-self: flex-start;
   margin-left: 10px;
 }
+
+.likes-page-btn:hover {
+  cursor: pointer;
+  color: #d1410c;
+}
