@@ -14,7 +14,6 @@ event_routes = Blueprint('events', __name__)
 # @login_required
 def new_event():
   form = EventForm()
-  print('entering /create', '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
   if "image" not in request.files:
         return {"errors": ["An event image is required."]}, 400
 
@@ -46,7 +45,6 @@ def new_event():
       description=form.data['description'],
       image_url=url
     )
-    print('exiting /create', '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
     db.session.add(event)
     db.session.commit()
     return event.to_dict()
