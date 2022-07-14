@@ -29,15 +29,15 @@ const EventListings = () => {
             } else if (!event?.address.includes(',')) {
               address = event?.address
               return (
-                <NavLink to={`/events/${event.id}`} className='event-listings' key={event.id}>
-                  <div className='image-div' alt='' style={{backgroundImage: `url(${event?.image_url})`}}></div>
+                <div to={`/events/${event.id}`} className='event-listings' key={event.id}>
+                  <NavLink className='image-div' alt='' to={`/events/${event?.id}`} style={{backgroundImage: `url(${event?.image_url})`}}></NavLink>
                   <button className='event-like-btn'>
                     <FaRegHeart />
                   </button>
                   <div className='event-listing-content'>
-                    <div className='event-name'>
+                    <NavLink to={`/events/${event?.id}`} className='event-name'>
                       {event.name}
-                    </div>
+                    </NavLink>
                     <div style={{color: '#d1410c', fontSize: '14px'}}>
                       {event.date.slice(0, 16)}
                     </div>
@@ -48,19 +48,19 @@ const EventListings = () => {
                       {address}
                     </div>
                   </div>
-                </NavLink>
+                </div>
               )
             }
             return (
-              <NavLink to={`/events/${event.id}`} className='event-listings' key={event.id}>
-                <div className='image-div' alt='' style={{backgroundImage: `url(${event?.image_url})`}}></div>
+              <div to={`/events/${event.id}`} className='event-listings' key={event.id}>
+                <NavLink className='image-div' alt='' to={`/events/${event?.id}`} style={{backgroundImage: `url(${event?.image_url})`}}></NavLink>
                 <button className='event-like-btn'>
                   <FaRegHeart />
                 </button>
                 <div className='event-listing-content'>
-                  <div className='event-name'>
+                  <NavLink to={`/events/${event?.id}`} className='event-name'>
                     {event.name}
-                  </div>
+                  </NavLink>
                   <div style={{color: '#d1410c', fontSize: '14px'}}>
                     {event.date.slice(0, 16)}
                   </div>
@@ -71,7 +71,7 @@ const EventListings = () => {
                     {address}
                   </div>
                 </div>
-              </NavLink>
+              </div>
             )
           })}
         </div>
