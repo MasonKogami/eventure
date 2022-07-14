@@ -1,3 +1,5 @@
+import { LOAD_LIKES, POST_LIKE, DELETE_LIKE } from "./like";
+
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
@@ -150,6 +152,20 @@ export default function reducer(state = initialState, action) {
     //     newState[action.user.id].tickets = ticket
     //   });
     //   return newState;
+    case LOAD_LIKES:
+      newState = { ...state }
+      newState["likes"] = action.likes.likes
+      return newState
+    case POST_LIKE:
+      return {
+        ...state,
+        likes: [...state.likes, action.like]
+      }
+    case DELETE_LIKE:
+      return {
+        ...state,
+        likes: state.likes.filter(like => like.id !== action.id)
+      }
     default:
       return state;
   }
