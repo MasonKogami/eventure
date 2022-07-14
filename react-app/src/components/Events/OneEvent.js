@@ -80,9 +80,8 @@ const OneEvent = () => {
             <div style={{marginBottom: '5px', color: '#1e0a3c'}}>
               By <button className='owner-btn' /* onClick={() => history.push(`/users/${eventHost?.id}`)} */>{eventHost}</button>
             </div>
-            <div className='event-owner-buttons-con'>
+            {/* <div className='event-owner-buttons-con'>
               {(sessionUser.id === event?.user_id) && (<button className='edit-btn' onClick={showEditModalFunc}>
-                {/* <GoPencil style={{marginRight: '6px'}}/> */}
                 Edit</button>)}
               {showEditModal && (
                 <Modal inputRef={inputRef} closeModalFunc={closeEditModalFunc} className='edit-event-modal-background'>
@@ -98,11 +97,10 @@ const OneEvent = () => {
                   className='delete-btn'
                   onClick={() => window.scrollTo(0, document.body.scrollHeight / 3)}
                 >
-                  {/* <AiFillDelete style={{marginRight: '5px', position: 'relative', bottom: '1px'}}/> */}
                   Delete</button>
               </ConfirmationModal>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
         <div className='event-listing-ticket-div'>
@@ -117,6 +115,29 @@ const OneEvent = () => {
               <Checkout closeModalFunc={closeCheckoutModalFunc}/>
             </Modal>
           )}
+          {(sessionUser.id === event?.user_id) && (<div className='event-owner-buttons-con'>
+              {(<button className='edit-btn' onClick={showEditModalFunc}>
+                {/* <GoPencil style={{marginRight: '6px'}}/> */}
+                Edit</button>)}
+              {showEditModal && (
+                <Modal inputRef={inputRef} closeModalFunc={closeEditModalFunc} className='edit-event-modal-background'>
+                  <EditEventForm inputRef={inputRef} style={{display: 'flex', justifyContent: 'center'}} closeModalFunc={closeEditModalFunc} />
+                </Modal>
+              )}
+              {(<ConfirmationModal 
+                    message="Are you sure you want to delete this event?"
+                    actionButtonLabel="Delete Event"
+                    func={() => deleteOneEvent(event)}
+                  >
+                <button
+                  className='delete-btn'
+                  onClick={() => window.scrollTo(0, document.body.scrollHeight / 3)}
+                >
+                  {/* <AiFillDelete style={{marginRight: '5px', position: 'relative', bottom: '1px'}}/> */}
+                  Delete</button>
+              </ConfirmationModal>
+              )}
+            </div>)}
         </div>
         {/* <hr style={{width: '80%'}}></hr> */}
         <div className='event-listing-about-section'>
