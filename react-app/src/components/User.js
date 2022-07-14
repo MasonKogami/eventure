@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch  } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
 import { readAllEvents } from '../store/events';
 import { loadTickets } from '../store/tickets';
 // import SingleTicket from './Tickets/SingleTicket';
@@ -10,8 +10,7 @@ import './User.css';
 
 function User() {
   const dispatch = useDispatch();
-  // const [user, setUser] = useState({});
-  // const { userId }  = useParams();
+  const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   const tickets = useSelector(state => Object.values(state.tickets));
   const events = useSelector(state => Object.values(state.events))
@@ -37,6 +36,10 @@ function User() {
   //   return null;
   // };
 
+  const likesPage = () => {
+    history.push('/likes');
+  }
+
   return (
     <div className='user-profile-con'>
       <div className='user-title'>
@@ -45,7 +48,7 @@ function User() {
         </button>
         <div className='user-profile-content'>
           <h2 className='username-profile'>{sessionUser.username}'s Profile</h2>
-          <div className='orders-likes-content'>{tickets?.length} order(s) • <a className='likes-page-btn'>{likes?.length} Like(s)</a></div>
+          <div className='orders-likes-content'>{tickets?.length} order(s) • <div className='likes-page-btn' onClick={likesPage}>{`${likes?.length} Like(s)`}</div></div>
         </div>
       </div>
       <div className='orders'>
