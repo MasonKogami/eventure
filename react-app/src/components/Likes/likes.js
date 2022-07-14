@@ -8,7 +8,7 @@ import './likes.css';
 
 const Likes = () => {
   const dispatch = useDispatch();
-  const likes = useSelector(state => state.session.likes.sort((a, b) => b.id - a.id));
+  const likes = useSelector(state => state.session.likes?.sort((a, b) => b.id - a.id));
   const events = useSelector(state => Object.values(state.events));
 
   useEffect(() => {
@@ -31,6 +31,9 @@ const Likes = () => {
             }
           };
           const event = events?.find(event => event.id === like.event_id);
+          // if (likes?.length) {
+            
+          // }
           if (event?.address.includes(',')) {
             address = event?.address.split(',').slice(1).join(', ');
           } else if (!event?.address.includes(',')) {
@@ -39,7 +42,7 @@ const Likes = () => {
             <div className='like-card' key={like?.id}>
               <div className='event-like-info'>
                 <NavLink to={`/events/${event?.id}`} className='event-name'>
-                  {event.name}
+                  {event?.name}
                 </NavLink>
                 <div style={{color: '#d1410c', fontSize: '14px'}}>
                   {event?.date.slice(0, 16)}  
@@ -52,7 +55,7 @@ const Likes = () => {
                 <div className='like-card-image' style={{backgroundImage: `url(${event?.image_url})`, backgroundSize: 'cover'}}>
                   
                 </div>
-                <button className='likes-page-btn' onClick={handleLike}>
+                <button className='like-page-btn' onClick={handleLike}>
                   {like ? <FaHeart style={{color: 'red'}}/> : <FaRegHeart /> }
                 </button>
               </div>
@@ -63,7 +66,7 @@ const Likes = () => {
             <div className='like-card' key={like?.id}>
               <div className='event-like-info'>
                 <NavLink to={`/events/${event?.id}`} className='event-name'>
-                  {event.name}
+                  {event?.name}
                 </NavLink>
                 <div style={{color: '#d1410c', fontSize: '14px'}}>
                   {event?.date.slice(0, 16)}  
@@ -76,7 +79,7 @@ const Likes = () => {
                 <div className='like-card-image' style={{backgroundImage: `url(${event?.image_url})`, backgroundSize: 'cover'}}>
                   
                 </div>
-                <button className='likes-page-btn' onClick={handleLike}>
+                <button className='like-page-btn' onClick={handleLike}>
                   {like ? <FaHeart style={{color: 'red'}}/> : <FaRegHeart /> }
                 </button>
               </div>
