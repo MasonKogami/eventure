@@ -13,6 +13,7 @@ import { authenticate } from './store/session';
 import NewEvent from './components/Events/NewEvent';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import SingleTicket from './components/Tickets/SingleTicket';
+import Likes from './components/Likes/likes';
 
 
 function App() {
@@ -64,6 +65,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute path={`/tickets/:ticketId`} exact={true}>
             <SingleTicket />
+          </ProtectedRoute>
+          <ProtectedRoute path={`/likes`}>
+            <Likes />
           </ProtectedRoute>
           <Route path='/landingpage' exact={true}>
             <LandingPage />

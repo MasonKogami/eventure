@@ -22,6 +22,11 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
   const history = useHistory();
   const dispatch = useDispatch();
+
+  const likesPage = () => {
+    history.push('/likes')
+  };
+
   return (
     <nav style={{height: '61px'}}>
       <div className='home'>
@@ -40,7 +45,7 @@ const NavBar = () => {
             Create an event</button>
         </div>
         <div className='likes'>
-          <button className='likes-btn'>
+          <button className='likes-btn' onClick={likesPage}>
             <FaRegHeart style={{position: 'relative', top: '-3px', left: '-1px', fontWeight: 'bolder'}}/>
             Likes
           </button>
@@ -68,6 +73,7 @@ const NavBar = () => {
             >Tickets</button>
             <button
               className='likes-dropdown-btn'
+              onClick={likesPage}
             >Likes</button>
             {/* <button
               className='settings-dropdown-btn'
