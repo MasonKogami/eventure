@@ -1,0 +1,56 @@
+.likes-page {
+  min-height: 100vh;
+  padding: 0px 164px;
+}
+
+.likes-title {
+  font-size: 52px;
+  padding-top: 104px;
+  padding-bottom: 32px;
+  margin: 0px;
+  font-weight: bolder;
+}
+
+.like-cards {
+  padding-bottom: 350px;
+}
+
+.like-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 186px;
+  width: 875px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.like-card:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.like-card-image {
+  height: 110px;
+  min-height: 110px;
+  width: 220px;
+  min-width: 220px;
+}
+
+.event-like-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  letter-spacing: 1px;
+  gap: 12px;
+}
+
+.likes-page-btn {
+  width: 40px;
+}
+
+.like-image-btn-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
