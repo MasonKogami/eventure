@@ -161,6 +161,7 @@ const eventsReducer = (state = initialState, action) => {
       newState[action.event.id] = action.event;
       return newState;
     case READ_ALL_EVENTS:
+      console.log(action.events);
       action.events.forEach(event => newState[event.id] = event);
       return newState;
     case READ_ONE_EVENT:

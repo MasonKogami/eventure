@@ -12,8 +12,8 @@ const EventListings = () => {
   const likes = useSelector(state => state.session.likes);
 
   useEffect(() => {
-    dispatch(grabLikes())
     dispatch(readAllEvents())
+    dispatch(grabLikes())
   }, [dispatch]);
 
   return (

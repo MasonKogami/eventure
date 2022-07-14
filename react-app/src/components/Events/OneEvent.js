@@ -7,9 +7,10 @@ import ConfirmationModal from '../Modal/Confirmation';
 import './OneEvent.css';
 import EditEventForm from './EditEventForm';
 import Checkout from './Checkout';
-import { FaCalendarAlt, FaMapPin, FaRegHeart } from 'react-icons/fa';
+import { FaCalendarAlt, FaMapPin, FaRegHeart, FaHeart } from 'react-icons/fa';
 import { BsFillFileEarmarkTextFill } from 'react-icons/bs';
 import { FaTicketAlt } from 'react-icons/fa';
+import { grabLikes, createLike, removeLike } from '../../store/likes';
 
 const OneEvent = () => {
   const dispatch = useDispatch();
@@ -18,20 +19,15 @@ const OneEvent = () => {
   const sessionUser = useSelector(state => state.session.user);
   const { eventId } = useParams();
   const event = useSelector(state => state.events[eventId]);
+  const likes = useSelector(state => state.session.likes);
+  const like = likes?.find(like => like.event_id === event?.id);
   const eventHost = event?.user?.username;
-  console.log(eventHost);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showCheckoutModal, setCheckoutModal] = useState(false);
-  // console.log(eventHost);
-  // console.log(events)
-  // console.log(sessionUser);
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
 
   useEffect(() => {
     dispatch(readOneEvent(eventId))
+    dispatch(grabLikes())
   }, [dispatch, eventId]);
 
   const deleteOneEvent = async (event) => {
@@ -53,7 +49,16 @@ const OneEvent = () => {
 
   if (!sessionUser) {
     return null;
-  }
+  };
+
+  const handleLike = (e) => {
+    e.preventDefault()
+    if (like) {
+      dispatch(removeLike(like.id))
+    } else {
+      dispatch(createLike(event.id))
+    }
+  };
 
   return (
     <div className='oneevent-page'>
@@ -104,8 +109,8 @@ const OneEvent = () => {
           </div>
         </div>
         <div className='event-listing-ticket-div'>
-          <div className='event-like'>
-            <FaRegHeart />
+          <div className='event-like' onClick={handleLike}>
+            {like ? <FaHeart style={{color: 'red'}}/> : <FaRegHeart /> }
           </div>
           {(sessionUser.id !== event?.user_id) && (<button className='checkout-btn' onClick={showCheckoutModalFunc}>
             <FaTicketAlt style={{marginRight: '5px', position: 'relative', bottom: '1px'}}/>

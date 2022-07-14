@@ -21,7 +21,7 @@ export const grabLikes = () => async (dispatch) => {
     const response = await fetch('/api/likes/');
     if (response.ok) {
         const data = await response.json();
-        dispatch(loadLikes(data))
+        await dispatch(loadLikes(data))
     }
 }
 
