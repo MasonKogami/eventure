@@ -33,7 +33,6 @@ const deleteEventAction = event => ({
 
 // T H U N K S 
 export const createEvent = event => async dispatch => {
-  console.log(event);
   const response = await fetch('/api/events/create', {
     method: 'POST',
     // headers: {'Content-Type': 'application/json'},
@@ -161,7 +160,6 @@ const eventsReducer = (state = initialState, action) => {
       newState[action.event.id] = action.event;
       return newState;
     case READ_ALL_EVENTS:
-      console.log(action.events);
       action.events.forEach(event => newState[event.id] = event);
       return newState;
     case READ_ONE_EVENT:
