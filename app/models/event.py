@@ -9,7 +9,7 @@ class Event(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
   id               = db.Column(db.Integer, primary_key=True)
-  user_id          = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id'), nullable=False)
+  user_id          = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
   # category_id      = db.Column(db.Integer, db.ForeignKey('categories.id'))
   location_name    = db.Column(db.String(255), nullable=False)
   address          = db.Column(db.String(255), nullable=False)
