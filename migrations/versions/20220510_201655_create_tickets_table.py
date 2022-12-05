@@ -32,9 +32,9 @@ def upgrade():
     sa.ForeignKeyConstraint(['event_id'], ['events.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
+    )
     if environment == "production":
         op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
-    )
     # ### end Alembic commands ###
 
 

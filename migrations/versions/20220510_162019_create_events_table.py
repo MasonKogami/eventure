@@ -34,9 +34,9 @@ def upgrade():
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
+    )
     if environment == "production":
         op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
-    )
     # ### end Alembic commands ###
 
 
