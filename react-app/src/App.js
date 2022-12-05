@@ -50,7 +50,7 @@ function App() {
             <User />
           </ProtectedRoute>
           <ProtectedRoute path='/' exact={true} >
-            {sessionUser ? <Redirect to='/home' /> : <Redirect to='/landingpage' />}
+            {sessionUser ? <Redirect to='/home' /> : <Redirect to='/' />}
           </ProtectedRoute>
           <ProtectedRoute path='/home' exact={true} >
             <HomePage />
@@ -69,7 +69,7 @@ function App() {
           <ProtectedRoute path={`/likes`}>
             <Likes />
           </ProtectedRoute>
-          <Route path='/landingpage' exact={true}>
+          <Route path='/' exact={true}>
             <LandingPage />
           </Route>
         </Switch>
