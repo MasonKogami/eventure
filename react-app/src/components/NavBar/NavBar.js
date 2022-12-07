@@ -81,7 +81,7 @@ const NavBar = () => {
             >Account Settings</button> */}
             <button onClick={ async () => {
               await dispatch(logout());
-              history.push('/landingpage');
+              history.push('/');
             }} className='logout'>Logout</button>
           </div>
         </div>
