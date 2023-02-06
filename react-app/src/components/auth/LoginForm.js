@@ -103,6 +103,9 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
           Demo User
         </button>
       </div>
+      <div>
+        <a href='https://the-eventure-app.onrender.com/'>Back</a>
+      </div>
       <div className='toggle-signup' onClick={toggleLoginSignupFunc}>Sign Up</div>
     </div>
   );
