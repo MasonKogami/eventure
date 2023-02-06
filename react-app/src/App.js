@@ -14,6 +14,8 @@ import NewEvent from './components/Events/NewEvent';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import SingleTicket from './components/Tickets/SingleTicket';
 import Likes from './components/Likes/likes';
+import LoginForm from './components/auth/LoginForm';
+import SignUpForm from './components/auth/SignUpForm';
 
 
 function App() {
@@ -37,15 +39,6 @@ function App() {
       <ScrollToTop>
         {sessionUser && (<NavBar />)}
         <Switch>
-          {/* <Route path='/login' exact={true}>
-            <LoginForm />
-          </Route>
-          <Route path='/sign-up' exact={true}>
-            <SignUpForm />
-          </Route> */}
-          {/* <ProtectedRoute path='/users' exact={true} >
-            <UsersList/>
-          </ProtectedRoute> */}
           <ProtectedRoute path='/users/:userId' exact={true} >
             <User />
           </ProtectedRoute>
@@ -71,6 +64,12 @@ function App() {
           </ProtectedRoute>
           <Route path='/' exact={true}>
             <LandingPage />
+          </Route>
+          <Route path='/login' exact={true}>
+            <LoginForm />
+          </Route>
+          <Route path='/signup' exact={true}>
+            <SignUpForm />
           </Route>
         </Switch>
         <AboutMe />
