@@ -6,7 +6,7 @@ const AboutMe = () => {
 
   return (
     <div className='aboutme-section'>
-      <a style={{color: 'whitesmoke', textDecoration: 'none'}} target='_blank' rel='noreferrer' href='http://masonkogami.github.io/'>© 2022 Mason Kogami</a>
+      <a style={{color: 'whitesmoke', textDecoration: 'none'}} target='_blank' rel='noreferrer' href='https://masonkogami.dev'>© 2022 Mason Kogami</a>
       <a target='_blank' rel='noreferrer' href='https://github.com/MasonKogami' style={{textDecoration: 'none'}}>
         <FaGithub size={30} style={{textDecoration: 'none', color: 'whitesmoke'}}/>
       </a>
