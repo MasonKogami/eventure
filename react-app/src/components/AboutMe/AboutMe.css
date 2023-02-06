@@ -1,7 +1,7 @@
 .aboutme-section {
   display: flex;
   justify-content: space-evenly;
-  /* align-items: center; */
+  align-items: center;
   position: relative;
   z-index: 10;
   left: 0px;
@@ -19,6 +19,12 @@
   align-items: center;
   position: relative;
   /* right: 35px; */
+  height: 35px;
+}
+
+.aboutme-sections img {
+  aspect-ratio: 3/2;
+  object-fit: contain;
 }
 
 i {
