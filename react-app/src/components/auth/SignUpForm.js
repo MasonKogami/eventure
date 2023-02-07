@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import './SignupForm.css';
@@ -15,6 +15,7 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
   const dispatch = useDispatch();
   const [signupDisplay] = useState('displayed');
   const [showPassword, setPasswordVisibility] = useState(false);
+  const history = useHistory();
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -155,7 +156,13 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
           Cancel
         </button>
       </div>
-      <div className='toggle-login' onClick={toggleLoginSignupFunc}>Log in</div>
+      <button 
+        onClick={ async () => { history.push("/") }}
+      >Back</button>
+      <div className='toggle-login' onClick={toggleLoginSignupFunc}>Log In</div>
+      <button
+        onClick={ async () => { history.push("/login") }}
+      >Log In</button>
     </div>
   );
 };
