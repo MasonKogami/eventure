@@ -3,15 +3,16 @@ import React, { useState } from 'react';
 import './LandingPage.css';
 import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
-import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 // import Modal from '../Modal/Modal';
 // import AboutMe from "../AboutMe/AboutMe";
 
 const LandingPage = () => {
   // const dispatch = useDispatch();
 
-  const [loginDisplay, setLoginDisplay] = useState('not-displayed')
-  const [signupDisplay, setSignupDisplay] = useState('not-displayed')
+  const [loginDisplay, setLoginDisplay] = useState('not-displayed');
+  const [signupDisplay, setSignupDisplay] = useState('not-displayed');
+  const history = useHistory();
 
   const changeLoginDisplay = () => {
     if (loginDisplay === 'not-displayed') {
@@ -58,10 +59,12 @@ const LandingPage = () => {
           <SignUpForm closeModalFunc={changeSignupDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
         </div>
       </div>
-      <div>
-        <NavLink to='/login'>Login</NavLink>
-        
-      </div>
+      <button
+        onClick={ async () => { history.push("/login") }}
+      >Log In</button>
+      <button
+        onClick={ async () => { history.push("/signup") }}
+      >Sign Up</button>
       <div className='mission-statement'>
         <p style={{marginBottom: '0px'}}>Eventure is a global self-service ticketing platform for live experiences that allows anyone to create, share, find and attend events that fuel their passions and enrich their lives.</p>
       </div>
