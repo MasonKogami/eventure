@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
 import './LoginForm.css';
@@ -13,6 +13,7 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
   const dispatch = useDispatch();
   const [loginDisplay] = useState('displayed');
   const [showPassword, setPasswordVisibility] = useState(false);
+  const history = useHistory();
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -104,9 +105,16 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
         </button>
       </div>
       <div>
-        <a href='https://the-eventure-app.onrender.com/'>Back</a>
+        <button
+          onClick={ async () => {
+            history.push("/")
+          }}
+        >Back</button>
       </div>
       <div className='toggle-signup' onClick={toggleLoginSignupFunc}>Sign Up</div>
+      <button 
+        onClick={ async () => { history.push("/signup") }}
+      >Sign Up</button>
     </div>
   );
 };
