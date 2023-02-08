@@ -59,12 +59,16 @@ const LandingPage = () => {
           <SignUpForm closeModalFunc={changeSignupDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
         </div>
       </div>
-      <button
-        onClick={ async () => { history.push("/login") }}
-      >Log In</button>
-      <button
-        onClick={ async () => { history.push("/signup") }}
-      >Sign Up</button>
+      <div className='lb-ctn'>
+        <button
+          className='lb-v2'
+          onClick={ async () => { history.push("/login") }}
+        >Log In</button>
+        <button
+          className='lb-v2'
+          onClick={ async () => { history.push("/signup") }}
+        >Sign Up</button>
+      </div>
       <div className='mission-statement'>
         <p style={{marginBottom: '0px'}}>Eventure is a global self-service ticketing platform for live experiences that allows anyone to create, share, find and attend events that fuel their passions and enrich their lives.</p>
       </div>
