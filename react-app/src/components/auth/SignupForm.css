@@ -1,9 +1,10 @@
 .signup-body {
   background-color: #ffff;
   padding: 15px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0 0 12px rgba(0, 0, 0, 0.5); */
   position: relative;
   top: 5px;
+  min-height: 100vh;
 }
 
 .signup-form {
