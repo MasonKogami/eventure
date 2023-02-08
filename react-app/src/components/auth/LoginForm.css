@@ -1,10 +1,19 @@
+.split-scrn-ctn {
+  display: flex;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
 .login-body {
   background-color: #ffff;
-  padding: 15px;
+  padding: 115px;
   /* box-shadow: 0 0 12px rgba(0, 0, 0, 0.5); */
-  position: relative;
-  top: 5px;
+  /* position: relative;
+  top: 5px; */
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .email-field {
