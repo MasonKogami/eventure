@@ -1,7 +1,24 @@
 .split-scrn-ctn {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   min-height: 100vh;
+}
+
+.split-scrn-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  /* height: 700px; */
+  width: 560px;
+  /* padding: 115px; */
+}
+
+.split-scrn-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .login-body {
@@ -14,6 +31,18 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.login-home-btn {
+  border: none;
+  background-color: #ffff;
+  color: #d1410c;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.login-home-btn:hover {
+  color: #e25822;
 }
 
 .email-field {

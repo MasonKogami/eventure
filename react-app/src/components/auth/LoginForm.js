@@ -42,6 +42,10 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
   return (
     <div className='split-scrn-ctn'>
       <div className='login-body'>
+        <button
+          className='login-home-btn'
+          onClick={ async () => { history.push("/home") }}
+        >Eventure</button>
         {/* <h2 style={{fontSize: '18px', height: '22px', marginBottom: '5px', position: 'relative', left: '46px', color: '#d1410c'}}>Eventure</h2> */}
         <h2 style={{color: '#39364f', fontWeight: 'bolder', fontSize: '35px', marginBottom: '10px', position: 'relative', left: '38px', marginTop: '15px'}}>
           Log in</h2>
@@ -115,7 +119,7 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
         >Sign Up</button>
       </div>
       <div className='split-scrn-img'>
-        <img style={{height: '1000px'}} alt='' src="https://cdn.evbstatic.com/s3-build/perm_001/530d34/django/images/login/lateral-image-2.jpg"></img>
+        <img alt='' src="https://cdn.evbstatic.com/s3-build/perm_001/530d34/django/images/login/lateral-image-2.jpg"></img>
       </div>
     </div>
   );
