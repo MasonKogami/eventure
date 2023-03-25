@@ -30,9 +30,16 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
     setPassword(e.target.value);
   };
 
-  if (user) {
-    return <Redirect to='/home' />;
-  }
+  // if (user) {
+  //   return <Redirect to='/home' />;
+  // }
+
+  const redirectOnLogin = () => {
+    dispatch(login('demo@aa.io', 'password'))
+    .then(() => {
+      history.push("/home")
+    })
+  };
 
   const togglePassword = () => {
 
@@ -102,7 +109,9 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
         <div className='or-divider'>or</div>
         <div className='or-line'></div>
         <div className='demo-button'>
-          <button className='demo-btn' onClick={() => dispatch(login('demo@aa.io', 'password'))}>
+          <button className='demo-btn' onClick={ 
+              () => redirectOnLogin()
+            }>
             Demo User
           </button>
         </div>
