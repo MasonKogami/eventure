@@ -14,7 +14,7 @@
   width: 100%;
   min-width: 100vh;
   height: 100%;
-  min-height: 32.4em;
+  min-height: 600px;
   /* background-color: gray; */
   background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/f0efd0767ec3f77057270d84f78b1f41-3_4K_1920x544.jpg");
   /* background-image: url("https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg"); */
@@ -43,7 +43,7 @@
   top: 110px;
   /* left: 670px;  */
   color: #ffff;
-  font-size: 60px;
+  font-size: 90px;
   font-weight: bolder;
   z-index: 2;
 }
@@ -113,11 +113,12 @@
   min-height: 240px;
   width: 100%;
   min-width: 100vh;
+  padding: 30px;
 }
 
 .mission-statement > p {
   text-align: center;
   margin-top: 0px;
-  margin-left: 400px;
+  margin-left: 350px;
   margin-right: 350px;
 }
