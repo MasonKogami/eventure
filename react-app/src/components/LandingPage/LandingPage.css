@@ -122,3 +122,58 @@
   margin-left: 350px;
   margin-right: 350px;
 }
+
+.tech-section {
+  /* background-color: #d1410c; */
+  /* color: #ffff; */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.tech-section > h3 {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.tech-section > section {
+  text-align: center;
+  padding-left: 350px;
+  padding-right: 350px;
+  letter-spacing: 0.5px;
+}
+
+.about-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-title-ctn {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.about-title-ctn > h3 {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.about-title-ctn > img {
+  height: 200px;
+  width: 150px;
+  border-radius: 60%;
+  background-size: cover;
+}
+
+.about-section > section {
+  text-align: center;
+  padding-left: 350px;
+  padding-right: 350px;
+  letter-spacing: 0.5px;
+  padding-bottom: 20px;
+}
