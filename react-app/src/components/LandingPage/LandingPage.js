@@ -74,6 +74,19 @@ const LandingPage = () => {
       <div className='btm-split-section'>
         <div className='tech-section'>        
           <h3>Technology Used:</h3>
+          <div className='tech-ctn'>
+            <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
+            <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" />
+            <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
+            <i className="devicon-flask-original"></i>
+            <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" />
+            <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
+            <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
+            <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
+            <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
+            <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-plain.svg" />
+          </div>
+
           <section>I utilized React and JavaScript for the frontend with global state management through Redux. I previously learned Python prior to this project so I accompanied the frontend with a Python and Flask backend. For the database, I added PostgreSQL for a multi-version concurrency database for a seamless data read and write. I deployed initially to Heroku prior to some changes in their tiers, it is now deployed with Render. I have also containerized this project with Docker. To top it off, I included an AWS S3 bucket for user-uploaded images, users can upload and it will auto-scale to adjust for additional storage as needed.</section>
         </div>
         <div className='about-section'>

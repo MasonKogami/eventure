@@ -135,10 +135,23 @@
 
 .btm-split-section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   /* align-items: center; */
   width: 100%;
 }
+
+.tech-ctn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-ctn > * {
+  display: flex;
+  align-items: center;
+  position: relative;
+  /* right: 35px; */
+  height: 35px;}
 
 .tech-section {
   /* background-color: #d1410c; */
@@ -164,7 +177,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .about-title-ctn {
