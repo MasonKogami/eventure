@@ -133,6 +133,13 @@
   margin-right: 350px;
 }
 
+.btm-split-section {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  width: 100%;
+}
+
 .tech-section {
   /* background-color: #d1410c; */
   /* color: #ffff; */
@@ -148,8 +155,8 @@
 
 .tech-section > section {
   text-align: center;
-  padding-left: 350px;
-  padding-right: 350px;
+  padding-left: 50px;
+  padding-right: 50px;
   letter-spacing: 0.5px;
 }
 
@@ -181,8 +188,8 @@
 
 .about-section > section {
   text-align: center;
-  padding-left: 350px;
-  padding-right: 350px;
+  padding-left: 50px;
+  padding-right: 50px;
   letter-spacing: 0.5px;
   padding-bottom: 20px;
 }
