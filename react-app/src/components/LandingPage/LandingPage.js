@@ -42,8 +42,8 @@ const LandingPage = () => {
   return (
     <div className='landingpage-con'>
       <div style={{height: '0px'}}>
-       <h2 className='landingpage-title'>Have An <p className='eventure-title-logo'>Eventure</p>!</h2>
-       <h3 className='cta'>Browse events, purchase tickets, and find your next <p style={{color: '#d1410c'}}>Eventure</p>.</h3>
+       <h2 className='landingpage-title'>Have An Eventure!</h2>
+       <h3 className='cta'>Browse events, purchase tickets, and find your next Eventure.</h3>
       </div>
       <div className='landingpage-cover'>
         <img alt='mp-cover' src='https://eventbrite-s3.s3.amazonaws.com/marketing/landingpages/assets/About-Header.jpg' />

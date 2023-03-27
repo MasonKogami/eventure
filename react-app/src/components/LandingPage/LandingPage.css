@@ -46,20 +46,6 @@
   z-index: 2;
 }
 
-.eventure-title-logo {
-  position: relative;
-  /* display: flex; */
-  /* justify-content: center; */
-  /* left: 682px; */
-  /* top: 110px; */
-  /* left: 670px;  */
-  color: #d1410c;
-  font-size: 70px;
-  font-weight: bolder;
-  z-index: 2;
-  bottom: 69px;
-}
-
 .cta {
   position: relative;
   display: flex;
