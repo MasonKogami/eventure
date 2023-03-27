@@ -9,8 +9,8 @@ import SignUpForm from '../auth/SignUpForm';
 const LandingPage = () => {
   // const dispatch = useDispatch();
 
-  const [loginDisplay, setLoginDisplay] = useState('not-displayed')
-  const [signupDisplay, setSignupDisplay] = useState('not-displayed')
+  const [loginDisplay, setLoginDisplay] = useState('not-displayed');
+  const [signupDisplay, setSignupDisplay] = useState('not-displayed');
 
   const changeLoginDisplay = () => {
     if (loginDisplay === 'not-displayed') {
