@@ -87,14 +87,16 @@ const LandingPage = () => {
             <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-plain.svg" />
           </div>
 
-          <section>I utilized React and JavaScript for the frontend with global state management through Redux. I previously learned Python prior to this project so I accompanied the frontend with a Python and Flask backend. For the database, I added PostgreSQL for a multi-version concurrency database for a seamless data read and write. I deployed initially to Heroku prior to some changes in their tiers, it is now deployed with Render. I have also containerized this project with Docker. To top it off, I included an AWS S3 bucket for user-uploaded images, users can upload and it will auto-scale to adjust for additional storage as needed.</section>
+          <section>I utilized React and JavaScript for the frontend with global state management through Redux. I spent a few weeks learning Python prior to this project so I accompanied the frontend with a Python and Flask backend. For the database, I added PostgreSQL for a multi-version concurrency database for a seamless data read and write. I deployed initially to Heroku prior to some changes in their tiers, it is now deployed with Render. I have also containerized this project with Docker. To top it off, I included an AWS S3 bucket for user-uploaded images, users can upload and it will auto-scale to adjust for additional storage as needed.</section>
         </div>
         <div className='about-section'>
           <div className='about-title-ctn'>
             <h3>About The Developer:</h3>
-            <img alt='profile-pic' src='https://drive.google.com/uc?id=13LK-asdns3YeRqMisyTDE1kXKtEAoJ7C' />
           </div>
-          <section>Hi! My name is Mason Kogami. This is my capstone project that I completed during my coding bootcamp at App Academy. I have since graduated and further developed this project and have crafted this project to be special with lots of love and detail.</section>
+          <div className='about-dev-ctn'>
+            <img alt='profile-pic' src='https://drive.google.com/uc?id=13LK-asdns3YeRqMisyTDE1kXKtEAoJ7C' />
+            <p>Hi! My name is Mason Kogami. This is my capstone project that I completed during my coding bootcamp at App Academy. I have since graduated and further developed this project and have crafted this project to be special with lots of love and detail.</p>
+          </div>
         </div>
       </div>
     </div>
