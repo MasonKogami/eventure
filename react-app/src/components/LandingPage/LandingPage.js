@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './LandingPage.css';
 import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
+import { SiRender } from "react-icons/si";
 // import Modal from '../Modal/Modal';
 // import AboutMe from "../AboutMe/AboutMe";
 
@@ -41,6 +42,16 @@ const LandingPage = () => {
 
   return (
     <div className='landingpage-con'>
+      <div className='landingpage-navbar'>
+        <h4>Eventure</h4>
+        <div className='navbar-links'>
+          <a>Login</a>
+          <a>Signup</a>
+          <a href='#mission-statement'>Mission Statement</a>
+          <a href='#tech-used'>Tech Stack</a>
+          <a href='#about'>About</a>
+        </div>
+      </div>
       <div style={{height: '0px'}}>
        <h2 className='landingpage-title'>Have An Eventure!</h2>
        <h3 className='cta'>Browse events, purchase tickets, and find your next Eventure.</h3>
@@ -58,7 +69,7 @@ const LandingPage = () => {
           <SignUpForm closeModalFunc={changeSignupDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
         </div>
       </div>
-      <div className='mission-statement'>
+      <div className='mission-statement' id='mission-statement'>
         <p style={{marginBottom: '0px'}}>Eventure is a global self-service ticketing platform for live experiences that allows anyone to create, share, find and attend events that fuel their passions and enrich their lives. From music festivals, marathons, conferences, community rallies, and fundraisers, to gaming competitions and air guitar contests. Our mission is to bring the world together through live experiences.</p>
       </div>
       <div>
@@ -73,7 +84,7 @@ const LandingPage = () => {
       {/* <AboutMe style={{position: 'relative', bottom: '0px'}} /> */}
       <div className='btm-split-section'>
         <div className='tech-section'>        
-          <h3>Technology Used:</h3>
+          <h3 id='tech-used'>Technology Used:</h3>
           <div className='tech-ctn'>
             <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
             <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" />
@@ -84,14 +95,13 @@ const LandingPage = () => {
             <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
             <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
             <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
-            <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-plain.svg" />
           </div>
 
           <section>I utilized React and JavaScript for the frontend with global state management through Redux. I spent a few weeks learning Python prior to this project so I accompanied the frontend with a Python and Flask backend. For the database, I added PostgreSQL for a multi-version concurrency database for a seamless data read and write. I deployed initially to Heroku prior to some changes in their tiers, it is now deployed with Render. I have also containerized this project with Docker. To top it off, I included an AWS S3 bucket for user-uploaded images, users can upload and it will auto-scale to adjust for additional storage as needed.</section>
         </div>
         <div className='about-section'>
           <div className='about-title-ctn'>
-            <h3>About The Developer:</h3>
+            <h3 id='about'>About The Developer:</h3>
           </div>
           <div className='about-dev-ctn'>
             <img alt='profile-pic' src='https://drive.google.com/uc?id=13LK-asdns3YeRqMisyTDE1kXKtEAoJ7C' />
