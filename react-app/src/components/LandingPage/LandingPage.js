@@ -44,8 +44,8 @@ const LandingPage = () => {
       <div style={{height: '0px'}}>
        <h2 className='landingpage-title'>Eventure</h2>
       </div>
-      <div>
-        <div className='landingpage-slideshow' />
+      <div className='landingpage-cover'>
+        <img alt='mp-cover' src='https://eventbrite-s3.s3.amazonaws.com/marketing/landingpages/assets/About-Header.jpg' />
       </div>
       <div className='user-forms'>
         <button className='user-buttons' onClick={changeLoginDisplay}>Log In</button>
