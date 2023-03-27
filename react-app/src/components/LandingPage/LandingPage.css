@@ -6,6 +6,52 @@
   height: 100%;
 }
 
+.landingpage-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  position: relative;
+  height: 0px;
+  top: 30px;
+  /* background-color: red; */
+}
+
+.landingpage-navbar > h4 {
+  color: #d1410c;
+  font-size: 40px;
+  font-weight: bolder;
+  margin: 0px;
+  padding-left: 250px;
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: red;
+  width: 35%;
+  height: 100%;
+  position: relative;
+  padding-right: 130px;
+}
+
+.navbar-links > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: #ffff;
+  height: 100%;
+  font-size: 18px;
+  text-decoration: none;
+  /* background-color: red; */
+}
+
+.navbar-links > a:hover {
+  color: #e25822;
+}
+
 /* .landingpage-cover {
   height: 100vh;
   max-width: 100%;
