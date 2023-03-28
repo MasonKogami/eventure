@@ -6,52 +6,6 @@
   height: 100%;
 }
 
-.landingpage-navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 50px;
-  position: relative;
-  height: 0px;
-  top: 30px;
-  /* background-color: red; */
-}
-
-.landingpage-navbar > h4 {
-  color: #d1410c;
-  font-size: 40px;
-  font-weight: bolder;
-  margin: 0px;
-  padding-left: 250px;
-}
-
-.navbar-links {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: red;
-  width: 35%;
-  height: 100%;
-  position: relative;
-  padding-right: 130px;
-}
-
-.navbar-links > a {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  color: #ffff;
-  height: 100%;
-  font-size: 18px;
-  text-decoration: none;
-  /* background-color: red; */
-}
-
-.navbar-links > a:hover {
-  color: #e25822;
-}
-
 /* .landingpage-cover {
   height: 100vh;
   max-width: 100%;
@@ -79,36 +33,50 @@
   } 
 } */
 
+.lp-title-ctn {
+  height: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
 .landingpage-title {
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
   /* left: 682px; */
-  top: 110px;
+  top: 400px;
   /* left: 670px;  */
   color: #ffff;
   font-size: 70px;
   font-weight: bolder;
-  z-index: 2;
+  z-index: 1;
+  margin-bottom: 0px;
 }
 
 .cta {
   position: relative;
   display: flex;
   justify-content: center;
-  z-index: 2;
+  z-index: 1;
   color: #ffff;
-  top: 100px;
+  top: 450px;
   font-weight: bold;
   font-size: 35px;
   text-align: center;
+  margin-top: 0px;
 }
 
 .user-forms {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 1;
   height: 0px;
   /* background-color: #d1410c; */
 }
@@ -189,7 +157,7 @@
 .tech-ctn {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .tech-ctn > * {
