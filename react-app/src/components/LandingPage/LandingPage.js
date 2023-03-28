@@ -1,35 +1,14 @@
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
 import './LandingPage.css';
 import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
 import { SiRender } from "react-icons/si";
-// import Modal from '../Modal/Modal';
-// import AboutMe from "../AboutMe/AboutMe";
+import LandingPageNavBar from './LandingPage-NavBar';
 
 const LandingPage = () => {
-  // const dispatch = useDispatch();
 
   const [loginDisplay, setLoginDisplay] = useState('not-displayed');
   const [signupDisplay, setSignupDisplay] = useState('not-displayed');
-
-  // navbar scrolling color change
-  const [color, setColor] = useState(false);
-
-  const changeColor = () => {
-    if (window.scrollY >= 70) {
-      setColor(true);
-    } else {
-      setColor(false);
-    }
-  };
-
-  // event listener for scroll
-  window.addEventListener("scroll", changeColor);
-
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
 
   const changeLoginDisplay = () => {
     if (loginDisplay === 'not-displayed') {
@@ -60,33 +39,7 @@ const LandingPage = () => {
 
   return (
     <div className='landingpage-con'>
-      <nav className={color ? 'landingpage-navbar scroll-bg' : 'landingpage-navbar'}>
-        <h4 id='top-of-page' onClick={scrollToTop}>Eventure</h4>
-        <ul className='navbar-links'>
-          <li className='navbar-item'>
-            <a href='/'>Login</a>
-          </li>
-          <li className='navbar-item'>
-            <a href='/'>Signup</a>
-          </li>
-          <li className='navbar-item'>
-            <a href='#mission-statement'>Mission Statment</a>
-          </li>
-          <li className='navbar-item'>
-            <a href='#tech-used'>Tech Stack</a>
-          </li>
-          <li className='navbar-item'>
-            <a href='#about'>About</a>
-          </li>
-        </ul>
-        {/* <div className='navbar-links'>
-          <a>Login</a>
-          <a>Signup</a>
-          <a href='#mission-statement'>Mission Statement</a>
-          <a href='#tech-used'>Tech Stack</a>
-          <a href='#about'>About</a>
-        </div> */}
-      </nav>
+      <LandingPageNavBar />
       <div style={{height: '0px'}}>
        <h2 className='landingpage-title'>Your one-stop shop for your next adventure.</h2>
        <h3 className='cta'>Browse, purchase, and find your next Eventure.</h3>
@@ -110,13 +63,6 @@ const LandingPage = () => {
       <div className='reason1-img-ctn'>
         <div style={{backgroundImage: 'url(https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg)', height: '470px', minHeight: '32.4em', minWidth: '100vh', width: '100%', backgroundSize: 'cover'}}/>
       </div>
-      {/* <div className='mission-statement'>
-        <p style={{marginBottom: '0px'}}>From music festivals, marathons, conferences, community rallies, and fundraisers, to gaming competitions and air guitar contests. Our mission is to bring the world together through live experiences.</p>
-      </div> */}
-      {/* <div>
-        <div style={{backgroundImage: 'url(https://cdn.evbstatic.com/s3-build/fe/build/images/6aaf4a36e35b1b71bc077e200ac7429c-1_tablet_1067x470.jpg)', height: '470px', minHeight: '32.4em', minWidth: '100vh', width: '100%', backgroundSize: 'cover'}}/>
-      </div> */}
-      {/* <AboutMe style={{position: 'relative', bottom: '0px'}} /> */}
       <div className='btm-split-section'>
         <div className='tech-section'>        
           <h3 id='tech-used'>Technology Used:</h3>
@@ -132,7 +78,6 @@ const LandingPage = () => {
             <img alt='' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
             <SiRender style={{height: '70px', width: '40px', color: '#0fe0b6'}}/>
           </div>
-
           <section>I utilized React and JavaScript for the frontend with global state management through Redux. I spent a few weeks learning Python prior to this project so I accompanied the frontend with a Python and Flask backend. For the database, I added PostgreSQL for a multi-version concurrency database for a seamless data read and write. I deployed initially to Heroku prior to some changes in their tiers, it is now deployed with Render. I have also containerized this project with Docker. To top it off, I included an AWS S3 bucket for user-uploaded images, users can upload and it will auto-scale to adjust for additional storage as needed.</section>
         </div>
         <div className='about-section'>
