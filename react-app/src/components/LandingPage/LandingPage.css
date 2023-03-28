@@ -33,18 +33,30 @@
   } 
 } */
 
+.lp-title-ctn {
+  height: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
 .landingpage-title {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   /* left: 682px; */
-  top: 250px;
+  top: 400px;
   /* left: 670px;  */
   color: #ffff;
-  font-size: 50px;
+  font-size: 70px;
   font-weight: bolder;
   z-index: 1;
+  margin-bottom: 0px;
 }
 
 .cta {
@@ -53,10 +65,11 @@
   justify-content: center;
   z-index: 1;
   color: #ffff;
-  top: 270px;
+  top: 450px;
   font-weight: bold;
   font-size: 35px;
   text-align: center;
+  margin-top: 0px;
 }
 
 .user-forms {

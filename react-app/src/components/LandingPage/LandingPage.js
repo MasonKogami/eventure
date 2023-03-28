@@ -40,9 +40,9 @@ const LandingPage = () => {
   return (
     <div className='landingpage-con'>
       <LandingPageNavBar />
-      <div style={{height: '0px'}}>
-       <h2 className='landingpage-title'>Your one-stop shop for your next adventure.</h2>
-       <h3 className='cta'>Browse, purchase, and find your next Eventure.</h3>
+      <div className='lp-title-ctn'>
+       <h2 className='landingpage-title'>Bringing the world together through live experiences.</h2>
+       <h3 className='cta'>Discover your next adventure.</h3>
       </div>
       <div className='landingpage-cover'>
         <img alt='mp-cover' src='https://eventbrite-s3.s3.amazonaws.com/marketing/landingpages/assets/About-Header.jpg' />
