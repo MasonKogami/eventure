@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import User from './components/User';
 import NavBar from './components/NavBar/NavBar';
@@ -36,7 +36,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTop>
         {sessionUser && (<NavBar />)}
-        <Switch>
+        <Routes>
           {/* <Route path='/login' exact={true}>
             <LoginForm />
           </Route>
@@ -72,7 +72,7 @@ function App() {
           <Route path='/' exact={true}>
             <LandingPage />
           </Route>
-        </Switch>
+        </Routes>
         <AboutMe />
       </ScrollToTop>
     </BrowserRouter>
