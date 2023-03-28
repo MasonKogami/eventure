@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 // import { useDispatch } from 'react-redux';
 import './LandingPage.css';
 import LoginForm from '../auth/LoginForm';
@@ -12,6 +12,24 @@ const LandingPage = () => {
 
   const [loginDisplay, setLoginDisplay] = useState('not-displayed');
   const [signupDisplay, setSignupDisplay] = useState('not-displayed');
+
+  // navbar scrolling color change
+  const [color, setColor] = useState(false);
+
+  const changeColor = () => {
+    if (window.scrollY >= 70) {
+      setColor(true);
+    } else {
+      setColor(false);
+    }
+  };
+
+  // event listener for scroll
+  window.addEventListener("scroll", changeColor);
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   const changeLoginDisplay = () => {
     if (loginDisplay === 'not-displayed') {
@@ -42,19 +60,36 @@ const LandingPage = () => {
 
   return (
     <div className='landingpage-con'>
-      <div className='landingpage-navbar'>
-        <h4>Eventure</h4>
-        <div className='navbar-links'>
+      <nav className={color ? 'landingpage-navbar scroll-bg' : 'landingpage-navbar'}>
+        <h4 id='top-of-page' onClick={scrollToTop}>Eventure</h4>
+        <ul className='navbar-links'>
+          <li className='navbar-item'>
+            <a href='/'>Login</a>
+          </li>
+          <li className='navbar-item'>
+            <a href='/'>Signup</a>
+          </li>
+          <li className='navbar-item'>
+            <a href='#mission-statement'>Mission Statment</a>
+          </li>
+          <li className='navbar-item'>
+            <a href='#tech-used'>Tech Stack</a>
+          </li>
+          <li className='navbar-item'>
+            <a href='#about'>About</a>
+          </li>
+        </ul>
+        {/* <div className='navbar-links'>
           <a>Login</a>
           <a>Signup</a>
           <a href='#mission-statement'>Mission Statement</a>
           <a href='#tech-used'>Tech Stack</a>
           <a href='#about'>About</a>
-        </div>
-      </div>
+        </div> */}
+      </nav>
       <div style={{height: '0px'}}>
-       <h2 className='landingpage-title'>Have An Eventure!</h2>
-       <h3 className='cta'>Browse events, purchase tickets, and find your next Eventure.</h3>
+       <h2 className='landingpage-title'>Your one-stop shop for your next adventure.</h2>
+       <h3 className='cta'>Browse, purchase, and find your next Eventure.</h3>
       </div>
       <div className='landingpage-cover'>
         <img alt='mp-cover' src='https://eventbrite-s3.s3.amazonaws.com/marketing/landingpages/assets/About-Header.jpg' />
