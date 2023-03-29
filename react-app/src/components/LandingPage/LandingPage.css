@@ -151,6 +151,20 @@
   margin-right: 350px;
 }
 
+.reason1-img-ctn {
+  display: flex;
+  height: 440px;
+  background-color: black;
+  justify-content: right;
+}
+
+.reason1 {
+  display: flex;
+  background-size: cover;
+  width: 100%;
+  justify-content: center;
+}
+
 .btm-split-section {
   display: flex;
   flex-direction: column;
