@@ -42,7 +42,7 @@ const LandingPage = () => {
       <LandingPageNavBar />
       <div className='lp-title-ctn'>
        <h2 className='landingpage-title'>Bringing the world together through live experiences.</h2>
-       <h3 className='cta'>Discover your next adventure.</h3>
+       <h3 className='cta' id='mission-statement'>Discover your next adventure.</h3>
       </div>
       <div className='landingpage-cover'>
         <img alt='mp-cover' src='https://eventbrite-s3.s3.amazonaws.com/marketing/landingpages/assets/About-Header.jpg' />
@@ -57,13 +57,13 @@ const LandingPage = () => {
           <SignUpForm closeModalFunc={changeSignupDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
         </div>
       </div>
-      <div className='mission-statement' id='mission-statement'>
+      <div className='mission-statement'>
         <p style={{marginBottom: '0px'}}>Eventure is a global self-service ticketing platform for live experiences that allows anyone to create, share, find and attend events that fuel their passions and enrich their lives. From music festivals, marathons, conferences, community rallies, and fundraisers, to gaming competitions and air guitar contests. Our mission is to bring the world together through live experiences.</p>
       </div>
       <div className='reason1-img-ctn'>
         <div style={{backgroundImage: 'url(https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg)', height: '470px', minHeight: '32.4em', minWidth: '100vh', width: '100%', backgroundSize: 'cover'}}/>
       </div>
-      <div className='btm-split-section'>
+      <div className='btm-split-section' id='tech-used'>
         <div className='tech-section'>        
           <h3 id='tech-used'>Technology Used:</h3>
           <div className='tech-ctn'>

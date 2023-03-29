@@ -120,6 +120,10 @@
   justify-content: center;
 }
 
+.reason1-img-ctn {
+  display: flex;
+}
+
 .not-displayed {
   display: none;
 }
