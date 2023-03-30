@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './LandingPage-NavBar.css';
 
 const LandingPageNavBar = () => {
-
   // navbar scrolling color change
   const [color, setColor] = useState(false);
 
@@ -27,10 +26,10 @@ const LandingPageNavBar = () => {
         <h4 id='top-of-page' onClick={scrollToTop}>Eventure</h4>
         <ul className='navbar-links'>
           <li className='navbar-item'>
-            <a href='/'>Login</a>
+            <a href='/login'>Login</a>
           </li>
           <li className='navbar-item'>
-            <a href='/'>Signup</a>
+            <a href='/signup'>Signup</a>
           </li>
           <li className='navbar-item'>
             <a href='#mission-statement'>Mission Statement</a>
