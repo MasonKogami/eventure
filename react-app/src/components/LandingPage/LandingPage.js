@@ -60,6 +60,10 @@ const LandingPage = () => {
       <div className='mission-statement'>
         <p style={{marginBottom: '0px'}}>Eventure is a global self-service ticketing platform for live experiences that allows anyone to create, share, find and attend events that fuel their passions and enrich their lives. From music festivals, marathons, conferences, community rallies, and fundraisers, to gaming competitions and air guitar contests. Our mission is to bring the world together through live experiences.</p>
       </div>
+      <div className='r1'>
+        <p className='p1'>Browse through thousands of live experiences.</p>
+        <p className='p2'>Find your passion through music, marathons, and more.</p>
+      </div>
       <div className='reason1-img-ctn'>
         <img alt='reason-1' src='https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg' className='reason1'/>
       </div>
