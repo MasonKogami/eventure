@@ -33,7 +33,7 @@ const LandingPageNavBar = () => {
             <a href='/'>Signup</a>
           </li>
           <li className='navbar-item'>
-            <a href='#mission-statement'>Mission Statment</a>
+            <a href='#mission-statement'>Mission Statement</a>
           </li>
           <li className='navbar-item'>
             <a href='#tech-used'>Tech Stack</a>
