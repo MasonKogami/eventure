@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import './LandingPage.css';
-import LoginForm from '../auth/LoginForm';
-import SignUpForm from '../auth/SignUpForm';
+// import LoginForm from '../auth/LoginForm';
+// import SignUpForm from '../auth/SignUpForm';
 // import Modal from '../Modal/Modal';
 // import AboutMe from "../AboutMe/AboutMe";
 import { SiRender } from "react-icons/si";
@@ -9,35 +8,35 @@ import LandingPageNavBar from './LandingPage-NavBar';
 
 const LandingPage = () => {
 
-  const [loginDisplay, setLoginDisplay] = useState('not-displayed');
-  const [signupDisplay, setSignupDisplay] = useState('not-displayed');
+  // const [loginDisplay, setLoginDisplay] = useState('not-displayed');
+  // const [signupDisplay, setSignupDisplay] = useState('not-displayed');
 
-  const changeLoginDisplay = () => {
-    if (loginDisplay === 'not-displayed') {
-        window.scrollTo(0, document.body.scrollHeight / 3)
-        setLoginDisplay('displayed')
-    } else if (loginDisplay === 'displayed') {
-        setLoginDisplay('not-displayed')
-    } else if (signupDisplay === 'displayed') {
-        setLoginDisplay('not-displayed')
-    }
-  };
+  // const changeLoginDisplay = () => {
+  //   if (loginDisplay === 'not-displayed') {
+  //       window.scrollTo(0, document.body.scrollHeight / 3)
+  //       setLoginDisplay('displayed')
+  //   } else if (loginDisplay === 'displayed') {
+  //       setLoginDisplay('not-displayed')
+  //   } else if (signupDisplay === 'displayed') {
+  //       setLoginDisplay('not-displayed')
+  //   }
+  // };
 
-  const changeSignupDisplay = () => {
-    if (signupDisplay === 'not-displayed') {
-        window.scrollTo(0, document.body.scrollHeight / 3)
-        setSignupDisplay('displayed')
-    } else if (signupDisplay === 'displayed') {
-        setSignupDisplay('not-displayed')
-    } else if (loginDisplay === 'displayed') {
-        setSignupDisplay('not-displayed')
-    }
-  };
+  // const changeSignupDisplay = () => {
+  //   if (signupDisplay === 'not-displayed') {
+  //       window.scrollTo(0, document.body.scrollHeight / 3)
+  //       setSignupDisplay('displayed')
+  //   } else if (signupDisplay === 'displayed') {
+  //       setSignupDisplay('not-displayed')
+  //   } else if (loginDisplay === 'displayed') {
+  //       setSignupDisplay('not-displayed')
+  //   }
+  // };
 
-  const toggleLoginSignupFunc = () => {
-    changeLoginDisplay();
-    changeSignupDisplay();
-  };
+  // const toggleLoginSignupFunc = () => {
+  //   changeLoginDisplay();
+  //   changeSignupDisplay();
+  // };
 
   return (
     <div className='landingpage-con'>
@@ -49,7 +48,7 @@ const LandingPage = () => {
       <div className='landingpage-cover'>
         <img alt='mp-cover' src='https://eventbrite-s3.s3.amazonaws.com/marketing/landingpages/assets/About-Header.jpg' />
       </div>
-      <div className='user-forms'>
+      {/* <div className='user-forms'>
         <button className='user-buttons' onClick={changeLoginDisplay}>Log In</button>
         <button className='user-buttons' onClick={changeSignupDisplay}>Sign Up</button>
         <div className={`modal-background-home-page ${loginDisplay}`} onMouseDown={changeLoginDisplay}>
@@ -58,7 +57,7 @@ const LandingPage = () => {
         <div className={`modal-background-home-page ${signupDisplay}`} onMouseDown={changeSignupDisplay}>
           <SignUpForm closeModalFunc={changeSignupDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
         </div>
-      </div>
+      </div> */}
       {/* <div className='lb-ctn'>
         <button
           className='lb-v2'
