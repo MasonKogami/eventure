@@ -67,6 +67,22 @@ const LandingPage = () => {
       <div className='reason1-img-ctn'>
         <img alt='reason-1' src='https://cdn.evbstatic.com/s3-build/fe/build/images/7240401618ed7526be7cec3b43684583-2_tablet_1067x470.jpg' className='reason1'/>
       </div>
+      <div className='r2'>
+        <p className='p3'>Explore anywhere.</p>
+        <p className='p4'>Discover your next adventure and see where it takes you.</p>
+      </div>
+      <div className='reason2-img-ctn'>
+        <img alt='reason-2' src='https://cdn.evbstatic.com/s3-build/fe/build/images/6aaf4a36e35b1b71bc077e200ac7429c-1_tablet_1067x470.jpg' className='reason2'/>
+      </div>
+      <div className='r3'>
+        <div className='r3-bg'>
+          <p className='p5'>Connect with others.</p>
+          <p className='p6'>Remember to be kind and love one another.</p>
+        </div>
+      </div>
+      <div className='reason3-img-ctn'>
+        <img alt='reason-3' src='https://cdn.evbstatic.com/s3-build/fe/build/images/c7befabb4613c322b8708745f3f6a1fe-7_tablet_1067x470.jpg' className='reason3'/>
+      </div>
       <div className='btm-split-section' id='tech-used'>
         <div className='tech-section'>        
           <h3 id='tech-used'>Technology Used:</h3>
