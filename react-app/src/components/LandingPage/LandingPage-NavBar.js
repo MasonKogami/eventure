@@ -31,9 +31,9 @@ const LandingPageNavBar = () => {
           <li className='navbar-item'>
             <a href='/signup'>Signup</a>
           </li>
-          <li className='navbar-item'>
+          {/* <li className='navbar-item'>
             <a href='#mission-statement'>Mission Statement</a>
-          </li>
+          </li> */}
           <li className='navbar-item'>
             <a href='#tech-used'>Tech Stack</a>
           </li>

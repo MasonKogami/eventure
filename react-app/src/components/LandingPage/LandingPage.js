@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './LandingPage.css';
 import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
-import { useHistory } from 'react-router-dom';
 // import Modal from '../Modal/Modal';
 // import AboutMe from "../AboutMe/AboutMe";
 import { SiRender } from "react-icons/si";
@@ -12,7 +11,6 @@ const LandingPage = () => {
 
   const [loginDisplay, setLoginDisplay] = useState('not-displayed');
   const [signupDisplay, setSignupDisplay] = useState('not-displayed');
-  const history = useHistory();
 
   const changeLoginDisplay = () => {
     if (loginDisplay === 'not-displayed') {
@@ -46,7 +44,7 @@ const LandingPage = () => {
       <LandingPageNavBar />
       <div className='lp-title-ctn'>
        <h2 className='landingpage-title'>Bringing the world together through live experiences.</h2>
-       <h3 className='cta' id='mission-statement'>Discover your next adventure.</h3>
+       <h3 className='cta'>Discover your next adventure.</h3>
       </div>
       <div className='landingpage-cover'>
         <img alt='mp-cover' src='https://eventbrite-s3.s3.amazonaws.com/marketing/landingpages/assets/About-Header.jpg' />
@@ -61,7 +59,7 @@ const LandingPage = () => {
           <SignUpForm closeModalFunc={changeSignupDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
         </div>
       </div>
-      <div className='lb-ctn'>
+      {/* <div className='lb-ctn'>
         <button
           className='lb-v2'
           onClick={ async () => { history.push("/login") }}
@@ -70,10 +68,7 @@ const LandingPage = () => {
           className='lb-v2'
           onClick={ async () => { history.push("/signup") }}
         >Sign Up</button>
-      </div>
-      <div className='mission-statement'>
-        <p style={{marginBottom: '0px'}}>Eventure is a global self-service ticketing platform for live experiences that allows anyone to create, share, find and attend events that fuel their passions and enrich their lives. From music festivals, marathons, conferences, community rallies, and fundraisers, to gaming competitions and air guitar contests. Our mission is to bring the world together through live experiences.</p>
-      </div>
+      </div> */}
       <div className='r1'>
         <p className='p1'>Browse through thousands of live experiences.</p>
         <p className='p2'>Find your passion through music, marathons, and more.</p>
@@ -96,6 +91,9 @@ const LandingPage = () => {
       </div>
       <div className='reason3-img-ctn'>
         <img alt='reason-3' src='https://cdn.evbstatic.com/s3-build/fe/build/images/c7befabb4613c322b8708745f3f6a1fe-7_tablet_1067x470.jpg' className='reason3'/>
+      </div>
+      <div className='mission-statement'>
+        <p style={{marginBottom: '0px'}}>Eventure is a global self-service ticketing platform for live experiences that allows anyone to create, share, find and attend events that fuel their passions and enrich their lives. From music festivals, marathons, conferences, community rallies, and fundraisers, to gaming competitions and air guitar contests. Our mission is to bring the world together through live experiences.</p>
       </div>
       <div className='btm-split-section' id='tech-used'>
         <div className='tech-section'>        
