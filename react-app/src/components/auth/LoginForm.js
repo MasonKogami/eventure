@@ -54,7 +54,7 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
           onClick={ async () => { user ? history.push("/home") : history.push("/") }}
         >Eventure</button>
         {/* <h2 style={{fontSize: '18px', height: '22px', marginBottom: '5px', position: 'relative', left: '46px', color: '#d1410c'}}>Eventure</h2> */}
-        <h2 style={{color: '#39364f', fontWeight: 'bolder', fontSize: '35px', marginBottom: '10px', position: 'relative', left: '38px', marginTop: '15px'}}>
+        <h2 className='login-title'>
           Log in</h2>
         <form onSubmit={onLogin} className='login-form'>
           <div>
