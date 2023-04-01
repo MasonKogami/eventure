@@ -62,11 +62,11 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
               <div style={{color: '#d1410c'}} key={ind}>{error}</div>
             ))}
           </div>
+          <label>
+            Email Address
+          </label>
           <div className='email-field'>
-            <div style={{marginLeft: '8px'}}>
-              <label>
-                Email
-              </label>
+            <div style={{paddingLeft: '8px'}}>
               {/* <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
                 Required *
               </label> */}
@@ -76,14 +76,14 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
               type='text'
               value={email}
               onChange={updateEmail}
-              style={{height: '35px', width: '250px'}}
+              className='email-input'
             />
           </div>
+          <label>
+            Password
+          </label>
           <div className='password-field'>
             <div>
-              <label>
-                Password
-              </label>
               {/* <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
                 Required *
               </label> */}
@@ -93,7 +93,7 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
               type={showPassword ? "text" : "password"}
               value={password}
               onChange={updatePassword}
-              style={{height: '35px', width: '250px', position: 'relative'}}
+              className='password-input'
             />
             <div onClick={togglePassword} className='eye-btn'>
               { showPassword? <FaEyeSlash /> : <FaEye /> }
@@ -115,16 +115,17 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
             Demo User
           </button>
         </div>
-        <div>
+        {/* <div className='return-to-lp'>
           <button
             onClick={ async () => {
               history.push("/")
             }}
           >Back</button>
-        </div>
-        <div className='toggle-signup' onClick={toggleLoginSignupFunc}>Sign Up</div>
+        </div> */}
+        {/* <div className='toggle-signup' onClick={toggleLoginSignupFunc}>Sign Up</div> */}
         <button 
           onClick={ async () => { history.push("/signup") }}
+          className='toggle-signup'
         >Sign Up</button>
       </div>
       <div className='split-scrn-img'>
