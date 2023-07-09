@@ -48,88 +48,79 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
 
   return (
     <div className='split-scrn-ctn'>
-      <div className='login-body'>
-        <button
-          className='login-home-btn'
-          onClick={ async () => { user ? history.push("/home") : history.push("/") }}
-        >Eventure</button>
-        {/* <h2 style={{fontSize: '18px', height: '22px', marginBottom: '5px', position: 'relative', left: '46px', color: '#d1410c'}}>Eventure</h2> */}
-        <h2 className='login-title'>
-          Log in</h2>
-        <form onSubmit={onLogin} className='login-form'>
-          <div>
-            {errors.map((error, ind) => (
-              <div style={{color: '#d1410c'}} key={ind}>{error}</div>
-            ))}
+      <div className='login-body-ctn'>
+        <div className='login-body'>
+          <div className='title-ctn'>
+            <button
+              className='login-home-btn'
+              onClick={ async () => { user ? history.push("/home") : history.push("/") }}
+            >Eventure</button>
+            <h2 className='login-title'>
+              Log in</h2>
           </div>
-          <label>
-            Email Address
-          </label>
-          <div className='email-field'>
-            <div style={{paddingLeft: '8px'}}>
-              {/* <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
-                Required *
-              </label> */}
-            </div>
-            <input
-              name='email'
-              type='text'
-              value={email}
-              onChange={updateEmail}
-              className='email-input'
-            />
-          </div>
-          <label>
-            Password
-          </label>
-          <div className='password-field'>
+          <form onSubmit={onLogin} className='login-form'>
             <div>
-              {/* <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
-                Required *
-              </label> */}
+              {errors.map((error, ind) => (
+                <div style={{color: '#d1410c'}} key={ind}>{error}</div>
+              ))}
             </div>
-            <input
-              name='password'
-              type={showPassword ? "text" : "password"}
-              value={password}
-              onChange={updatePassword}
-              className='password-input'
-            />
-            <div onClick={togglePassword} className='eye-btn'>
-              { showPassword? <FaEyeSlash /> : <FaEye /> }
+            <label>
+              Email Address
+            </label>
+            <div className='email-field'>
+              <div style={{paddingLeft: '8px'}}>
+                {/* <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
+                  Required *
+                </label> */}
+              </div>
+              <input
+                name='email'
+                type='text'
+                value={email}
+                onChange={updateEmail}
+                className='email-input'
+              />
             </div>
+            <label>
+              Password
+            </label>
+            <div className='password-field'>
+              <div>
+                {/* <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
+                  Required *
+                </label> */}
+              </div>
+              <input
+                name='password'
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={updatePassword}
+                className='password-input'
+              />
+              <div onClick={togglePassword} className='eye-btn'>
+                { showPassword? <FaEyeSlash /> : <FaEye /> }
+              </div>
+            </div>
+            <div className='submit-button'>
+              <button className='sub-btn' type='submit'>Log in</button>
+            </div>
+          </form>
+          <div className='or-divider'>or</div>
+          <div className='or-line'></div>
+          <div className='demo-button'>
+            <button className='demo-btn' onClick={ 
+                () => redirectOnLogin()
+              }>
+              Demo User
+            </button>
           </div>
-          <div className='submit-button'>
-            <button className='sub-btn' type='submit'>Log in</button>
-          </div>
-        </form>
-        {/* <button onClick={togglePassword} className='password-vis-btn'>
-          { showPassword? <FaEyeSlash /> : <FaEye /> }
-        </button> */}
-        <div className='or-divider'>or</div>
-        <div className='or-line'></div>
-        <div className='demo-button'>
-          <button className='demo-btn' onClick={ 
-              () => redirectOnLogin()
-            }>
-            Demo User
-          </button>
+          <button 
+            onClick={ async () => { history.push("/signup") }}
+            className='toggle-signup'
+          >Sign Up</button>
         </div>
-        {/* <div className='return-to-lp'>
-          <button
-            onClick={ async () => {
-              history.push("/")
-            }}
-          >Back</button>
-        </div> */}
-        {/* <div className='toggle-signup' onClick={toggleLoginSignupFunc}>Sign Up</div> */}
-        <button 
-          onClick={ async () => { history.push("/signup") }}
-          className='toggle-signup'
-        >Sign Up</button>
       </div>
       <div className='split-scrn-img'>
-        <img alt='' src="https://cdn.evbstatic.com/s3-build/perm_001/530d34/django/images/login/lateral-image-2.jpg"></img>
       </div>
     </div>
   );

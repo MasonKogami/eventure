@@ -1,8 +1,7 @@
-.split-scrn-ctn {
+/* .split-scrn-ctn {
   display: flex;
   height: 100vh;
   width: 100%;
-  /* justify-content: space-evenly; */
 }
 
 .split-scrn-img {
@@ -12,10 +11,8 @@
   flex-direction: column;
   height: 100%;
   min-height: 80vh;
-  /* height: 700px; */
   width: 100%;
   min-width: 50%;
-  /* padding: 115px; */
 }
 
 .split-scrn-img > img {
@@ -29,9 +26,6 @@
   padding-left: 115px;
   padding-right: 115px;
   margin-left: 90px;
-  /* box-shadow: 0 0 12px rgba(0, 0, 0, 0.5); */
-  /* position: relative;
-  top: 5px; */
   height: 100%;
   min-height: 60vh;
   display: flex;
@@ -41,12 +35,54 @@
   width: 70%;
 }
 
+*/
+.split-scrn-ctn {
+  display: flex;
+  height: 100vh;
+}
+
+.login-body-ctn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.login-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3%;
+}
+
+.split-scrn-img {
+  flex: 1;
+  background-image: url("https://cdn.evbstatic.com/s3-build/perm_001/1bab52/django/images/login/lateral-image-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0;
+}
+
+.split-scrn-img > .sp-sc-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.title-ctn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+}
+
 .login-title {
+  display: flex;
   color: #39364f;
   font-weight: bolder;
   font-size: 52px;
   margin-bottom: 10px;
   margin-top: 15px;
+  /* width: 67.5%; */
 }
 
 .login-home-btn {
@@ -54,7 +90,7 @@
   justify-content: flex-start;
   border: none;
   background-color: #ffff;
-  color: #d1410c;
+  color: #ff8000;
   font-size: 30px;
   font-weight: bolder;
   width: 65%;
@@ -114,25 +150,22 @@ label {
   height: 44px;
 }
 
-.login-form {
+/* .login-form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  /* height: 200px; */
-  width: 350px;
+  width: 50%;
   gap: 15px;
-}
+} */
 
 .toggle-signup {
   display: flex;
-  /* justify-content: center; */
+  justify-content: flex-start;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   color: #3659e3;
   position: relative;
   margin-top: 15px;
-  width: 100%;
   border: none;
   background-color: #ffff;
 }
@@ -161,7 +194,7 @@ label {
   background-color: #e25822;
 }
 
-.or-line {
+/* .or-line {
   position: relative;
   left: 0px;
   width: 100%;
@@ -169,7 +202,7 @@ label {
   margin-bottom: 30px;
   border: 0.5px solid #a9a8b3;
   z-index: -1;
-}
+} */
 
 .or-divider {
   color: #6f7287;

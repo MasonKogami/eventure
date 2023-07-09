@@ -14,8 +14,8 @@ html {
 }
 
 @font-face {
-  font-family: 'Oswald', sans-serif;
-  src: url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+  font-family: 'Poppins', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 }
 
 body {
@@ -32,7 +32,7 @@ body {
   height: 100%;
   min-height: 100vh;
   min-width: 100vh;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 16 px;
 }
