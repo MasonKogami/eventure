@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createEvent } from '../../store/events';
@@ -30,6 +30,10 @@ const NewEvent = () => {
   const [image, setImage] = useState('');
   const [photoPreview, setPhotoPreview] = useState('#')
   const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    document.title = 'Eventure - Create a new event';
+  }, []);
 
   const imageStyle = {
     width: "400px",
