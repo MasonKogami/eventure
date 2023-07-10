@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
@@ -13,6 +13,10 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
   const dispatch = useDispatch();
   const [showPassword, setPasswordVisibility] = useState(false);
   const history = useHistory();
+
+  useEffect(() => {
+    document.title = 'Eventure - Log In or Sign Up';
+  }, []);
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -29,10 +33,6 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
-
-  // if (user) {
-  //   return <Redirect to='/home' />;
-  // }
 
   const redirectOnLogin = () => {
     dispatch(login('demo@aa.io', 'password'))
@@ -64,22 +64,24 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
                 <div style={{color: '#d1410c'}} key={ind}>{error}</div>
               ))}
             </div>
-            <label>
-              Email Address
-            </label>
-            <div className='email-field'>
-              <div style={{paddingLeft: '8px'}}>
-                {/* <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
-                  Required *
-                </label> */}
+            <div className='email-input-ctn'>
+              <label>
+                Email Address
+              </label>
+              <div className='email-field'>
+                <div>
+                  {/* <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
+                    Required *
+                  </label> */}
+                </div>
+                <input
+                  name='email'
+                  type='text'
+                  value={email}
+                  onChange={updateEmail}
+                  className='email-input'
+                />
               </div>
-              <input
-                name='email'
-                type='text'
-                value={email}
-                onChange={updateEmail}
-                className='email-input'
-              />
             </div>
             <label>
               Password
@@ -105,8 +107,10 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
               <button className='sub-btn' type='submit'>Log in</button>
             </div>
           </form>
-          <div className='or-divider'>or</div>
-          <div className='or-line'></div>
+          <div className='divider'>
+            <div className='or-divider'>or</div>
+            <div className='or-line'></div>
+          </div>
           <div className='demo-button'>
             <button className='demo-btn' onClick={ 
                 () => redirectOnLogin()
