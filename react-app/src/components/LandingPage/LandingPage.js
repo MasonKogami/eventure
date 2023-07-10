@@ -1,42 +1,13 @@
+import { useEffect } from 'react';
 import './LandingPage.css';
-// import LoginForm from '../auth/LoginForm';
-// import SignUpForm from '../auth/SignUpForm';
-// import Modal from '../Modal/Modal';
-// import AboutMe from "../AboutMe/AboutMe";
 import { SiRender } from "react-icons/si";
 import LandingPageNavBar from './LandingPage-NavBar';
 
 const LandingPage = () => {
 
-  // const [loginDisplay, setLoginDisplay] = useState('not-displayed');
-  // const [signupDisplay, setSignupDisplay] = useState('not-displayed');
-
-  // const changeLoginDisplay = () => {
-  //   if (loginDisplay === 'not-displayed') {
-  //       window.scrollTo(0, document.body.scrollHeight / 3)
-  //       setLoginDisplay('displayed')
-  //   } else if (loginDisplay === 'displayed') {
-  //       setLoginDisplay('not-displayed')
-  //   } else if (signupDisplay === 'displayed') {
-  //       setLoginDisplay('not-displayed')
-  //   }
-  // };
-
-  // const changeSignupDisplay = () => {
-  //   if (signupDisplay === 'not-displayed') {
-  //       window.scrollTo(0, document.body.scrollHeight / 3)
-  //       setSignupDisplay('displayed')
-  //   } else if (signupDisplay === 'displayed') {
-  //       setSignupDisplay('not-displayed')
-  //   } else if (loginDisplay === 'displayed') {
-  //       setSignupDisplay('not-displayed')
-  //   }
-  // };
-
-  // const toggleLoginSignupFunc = () => {
-  //   changeLoginDisplay();
-  //   changeSignupDisplay();
-  // };
+  useEffect(() => {
+    document.title = 'Eventure - Bringing the world together through live experiences';
+  }, []);
 
   return (
     <div className='landingpage-con'>
@@ -48,26 +19,6 @@ const LandingPage = () => {
       <div className='landingpage-cover'>
         <img alt='mp-cover' src='https://eventbrite-s3.s3.amazonaws.com/marketing/landingpages/assets/About-Header.jpg' />
       </div>
-      {/* <div className='user-forms'>
-        <button className='user-buttons' onClick={changeLoginDisplay}>Log In</button>
-        <button className='user-buttons' onClick={changeSignupDisplay}>Sign Up</button>
-        <div className={`modal-background-home-page ${loginDisplay}`} onMouseDown={changeLoginDisplay}>
-          <LoginForm closeModalFunc={changeLoginDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
-        </div>
-        <div className={`modal-background-home-page ${signupDisplay}`} onMouseDown={changeSignupDisplay}>
-          <SignUpForm closeModalFunc={changeSignupDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
-        </div>
-      </div> */}
-      {/* <div className='lb-ctn'>
-        <button
-          className='lb-v2'
-          onClick={ async () => { history.push("/login") }}
-        >Log In</button>
-        <button
-          className='lb-v2'
-          onClick={ async () => { history.push("/signup") }}
-        >Sign Up</button>
-      </div> */}
       <div className='r1'>
         <p className='p1'>Browse through thousands of live experiences.</p>
         <p className='p2'>Find your passion through music, marathons, and more.</p>
