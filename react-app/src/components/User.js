@@ -21,6 +21,10 @@ function User() {
     dispatch(readAllEvents())
   }, [dispatch, sessionUser]);
 
+  useEffect(() => {
+    document.title = 'Eventure - My Tickets';
+  }, []);
+
   // useEffect(() => {
   //   if (!userId) {
   //     return;

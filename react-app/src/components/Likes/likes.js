@@ -16,6 +16,10 @@ const Likes = () => {
     dispatch(readAllEvents());
   }, [dispatch]);
 
+  useEffect(() => {
+    document.title = 'Eventure - My Likes';
+  }, []);
+
   return (
     <div className='likes-page'>
       <h2 className='likes-title'>Likes</h2>

@@ -16,6 +16,10 @@ const EventListings = () => {
     dispatch(grabLikes())
   }, [dispatch]);
 
+  useEffect(() => {
+    document.title = 'Eventure - Discover Great Events or Create Your Own & Sell Tickets';
+  }, []);
+
   return (
     <>
       <div className='event-div'>

@@ -1,64 +1,23 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import './LandingPage.css';
-import LoginForm from '../auth/LoginForm';
-import SignUpForm from '../auth/SignUpForm';
 import { SiRender } from "react-icons/si";
 import LandingPageNavBar from './LandingPage-NavBar';
 
 const LandingPage = () => {
 
-  const [loginDisplay, setLoginDisplay] = useState('not-displayed');
-  const [signupDisplay, setSignupDisplay] = useState('not-displayed');
-
-  const changeLoginDisplay = () => {
-    if (loginDisplay === 'not-displayed') {
-        window.scrollTo(0, document.body.scrollHeight / 3)
-        setLoginDisplay('displayed')
-    } else if (loginDisplay === 'displayed') {
-        setLoginDisplay('not-displayed')
-    } else if (signupDisplay === 'displayed') {
-        setLoginDisplay('not-displayed')
-    }
-  };
-
-  const changeSignupDisplay = () => {
-    if (signupDisplay === 'not-displayed') {
-        window.scrollTo(0, document.body.scrollHeight / 3)
-        setSignupDisplay('displayed')
-    } else if (signupDisplay === 'displayed') {
-        setSignupDisplay('not-displayed')
-    } else if (loginDisplay === 'displayed') {
-        setSignupDisplay('not-displayed')
-    }
-  };
-
-  const toggleLoginSignupFunc = () => {
-    changeLoginDisplay();
-    changeSignupDisplay();
-  };
+  useEffect(() => {
+    document.title = 'Eventure - Bringing the world together through live experiences';
+  }, []);
 
   return (
     <div className='landingpage-con'>
       <LandingPageNavBar />
       <div className='lp-title-ctn'>
        <h2 className='landingpage-title'>Bringing the world together through live experiences.</h2>
-       <h3 className='cta' id='mission-statement'>Discover your next adventure.</h3>
+       <h3 className='cta'>Discover your next adventure.</h3>
       </div>
       <div className='landingpage-cover'>
         <img alt='mp-cover' src='https://eventbrite-s3.s3.amazonaws.com/marketing/landingpages/assets/About-Header.jpg' />
-      </div>
-      <div className='user-forms'>
-        <button className='user-buttons' onClick={changeLoginDisplay}>Log In</button>
-        <button className='user-buttons' onClick={changeSignupDisplay}>Sign Up</button>
-        <div className={`modal-background-home-page ${loginDisplay}`} onMouseDown={changeLoginDisplay}>
-          <LoginForm closeModalFunc={changeLoginDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
-        </div>
-        <div className={`modal-background-home-page ${signupDisplay}`} onMouseDown={changeSignupDisplay}>
-          <SignUpForm closeModalFunc={changeSignupDisplay} toggleLoginSignupFunc={toggleLoginSignupFunc} />
-        </div>
-      </div>
-      <div className='mission-statement'>
-        <p style={{marginBottom: '0px'}}>Eventure is a global self-service ticketing platform for live experiences that allows anyone to create, share, find and attend events that fuel their passions and enrich their lives. From music festivals, marathons, conferences, community rallies, and fundraisers, to gaming competitions and air guitar contests. Our mission is to bring the world together through live experiences.</p>
       </div>
       <div className='r1'>
         <p className='p1'>Browse through thousands of live experiences.</p>
@@ -82,6 +41,9 @@ const LandingPage = () => {
       </div>
       <div className='reason3-img-ctn'>
         <img alt='reason-3' src='https://cdn.evbstatic.com/s3-build/fe/build/images/c7befabb4613c322b8708745f3f6a1fe-7_tablet_1067x470.jpg' className='reason3'/>
+      </div>
+      <div className='mission-statement'>
+        <p style={{marginBottom: '0px'}}>Eventure is a global self-service ticketing platform for live experiences that allows anyone to create, share, find and attend events that fuel their passions and enrich their lives. From music festivals, marathons, conferences, community rallies, and fundraisers, to gaming competitions and air guitar contests. Our mission is to bring the world together through live experiences.</p>
       </div>
       <div className='btm-split-section' id='tech-used'>
         <div className='tech-section'>        
