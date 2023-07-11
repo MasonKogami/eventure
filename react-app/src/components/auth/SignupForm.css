@@ -1,3 +1,8 @@
+.split-scrn-ctn {
+  display: flex;
+  height: 110vh;
+}
+
 .signup-body-ctn {
   display: flex;
   justify-content: center;
@@ -12,7 +17,7 @@
 }
 
 .signup-form {
-  padding-top: 60px;
+  padding-top: 40px;
 }
 
 label {

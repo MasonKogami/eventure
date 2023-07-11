@@ -73,9 +73,9 @@ const SignUpForm = () => {
               Sign Up</h2>
           </div>
           <form onSubmit={onSignUp} className='signup-form'>
-            <div style={{fontSize: '14px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <div style={{fontSize: '14px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '80%'}}>
               {errors.map((error, ind) => (
-                <div style={{color: '#d1410c'}} key={ind}>{error}</div>
+                <div style={{color: '#d1410c', padding: '5px 0px'}} key={ind}>{error}</div>
               ))}
             </div>
             <label>

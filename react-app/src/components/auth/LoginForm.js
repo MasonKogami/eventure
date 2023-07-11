@@ -61,7 +61,7 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
           <form onSubmit={onLogin} className='login-form'>
             <div>
               {errors.map((error, ind) => (
-                <div style={{color: '#d1410c'}} key={ind}>{error}</div>
+                <div style={{color: '#d1410c', padding: '5px 0px'}} key={ind}>{error}</div>
               ))}
             </div>
             <label>
