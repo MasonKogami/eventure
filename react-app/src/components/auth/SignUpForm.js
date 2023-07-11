@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -16,6 +16,10 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
   const [signupDisplay] = useState('displayed');
   const [showPassword, setPasswordVisibility] = useState(false);
   const history = useHistory();
+
+  useEffect(() => {
+    document.title = 'Eventure - Log In or Sign Up';
+  }, []);
 
   const onSignUp = async (e) => {
     e.preventDefault();
