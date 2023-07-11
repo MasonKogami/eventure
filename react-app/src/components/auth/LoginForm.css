@@ -82,6 +82,7 @@
   font-size: 52px;
   margin-bottom: 10px;
   margin-top: 15px;
+  line-height: 4rem;
   /* width: 67.5%; */
 }
 
@@ -102,12 +103,6 @@
   color: #e25822;
 }
 
-.email-field {
-  border: solid 1px #ccc;
-  width: 100%;
-  height: 46px;
-}
-
 /* .email-field input {
   border: none;
   font-size: 12px;
@@ -123,11 +118,11 @@ label {
   line-height: 22px;
 }
 
-.email-input-ctn {
+.form-ctn {
   margin-bottom: 8px;
 }
 
-.email-input {
+.form-input {
   border: none;
   font-size: 14px;
   outline: 0;
@@ -139,9 +134,15 @@ label {
   min-height: 22px;
 }
 
+.form-field {
+  border: solid 1px #ccc;
+  position: relative;
+  width: 100%;
+  height: 46px;
+}
+
 .password-field {
   border: solid 1px #ccc;
-  /* padding: 0 8px; */
   position: relative;
   width: 100%;
   height: 46px;

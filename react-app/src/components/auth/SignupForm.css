@@ -1,20 +1,46 @@
+.signup-body-ctn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
 .signup-body {
-  background-color: #ffff;
-  padding: 15px;
-  /* box-shadow: 0 0 12px rgba(0, 0, 0, 0.5); */
-  position: relative;
-  top: 5px;
-  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .signup-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* height: 200px; */
-  width: 350px;
-  gap: 15px;
+  padding-top: 60px;
+}
+
+label {
+  color: #6f7287;
+  color: var(--eds-ui-600,#6f7287);
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.form-ctn {
+  margin-bottom: 8px;
+}
+
+.form-input {
+  border: none;
+  font-size: 14px;
+  outline: 0;
+  height: 44px;
+  width: 346px;
+  line-height: 12px;
+  font-size: 14px;
+}
+
+.form-field {
+  border: solid 1px #ccc;
+  position: relative;
+  width: 100%;
+  height: 46px;
 }
 
 .username-field {
@@ -76,31 +102,20 @@
   background-color: #e25822;
 }
 
-.or-divider2 {
-  color: #6f7287;
-  border: 1px solid #a9a8b3;
-  padding: 5px 10px;
-  text-align: center;
-  border-radius: 16px;
-  width: 40px;
-  height: 15px;
-  font-size: 14px;
-  position: relative;
-  top: 24px;
-  left: 145px;
-  z-index: 5;
+.demo-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
 }
 
-.cancel-btn {
+.demo-btn {
   cursor: pointer;
   background-color: #ffffff;
   color: #39364f;
   border-radius: 4px;
   border: 1px solid #dbdae3;
   height: 35px;
-  width: 270px;
-}
-
-.cancel-btn:hover {
-  background-color: rgb(240, 241, 242);
+  width: 100%;
 }

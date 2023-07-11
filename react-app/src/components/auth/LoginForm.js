@@ -64,44 +64,36 @@ const LoginForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
                 <div style={{color: '#d1410c'}} key={ind}>{error}</div>
               ))}
             </div>
-            <div className='email-input-ctn'>
-              <label>
-                Email Address
-              </label>
-              <div className='email-field'>
-                <div>
-                  {/* <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
-                    Required *
-                  </label> */}
-                </div>
+            <label>
+              Email Address
+            </label>
+            <div className='form-ctn'>
+              <div className='form-field'>
                 <input
                   name='email'
                   type='text'
                   value={email}
                   onChange={updateEmail}
-                  className='email-input'
+                  className='form-input'
                 />
               </div>
             </div>
             <label>
               Password
             </label>
-            <div className='password-field'>
-              <div>
-                {/* <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
-                  Required *
-                </label> */}
-              </div>
-              <input
-                name='password'
-                type={showPassword ? "text" : "password"}
-                value={password}
-                onChange={updatePassword}
-                className='password-input'
-              />
-              <div onClick={togglePassword} className='eye-btn'>
-                { showPassword? <FaEyeSlash /> : <FaEye /> }
-              </div>
+            <div className='form-ctn'>
+              <div className='password-field'>
+                <input
+                  name='password'
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={updatePassword}
+                  className='form-input'
+                />
+                <div onClick={togglePassword} className='eye-btn'>
+                  { showPassword? <FaEyeSlash /> : <FaEye /> }
+                </div>
+            </div>
             </div>
             <div className='submit-button'>
               <button className='sub-btn' type='submit'>Log in</button>

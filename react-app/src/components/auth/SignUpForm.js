@@ -3,9 +3,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
+import { login } from '../../store/session';
 import './SignupForm.css';
 
-const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
+const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -13,7 +14,6 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  const [signupDisplay] = useState('displayed');
   const [showPassword, setPasswordVisibility] = useState(false);
   const history = useHistory();
 
@@ -26,12 +26,6 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
     
     const data = await dispatch(signUp(username, email, password, confirmPassword));
     if (data) setErrors(data);
-  };
-
-  const closeSignupModal = () => {
-    window.scrollTo(0,0);
-    closeModalFunc();
-    setErrors([]);
   };
 
   const updateUsername = (e) => {
@@ -57,116 +51,120 @@ const SignUpForm = ({ closeModalFunc, toggleLoginSignupFunc }) => {
   const togglePassword = () => {
 
     setPasswordVisibility(!showPassword);
-  }
+  };
 
-  const stopTheProp = e => e.stopPropagation();
+  const redirectOnLogin = () => {
+    dispatch(login('demo@aa.io', 'password'))
+    .then(() => {
+      history.push("/home")
+    })
+  };
 
   return (
-    <div className={`signup-body ${signupDisplay}`} onClick={stopTheProp} onMouseDown={stopTheProp}>
-      <h2 style={{color: '#39364f', fontWeight: 'bolder', fontSize: '35px', marginBottom: '10px', position: 'relative', left: '38px'}}>
-        Sign Up</h2>
-      <form onSubmit={onSignUp} className='signup-form'>
-        <div style={{fontSize: '14px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-          {errors.map((error, ind) => (
-            <div style={{color: '#d1410c'}} key={ind}>{error}</div>
-          ))}
-        </div>
-        <div className='username-field'>
-          <div style={{marginLeft: '7.5px'}}>
+    <div className='split-scrn-ctn'>
+      <div className='signup-body-ctn'>
+        <div className='signup-body'>
+          <div className='title-ctn'>
+            <button
+                  className='login-home-btn'
+                  onClick={ async () => { user ? history.push("/home") : history.push("/") }}
+                >Eventure</button>
+            <h2 className='login-title'>
+              Sign Up</h2>
+          </div>
+          <form onSubmit={onSignUp} className='signup-form'>
+            <div style={{fontSize: '14px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+              {errors.map((error, ind) => (
+                <div style={{color: '#d1410c'}} key={ind}>{error}</div>
+              ))}
+            </div>
             <label>
               Username
             </label>
-            {/* <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
-              Required *
-            </label> */}
-          </div>
-          <input
-            type='text'
-            name='username'
-            onChange={updateUsername}
-            value={username}
-            required={true}
-            style={{height: '35px', width: '250px'}}
-          ></input>
-        </div>
-        <div className='email-field'>
-          <div style={{marginLeft: '7.5px'}}>
-            <label>
-              Email
-            </label>
-            {/* <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
-              Required *
-            </label> */}
-          </div>
-          <input
-            type='text'
-            name='email'
-            onChange={updateEmail}
-            value={email}
-            required={true}
-            style={{height: '35px', width: '250px'}}
-          ></input>
-        </div>
-        <div className='password-field'>
-          <div>
+            <div className='form-ctn'>
+              <div className='form-field'>
+                <input
+                  type='text'
+                  name='username'
+                  onChange={updateUsername}
+                  value={username}
+                  required={true}
+                  className='form-input'
+                ></input>
+              </div>
+            </div>
+            <div className='form-ctn'>
+              <label>
+                Email
+              </label>
+              <div className='form-field'>
+                <input
+                  type='text'
+                  name='email'
+                  onChange={updateEmail}
+                  value={email}
+                  required={true}
+                  className='form-input'
+                ></input>
+              </div>
+            </div>
             <label>
               Password
             </label>
-            {/* <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
-              Required *
-            </label> */}
-          </div>
-          <input
-            type={showPassword ? "text" : "password"}
-            name='password'
-            onChange={updatePassword}
-            value={password}
-            required={true}
-            style={{height: '35px', width: '250px'}}
-          />
-          <div onClick={togglePassword} className='eye-btn'>
-            { showPassword? <FaEyeSlash /> : <FaEye /> }
-          </div>
-        </div>
-        <div className='password-field'>
-          <div>
+            <div className='form-ctn'>
+              <div className='password-field'>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name='password'
+                  onChange={updatePassword}
+                  value={password}
+                  required={true}
+                  className='form-input'
+                />
+                <div onClick={togglePassword} className='eye-btn'>
+                  { showPassword? <FaEyeSlash /> : <FaEye /> }
+                </div>
+              </div>
+            </div>
             <label>
               Confirm
             </label>
-            {/* <label style={{fontSize: '12px', color: '#d1410c', marginLeft: '8px'}}>
-              Required *
-            </label> */}
+            <div className='password-field'>
+              <input
+                type={showPassword ? "text" : "password"}
+                name='repeat_password'
+                onChange={updateRepeatPassword}
+                value={confirmPassword}
+                required={true}
+                className='form-input'
+              />
+              <div onClick={togglePassword} className='eye-btn'>
+                { showPassword? <FaEyeSlash /> : <FaEye /> }
+              </div>
+            </div>
+            <div className='submit-button'>
+              <button className='sub-btn' type='submit'>Sign Up</button>
+            </div>
+          </form>
+          <div className='divider'>
+            <div className='or-divider'>or</div>
+            <div className='or-line'></div>
           </div>
-          <input
-            type={showPassword ? "text" : "password"}
-            name='repeat_password'
-            onChange={updateRepeatPassword}
-            value={confirmPassword}
-            required={true}
-            style={{height: '35px', width: '250px'}}
-          />
-          <div onClick={togglePassword} className='eye-btn'>
-            { showPassword? <FaEyeSlash /> : <FaEye /> }
+          <div className='demo-button'>
+              <button className='demo-btn' onClick={ 
+                  () => redirectOnLogin()
+                }>
+                Demo User
+              </button>
           </div>
+          <button
+          className='toggle-signup'
+            onClick={ async () => { history.push("/login") }}
+          >Log In</button>
         </div>
-        <div className='submit-button'>
-          <button className='submit-btn' type='submit'>Sign Up</button>
-        </div>
-      </form>
-      <div className='or-divider2'>or</div>
-      <div className='or-line'></div>
-      <div style={{display: 'flex', justifyContent: 'center', marginTop: '13px'}}>
-        <button className='cancel-btn' onClick={closeSignupModal}>
-          Cancel
-        </button>
       </div>
-      <button 
-        onClick={ async () => { history.push("/") }}
-      >Back</button>
-      <div className='toggle-login' onClick={toggleLoginSignupFunc}>Log In</div>
-      <button
-        onClick={ async () => { history.push("/login") }}
-      >Log In</button>
+      <div className='split-scrn-img'>
+      </div>
     </div>
   );
 };
